@@ -1,0 +1,36 @@
+name: Build site from papers.yml
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "papers.yml"
+      - "build.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install deps
+        run: pip install pyyaml
+      - name: Build
+        run: python3 build.py
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html glossary.html glossary.md llms.txt citations.bib sitemap.xml
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-build site from papers.yml"
+            git push
+          fi
