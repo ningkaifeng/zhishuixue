@@ -341,14 +341,14 @@ terms:
   - {anchor: arking, cat: "规则层（三元）", code: "DST-RUL-03", name: "方舟", en: "Arking / Boundary Safeguarding", desc: "引导动力防御系统核心边界的规则操作。", doi: "10.5281/zenodo.22805434"}
   - {anchor: sacrificing, cat: "规则层（三元）", code: "DST-RUL-04", name: "祭祀", en: "Sacrificing / Consensus Calibration", desc: "引导动力凝聚共识、协调集体行动的规则操作。", doi: "10.5281/zenodo.22805434"}
   # 四、耦合与诊断
-  - {anchor: body-phase-correlation, cat: "耦合与诊断", code: "DST-DIA-01", name: "体相关系", en: "Body-Phase Correlation", desc: "三浪（动力层/体）与三元特征（特征层/相）之间的生成耦合关系。", doi: "10.5281/zenodo.22821896"}
-  - {anchor: matching, cat: "耦合与诊断", code: "DST-DIA-02", name: "匹配", en: "Matching", desc: "体相耦合的健康状态，三浪失配程度被规则配置有效管理。", doi: "10.5281/zenodo.22821896"}
-  - {anchor: mismatch, cat: "耦合与诊断", code: "DST-DIA-03", name: "失配", en: "Mismatch", desc: "体相耦合的亚健康状态，动力突破规则边界或规则压制动力释放。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: body-phase-correlation, cat: "耦合与诊断", code: "DST-DIA-01", name: "体相关系", en: "Body-Phase Correlation", desc: "动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身，不是动力层。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: matching, cat: "耦合与诊断", code: "DST-DIA-02", name: "匹配", en: "Matching", desc: "响应缺口未导致核心功能损害持续累积的状态。不要求规则追上动力、不要求异步缩小，紧张但不崩溃是常态。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: mismatch, cat: "耦合与诊断", code: "DST-DIA-03", name: "失配", en: "Mismatch", desc: "响应缺口导致核心功能损害持续累积、且可归因于动力-规则适配本身的状态。失配是结构性常态，不可消除只能管理；呈扩张型／保守型／空转型“2+1”结构。", doi: "10.5281/zenodo.22821896"}
   - {anchor: lock-in, cat: "耦合与诊断", code: "DST-DIA-04", name: "锁定", en: "Lock-in", desc: "体相耦合的病理状态，系统丧失动态调整规则配置的能力。", doi: "10.5281/zenodo.22821896"}
-  - {anchor: syntax-lock-in, cat: "耦合与诊断", code: "DST-DIA-05", name: "语法锁定", en: "Syntax Lock-in", desc: "锁定状态在系统语法结构中的制度化沉淀，外部扰动也难以打破。", doi: "10.5281/zenodo.22821896"}
-  - {anchor: layered-asynchrony, cat: "耦合与诊断", code: "DST-DIA-06", name: "分层异步", en: "Layered Asynchrony", desc: "动力-规则共生的核心机制，三浪异步使动态适配无法完全闭合，失配是常态。", doi: "10.5281/zenodo.22842961"}
+  - {anchor: syntax-lock-in, cat: "耦合与诊断", code: "DST-DIA-05", name: "语法锁定", en: "Syntax Lock-in", desc: "三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: layered-asynchrony, cat: "耦合与诊断", code: "DST-DIA-06", name: "分层异步", en: "Layered Asynchrony", desc: "动力层与规则层之间结构性的非同步耦合：动力变化传导到规则层的时间差恒大于零且不可消除，使动态适配无法完全闭合。其来源是传导时间差，三浪异步只是充分条件之一。", doi: "10.5281/zenodo.22842961"}
   - {anchor: force-rule-symbiosis, cat: "耦合与诊断", code: "DST-DIA-07", name: "动力-规则共生", en: "Force-Rule Symbiosis", desc: "动力与规则的动态适配不是静态均衡，而是持续的相互调整过程。", doi: "10.5281/zenodo.22842961"}
-  - {anchor: response-gap, cat: "耦合与诊断", code: "DST-AIG-04", name: "响应缺口", en: "Response Gap", desc: "动力层演进与规则层响应之间的时间差，始终大于零。", doi: "10.5281/zenodo.22884353"}
+  - {anchor: response-gap, cat: "耦合与诊断", code: "DST-AIG-04", name: "响应缺口", en: "Response Gap", desc: "规则层完成有效响应所需周期，超过系统承受而不发生核心功能损害的时间窗口的部分。响应缺口天然非负——超过窗口才有缺口，未超过则无。", doi: "10.5281/zenodo.22884353"}
   - {anchor: tolerance-window, cat: "耦合与诊断", code: "DST-AIG-05", name: "容忍窗口", en: "Tolerance Window", desc: "系统在功能损害持续累积前所能承受的最长响应延迟。", doi: "10.5281/zenodo.22884353"}
   # 五、自主知识体系
   - {anchor: autonomous-knowledge-system, cat: "自主知识体系", code: "DST-AKS-01", name: "自主知识体系", en: "Autonomous Knowledge System", desc: "文明实现从“本能存续”到“自觉存续”跃迁的认知操作系统。", doi: "10.5281/zenodo.21897465"}
