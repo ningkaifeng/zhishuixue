@@ -1,0 +1,366 @@
+# ============================================================
+#  治水学主页 · 单一数据源（Single Source of Truth）
+#  ------------------------------------------------------------
+#  以后发布新论文：
+#    1) 在 works: 下加一条记录
+#    2) 运行 python3 build.py
+#    3) 生成的全部文件在 dist/ ，推到 GitHub 即可
+#  换域名：只改 site.base_url 一处
+#  区块顺序 = 主页显示顺序 = sections 的顺序
+# ============================================================
+
+site:
+  base_url: "https://zhishuixue.com/"
+  site_title: "治水学 Dynamic Sustenance Theory (DST) | 宁凯峰"
+  description: "独立研究者宁凯峰的学术主页。治水学（DST）是一套面向复杂适应系统的存续分析元理论，由38篇系列论文构成。核心框架包括三浪动力、三元规则、体相关系、语法锁定。"
+  og_description: "独立研究者宁凯峰的学术主页。治水学（DST）是一套面向复杂适应系统的存续分析元理论。"
+  lang: "zh-CN"
+  preview_image: "https://zhishuixue.com/preview.png"
+  master_doi: "10.5281/zenodo.20372186"
+  master_label: "治水学 v15.0（元辩护版）"
+  footer: "洪水不止，治水不息。"
+  verifications:
+    bytedance: "9x8XE7vBvbGC1Fpnrll6"
+    google: "A7XsLqdS1CtXKPV9g9HabhExlmnGaLH1ChHn4_xBxQI"
+
+person:
+  name: "宁凯峰"
+  alternate_name: "Ning Kaifeng"
+  orcid: "0009-0001-4414-6058"
+  academia: "https://independentresearcher.academia.edu/KaifengNing"
+  openalex: "https://openalex.org/authors/A5133368411"
+  email_primary: "ningkaifeng.dst@gmail.com"
+  email_backup: "357693700@qq.com"
+
+positioning: "治水学是一套面向复杂适应系统的存续分析元理论。它回答的核心问题是：系统如何在永恒流变中，通过动力与规则的协同，实现自身的存续。"
+
+sections:
+  - id: volume-0
+    heading: "治水学论纲·第零卷"
+    intro: ""
+    series_name: "治水学论纲·第零卷"
+    lang: "zh-CN"
+  - id: main
+    heading: "治水学论纲（38篇系列论文）"
+    intro: "以下为已发布篇目，各篇独立成文，共享同一套核心框架。第九至三十八篇陆续发布中。"
+    series_name: "治水学论纲"
+    lang: "zh-CN"
+  - id: aks
+    heading: "自主知识体系建设"
+    intro: ""
+    series_name: "自主知识体系"
+    lang: "zh-CN"
+  - id: ai-gov
+    heading: "AI治理（AI Governance）"
+    intro: ""
+    series_name: "治水学论纲·英文扩展篇"
+    lang: "en"
+  - id: genesis
+    heading: "治水学·发生学卷"
+    intro: ""
+    series_name: "治水学·发生学卷"
+    lang: "zh-CN"
+
+works:
+
+  # ---------- 第零卷 ----------
+  - id: volume-0-epistemology
+    section: volume-0
+    type: ScholarlyArticle
+    title: "结构到结构——治水学知识形态的认识论奠基"
+    card_title: "结构到结构——治水学知识形态的认识论奠基"
+    doi: "10.5281/zenodo.23056450"
+    date: "2026-09-30"
+    lang: "zh-CN"
+    card_meta: "第零卷·认识论部分 · Zenodo, 2026"
+    abstract: "本文提出并论证治水学的存续域认识论：知识不是命题而是结构，知识的运动是结构到结构的接续。确立“结构判断”为知识最小单位，论证本体单位与认识单位的字面同构。"
+    jsonld_abstract: "本文提出并论证治水学的存续域认识论：知识不是命题而是结构，知识的运动不是逻辑推导，而是结构到结构的接续。本文确立“结构判断”为存续域知识的最小单位，论证本体单位与认识单位的字面同构，并推出语法锁定即知识体锁定的诊断推论。"
+    keywords: ["存续域认识论", "结构判断", "结构到结构", "本体-认识同构", "语法锁定", "宁凯峰"]
+    cite_title: "结构到结构——治水学知识形态的认识论奠基（治水学论纲·第零卷·认识论部分）"
+    bib_key: ning2026volume0
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  # ---------- 正文系列 ----------
+  - id: article-1
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展"
+    card_title: "第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展"
+    doi: "10.5281/zenodo.22785849"
+    date: "2026-09-16"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.22785849"
+    abstract: "本文扩展存在论问题域，从“是什么”转向“如何存续”。"
+    jsonld_abstract: "（本文提出并论证一项元问题翻转：哲学的根本追问应从“存在是什么”转向“系统如何存续”。通过先验条件论证与模式连续性论证，本文证明“如何存续”是先于“是什么”的追问条件——任何可理解的理论活动，都预设了一个自我维持的解释共同体和语言系统；而“是什么”的追问形式本身，也是存续实践的历史产物。在此基础上，本文以“体相关系框架”作为模式连续性概念的操作化展开，为系统存续机制的分析提供一个可用的概念工具。）"
+    keywords: ["治水学论纲", "存在论问题域", "存续", "宁凯峰"]
+    bib_key: ning2026d1
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: article-2
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第二篇：存续优先——一个践言冲突论证"
+    card_title: "第二篇：存续优先——一个践言冲突论证"
+    doi: "10.5281/zenodo.22785725"
+    date: "2026-09-16"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.22785725"
+    abstract: "本文通过践言冲突论证，确立存续优先作为系统的先在约束。"
+    jsonld_abstract: "（本文以践言冲突论证为选择“存续优先”作为工作假设的核心理由。本文不试图终结“存续与存在谁更底层”的哲学争论，只展示：一旦接受“存续优先”这个工作假设，能推出什么。本文首先分析自由、幸福、真理、神圣性等竞争性第一前提的存续论条件，展示选择存续优先作为工作假设的理由。）"
+    keywords: ["治水学论纲", "存续优先", "践言冲突", "宁凯峰"]
+    bib_key: ning2026d2
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: article-3
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第三篇：模式连续性——流变中的同一性如何可能"
+    card_title: "第三篇：模式连续性——流变中的同一性如何可能"
+    doi: "10.5281/zenodo.22785562"
+    date: "2026-09-16"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.22785562"
+    abstract: "本文探讨流变中的同一性问题，提出模式连续性作为解。"
+    jsonld_abstract: "（本文提出并论证一个存在论工作假设：同一性不是流变的对立面，而是流变的一种特定形态——动力-规则协同模式（即系统生成变化的能力与约束变化的秩序之间的耦合结构）在时间中的连续性。本文从哲学史的流变与同一性张力出发，展示巴门尼德、赫拉克利特、怀特海等哲学家未完全解决的同一性难题。治水学的回答是：系统的同一性不在于组分不变，而在于动力-规则协同模式在时间中保持连续。）"
+    keywords: ["治水学论纲", "模式连续性", "同一性", "宁凯峰"]
+    bib_key: ning2026d3
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: article-4
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第四篇：治水实践先在——系统的存续相关属性如何在治水实践中生成并维持"
+    card_title: "第四篇：治水实践先在——系统的存续相关属性如何在治水实践中生成并维持"
+    doi: "10.5281/zenodo.22789923"
+    date: "2026-09-16"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.22789923"
+    abstract: "本文论证系统的存续相关属性在治水实践中生成并维持。"
+    jsonld_abstract: "（本文提出并确立一个分析框架的总设定：实践是理解存续相关属性的构成性方式。本文不证明“实践先于属性”，而是如同第二篇不证明“存续优先于存在”——改变问题的性质，把争辩转为分析框架的内部设定。任何试图否定实践先在的行为，本身已经在用实践的方式处理关于属性的事务。总设定的自我确证依赖于一个关键论证：认知困惑是一种流变压力——系统要存续，必须对环境有可工作的理解；构造解释框架正是系统应对认知洪水的自我调节。）"
+    keywords: ["治水学论纲", "治水实践先在", "存续相关属性", "宁凯峰"]
+    bib_key: ning2026d4
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: article-5
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第五篇：三浪不可还原——系统动力的三个维度"
+    card_title: "第五篇：三浪不可还原——系统动力的三个维度"
+    doi: "10.5281/zenodo.22795174"
+    date: "2026-09-16"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.22795174"
+    abstract: "本文论证系统动力包含三个不可还原的维度，三者相互独立又共同作用，构成系统存续与演化的底层动力结构。"
+    jsonld_abstract: "（本文提出：任何以存续为目标的系统，其动力必然来自三个相互不可还原的维度——突破性动能、稳定性动能、方向性动能（在文明尺度上，这三种动能类型最典型的经验载体分别是技术、制度、思想，在治水学框架中分别以技术浪、制度浪、思想浪作为隐喻命名）。系统要改变自身状态以应对流变压力，必须同时解决三个问题：用什么手段实现改变，靠什么秩序维持改变，向什么方向发起改变。三者在功能上不可相互替代。）"
+    keywords: ["治水学论纲", "三浪不可还原", "系统动力", "宁凯峰"]
+    bib_key: ning2026d5
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: article-6
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第六篇：三元互斥穷尽——规则约束的三种元操作"
+    card_title: "第六篇：三元互斥穷尽——规则约束的三种元操作"
+    doi: "10.5281/zenodo.22805434"
+    date: "2026-09-17"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.22805434"
+    abstract: "本文提出规则约束的三种元操作——源头改造（疏浚）、底线守护（方舟）、共识凝聚（祭祀）——并证明三者互斥且穷尽。"
+    keywords: ["治水学论纲", "三元互斥穷尽", "规则约束", "宁凯峰"]
+    bib_key: ning2026d6
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: article-7
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第七篇：体相关系——动力层与特征层的生成耦合"
+    card_title: "第七篇：体相关系——动力层与特征层的生成耦合"
+    doi: "10.5281/zenodo.22821896"
+    date: "2026-09-18"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.22821896"
+    abstract: "本文提出并论证体相关系——三浪（动力层）与三元特征（特征层）之间的生成耦合关系，并论证体相耦合的匹配、失配、锁定三种模式。"
+    keywords: ["治水学论纲", "体相关系", "动力层", "特征层", "诊断逻辑", "宁凯峰"]
+    bib_key: ning2026d7
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: article-8
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第八篇：分层异步——动力-规则共生的核心机制"
+    card_title: "第八篇：分层异步——动力-规则共生的核心机制"
+    doi: "10.5281/zenodo.22842961"
+    date: "2026-09-19"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.22842961"
+    abstract: "本文提出“分层异步”作为动力-规则共生的核心机制，论证三浪异步与分层异步使动态适配无法完全闭合，失配是常态，匹配是响应缺口未导致功能损害持续累积的状态。"
+    keywords: ["治水学论纲", "分层异步", "动力-规则共生", "三浪异步", "三浪失配", "响应缺口", "宁凯峰"]
+    bib_key: ning2026d8
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  # ---------- 自主知识体系 ----------
+  - id: aks-1
+    section: aks
+    type: Book
+    title: "治水文明与自主知识体系建设"
+    card_title: "治水文明与自主知识体系建设"
+    doi: "10.5281/zenodo.21753086"
+    date: null
+    lang: "zh-CN"
+    card_meta: "专著 · Zenodo, 2026"
+    abstract: "本书基于中华数千年治水实践，提出“三浪—三元”动态分析体系，为自主知识体系建设提供原创元理论框架。"
+    keywords: ["自主知识体系", "治水学", "宁凯峰"]
+    bib_key: ning2026aks1
+    bib_type: book
+    bib_publisher: Zenodo
+
+  - id: aks-2
+    section: aks
+    type: ScholarlyArticle
+    title: "自主知识体系的概念重构与六维能力框架"
+    card_title: "自主知识体系的概念重构与六维能力框架"
+    doi: "10.5281/zenodo.21897465"
+    date: null
+    lang: "zh-CN"
+    card_meta: "论文 · Zenodo, 2026"
+    abstract: "本文重构“自主”的三重含义（来源、生产、迭代），并构建由解释性、预测性、干预性、自反性、传承性、对话性六个维度构成的能力框架。"
+    keywords: ["自主知识体系", "六维能力框架", "宁凯峰"]
+    bib_key: ning2026aks2
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: aks-3
+    section: aks
+    type: ScholarlyArticle
+    title: "关于“文明”、“国家”与“自主知识体系”的重定义"
+    card_title: "关于“文明”、“国家”与“自主知识体系”的重定义"
+    doi: "10.5281/zenodo.22301915"
+    date: null
+    lang: "zh-CN"
+    card_meta: "论文 · Zenodo, 2026"
+    abstract: "本文基于治水学的存续本体论，对“文明”“国家”“自主知识体系”三个核心概念进行系统性重定义。"
+    keywords: ["自主知识体系", "文明", "国家", "宁凯峰"]
+    bib_key: ning2026aks3
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  # ---------- AI治理 / 英文扩展篇 ----------
+  - id: article-en-1
+    section: ai-gov
+    type: ScholarlyArticle
+    title: "Why AI Governance Must Be Dynamic: Pattern Continuity as the Ontological Ground for Diagnostic Governance"
+    card_title: "Why AI Governance Must Be Dynamic: Pattern Continuity as the Ontological Ground for Diagnostic Governance"
+    doi: "10.2139/ssrn.7453298"
+    date: "2026-09-16"
+    lang: "en"
+    card_meta: "SSRN Working Paper, 2026 · 治水学论纲·英文扩展篇 No. 1"
+    abstract: "Current AI governance frameworks rely on a static-compliance paradigm, treating AI systems as discrete, bounded objects amenable to fixed classification and rule-based control. This paper argues that this paradigm rests on an ontological category mistake. Drawing upon Dynamic Sustenance Theory (DST), it proposes that AI systems are not static entities but pattern-continuous processes of sustenance: their identity persists not through unchanging components, but through the continuous, topologically recognizable coordination of forces and rules."
+    keywords: ["AI Governance", "Pattern Continuity", "Dynamic Sustenance Theory", "宁凯峰"]
+    bib_key: ning2026en1
+    bib_type: misc
+    bib_publisher: SSRN
+    bib_howpublished: "SSRN Working Paper"
+
+  - id: article-en-2
+    section: ai-gov
+    type: ScholarlyArticle
+    title: "Method, Not Stance: Structural Disclosure as an Operative Methodology for Human-AI Division of Labor"
+    card_title: "Method, Not Stance: Structural Disclosure as an Operative Methodology for Human-AI Division of Labor"
+    doi: "10.5281/zenodo.22698811"
+    date: "2026-09-18"
+    lang: "en"
+    card_meta: "Zenodo, 2026 · 治水学论纲·英文扩展篇 No. 2"
+    abstract: "This paper presents structural disclosure (Xianying) as an operative methodology for human-AI division of labor. It replaces the vague human/AI boundary with a burden-bearing criterion: a judgment is non-delegable when a human occupies a pressure-bearing position and must bear the consequences of being wrong."
+    keywords: ["human-AI division of labor", "accountability", "structural disclosure", "knowledge preservation", "宁凯峰"]
+    bib_key: ning2026en2
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  - id: article-en-3
+    section: ai-gov
+    type: ScholarlyArticle
+    title: "Why Law Always Lags AI: A Dynamic Sustenance Theory Analysis of AI Governance"
+    card_title: "Why Law Always Lags AI: A Dynamic Sustenance Theory Analysis of AI Governance"
+    doi: "10.5281/zenodo.22884353"
+    date: "2026-09-22"
+    lang: "en"
+    card_meta: "Zenodo, 2026 · 治水学论纲·英文扩展篇 No. 3"
+    abstract: "Drawing on Dynamic Sustenance Theory (DST v15.0), this paper develops the concept of Layered Asynchrony to diagnose why law always lags AI. The dynamic layer advances cumulatively on a month-to-quarter scale and cannot be paused; the rules layer proceeds through procedural cycles on a year-to-decade scale."
+    keywords: ["AI Governance", "Layered Asynchrony", "Response Gap", "Tolerance Window", "Dynamic Sustenance Theory", "EU AI Act", "Regulatory Lag", "宁凯峰"]
+    bib_key: ning2026en3
+    bib_type: misc
+    bib_publisher: Zenodo
+
+  # ---------- 发生学卷 ----------
+  - id: genesis-volume
+    section: genesis
+    type: Book
+    title: "治水图：一个普通人的秩序重建日志"
+    card_title: "治水图：一个普通人的秩序重建日志"
+    headline: "治水图：一个普通人的秩序重建日志（治水学·发生学卷）"
+    doi: "10.5281/zenodo.22821827"
+    date: "2026-09-18"
+    lang: "zh-CN"
+    card_meta: "治水学·发生学卷 · Zenodo, 2026"
+    abstract: "本书是治水学体系的“发生学卷”，记录该理论在个人生存困境中诞生的原始现场。治水学论纲是理论的建筑蓝图；本书是建筑日志，记录了一个人如何在债务、混乱与虚无的废墟上，用最笨拙的方式重建秩序的过程。"
+    keywords: ["治水学", "发生学", "秩序重建", "锚点", "加减法", "滚雪球", "宁凯峰"]
+    cite_title: "治水图：一个普通人的秩序重建日志（治水学·发生学卷）"
+    bib_title: "治水图：一个普通人的秩序重建日志（治水学·发生学卷）"
+    bib_key: ning2026zhishuitu
+    bib_type: book
+    bib_publisher: Zenodo
+
+# ============================================================
+#  术语表（glossary）—— glossary.html 与 glossary.md 同源生成
+#  字段：anchor(@id) / name / en / code(编号) / cat(分类) / desc / doi
+# ============================================================
+terms:
+  # 一、核心本体论
+  - {anchor: dst, cat: "核心本体论", code: "DST-ONT-01", name: "治水学", en: "Dynamic Sustenance Theory (DST)", desc: "一套面向复杂适应系统的存续分析元理论，回答系统如何在永恒流变中通过动力与规则协同实现自身存续。", doi: "10.5281/zenodo.20372186"}
+  - {anchor: sustenance, cat: "核心本体论", code: "DST-ONT-02", name: "存续", en: "Sustenance", desc: "存在在可观测层面的唯一形式，系统通过持续对抗失序压力以维持自身运作完整性。", doi: "10.5281/zenodo.22785849"}
+  - {anchor: sustenance-priority, cat: "核心本体论", code: "DST-ONT-03", name: "存续优先", en: "Sustenance Priority", desc: "治水学的工作假设：在哲学根本追问中，将“系统如何存续”置于“存在是什么”之前。", doi: "10.5281/zenodo.22785725"}
+  - {anchor: pattern-continuity, cat: "核心本体论", code: "DST-ONT-04", name: "模式连续性", en: "Pattern Continuity", desc: "系统的同一性不是组分的静止不变，而是动力-规则协同模式在时间中保持拓扑连续。", doi: "10.5281/zenodo.22785562"}
+  - {anchor: practice-precedence, cat: "核心本体论", code: "DST-ONT-05", name: "治水实践先在", en: "Practice Precedence", desc: "实践是理解存续相关属性的构成性方式，系统的存续属性在治水实践中生成并维持。", doi: "10.5281/zenodo.22789923"}
+  # 二、动力层（三浪）
+  - {anchor: three-waves, cat: "动力层（三浪）", code: "DST-DYN-01", name: "三浪", en: "The Three Waves (Ti)", desc: "系统动力的三个不可还原维度——技术浪、制度浪、思想浪，分别提供突破性、稳定性与方向性动能。", doi: "10.5281/zenodo.22795174"}
+  - {anchor: tech-wave, cat: "动力层（三浪）", code: "DST-DYN-02", name: "技术浪", en: "Technological Wave (Tech-Wave)", desc: "由工具、方法、创新驱动的突破性动能。", doi: "10.5281/zenodo.22795174"}
+  - {anchor: inst-wave, cat: "动力层（三浪）", code: "DST-DYN-03", name: "制度浪", en: "Institutional Wave (Inst-Wave)", desc: "由规则、秩序、组织结构驱动的稳定性动能。", doi: "10.5281/zenodo.22795174"}
+  - {anchor: idea-wave, cat: "动力层（三浪）", code: "DST-DYN-04", name: "思想浪", en: "Ideational Wave (Idea-Wave)", desc: "由价值观、信念、共享叙事驱动的方向性动能。", doi: "10.5281/zenodo.22795174"}
+  # 三、规则层（三元）
+  - {anchor: three-phases, cat: "规则层（三元）", code: "DST-RUL-01", name: "三元", en: "The Three Phases (Xiang)", desc: "规则约束动力的三种互斥且穷尽的元操作：源头改造、底线守护、共识凝聚。", doi: "10.5281/zenodo.22805434"}
+  - {anchor: dredging, cat: "规则层（三元）", code: "DST-RUL-02", name: "疏浚", en: "Dredging / Source Transformation", desc: "引导动力主动改造、移除或重定向失序源头的规则操作。", doi: "10.5281/zenodo.22805434"}
+  - {anchor: arking, cat: "规则层（三元）", code: "DST-RUL-03", name: "方舟", en: "Arking / Boundary Safeguarding", desc: "引导动力防御系统核心边界的规则操作。", doi: "10.5281/zenodo.22805434"}
+  - {anchor: sacrificing, cat: "规则层（三元）", code: "DST-RUL-04", name: "祭祀", en: "Sacrificing / Consensus Calibration", desc: "引导动力凝聚共识、协调集体行动的规则操作。", doi: "10.5281/zenodo.22805434"}
+  # 四、耦合与诊断
+  - {anchor: body-phase-correlation, cat: "耦合与诊断", code: "DST-DIA-01", name: "体相关系", en: "Body-Phase Correlation", desc: "三浪（动力层/体）与三元特征（特征层/相）之间的生成耦合关系。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: matching, cat: "耦合与诊断", code: "DST-DIA-02", name: "匹配", en: "Matching", desc: "体相耦合的健康状态，三浪失配程度被规则配置有效管理。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: mismatch, cat: "耦合与诊断", code: "DST-DIA-03", name: "失配", en: "Mismatch", desc: "体相耦合的亚健康状态，动力突破规则边界或规则压制动力释放。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: lock-in, cat: "耦合与诊断", code: "DST-DIA-04", name: "锁定", en: "Lock-in", desc: "体相耦合的病理状态，系统丧失动态调整规则配置的能力。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: syntax-lock-in, cat: "耦合与诊断", code: "DST-DIA-05", name: "语法锁定", en: "Syntax Lock-in", desc: "锁定状态在系统语法结构中的制度化沉淀，外部扰动也难以打破。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: layered-asynchrony, cat: "耦合与诊断", code: "DST-DIA-06", name: "分层异步", en: "Layered Asynchrony", desc: "动力-规则共生的核心机制，三浪异步使动态适配无法完全闭合，失配是常态。", doi: "10.5281/zenodo.22842961"}
+  - {anchor: force-rule-symbiosis, cat: "耦合与诊断", code: "DST-DIA-07", name: "动力-规则共生", en: "Force-Rule Symbiosis", desc: "动力与规则的动态适配不是静态均衡，而是持续的相互调整过程。", doi: "10.5281/zenodo.22842961"}
+  - {anchor: response-gap, cat: "耦合与诊断", code: "DST-AIG-04", name: "响应缺口", en: "Response Gap", desc: "动力层演进与规则层响应之间的时间差，始终大于零。", doi: "10.5281/zenodo.22884353"}
+  - {anchor: tolerance-window, cat: "耦合与诊断", code: "DST-AIG-05", name: "容忍窗口", en: "Tolerance Window", desc: "系统在功能损害持续累积前所能承受的最长响应延迟。", doi: "10.5281/zenodo.22884353"}
+  # 五、自主知识体系
+  - {anchor: autonomous-knowledge-system, cat: "自主知识体系", code: "DST-AKS-01", name: "自主知识体系", en: "Autonomous Knowledge System", desc: "文明实现从“本能存续”到“自觉存续”跃迁的认知操作系统。", doi: "10.5281/zenodo.21897465"}
+  - {anchor: six-dimensional-framework, cat: "自主知识体系", code: "DST-AKS-02", name: "六维能力框架", en: "Six-Dimensional Capability Framework", desc: "自主知识体系由解释性、预测性、干预性、自反性、传承性、对话性六个维度构成。", doi: "10.5281/zenodo.21897465"}
+  # 六、人机与治理
+  - {anchor: ai-governance, cat: "人机与治理", code: "DST-AIG-01", name: "AI治理", en: "AI Governance", desc: "从静态合规转向动态诊断的治理范式，以模式连续性为本体论基础。", doi: "10.2139/ssrn.7453298"}
+  - {anchor: structural-disclosure, cat: "人机与治理", code: "DST-AIG-02", name: "显影法", en: "Structural Disclosure / Xianying", desc: "把处于承压位置的判断结构展开为可阅读、可批评、可传承的文本的方法论。", doi: "10.5281/zenodo.22698811"}
+  - {anchor: burden-bearing-position, cat: "人机与治理", code: "DST-AIG-03", name: "承压位置", en: "Burden-Bearing Position", desc: "必须为错误后果负责的结构性位置，该位置的判断不可委托给AI。", doi: "10.5281/zenodo.22698811"}
+  # 七、发生学与方法
+  - {anchor: anchor, cat: "发生学与方法", code: "DST-GEN-01", name: "锚点", en: "Anchor", desc: "在全面失序中，100%由自己掌控、绝对不可被外界剥夺的核心进程或原点。", doi: "10.5281/zenodo.22821827"}
+  - {anchor: addition-subtraction, cat: "发生学与方法", code: "DST-GEN-02", name: "加减法", en: "Addition and Subtraction", desc: "先清淤再筑堤、先减负再扩容的秩序重建策略，减法永远先于加法。", doi: "10.5281/zenodo.22821827"}
+  - {anchor: snowball-effect, cat: "发生学与方法", code: "DST-GEN-03", name: "滚雪球", en: "Snowball Effect", desc: "用系统性正反馈而非意志力，推动微小改变持续放大、自我强化的过程。", doi: "10.5281/zenodo.22821827"}
+  - {anchor: structural-judgment, cat: "发生学与方法", code: "DST-EP-01", name: "结构判断", en: "Structural Judgment", desc: "结构判断是“诊断”在认识论层面的视角，是存续域知识的最小单位，是结构维持自身连续性的一个动作。", doi: "10.5281/zenodo.23056450"}
+  - {anchor: structure-to-structure, cat: "发生学与方法", code: "DST-EP-02", name: "结构到结构", en: "Structure to Structure", desc: "知识的运动不是逻辑推导，而是结构判断接续结构判断的连续过程。", doi: "10.5281/zenodo.23056450"}
+  - {anchor: sustenance-domain-epistemology, cat: "发生学与方法", code: "DST-EP-03", name: "存续域认识论", en: "Sustenance-Domain Epistemology", desc: "以“知识如何存续”为追问方式的认识论，主张知识是结构而非命题。", doi: "10.5281/zenodo.23056450"}

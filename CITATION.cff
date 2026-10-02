@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+authors:
+  - family-names: "Ning"
+    given-names: "Kaifeng"
+    orcid: "https://orcid.org/0009-0001-4414-6058"
+title: "治水学论纲 (Dynamic Sustenance Theory Series)"
+url: "https://zhishuixue.com/"
+license: "CC-BY-4.0"

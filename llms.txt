@@ -1,0 +1,64 @@
+# 宁凯峰 · 治水学论纲
+
+> 独立研究者宁凯峰的系列论文。主题：系统存续、模式连续性、治水实践先在、三浪不可还原、规则约束三元等。
+> 母本底座：治水学 v15.0（元辩护版），DOI: 10.5281/zenodo.20372186
+
+## 作者
+- 姓名：宁凯峰（Ning Kaifeng）
+- 主页：https://zhishuixue.com/
+- ORCID：https://orcid.org/0009-0001-4414-6058
+- Academia.edu：https://independentresearcher.academia.edu/KaifengNing
+
+## 治水学论纲·第零卷
+
+- 结构到结构——治水学知识形态的认识论奠基
+  https://doi.org/10.5281/zenodo.23056450
+
+## 论文（治水学论纲系列）
+
+- 第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展
+  https://doi.org/10.5281/zenodo.22785849
+- 第二篇：存续优先——一个践言冲突论证
+  https://doi.org/10.5281/zenodo.22785725
+- 第三篇：模式连续性——流变中的同一性如何可能
+  https://doi.org/10.5281/zenodo.22785562
+- 第四篇：治水实践先在——系统的存续相关属性如何在治水实践中生成并维持
+  https://doi.org/10.5281/zenodo.22789923
+- 第五篇：三浪不可还原——系统动力的三个维度
+  https://doi.org/10.5281/zenodo.22795174
+- 第六篇：三元互斥穷尽——规则约束的三种元操作
+  https://doi.org/10.5281/zenodo.22805434
+- 第七篇：体相关系——动力层与特征层的生成耦合
+  https://doi.org/10.5281/zenodo.22821896
+- 第八篇：分层异步——动力-规则共生的核心机制
+  https://doi.org/10.5281/zenodo.22842961
+
+## 系列说明
+治水学论纲共 38 篇，最终形成完整理论体系。当前已发布至第八篇，第九至第三十八篇陆续发布中。
+
+## 自主知识体系
+
+- 治水文明与自主知识体系建设
+  https://doi.org/10.5281/zenodo.21753086
+- 自主知识体系的概念重构与六维能力框架
+  https://doi.org/10.5281/zenodo.21897465
+- 关于“文明”、“国家”与“自主知识体系”的重定义
+  https://doi.org/10.5281/zenodo.22301915
+
+## 英文扩展篇（AI治理）
+
+- Why AI Governance Must Be Dynamic: Pattern Continuity as the Ontological Ground for Diagnostic Governance
+  https://doi.org/10.2139/ssrn.7453298
+- Method, Not Stance: Structural Disclosure as an Operative Methodology for Human-AI Division of Labor
+  https://doi.org/10.5281/zenodo.22698811
+- Why Law Always Lags AI: A Dynamic Sustenance Theory Analysis of AI Governance
+  https://doi.org/10.5281/zenodo.22884353
+
+## 治水学·发生学卷
+
+- 治水图：一个普通人的秩序重建日志
+  https://doi.org/10.5281/zenodo.22821827
+
+## 核心术语表
+- 治水学核心术语定义（机器可读）：https://zhishuixue.com/glossary.html
+- 治水学核心术语定义（人类可读）：https://zhishuixue.com/glossary.md
