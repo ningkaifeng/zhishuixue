@@ -266,7 +266,7 @@ def render_glossary_html(d):
         {"from": "三浪", "to": "分层异步", "relation": "三浪异步是分层异步的充分条件之一"},
         {"from": "分层异步", "to": "动力-规则共生", "relation": "是动力-规则共生的核心机制"},
         {"from": "分层异步", "to": "响应缺口", "relation": "其可观测形态"},
-        {"from": "容忍窗口", "to": "响应缺口", "relation": "界定响应缺口的时间窗口"},
+        {"from": "承受窗口", "to": "响应缺口", "relation": "界定响应缺口的时间窗口"},
         {"from": "响应缺口", "to": "匹配", "relation": "未导致功能损害累积 → 匹配"},
         {"from": "响应缺口", "to": "失配", "relation": "导致功能损害累积 → 失配"},
         {"from": "失配", "to": "锁定模式", "relation": "沉淀为锁定模式（第一次跃迁）"},
@@ -329,7 +329,7 @@ def render_glossary_md(d):
     L.append("---")
     for i, c in enumerate(order):
         L.append("")
-        L.append(f"## {CN_NUM[i]}、{c}")
+        L.append(f"## {cn_num(i + 1)}、{c}")
         for t in groups[c]:
             L.append("")
             L.append(f'### {t["name"]}')
