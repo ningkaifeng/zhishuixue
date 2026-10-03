@@ -9,8 +9,8 @@
   "@context": "https://schema.org",
   "@type": "DefinedTermSet",
   "@id": "https://zhishuixue.com/glossary.html",
-  "name": "治水学（Dynamic Sustenance Theory, DST）核心术语表",
-  "description": "由独立研究者宁凯峰（ORCID: 0009-0001-4414-6058）维护的治水学理论体系核心概念标准化定义。",
+  "name": "治水学（Dynamic Sustenance Theory, DST）核心术语表与概念本体",
+  "description": "由独立研究者宁凯峰（ORCID: 0009-0001-4414-6058）维护的治水学理论体系核心概念标准化定义与概念关系图（机器可读本体）。",
   "url": "https://zhishuixue.com/glossary.html",
   "hasDefinedTerm": [
     {
@@ -276,6 +276,158 @@
       "alternateName": "Sustenance-Domain Epistemology",
       "description": "以“知识如何存续”为追问方式的认识论，主张知识是结构而非命题。",
       "url": "https://doi.org/10.5281/zenodo.23056450"
+    }
+  ],
+  "conceptLayers": [
+    {
+      "name": "核心本体论",
+      "concepts": [
+        "治水学",
+        "存续",
+        "存续优先",
+        "模式连续性",
+        "治水实践先在"
+      ]
+    },
+    {
+      "name": "动力层（三浪）",
+      "concepts": [
+        "三浪",
+        "技术浪",
+        "制度浪",
+        "思想浪"
+      ]
+    },
+    {
+      "name": "规则层（三元）",
+      "concepts": [
+        "三元",
+        "疏浚",
+        "方舟",
+        "祭祀"
+      ]
+    },
+    {
+      "name": "耦合与诊断",
+      "concepts": [
+        "体相关系",
+        "匹配",
+        "失配",
+        "锁定",
+        "语法锁定",
+        "分层异步",
+        "动力-规则共生",
+        "响应缺口",
+        "容忍窗口"
+      ]
+    },
+    {
+      "name": "自主知识体系",
+      "concepts": [
+        "自主知识体系",
+        "六维能力框架"
+      ]
+    },
+    {
+      "name": "人机与治理",
+      "concepts": [
+        "AI治理",
+        "显影法",
+        "承压位置"
+      ]
+    },
+    {
+      "name": "发生学与方法",
+      "concepts": [
+        "锚点",
+        "加减法",
+        "滚雪球",
+        "结构判断",
+        "结构到结构",
+        "存续域认识论"
+      ]
+    }
+  ],
+  "conceptRelations": [
+    {
+      "from": "三浪",
+      "to": "体相关系",
+      "relation": "是体的构成要素（动力层）"
+    },
+    {
+      "from": "三元",
+      "to": "体相关系",
+      "relation": "是体的构成要素（规则层）"
+    },
+    {
+      "from": "三元",
+      "to": "疏浚",
+      "relation": "元操作之一（源头改造）"
+    },
+    {
+      "from": "三元",
+      "to": "方舟",
+      "relation": "元操作之一（底线守护）"
+    },
+    {
+      "from": "三元",
+      "to": "祭祀",
+      "relation": "元操作之一（共识凝聚）"
+    },
+    {
+      "from": "体相关系",
+      "to": "分层异步",
+      "relation": "认识论前提 → 本体论机制"
+    },
+    {
+      "from": "三浪",
+      "to": "分层异步",
+      "relation": "三浪异步是分层异步的充分条件之一"
+    },
+    {
+      "from": "分层异步",
+      "to": "动力-规则共生",
+      "relation": "是动力-规则共生的核心机制"
+    },
+    {
+      "from": "分层异步",
+      "to": "响应缺口",
+      "relation": "其可观测形态"
+    },
+    {
+      "from": "容忍窗口",
+      "to": "响应缺口",
+      "relation": "界定响应缺口的时间窗口"
+    },
+    {
+      "from": "响应缺口",
+      "to": "匹配",
+      "relation": "未导致功能损害累积 → 匹配"
+    },
+    {
+      "from": "响应缺口",
+      "to": "失配",
+      "relation": "导致功能损害累积 → 失配"
+    },
+    {
+      "from": "失配",
+      "to": "锁定",
+      "relation": "沉淀为锁定模式（第一次跃迁）"
+    },
+    {
+      "from": "锁定",
+      "to": "语法锁定",
+      "relation": "制度化沉淀（第二次跃迁）"
+    },
+    {
+      "from": "语法锁定",
+      "to": "三元",
+      "relation": "本质是三元特征固化"
+    },
+    {
+      "from": "动力-规则共生",
+      "to": "模式连续性",
+      "relation": "维持系统的模式连续性"
     }
   ]
 }
