@@ -254,13 +254,18 @@ def render_glossary_html(d):
         if t.get("level"):
             e["termCode"] = t["code"]
             e["inDefinedTermSet"] = gurl
-            e["level"] = t["level"]
+        # 自定义维度（层级/级别/上位/归属）改用 schema.org 规范的 identifier+PropertyValue 承载
+        _props = []
+        if t.get("level"):
+            _props.append({"@type": "PropertyValue", "name": "level", "value": t["level"]})
         if t.get("tier"):
-            e["tier"] = t["tier"]
+            _props.append({"@type": "PropertyValue", "name": "tier", "value": t["tier"]})
         if t.get("broader"):
-            e["broader"] = t["broader"]
+            _props.append({"@type": "PropertyValue", "name": "broader", "value": t["broader"]})
         if t.get("part_of"):
-            e["isPartOf"] = t["part_of"]
+            _props.append({"@type": "PropertyValue", "name": "partOf", "value": t["part_of"]})
+        if _props:
+            e["identifier"] = _props
         dt.append(e)
     _order, _g = [], {}
     for t in terms:
@@ -297,9 +302,9 @@ def render_glossary_html(d):
         "description": f'由独立研究者宁凯峰（ORCID: {d["person"]["orcid"]}）维护的治水学理论体系核心概念标准化定义与概念关系图（机器可读本体）。',
         "url": gurl,
         "hasDefinedTerm": dt,
-        "conceptLayers": concept_layers,
-        "conceptRelations": concept_relations,
     }
+    # 概念层级/关系统计改以独立 application/json 块承载（非 schema.org，避免校验器报错）
+    dst_extra = {"conceptLayers": concept_layers, "conceptRelations": concept_relations}
     L = []
     L.append("<!DOCTYPE html>")
     L.append('<html lang="zh-CN">')
@@ -309,6 +314,9 @@ def render_glossary_html(d):
     L.append('<meta name="description" content="治水学（DST）核心术语的标准化定义，由独立研究者宁凯峰维护。">')
     L.append('<script type="application/ld+json">')
     L.append(json.dumps(ld, ensure_ascii=False, indent=2))
+    L.append("</script>")
+    L.append('<script type="application/json" id="dst-concepts">')
+    L.append(json.dumps(dst_extra, ensure_ascii=False, indent=2))
     L.append("</script>")
     L.append("<style>")
     L.append(GLOSSARY_STYLE)
@@ -455,9 +463,22 @@ def render_graph(d):
             children.setdefault(bd, []).append(t)
         else:
             roots.append(t)
-    graph = [{"@type": "DefinedTerm", "name": t["name"], "alternateName": t["en"],
-              "termCode": t["code"], "level": t.get("level", ""), "tier": t.get("tier", ""),
-              "broader": t.get("broader", ""), "isPartOf": t.get("part_of", "")} for t in terms]
+    graph = []
+    for t in terms:
+        item = {"@type": "DefinedTerm", "name": t["name"], "alternateName": t["en"],
+                "termCode": t["code"], "inDefinedTermSet": gurl}
+        _props = []
+        if t.get("level"):
+            _props.append({"@type": "PropertyValue", "name": "level", "value": t["level"]})
+        if t.get("tier"):
+            _props.append({"@type": "PropertyValue", "name": "tier", "value": t["tier"]})
+        if t.get("broader"):
+            _props.append({"@type": "PropertyValue", "name": "broader", "value": t["broader"]})
+        if t.get("part_of"):
+            _props.append({"@type": "PropertyValue", "name": "partOf", "value": t["part_of"]})
+        if _props:
+            item["identifier"] = _props
+        graph.append(item)
     ld = {"@context": "https://schema.org", "@type": "DefinedTermSet", "@id": gurl,
           "name": "治水学概念图谱（DST Concept Graph）",
           "description": "治水学 98 个概念按 A–L 层级、核心/支柱/延伸级别及上位关系的图谱（机器可读）。",
