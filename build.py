@@ -312,6 +312,7 @@ def render_glossary_html(d):
     L.append("</script>")
     L.append("<style>")
     L.append(GLOSSARY_STYLE)
+    L.append("h3{scroll-margin-top:14px;}")
     L.append("</style>")
     L.append("</head>")
     L.append("<body>")
@@ -323,7 +324,7 @@ def render_glossary_html(d):
             _seen.add(t["cat"])
             L.append(f'<h2 class="layer">{t["cat"]}</h2>')
         badge = {"核心": "🔴", "支柱": "🟡", "延伸": "⚪"}.get(t.get("tier"), "")
-        L.append(f'<h3>{t["name"]} <span class="term-en">{t["en"]}</span> <span class="tier">{badge}{t.get("tier","")}</span></h3>')
+        L.append(f'<h3 id="{t["anchor"]}">{t["name"]} <span class="term-en">{t["en"]}</span> <span class="tier">{badge}{t.get("tier","")}</span></h3>')
         L.append(f'<p class="term-desc">{t["desc"]}</p>')
         _rel = []
         if t.get("broader"):
