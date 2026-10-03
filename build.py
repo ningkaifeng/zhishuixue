@@ -466,20 +466,22 @@ def render_graph(d):
          '<meta name="description" content="治水学 98 个概念的层级、级别与上位关系图谱。">',
          '<script type="application/ld+json">', json.dumps(ld, ensure_ascii=False, indent=2),
          "</script>", "<style>", GLOSSARY_STYLE,
-         ".node{margin:3px 0;}", ".lv{color:#888;font-size:0.85em;}", "</style>", "</head>", "<body>",
+         ".node{margin:3px 0;}", ".lv{color:#888;font-size:0.85em;}",
+         ".tlink{color:inherit;text-decoration:none;border-bottom:1px dotted #ccc;}", ".tlink:hover{border-bottom:1px solid #333;}",
+         "</style>", "</head>", "<body>",
          "<h1>治水学概念图谱（DST Concept Graph）</h1>",
          f'<p class="intro">共 {len(terms)} 个概念 · 按 A–L 层 / 核心·支柱·延伸 定位 · 上位关系树。'
          f'术语定义见 <a href="{base}glossary.html">glossary.html</a>。</p>',
          "<h2>三级速览</h2>"]
     for k in ["核心", "支柱", "延伸"]:
         L.append(f'<h3>{badge[k]} {k}（{len(tiers[k])}）</h3>')
-        L.append("<p>" + "、".join(t["name"] for t in tiers[k]) + "</p>")
+        L.append("<p>" + "、".join(f'<a class="tlink" href="{base}glossary.html#{t["anchor"]}">{t["name"]}</a>' for t in tiers[k]) + "</p>")
     L.append("<h2>上位关系树</h2>")
     L.append('<p class="lv">（缩进表示上位 → 下位；如「存续 → 洪水／体 → 三浪…」）</p>')
 
     def node(t, depth):
         pad = "&nbsp;" * (depth * 5)
-        s = f'<div class="node">{pad}{t["name"]} <span class="term-en">{t["en"]}</span> <span class="lv">{t.get("level","")}·{t.get("tier","")}</span></div>'
+        s = f'<div class="node">{pad}<a class="tlink" href="{base}glossary.html#{t["anchor"]}">{t["name"]}</a> <span class="term-en">{t["en"]}</span> <span class="lv">{t.get("level","")}·{t.get("tier","")}</span></div>'
         for c in children.get(t["name"], []):
             s += node(c, depth + 1)
         return s
