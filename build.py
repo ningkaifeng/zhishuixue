@@ -255,8 +255,10 @@ def render_glossary_html(d):
         _g[t["cat"]].append(t["name"])
     concept_layers = [{"name": c, "concepts": _g[c]} for c in _order]
     concept_relations = [
-        {"from": "三浪", "to": "体相关系", "relation": "是体的构成要素（动力层）"},
-        {"from": "三元", "to": "体相关系", "relation": "是体的构成要素（规则层）"},
+        {"from": "三浪", "to": "体", "relation": "动力层，是体的构成要素之一"},
+        {"from": "三元", "to": "体", "relation": "规则层，是体的构成要素之一"},
+        {"from": "体", "to": "相", "relation": "体所呈现出的特征状态"},
+        {"from": "相", "to": "三元", "relation": "按三元操作归类为疏浚型／方舟型／祭祀型"},
         {"from": "三元", "to": "疏浚", "relation": "元操作之一（源头改造）"},
         {"from": "三元", "to": "方舟", "relation": "元操作之一（底线守护）"},
         {"from": "三元", "to": "祭祀", "relation": "元操作之一（共识凝聚）"},

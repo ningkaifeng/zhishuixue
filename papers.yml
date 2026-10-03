@@ -21,7 +21,7 @@ site:
   footer: "洪水不止，治水不息。"
   series_total: 38
   machine:
-    positioning_en: "Dynamic Sustenance Theory (DST) is an ontological framework for complex adaptive systems. Core claim: a system persists not by staying unchanged, but by maintaining structural continuity under flux. Core mechanism: force-rule symbiosis. Key concepts: Three Waves, Three Phases, Body-Phase Correlation, Layered Asynchrony, Syntax Lock-in."
+    positioning_en: "Dynamic Sustenance Theory (DST) is an ontological framework for complex adaptive systems. Core claim: a system persists not by staying unchanged, but by maintaining structural continuity under flux. Core mechanism: force-rule symbiosis. Key concepts: Three Waves, Three Phases, Ti-Xiang Correlation, Layered Asynchrony, Syntax Lock-in."
     niche_zh: "现有复杂系统理论（系统动力学、复杂适应系统理论）解释了系统如何演化，但没有回答“系统如何在永恒流变中维持自身存续”这一问题；治水学（DST）填补的正是这一空缺——它以“存续”为第一视角，提供可诊断、可干预的存续分析语法。"
     niche_en: "Existing complex-systems theories (system dynamics, complex adaptive systems theory) explain how systems evolve, but leave unanswered how a system sustains its own persistence. DST addresses exactly this gap with a diagnosable, intervenable grammar of sustenance."
     anchors:
@@ -361,22 +361,24 @@ terms:
   - {anchor: sustenance-priority, cat: "核心本体论", code: "DST-ONT-03", name: "存续优先", en: "Sustenance Priority", desc: "治水学的工作假设：在哲学根本追问中，将“系统如何存续”置于“存在是什么”之前。", doi: "10.5281/zenodo.22785725"}
   - {anchor: pattern-continuity, cat: "核心本体论", code: "DST-ONT-04", name: "模式连续性", en: "Pattern Continuity", desc: "系统的同一性不是组分的静止不变，而是动力-规则协同模式在时间中保持拓扑连续。", doi: "10.5281/zenodo.22785562"}
   - {anchor: practice-precedence, cat: "核心本体论", code: "DST-ONT-05", name: "治水实践先在", en: "Practice Precedence", desc: "实践是理解存续相关属性的构成性方式，系统的存续属性在治水实践中生成并维持。", doi: "10.5281/zenodo.22789923"}
+  - {anchor: ti, cat: "核心本体论", code: "DST-ONT-06", name: "体", en: "Ti (体, the force–rule coordination structure)", desc: "动力-规则协同的内在结构（不是动力层）；由动力层（三浪）与规则层（三元）协同构成。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: xiang, cat: "核心本体论", code: "DST-ONT-07", name: "相", en: "Xiang (相, characteristic states)", desc: "体（动力-规则协同结构）所呈现出的特征状态（事后描述的观察视角，不是独立层）；按三元操作归类为疏浚型／方舟型／祭祀型（形容词性）。", doi: "10.5281/zenodo.22821896"}
   # 二、动力层（三浪）
-  - {anchor: three-waves, cat: "动力层（三浪）", code: "DST-DYN-01", name: "三浪", en: "The Three Waves (Ti)", desc: "三种普适动能——突破性动能、稳定性动能、方向性动能；“技术浪／制度浪／思想浪”是隐喻命名，非定义本身。", doi: "10.5281/zenodo.22795174"}
+  - {anchor: three-waves, cat: "动力层（三浪）", code: "DST-DYN-01", name: "三浪", en: "The Three Waves", desc: "三种普适动能——突破性动能、稳定性动能、方向性动能；“技术浪／制度浪／思想浪”是隐喻命名，非定义本身。", doi: "10.5281/zenodo.22795174"}
   - {anchor: tech-wave, cat: "动力层（三浪）", code: "DST-DYN-02", name: "技术浪", en: "Technological Wave (Tech-Wave)", desc: "由工具、方法、创新驱动的突破性动能。", doi: "10.5281/zenodo.22795174"}
   - {anchor: inst-wave, cat: "动力层（三浪）", code: "DST-DYN-03", name: "制度浪", en: "Institutional Wave (Inst-Wave)", desc: "由规则、秩序、组织结构驱动的稳定性动能。", doi: "10.5281/zenodo.22795174"}
   - {anchor: idea-wave, cat: "动力层（三浪）", code: "DST-DYN-04", name: "思想浪", en: "Ideational Wave (Idea-Wave)", desc: "由价值观、信念、共享叙事驱动的方向性动能。", doi: "10.5281/zenodo.22795174"}
   # 三、规则层（三元）
-  - {anchor: three-phases, cat: "规则层（三元）", code: "DST-RUL-01", name: "三元", en: "The Three Phases (Xiang)", desc: "规则层操作（互斥且穷尽）——源头改造（疏浚·压力源）、底线守护（方舟·系统边界）、共识凝聚（祭祀·主体间关系）；对应特征层：疏浚型／方舟型／祭祀型（形容词性）。", doi: "10.5281/zenodo.22805434"}
-  - {anchor: dredging, cat: "规则层（三元）", code: "DST-RUL-02", name: "疏浚", en: "Dredging / Source Transformation", desc: "引导动力主动改造、移除或重定向失序源头的规则操作。", doi: "10.5281/zenodo.22805434"}
-  - {anchor: arking, cat: "规则层（三元）", code: "DST-RUL-03", name: "方舟", en: "Arking / Boundary Safeguarding", desc: "引导动力防御系统核心边界的规则操作。", doi: "10.5281/zenodo.22805434"}
-  - {anchor: sacrificing, cat: "规则层（三元）", code: "DST-RUL-04", name: "祭祀", en: "Sacrificing / Consensus Calibration", desc: "引导动力凝聚共识、协调集体行动的规则操作。", doi: "10.5281/zenodo.22805434"}
+  - {anchor: three-phases, cat: "规则层（三元）", code: "DST-RUL-01", name: "三元", en: "The Three Phases", desc: "规则层操作（互斥且穷尽）——源头改造（疏浚·压力源）、底线守护（方舟·系统边界）、共识凝聚（祭祀·主体间关系）；对应特征层：疏浚型／方舟型／祭祀型（形容词性）。", doi: "10.5281/zenodo.22805434"}
+  - {anchor: dredging, cat: "规则层（三元）", code: "DST-RUL-02", name: "疏浚", en: "Dredging (Source Transformation)", desc: "引导动力主动改造、移除或重定向失序源头的规则操作。", doi: "10.5281/zenodo.22805434"}
+  - {anchor: arking, cat: "规则层（三元）", code: "DST-RUL-03", name: "方舟", en: "Arking (Boundary Safeguarding)", desc: "引导动力防御系统核心边界的规则操作。", doi: "10.5281/zenodo.22805434"}
+  - {anchor: sacrificing, cat: "规则层（三元）", code: "DST-RUL-04", name: "祭祀", en: "Sacrificing (Consensus Calibration)", desc: "引导动力凝聚共识、协调集体行动的规则操作。", doi: "10.5281/zenodo.22805434"}
   # 四、耦合与诊断
-  - {anchor: body-phase-correlation, cat: "耦合与诊断", code: "DST-DIA-01", name: "体相关系", en: "Body-Phase Correlation", desc: "动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身，不是动力层。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: body-phase-correlation, cat: "耦合与诊断", code: "DST-DIA-01", name: "体相关系", en: "Ti-Xiang Correlation (Body–Phase Correlation)", desc: "动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身（不是动力层）；相是按三元操作归类的特征状态——疏浚型／方舟型／祭祀型（形容词性）。", doi: "10.5281/zenodo.22821896"}
   - {anchor: matching, cat: "耦合与诊断", code: "DST-DIA-02", name: "匹配", en: "Matching", desc: "响应缺口未导致核心功能损害持续累积的状态。不要求规则追上动力、不要求异步缩小，紧张但不崩溃是常态。", doi: "10.5281/zenodo.22821896"}
   - {anchor: mismatch, cat: "耦合与诊断", code: "DST-DIA-03", name: "失配", en: "Mismatch", desc: "响应缺口导致核心功能损害持续累积、且可归因于动力-规则适配本身的状态。失配是结构性常态，不可消除只能管理；呈扩张型／保守型／空转型“2+1”结构。", doi: "10.5281/zenodo.22821896"}
   - {anchor: lock-in, cat: "耦合与诊断", code: "DST-DIA-04", name: "锁定模式", en: "Lock-in", desc: "当下的耦合状态——系统丧失动态调整规则约束引导的能力（状态描述）。锁定模式是状态，语法锁定是制度化沉淀（结构判断）。", doi: "10.5281/zenodo.22821896"}
-  - {anchor: syntax-lock-in, cat: "耦合与诊断", code: "DST-DIA-05", name: "语法锁定", en: "Syntax Lock-in", desc: "三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。", doi: "10.5281/zenodo.23113642"}
+  - {anchor: syntax-lock-in, cat: "耦合与诊断", code: "DST-DIA-05", name: "语法锁定", en: "Syntax Lock-in (Phase Reconfiguration Failure)", desc: "三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。", doi: "10.5281/zenodo.23113642"}
   - {anchor: layered-asynchrony, cat: "耦合与诊断", code: "DST-DIA-06", name: "分层异步", en: "Layered Asynchrony", desc: "动力层与规则层之间结构性的非同步耦合：动力变化传导到规则层的时间差恒大于零且不可消除，使动态适配无法完全闭合。其来源是传导时间差，三浪异步只是充分条件之一。", doi: "10.5281/zenodo.22842961"}
   - {anchor: force-rule-symbiosis, cat: "耦合与诊断", code: "DST-DIA-07", name: "动力-规则共生", en: "Force-Rule Symbiosis", desc: "二级命题（母本 2.6）——动力系统与规则系统的共生循环；动力与规则的动态适配是系统存续的核心机制。", doi: "10.5281/zenodo.22842961"}
   - {anchor: response-gap, cat: "耦合与诊断", code: "DST-AIG-04", name: "响应缺口", en: "Response Gap", desc: "规则层完成有效响应所需周期，超过系统承受而不发生核心功能损害的时间窗口的部分。响应缺口天然非负——超过窗口才有缺口，未超过则无。", doi: "10.5281/zenodo.22884353"}
