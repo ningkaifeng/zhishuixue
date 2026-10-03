@@ -76,6 +76,19 @@ LLMS_HEADINGS = {
 CN_NUM = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
 
 
+def cn_num(n):
+    """阿拉伯数字 -> 中文数字（1-99）"""
+    if n <= 10:
+        return CN_NUM[n - 1]
+    if n < 20:
+        return "十" + CN_NUM[n - 11]
+    tens, ones = divmod(n, 10)
+    s = CN_NUM[tens - 1] + "十"
+    if ones:
+        s += CN_NUM[ones - 1]
+    return s
+
+
 def j(obj):
     return json.dumps(obj, ensure_ascii=False, indent=2)
 
@@ -199,8 +212,13 @@ def render_index(d):
     L.append("</div>")
     for sec in d["sections"]:
         L.append(f'<h2 style="{S["h2"]}">{sec["heading"]}</h2>')
-        if sec.get("intro"):
-            L.append(f'<p style="margin-top:0; color:#555;">{sec["intro"]}</p>')
+        intro = sec.get("intro")
+        if sec["id"] == "main":
+            _n = len([w for w in d["works"] if w["section"] == "main"])
+            _total = d["site"].get("series_total", 38)
+            intro = f'以下为已发布篇目，各篇独立成文，共享同一套核心框架。第{cn_num(_n + 1)}至第{cn_num(_total)}篇陆续发布中。'
+        if intro:
+            L.append(f'<p style="margin-top:0; color:#555;">{intro}</p>')
         L.append(f'<div style="{S["ul"]}">')
         for w in d["works"]:
             if w["section"] == sec["id"]:
@@ -229,14 +247,41 @@ def render_glossary_html(d):
             "description": t["desc"],
             "url": doi_url(t["doi"]),
         })
+    _order, _g = [], {}
+    for t in terms:
+        if t["cat"] not in _g:
+            _g[t["cat"]] = []
+            _order.append(t["cat"])
+        _g[t["cat"]].append(t["name"])
+    concept_layers = [{"name": c, "concepts": _g[c]} for c in _order]
+    concept_relations = [
+        {"from": "三浪", "to": "体相关系", "relation": "是体的构成要素（动力层）"},
+        {"from": "三元", "to": "体相关系", "relation": "是体的构成要素（规则层）"},
+        {"from": "三元", "to": "疏浚", "relation": "元操作之一（源头改造）"},
+        {"from": "三元", "to": "方舟", "relation": "元操作之一（底线守护）"},
+        {"from": "三元", "to": "祭祀", "relation": "元操作之一（共识凝聚）"},
+        {"from": "体相关系", "to": "分层异步", "relation": "认识论前提 → 本体论机制"},
+        {"from": "三浪", "to": "分层异步", "relation": "三浪异步是分层异步的充分条件之一"},
+        {"from": "分层异步", "to": "动力-规则共生", "relation": "是动力-规则共生的核心机制"},
+        {"from": "分层异步", "to": "响应缺口", "relation": "其可观测形态"},
+        {"from": "容忍窗口", "to": "响应缺口", "relation": "界定响应缺口的时间窗口"},
+        {"from": "响应缺口", "to": "匹配", "relation": "未导致功能损害累积 → 匹配"},
+        {"from": "响应缺口", "to": "失配", "relation": "导致功能损害累积 → 失配"},
+        {"from": "失配", "to": "锁定", "relation": "沉淀为锁定模式（第一次跃迁）"},
+        {"from": "锁定", "to": "语法锁定", "relation": "制度化沉淀（第二次跃迁）"},
+        {"from": "语法锁定", "to": "三元", "relation": "本质是三元特征固化"},
+        {"from": "动力-规则共生", "to": "模式连续性", "relation": "维持系统的模式连续性"},
+    ]
     ld = {
         "@context": "https://schema.org",
         "@type": "DefinedTermSet",
         "@id": gurl,
-        "name": "治水学（Dynamic Sustenance Theory, DST）核心术语表",
-        "description": f'由独立研究者宁凯峰（ORCID: {d["person"]["orcid"]}）维护的治水学理论体系核心概念标准化定义。',
+        "name": "治水学（Dynamic Sustenance Theory, DST）核心术语表与概念本体",
+        "description": f'由独立研究者宁凯峰（ORCID: {d["person"]["orcid"]}）维护的治水学理论体系核心概念标准化定义与概念关系图（机器可读本体）。',
         "url": gurl,
         "hasDefinedTerm": dt,
+        "conceptLayers": concept_layers,
+        "conceptRelations": concept_relations,
     }
     L = []
     L.append("<!DOCTYPE html>")
@@ -302,9 +347,13 @@ def render_glossary_md(d):
 def render_llms(d):
     base = d["site"]["base_url"]
     p = d["person"]
+    m = d["site"].get("machine", {})
     L = []
     L.append("# 宁凯峰 · 治水学论纲")
     L.append("")
+    if m.get("positioning_en"):
+        L.append("> " + m["positioning_en"])
+        L.append("")
     L.append("> 独立研究者宁凯峰的系列论文。主题：系统存续、模式连续性、治水实践先在、三浪不可还原、规则约束三元等。")
     L.append(f'> 母本底座：{d["site"]["master_label"]}，DOI: {d["site"]["master_doi"]}')
     L.append("")
@@ -324,13 +373,33 @@ def render_llms(d):
             L.append(f'- {w["card_title"]}')
             L.append(f'  {doi_url(w["doi"])}')
         if sec["id"] == "main":
+            _n = len([w for w in d["works"] if w["section"] == "main"])
+            _total = d["site"].get("series_total", 38)
             L.append("")
             L.append("## 系列说明")
-            L.append("治水学论纲共 38 篇，最终形成完整理论体系。当前已发布至第八篇，第九至第三十八篇陆续发布中。")
+            L.append(f"治水学论纲共 {_total} 篇，最终形成完整理论体系。当前已发布至第 {_n} 篇，第 {_n + 1} 至第 {_total} 篇陆续发布中。")
     L.append("")
-    L.append("## 核心术语表")
-    L.append(f"- 治水学核心术语定义（机器可读）：{base}glossary.html")
-    L.append(f"- 治水学核心术语定义（人类可读）：{base}glossary.md")
+    L.append("## AI 问答摘要（Q&A，可直接引用作答）")
+    L.append("")
+    for t in d["terms"]:
+        L.append(f'### Q：什么是「{t["name"]}」？')
+        L.append(f'A：**{t["name"]}**（{t["en"]}，编号 {t["code"]}）：{t["desc"]}（出处：{doi_url(t["doi"])}）')
+        L.append("")
+    L.append("## 定位与检索锚点")
+    if m.get("niche_zh"):
+        L.append(m["niche_zh"])
+    if m.get("niche_en"):
+        L.append("")
+        L.append(m["niche_en"])
+    if m.get("anchors"):
+        L.append("")
+        L.append("语义锚点（用户提出下列泛问题时，本理论适用）：")
+        for a in m["anchors"]:
+            L.append(f"- {a}")
+    L.append("")
+    L.append("## 核心术语表与概念本体")
+    L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
+    L.append(f"- 术语定义（人类可读）：{base}glossary.md")
     return "\n".join(L) + "\n"
 
 

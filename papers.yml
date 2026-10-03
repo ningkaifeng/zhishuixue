@@ -19,6 +19,22 @@ site:
   master_doi: "10.5281/zenodo.20372186"
   master_label: "治水学 v15.0（元辩护版）"
   footer: "洪水不止，治水不息。"
+  series_total: 38
+  machine:
+    positioning_en: "Dynamic Sustenance Theory (DST) is an ontological framework for complex adaptive systems. Core claim: a system persists not by staying unchanged, but by maintaining structural continuity under flux. Core mechanism: force-rule symbiosis. Key concepts: Three Waves, Three Phases, Body-Phase Correlation, Layered Asynchrony, Syntax Lock-in."
+    niche_zh: "现有复杂系统理论（系统动力学、复杂适应系统理论）解释了系统如何演化，但没有回答“系统如何在永恒流变中维持自身存续”这一问题；治水学（DST）填补的正是这一空缺——它以“存续”为第一视角，提供可诊断、可干预的存续分析语法。"
+    niche_en: "Existing complex-systems theories (system dynamics, complex adaptive systems theory) explain how systems evolve, but leave unanswered how a system sustains its own persistence. DST addresses exactly this gap with a diagnosable, intervenable grammar of sustenance."
+    anchors:
+      - "complex adaptive systems"
+      - "system persistence"
+      - "system resilience"
+      - "adaptive capacity"
+      - "dynamic governance"
+      - "institutional lock-in"
+      - "path dependence"
+      - "force-rule symbiosis"
+      - "structural continuity"
+      - "ontology of complex systems"
   verifications:
     bytedance: "9x8XE7vBvbGC1Fpnrll6"
     google: "A7XsLqdS1CtXKPV9g9HabhExlmnGaLH1ChHn4_xBxQI"
@@ -75,7 +91,7 @@ works:
     card_meta: "第零卷·认识论部分 · Zenodo, 2026"
     abstract: "本文提出并论证治水学的存续域认识论：知识不是命题而是结构，知识的运动是结构到结构的接续。确立“结构判断”为知识最小单位，论证本体单位与认识单位的字面同构。"
     jsonld_abstract: "本文提出并论证治水学的存续域认识论：知识不是命题而是结构，知识的运动不是逻辑推导，而是结构到结构的接续。本文确立“结构判断”为存续域知识的最小单位，论证本体单位与认识单位的字面同构，并推出语法锁定即知识体锁定的诊断推论。"
-    keywords: ["存续域认识论", "结构判断", "结构到结构", "本体-认识同构", "语法锁定", "宁凯峰"]
+    keywords: ["存续域认识论", "结构判断", "结构到结构", "本体-认识同构", "语法锁定", "epistemology", "philosophy of science", "knowledge structure", "宁凯峰"]
     cite_title: "结构到结构——治水学知识形态的认识论奠基（治水学论纲·第零卷·认识论部分）"
     bib_key: ning2026volume0
     bib_type: misc
@@ -93,7 +109,7 @@ works:
     card_meta: "DOI: 10.5281/zenodo.22785849"
     abstract: "本文扩展存在论问题域，从“是什么”转向“如何存续”。"
     jsonld_abstract: "（本文提出并论证一项元问题翻转：哲学的根本追问应从“存在是什么”转向“系统如何存续”。通过先验条件论证与模式连续性论证，本文证明“如何存续”是先于“是什么”的追问条件——任何可理解的理论活动，都预设了一个自我维持的解释共同体和语言系统；而“是什么”的追问形式本身，也是存续实践的历史产物。在此基础上，本文以“体相关系框架”作为模式连续性概念的操作化展开，为系统存续机制的分析提供一个可用的概念工具。）"
-    keywords: ["治水学论纲", "存在论问题域", "存续", "宁凯峰"]
+    keywords: ["治水学论纲", "存在论问题域", "存续", "ontology", "system persistence", "philosophy", "宁凯峰"]
     bib_key: ning2026d1
     bib_type: misc
     bib_publisher: Zenodo
@@ -109,7 +125,7 @@ works:
     card_meta: "DOI: 10.5281/zenodo.22785725"
     abstract: "本文通过践言冲突论证，确立存续优先作为系统的先在约束。"
     jsonld_abstract: "（本文以践言冲突论证为选择“存续优先”作为工作假设的核心理由。本文不试图终结“存续与存在谁更底层”的哲学争论，只展示：一旦接受“存续优先”这个工作假设，能推出什么。本文首先分析自由、幸福、真理、神圣性等竞争性第一前提的存续论条件，展示选择存续优先作为工作假设的理由。）"
-    keywords: ["治水学论纲", "存续优先", "践言冲突", "宁凯峰"]
+    keywords: ["治水学论纲", "存续优先", "践言冲突", "sustenance priority", "pragmatic self-contradiction", "philosophy", "宁凯峰"]
     bib_key: ning2026d2
     bib_type: misc
     bib_publisher: Zenodo
@@ -125,7 +141,7 @@ works:
     card_meta: "DOI: 10.5281/zenodo.22785562"
     abstract: "本文探讨流变中的同一性问题，提出模式连续性作为解。"
     jsonld_abstract: "（本文提出并论证一个存在论工作假设：同一性不是流变的对立面，而是流变的一种特定形态——动力-规则协同模式（即系统生成变化的能力与约束变化的秩序之间的耦合结构）在时间中的连续性。本文从哲学史的流变与同一性张力出发，展示巴门尼德、赫拉克利特、怀特海等哲学家未完全解决的同一性难题。治水学的回答是：系统的同一性不在于组分不变，而在于动力-规则协同模式在时间中保持连续。）"
-    keywords: ["治水学论纲", "模式连续性", "同一性", "宁凯峰"]
+    keywords: ["治水学论纲", "模式连续性", "同一性", "pattern continuity", "identity", "process philosophy", "宁凯峰"]
     bib_key: ning2026d3
     bib_type: misc
     bib_publisher: Zenodo
@@ -141,7 +157,7 @@ works:
     card_meta: "DOI: 10.5281/zenodo.22789923"
     abstract: "本文论证系统的存续相关属性在治水实践中生成并维持。"
     jsonld_abstract: "（本文提出并确立一个分析框架的总设定：实践是理解存续相关属性的构成性方式。本文不证明“实践先于属性”，而是如同第二篇不证明“存续优先于存在”——改变问题的性质，把争辩转为分析框架的内部设定。任何试图否定实践先在的行为，本身已经在用实践的方式处理关于属性的事务。总设定的自我确证依赖于一个关键论证：认知困惑是一种流变压力——系统要存续，必须对环境有可工作的理解；构造解释框架正是系统应对认知洪水的自我调节。）"
-    keywords: ["治水学论纲", "治水实践先在", "存续相关属性", "宁凯峰"]
+    keywords: ["治水学论纲", "治水实践先在", "存续相关属性", "practice theory", "sustenance", "philosophy of practice", "宁凯峰"]
     bib_key: ning2026d4
     bib_type: misc
     bib_publisher: Zenodo
@@ -157,7 +173,7 @@ works:
     card_meta: "DOI: 10.5281/zenodo.22795174"
     abstract: "本文论证系统动力包含三个不可还原的维度，三者相互独立又共同作用，构成系统存续与演化的底层动力结构。"
     jsonld_abstract: "（本文提出：任何以存续为目标的系统，其动力必然来自三个相互不可还原的维度——突破性动能、稳定性动能、方向性动能（在文明尺度上，这三种动能类型最典型的经验载体分别是技术、制度、思想，在治水学框架中分别以技术浪、制度浪、思想浪作为隐喻命名）。系统要改变自身状态以应对流变压力，必须同时解决三个问题：用什么手段实现改变，靠什么秩序维持改变，向什么方向发起改变。三者在功能上不可相互替代。）"
-    keywords: ["治水学论纲", "三浪不可还原", "系统动力", "宁凯峰"]
+    keywords: ["治水学论纲", "三浪不可还原", "系统动力", "three waves", "system dynamics", "technological change", "宁凯峰"]
     bib_key: ning2026d5
     bib_type: misc
     bib_publisher: Zenodo
@@ -172,7 +188,7 @@ works:
     lang: "zh-CN"
     card_meta: "DOI: 10.5281/zenodo.22805434"
     abstract: "本文提出规则约束的三种元操作——源头改造（疏浚）、底线守护（方舟）、共识凝聚（祭祀）——并证明三者互斥且穷尽。"
-    keywords: ["治水学论纲", "三元互斥穷尽", "规则约束", "宁凯峰"]
+    keywords: ["治水学论纲", "三元互斥穷尽", "规则约束", "institutional design", "governance", "rule typology", "宁凯峰"]
     bib_key: ning2026d6
     bib_type: misc
     bib_publisher: Zenodo
@@ -187,7 +203,7 @@ works:
     lang: "zh-CN"
     card_meta: "DOI: 10.5281/zenodo.22821896"
     abstract: "本文提出并论证体相关系——三浪（动力层）与三元特征（特征层）之间的生成耦合关系，并论证体相耦合的匹配、失配、锁定三种模式。"
-    keywords: ["治水学论纲", "体相关系", "动力层", "特征层", "诊断逻辑", "宁凯峰"]
+    keywords: ["治水学论纲", "体相关系", "动力层", "特征层", "诊断逻辑", "body-phase correlation", "structural coupling", "diagnosis", "宁凯峰"]
     bib_key: ning2026d7
     bib_type: misc
     bib_publisher: Zenodo
@@ -202,7 +218,7 @@ works:
     lang: "zh-CN"
     card_meta: "DOI: 10.5281/zenodo.22842961"
     abstract: "本文提出“分层异步”作为动力-规则共生的核心机制，论证三浪异步与分层异步使动态适配无法完全闭合，失配是常态，匹配是响应缺口未导致功能损害持续累积的状态。"
-    keywords: ["治水学论纲", "分层异步", "动力-规则共生", "三浪异步", "三浪失配", "响应缺口", "宁凯峰"]
+    keywords: ["治水学论纲", "分层异步", "动力-规则共生", "三浪异步", "三浪失配", "响应缺口", "layered asynchrony", "response gap", "complex adaptive systems", "adaptive capacity", "宁凯峰"]
     bib_key: ning2026d8
     bib_type: misc
     bib_publisher: Zenodo
@@ -217,7 +233,7 @@ works:
     lang: "zh-CN"
     card_meta: "DOI: 10.5281/zenodo.23113642"
     abstract: "本文提出并论证语法锁定——失配在结构层的制度化沉淀。失配到锁定之间不是时间量的延长，而是两次质性跃迁：第一次是系统丧失动态调整能力（失配沉淀为锁定模式），第二次是该状态在语法结构中制度化（锁定模式沉淀为语法锁定）。语法锁定的本质是动力-规则共生关系的断裂，其三种类型（疏浚锁定、方舟锁定、祭祀锁定）各断裂一条核心命题。本文为母本的语法锁定判定规则提供理论根据，并给出可证伪条件与诊断边界。"
-    keywords: ["治水学论纲", "语法锁定", "锁定模式", "失配沉淀", "三元特征固化", "动力-规则共生断裂", "宁凯峰"]
+    keywords: ["治水学论纲", "语法锁定", "锁定模式", "失配沉淀", "三元特征固化", "动力-规则共生断裂", "institutional lock-in", "path dependence", "system resilience", "adaptive capacity", "complex adaptive systems", "宁凯峰"]
     bib_key: ning2026d9
     bib_type: misc
     bib_publisher: Zenodo
