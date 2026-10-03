@@ -42,7 +42,7 @@ sections:
     lang: "zh-CN"
   - id: main
     heading: "治水学论纲（38篇系列论文）"
-    intro: "以下为已发布篇目，各篇独立成文，共享同一套核心框架。第九至三十八篇陆续发布中。"
+    intro: "以下为已发布篇目，各篇独立成文，共享同一套核心框架。第十至三十八篇陆续发布中。"
     series_name: "治水学论纲"
     lang: "zh-CN"
   - id: aks
@@ -207,6 +207,21 @@ works:
     bib_type: misc
     bib_publisher: Zenodo
 
+  - id: article-9
+    section: main
+    type: ScholarlyArticle
+    title: "治水学论纲·第九篇：语法锁定——失配在结构层的制度化沉淀"
+    card_title: "第九篇：语法锁定——失配在结构层的制度化沉淀"
+    doi: "10.5281/zenodo.23113642"
+    date: "2026-10-03"
+    lang: "zh-CN"
+    card_meta: "DOI: 10.5281/zenodo.23113642"
+    abstract: "本文提出并论证语法锁定——失配在结构层的制度化沉淀。失配到锁定之间不是时间量的延长，而是两次质性跃迁：第一次是系统丧失动态调整能力（失配沉淀为锁定模式），第二次是该状态在语法结构中制度化（锁定模式沉淀为语法锁定）。语法锁定的本质是动力-规则共生关系的断裂，其三种类型（疏浚锁定、方舟锁定、祭祀锁定）各断裂一条核心命题。本文为母本的语法锁定判定规则提供理论根据，并给出可证伪条件与诊断边界。"
+    keywords: ["治水学论纲", "语法锁定", "锁定模式", "失配沉淀", "三元特征固化", "动力-规则共生断裂", "宁凯峰"]
+    bib_key: ning2026d9
+    bib_type: misc
+    bib_publisher: Zenodo
+
   # ---------- 自主知识体系 ----------
   - id: aks-1
     section: aks
@@ -345,7 +360,7 @@ terms:
   - {anchor: matching, cat: "耦合与诊断", code: "DST-DIA-02", name: "匹配", en: "Matching", desc: "响应缺口未导致核心功能损害持续累积的状态。不要求规则追上动力、不要求异步缩小，紧张但不崩溃是常态。", doi: "10.5281/zenodo.22821896"}
   - {anchor: mismatch, cat: "耦合与诊断", code: "DST-DIA-03", name: "失配", en: "Mismatch", desc: "响应缺口导致核心功能损害持续累积、且可归因于动力-规则适配本身的状态。失配是结构性常态，不可消除只能管理；呈扩张型／保守型／空转型“2+1”结构。", doi: "10.5281/zenodo.22821896"}
   - {anchor: lock-in, cat: "耦合与诊断", code: "DST-DIA-04", name: "锁定", en: "Lock-in", desc: "体相耦合的病理状态，系统丧失动态调整规则配置的能力。", doi: "10.5281/zenodo.22821896"}
-  - {anchor: syntax-lock-in, cat: "耦合与诊断", code: "DST-DIA-05", name: "语法锁定", en: "Syntax Lock-in", desc: "三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。", doi: "10.5281/zenodo.22821896"}
+  - {anchor: syntax-lock-in, cat: "耦合与诊断", code: "DST-DIA-05", name: "语法锁定", en: "Syntax Lock-in", desc: "三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。", doi: "10.5281/zenodo.23113642"}
   - {anchor: layered-asynchrony, cat: "耦合与诊断", code: "DST-DIA-06", name: "分层异步", en: "Layered Asynchrony", desc: "动力层与规则层之间结构性的非同步耦合：动力变化传导到规则层的时间差恒大于零且不可消除，使动态适配无法完全闭合。其来源是传导时间差，三浪异步只是充分条件之一。", doi: "10.5281/zenodo.22842961"}
   - {anchor: force-rule-symbiosis, cat: "耦合与诊断", code: "DST-DIA-07", name: "动力-规则共生", en: "Force-Rule Symbiosis", desc: "动力与规则的动态适配不是静态均衡，而是持续的相互调整过程。", doi: "10.5281/zenodo.22842961"}
   - {anchor: response-gap, cat: "耦合与诊断", code: "DST-AIG-04", name: "响应缺口", en: "Response Gap", desc: "规则层完成有效响应所需周期，超过系统承受而不发生核心功能损害的时间窗口的部分。响应缺口天然非负——超过窗口才有缺口，未超过则无。", doi: "10.5281/zenodo.22884353"}
