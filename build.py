@@ -55,7 +55,11 @@ h2{font-size:1.05em;color:#1a4d8f;margin-top:28px;margin-bottom:4px;}
 .term-en{font-size:0.85em;color:#888;font-weight:normal;}
 .term-desc{font-size:0.95em;color:#333;margin:4px 0;}
 .term-doi{font-size:0.8em;color:#0066cc;text-decoration:none;}
-.intro{color:#555;font-size:0.95em;margin-bottom:24px;}"""
+.intro{color:#555;font-size:0.95em;margin-bottom:24px;}
+h2.layer{font-size:1.15em;color:#1a4d8f;border-bottom:1px solid #ddd;margin-top:34px;padding-bottom:4px;}
+h3{font-size:1em;margin:16px 0 2px;}
+.tier{font-size:0.75em;color:#888;margin-left:6px;}
+.term-rel{font-size:0.85em;color:#1a4d8f;margin:2px 0;}"""
 
 # 折叠条目的三角指示器（纯 CSS，无 JS）
 DETAILS_CSS = (
@@ -239,14 +243,25 @@ def render_glossary_html(d):
     terms = d["terms"]
     dt = []
     for t in terms:
-        dt.append({
+        e = {
             "@type": "DefinedTerm",
             "@id": gurl + "#" + t["anchor"],
             "name": t["name"],
             "alternateName": t["en"],
             "description": t["desc"],
             "url": doi_url(t["doi"]),
-        })
+        }
+        if t.get("level"):
+            e["termCode"] = t["code"]
+            e["inDefinedTermSet"] = gurl
+            e["level"] = t["level"]
+        if t.get("tier"):
+            e["tier"] = t["tier"]
+        if t.get("broader"):
+            e["broader"] = t["broader"]
+        if t.get("part_of"):
+            e["isPartOf"] = t["part_of"]
+        dt.append(e)
     _order, _g = [], {}
     for t in terms:
         if t["cat"] not in _g:
@@ -301,9 +316,22 @@ def render_glossary_html(d):
     L.append("</head>")
     L.append("<body>")
     L.append("<h1>治水学（DST）核心术语表</h1>")
+    L.append(f'<p class="intro">按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>。</p>')
+    _seen = set()
     for t in terms:
-        L.append(f'<h2>{t["name"]} <span class="term-en">{t["en"]}</span></h2>')
+        if t["cat"] not in _seen:
+            _seen.add(t["cat"])
+            L.append(f'<h2 class="layer">{t["cat"]}</h2>')
+        badge = {"核心": "🔴", "支柱": "🟡", "延伸": "⚪"}.get(t.get("tier"), "")
+        L.append(f'<h3>{t["name"]} <span class="term-en">{t["en"]}</span> <span class="tier">{badge}{t.get("tier","")}</span></h3>')
         L.append(f'<p class="term-desc">{t["desc"]}</p>')
+        _rel = []
+        if t.get("broader"):
+            _rel.append(f'上位：{t["broader"]}')
+        if t.get("part_of"):
+            _rel.append(f'归属：{t["part_of"]}')
+        if _rel:
+            L.append('<p class="term-rel">' + ' ｜ '.join(_rel) + '</p>')
         L.append(f'<p><a class="term-doi" href="{doi_url(t["doi"])}">DOI: {t["doi"]}</a></p>')
     L.append("</body>")
     L.append("</html>")
@@ -384,8 +412,12 @@ def render_llms(d):
     L.append("## AI 问答摘要（Q&A，可直接引用作答）")
     L.append("")
     for t in d["terms"]:
+        _meta = f'［{t.get("cat","")}｜{t.get("tier","")}'
+        if t.get("broader"):
+            _meta += f'｜上位：{t["broader"]}'
+        _meta += '］'
         L.append(f'### Q：什么是「{t["name"]}」？')
-        L.append(f'A：**{t["name"]}**（{t["en"]}，编号 {t["code"]}）：{t["desc"]}（出处：{doi_url(t["doi"])}）')
+        L.append(f'A：**{t["name"]}**（{t["en"]}，编号 {t["code"]}）{_meta}：{t["desc"]}（出处：{doi_url(t["doi"])}）')
         L.append("")
     L.append("## 定位与检索锚点")
     if m.get("niche_zh"):
@@ -402,6 +434,60 @@ def render_llms(d):
     L.append("## 核心术语表与概念本体")
     L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
     L.append(f"- 术语定义（人类可读）：{base}glossary.md")
+    return "\n".join(L) + "\n"
+
+
+# ---------------------------- graph.html（概念图谱） ----------------------------
+def render_graph(d):
+    base = d["site"]["base_url"]
+    gurl = base + "graph.html"
+    terms = d["terms"]
+    names = {t["name"]: t for t in terms}
+    badge = {"核心": "\U0001F534", "支柱": "\U0001F7E1", "延伸": "\u26AA"}
+    tiers = {"核心": [], "支柱": [], "延伸": []}
+    for t in terms:
+        tiers.get(t.get("tier"), tiers["延伸"]).append(t)
+    children, roots = {}, []
+    for t in terms:
+        bd = t.get("broader", "")
+        if bd and bd in names:
+            children.setdefault(bd, []).append(t)
+        else:
+            roots.append(t)
+    graph = [{"@type": "DefinedTerm", "name": t["name"], "alternateName": t["en"],
+              "termCode": t["code"], "level": t.get("level", ""), "tier": t.get("tier", ""),
+              "broader": t.get("broader", ""), "isPartOf": t.get("part_of", "")} for t in terms]
+    ld = {"@context": "https://schema.org", "@type": "DefinedTermSet", "@id": gurl,
+          "name": "治水学概念图谱（DST Concept Graph）",
+          "description": "治水学 98 个概念按 A–L 层级、核心/支柱/延伸级别及上位关系的图谱（机器可读）。",
+          "url": gurl, "isPartOf": base + "glossary.html", "hasDefinedTerm": graph}
+    L = ["<!DOCTYPE html>", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
+         "<title>治水学概念图谱 | DST Concept Graph</title>",
+         '<meta name="description" content="治水学 98 个概念的层级、级别与上位关系图谱。">',
+         '<script type="application/ld+json">', json.dumps(ld, ensure_ascii=False, indent=2),
+         "</script>", "<style>", GLOSSARY_STYLE,
+         ".node{margin:3px 0;}", ".lv{color:#888;font-size:0.85em;}", "</style>", "</head>", "<body>",
+         "<h1>治水学概念图谱（DST Concept Graph）</h1>",
+         f'<p class="intro">共 {len(terms)} 个概念 · 按 A–L 层 / 核心·支柱·延伸 定位 · 上位关系树。'
+         f'术语定义见 <a href="{base}glossary.html">glossary.html</a>。</p>',
+         "<h2>三级速览</h2>"]
+    for k in ["核心", "支柱", "延伸"]:
+        L.append(f'<h3>{badge[k]} {k}（{len(tiers[k])}）</h3>')
+        L.append("<p>" + "、".join(t["name"] for t in tiers[k]) + "</p>")
+    L.append("<h2>上位关系树</h2>")
+    L.append('<p class="lv">（缩进表示上位 → 下位；如「存续 → 洪水／体 → 三浪…」）</p>')
+
+    def node(t, depth):
+        pad = "&nbsp;" * (depth * 5)
+        s = f'<div class="node">{pad}{t["name"]} <span class="term-en">{t["en"]}</span> <span class="lv">{t.get("level","")}·{t.get("tier","")}</span></div>'
+        for c in children.get(t["name"], []):
+            s += node(c, depth + 1)
+        return s
+
+    for r in roots:
+        L.append(node(r, 0))
+    L.append("</body>")
+    L.append("</html>")
     return "\n".join(L) + "\n"
 
 
@@ -437,6 +523,7 @@ def render_sitemap(d):
         (base, "1.0", "weekly"),
         (base + "glossary.html", "0.8", "monthly"),
         (base + "glossary.md", "0.6", "monthly"),
+        (base + "graph.html", "0.7", "monthly"),
     ]
     L = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -458,6 +545,7 @@ def main():
         "index.html": render_index(d),
         "glossary.html": render_glossary_html(d),
         "glossary.md": render_glossary_md(d),
+        "graph.html": render_graph(d),
         "llms.txt": render_llms(d),
         "citations.bib": render_bib(d),
         "sitemap.xml": render_sitemap(d),
