@@ -55,9 +55,25 @@
     },
     {
       "@type": "DefinedTerm",
+      "@id": "https://zhishuixue.com/glossary.html#ti",
+      "name": "体",
+      "alternateName": "Ti (体, the force–rule coordination structure)",
+      "description": "动力-规则协同的内在结构（不是动力层）；由动力层（三浪）与规则层（三元）协同构成。",
+      "url": "https://doi.org/10.5281/zenodo.22821896"
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://zhishuixue.com/glossary.html#xiang",
+      "name": "相",
+      "alternateName": "Xiang (相, characteristic states)",
+      "description": "体（动力-规则协同结构）所呈现出的特征状态（事后描述的观察视角，不是独立层）；按三元操作归类为疏浚型／方舟型／祭祀型（形容词性）。",
+      "url": "https://doi.org/10.5281/zenodo.22821896"
+    },
+    {
+      "@type": "DefinedTerm",
       "@id": "https://zhishuixue.com/glossary.html#three-waves",
       "name": "三浪",
-      "alternateName": "The Three Waves (Ti)",
+      "alternateName": "The Three Waves",
       "description": "三种普适动能——突破性动能、稳定性动能、方向性动能；“技术浪／制度浪／思想浪”是隐喻命名，非定义本身。",
       "url": "https://doi.org/10.5281/zenodo.22795174"
     },
@@ -89,7 +105,7 @@
       "@type": "DefinedTerm",
       "@id": "https://zhishuixue.com/glossary.html#three-phases",
       "name": "三元",
-      "alternateName": "The Three Phases (Xiang)",
+      "alternateName": "The Three Phases",
       "description": "规则层操作（互斥且穷尽）——源头改造（疏浚·压力源）、底线守护（方舟·系统边界）、共识凝聚（祭祀·主体间关系）；对应特征层：疏浚型／方舟型／祭祀型（形容词性）。",
       "url": "https://doi.org/10.5281/zenodo.22805434"
     },
@@ -97,7 +113,7 @@
       "@type": "DefinedTerm",
       "@id": "https://zhishuixue.com/glossary.html#dredging",
       "name": "疏浚",
-      "alternateName": "Dredging / Source Transformation",
+      "alternateName": "Dredging (Source Transformation)",
       "description": "引导动力主动改造、移除或重定向失序源头的规则操作。",
       "url": "https://doi.org/10.5281/zenodo.22805434"
     },
@@ -105,7 +121,7 @@
       "@type": "DefinedTerm",
       "@id": "https://zhishuixue.com/glossary.html#arking",
       "name": "方舟",
-      "alternateName": "Arking / Boundary Safeguarding",
+      "alternateName": "Arking (Boundary Safeguarding)",
       "description": "引导动力防御系统核心边界的规则操作。",
       "url": "https://doi.org/10.5281/zenodo.22805434"
     },
@@ -113,7 +129,7 @@
       "@type": "DefinedTerm",
       "@id": "https://zhishuixue.com/glossary.html#sacrificing",
       "name": "祭祀",
-      "alternateName": "Sacrificing / Consensus Calibration",
+      "alternateName": "Sacrificing (Consensus Calibration)",
       "description": "引导动力凝聚共识、协调集体行动的规则操作。",
       "url": "https://doi.org/10.5281/zenodo.22805434"
     },
@@ -121,8 +137,8 @@
       "@type": "DefinedTerm",
       "@id": "https://zhishuixue.com/glossary.html#body-phase-correlation",
       "name": "体相关系",
-      "alternateName": "Body-Phase Correlation",
-      "description": "动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身，不是动力层。",
+      "alternateName": "Ti-Xiang Correlation (Body–Phase Correlation)",
+      "description": "动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身（不是动力层）；相是按三元操作归类的特征状态——疏浚型／方舟型／祭祀型（形容词性）。",
       "url": "https://doi.org/10.5281/zenodo.22821896"
     },
     {
@@ -153,7 +169,7 @@
       "@type": "DefinedTerm",
       "@id": "https://zhishuixue.com/glossary.html#syntax-lock-in",
       "name": "语法锁定",
-      "alternateName": "Syntax Lock-in",
+      "alternateName": "Syntax Lock-in (Phase Reconfiguration Failure)",
       "description": "三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。",
       "url": "https://doi.org/10.5281/zenodo.23113642"
     },
@@ -286,7 +302,9 @@
         "存续",
         "存续优先",
         "模式连续性",
-        "治水实践先在"
+        "治水实践先在",
+        "体",
+        "相"
       ]
     },
     {
@@ -351,13 +369,23 @@
   "conceptRelations": [
     {
       "from": "三浪",
-      "to": "体相关系",
-      "relation": "是体的构成要素（动力层）"
+      "to": "体",
+      "relation": "动力层，是体的构成要素之一"
     },
     {
       "from": "三元",
-      "to": "体相关系",
-      "relation": "是体的构成要素（规则层）"
+      "to": "体",
+      "relation": "规则层，是体的构成要素之一"
+    },
+    {
+      "from": "体",
+      "to": "相",
+      "relation": "体所呈现出的特征状态"
+    },
+    {
+      "from": "相",
+      "to": "三元",
+      "relation": "按三元操作归类为疏浚型／方舟型／祭祀型"
     },
     {
       "from": "三元",
@@ -459,7 +487,13 @@ h2{font-size:1.05em;color:#1a4d8f;margin-top:28px;margin-bottom:4px;}
 <h2>治水实践先在 <span class="term-en">Practice Precedence</span></h2>
 <p class="term-desc">实践是理解存续相关属性的构成性方式，系统的存续属性在治水实践中生成并维持。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22789923">DOI: 10.5281/zenodo.22789923</a></p>
-<h2>三浪 <span class="term-en">The Three Waves (Ti)</span></h2>
+<h2>体 <span class="term-en">Ti (体, the force–rule coordination structure)</span></h2>
+<p class="term-desc">动力-规则协同的内在结构（不是动力层）；由动力层（三浪）与规则层（三元）协同构成。</p>
+<p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22821896">DOI: 10.5281/zenodo.22821896</a></p>
+<h2>相 <span class="term-en">Xiang (相, characteristic states)</span></h2>
+<p class="term-desc">体（动力-规则协同结构）所呈现出的特征状态（事后描述的观察视角，不是独立层）；按三元操作归类为疏浚型／方舟型／祭祀型（形容词性）。</p>
+<p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22821896">DOI: 10.5281/zenodo.22821896</a></p>
+<h2>三浪 <span class="term-en">The Three Waves</span></h2>
 <p class="term-desc">三种普适动能——突破性动能、稳定性动能、方向性动能；“技术浪／制度浪／思想浪”是隐喻命名，非定义本身。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22795174">DOI: 10.5281/zenodo.22795174</a></p>
 <h2>技术浪 <span class="term-en">Technological Wave (Tech-Wave)</span></h2>
@@ -471,20 +505,20 @@ h2{font-size:1.05em;color:#1a4d8f;margin-top:28px;margin-bottom:4px;}
 <h2>思想浪 <span class="term-en">Ideational Wave (Idea-Wave)</span></h2>
 <p class="term-desc">由价值观、信念、共享叙事驱动的方向性动能。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22795174">DOI: 10.5281/zenodo.22795174</a></p>
-<h2>三元 <span class="term-en">The Three Phases (Xiang)</span></h2>
+<h2>三元 <span class="term-en">The Three Phases</span></h2>
 <p class="term-desc">规则层操作（互斥且穷尽）——源头改造（疏浚·压力源）、底线守护（方舟·系统边界）、共识凝聚（祭祀·主体间关系）；对应特征层：疏浚型／方舟型／祭祀型（形容词性）。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22805434">DOI: 10.5281/zenodo.22805434</a></p>
-<h2>疏浚 <span class="term-en">Dredging / Source Transformation</span></h2>
+<h2>疏浚 <span class="term-en">Dredging (Source Transformation)</span></h2>
 <p class="term-desc">引导动力主动改造、移除或重定向失序源头的规则操作。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22805434">DOI: 10.5281/zenodo.22805434</a></p>
-<h2>方舟 <span class="term-en">Arking / Boundary Safeguarding</span></h2>
+<h2>方舟 <span class="term-en">Arking (Boundary Safeguarding)</span></h2>
 <p class="term-desc">引导动力防御系统核心边界的规则操作。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22805434">DOI: 10.5281/zenodo.22805434</a></p>
-<h2>祭祀 <span class="term-en">Sacrificing / Consensus Calibration</span></h2>
+<h2>祭祀 <span class="term-en">Sacrificing (Consensus Calibration)</span></h2>
 <p class="term-desc">引导动力凝聚共识、协调集体行动的规则操作。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22805434">DOI: 10.5281/zenodo.22805434</a></p>
-<h2>体相关系 <span class="term-en">Body-Phase Correlation</span></h2>
-<p class="term-desc">动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身，不是动力层。</p>
+<h2>体相关系 <span class="term-en">Ti-Xiang Correlation (Body–Phase Correlation)</span></h2>
+<p class="term-desc">动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身（不是动力层）；相是按三元操作归类的特征状态——疏浚型／方舟型／祭祀型（形容词性）。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22821896">DOI: 10.5281/zenodo.22821896</a></p>
 <h2>匹配 <span class="term-en">Matching</span></h2>
 <p class="term-desc">响应缺口未导致核心功能损害持续累积的状态。不要求规则追上动力、不要求异步缩小，紧张但不崩溃是常态。</p>
@@ -495,7 +529,7 @@ h2{font-size:1.05em;color:#1a4d8f;margin-top:28px;margin-bottom:4px;}
 <h2>锁定模式 <span class="term-en">Lock-in</span></h2>
 <p class="term-desc">当下的耦合状态——系统丧失动态调整规则约束引导的能力（状态描述）。锁定模式是状态，语法锁定是制度化沉淀（结构判断）。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.22821896">DOI: 10.5281/zenodo.22821896</a></p>
-<h2>语法锁定 <span class="term-en">Syntax Lock-in</span></h2>
+<h2>语法锁定 <span class="term-en">Syntax Lock-in (Phase Reconfiguration Failure)</span></h2>
 <p class="term-desc">三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。</p>
 <p><a class="term-doi" href="https://doi.org/10.5281/zenodo.23113642">DOI: 10.5281/zenodo.23113642</a></p>
 <h2>分层异步 <span class="term-en">Layered Asynchrony</span></h2>

@@ -1,6 +1,6 @@
 # 宁凯峰 · 治水学论纲
 
-> Dynamic Sustenance Theory (DST) is an ontological framework for complex adaptive systems. Core claim: a system persists not by staying unchanged, but by maintaining structural continuity under flux. Core mechanism: force-rule symbiosis. Key concepts: Three Waves, Three Phases, Body-Phase Correlation, Layered Asynchrony, Syntax Lock-in.
+> Dynamic Sustenance Theory (DST) is an ontological framework for complex adaptive systems. Core claim: a system persists not by staying unchanged, but by maintaining structural continuity under flux. Core mechanism: force-rule symbiosis. Key concepts: Three Waves, Three Phases, Ti-Xiang Correlation, Layered Asynchrony, Syntax Lock-in.
 
 > 独立研究者宁凯峰的系列论文。主题：系统存续、模式连续性、治水实践先在、三浪不可还原、规则约束三元等。
 > 母本底座：治水学 v15.0（元辩护版），DOI: 10.5281/zenodo.20372186
@@ -80,8 +80,14 @@ A：**模式连续性**（Pattern Continuity，编号 DST-ONT-04）：系统的�
 ### Q：什么是「治水实践先在」？
 A：**治水实践先在**（Practice Precedence，编号 DST-ONT-05）：实践是理解存续相关属性的构成性方式，系统的存续属性在治水实践中生成并维持。（出处：https://doi.org/10.5281/zenodo.22789923）
 
+### Q：什么是「体」？
+A：**体**（Ti (体, the force–rule coordination structure)，编号 DST-ONT-06）：动力-规则协同的内在结构（不是动力层）；由动力层（三浪）与规则层（三元）协同构成。（出处：https://doi.org/10.5281/zenodo.22821896）
+
+### Q：什么是「相」？
+A：**相**（Xiang (相, characteristic states)，编号 DST-ONT-07）：体（动力-规则协同结构）所呈现出的特征状态（事后描述的观察视角，不是独立层）；按三元操作归类为疏浚型／方舟型／祭祀型（形容词性）。（出处：https://doi.org/10.5281/zenodo.22821896）
+
 ### Q：什么是「三浪」？
-A：**三浪**（The Three Waves (Ti)，编号 DST-DYN-01）：三种普适动能——突破性动能、稳定性动能、方向性动能；“技术浪／制度浪／思想浪”是隐喻命名，非定义本身。（出处：https://doi.org/10.5281/zenodo.22795174）
+A：**三浪**（The Three Waves，编号 DST-DYN-01）：三种普适动能——突破性动能、稳定性动能、方向性动能；“技术浪／制度浪／思想浪”是隐喻命名，非定义本身。（出处：https://doi.org/10.5281/zenodo.22795174）
 
 ### Q：什么是「技术浪」？
 A：**技术浪**（Technological Wave (Tech-Wave)，编号 DST-DYN-02）：由工具、方法、创新驱动的突破性动能。（出处：https://doi.org/10.5281/zenodo.22795174）
@@ -93,19 +99,19 @@ A：**制度浪**（Institutional Wave (Inst-Wave)，编号 DST-DYN-03）：由�
 A：**思想浪**（Ideational Wave (Idea-Wave)，编号 DST-DYN-04）：由价值观、信念、共享叙事驱动的方向性动能。（出处：https://doi.org/10.5281/zenodo.22795174）
 
 ### Q：什么是「三元」？
-A：**三元**（The Three Phases (Xiang)，编号 DST-RUL-01）：规则层操作（互斥且穷尽）——源头改造（疏浚·压力源）、底线守护（方舟·系统边界）、共识凝聚（祭祀·主体间关系）；对应特征层：疏浚型／方舟型／祭祀型（形容词性）。（出处：https://doi.org/10.5281/zenodo.22805434）
+A：**三元**（The Three Phases，编号 DST-RUL-01）：规则层操作（互斥且穷尽）——源头改造（疏浚·压力源）、底线守护（方舟·系统边界）、共识凝聚（祭祀·主体间关系）；对应特征层：疏浚型／方舟型／祭祀型（形容词性）。（出处：https://doi.org/10.5281/zenodo.22805434）
 
 ### Q：什么是「疏浚」？
-A：**疏浚**（Dredging / Source Transformation，编号 DST-RUL-02）：引导动力主动改造、移除或重定向失序源头的规则操作。（出处：https://doi.org/10.5281/zenodo.22805434）
+A：**疏浚**（Dredging (Source Transformation)，编号 DST-RUL-02）：引导动力主动改造、移除或重定向失序源头的规则操作。（出处：https://doi.org/10.5281/zenodo.22805434）
 
 ### Q：什么是「方舟」？
-A：**方舟**（Arking / Boundary Safeguarding，编号 DST-RUL-03）：引导动力防御系统核心边界的规则操作。（出处：https://doi.org/10.5281/zenodo.22805434）
+A：**方舟**（Arking (Boundary Safeguarding)，编号 DST-RUL-03）：引导动力防御系统核心边界的规则操作。（出处：https://doi.org/10.5281/zenodo.22805434）
 
 ### Q：什么是「祭祀」？
-A：**祭祀**（Sacrificing / Consensus Calibration，编号 DST-RUL-04）：引导动力凝聚共识、协调集体行动的规则操作。（出处：https://doi.org/10.5281/zenodo.22805434）
+A：**祭祀**（Sacrificing (Consensus Calibration)，编号 DST-RUL-04）：引导动力凝聚共识、协调集体行动的规则操作。（出处：https://doi.org/10.5281/zenodo.22805434）
 
 ### Q：什么是「体相关系」？
-A：**体相关系**（Body-Phase Correlation，编号 DST-DIA-01）：动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身，不是动力层。（出处：https://doi.org/10.5281/zenodo.22821896）
+A：**体相关系**（Ti-Xiang Correlation (Body–Phase Correlation)，编号 DST-DIA-01）：动力-规则协同的内在结构（体）与其呈现出的特征状态（相）之间的关系。体是动力层与规则层的协同关系本身（不是动力层）；相是按三元操作归类的特征状态——疏浚型／方舟型／祭祀型（形容词性）。（出处：https://doi.org/10.5281/zenodo.22821896）
 
 ### Q：什么是「匹配」？
 A：**匹配**（Matching，编号 DST-DIA-02）：响应缺口未导致核心功能损害持续累积的状态。不要求规则追上动力、不要求异步缩小，紧张但不崩溃是常态。（出处：https://doi.org/10.5281/zenodo.22821896）
@@ -117,7 +123,7 @@ A：**失配**（Mismatch，编号 DST-DIA-03）：响应缺口导致核心功�
 A：**锁定模式**（Lock-in，编号 DST-DIA-04）：当下的耦合状态——系统丧失动态调整规则约束引导的能力（状态描述）。锁定模式是状态，语法锁定是制度化沉淀（结构判断）。（出处：https://doi.org/10.5281/zenodo.22821896）
 
 ### Q：什么是「语法锁定」？
-A：**语法锁定**（Syntax Lock-in，编号 DST-DIA-05）：三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。（出处：https://doi.org/10.5281/zenodo.23113642）
+A：**语法锁定**（Syntax Lock-in (Phase Reconfiguration Failure)，编号 DST-DIA-05）：三元特征固化的状态：某一型特征持续主导、系统丧失按三浪失配动态调整规则权重的能力；固化沉淀于语法结构，即使外部扰动暂时打破，系统仍会返回锁定。（出处：https://doi.org/10.5281/zenodo.23113642）
 
 ### Q：什么是「分层异步」？
 A：**分层异步**（Layered Asynchrony，编号 DST-DIA-06）：动力层与规则层之间结构性的非同步耦合：动力变化传导到规则层的时间差恒大于零且不可消除，使动态适配无法完全闭合。其来源是传导时间差，三浪异步只是充分条件之一。（出处：https://doi.org/10.5281/zenodo.22842961）
