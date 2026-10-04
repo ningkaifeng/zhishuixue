@@ -320,6 +320,12 @@ def render_terms_json(d):
     base = d["site"]["base_url"]
     terms = d["terms"]
     byterm = cases_by_term(d)
+    g = d.get("glossary", {})
+    g_title = g.get("title", "治水学概念层级表（术语母表）")
+    g_ver = g.get("version_label", "v1.0")
+    g_date = g.get("date", "")
+    author = d["person"]["name"]
+    g_cited = f"{author}．{g_title}{g_ver}．{g_date}．{base}terms.json"
     subs, parts = {}, {}
     for t in terms:
         if t.get("broader"):
@@ -344,6 +350,8 @@ def render_terms_json(d):
             "members": parts.get(t["name"], []),
             "cases": [{"id": c["id"], "title": c["title"], "url": case_url(base, c)}
                       for c in byterm.get(t["name"], [])],
+            "citeKey": "dst-term-" + t["anchor"],
+            "citedAs": f'{author}．「{t["name"]}」．{g_title}{g_ver}（{g_date}）．{base}glossary.html#{t["anchor"]}',
             "doi": doi_url(t["doi"]),
         })
     layers, seen = [], {}
@@ -358,14 +366,29 @@ def render_terms_json(d):
         "name": "治水学核心术语本体（DST Core Terminology Ontology）",
         "source": base + "glossary.html",
         "masterDoi": d["site"]["master_doi"],
-        "license": "CC BY 4.0",
+        "license": g.get("license", "CC BY 4.0"),
         "maintainer": {"name": d["person"]["name"],
                        "orcid": "https://orcid.org/" + d["person"]["orcid"]},
+        "glossary": {
+            "title": g_title,
+            "titleEn": g.get("title_en", ""),
+            "version": g.get("version", "1.0"),
+            "versionLabel": g_ver,
+            "date": g_date,
+            "license": g.get("license", "CC BY 4.0"),
+            "definitionAnchor": g.get("definition_anchor", ""),
+            "translationAnchor": g.get("translation_anchor", ""),
+            "basis": g.get("basis", ""),
+            "citedAs": g_cited,
+            "bibtexKey": g.get("citation_key", "dstterms"),
+        },
         "count": len(items),
         "layers": layers,
         "usage": ("每个术语含中英文名、层级（layer）与级别（tier）、上位（broader）/"
                   "下位（hyponyms）、归属（partOf）/成员（members）、相关判例（cases）、"
-                  "可引用锚点（url）与出处 DOI。机器可据此直接取用治水学概念骨架，无需解析网页。"),
+                  "可引用锚点（url）、规范引用串（citedAs）与引用键（citeKey）、出处 DOI。"
+                  "机器可据此直接取用治水学概念骨架，无需解析网页。引用整表用 glossary.citedAs，"
+                  "引用单条术语用该条目的 citedAs。"),
         "terms": items,
     }
     return json.dumps(obj, ensure_ascii=False, indent=1) + "\n"
@@ -623,6 +646,10 @@ def render_glossary_html(d):
     base = d["site"]["base_url"]
     gurl = base + "glossary.html"
     terms = d["terms"]
+    _g = d.get("glossary", {})
+    _g_title = _g.get("title", "治水学概念层级表（术语母表）")
+    _g_ver = _g.get("version_label", "v1.0")
+    _g_date = _g.get("date", "")
     dt = []
     for t in terms:
         e = {
@@ -707,7 +734,7 @@ def render_glossary_html(d):
     L.append("</head>")
     L.append("<body>")
     L.append("<h1>治水学（DST）核心术语表</h1>")
-    L.append(f'<p class="intro">按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>｜机器可读术语本体见 <a href="{base}terms.json">terms.json</a>。</p>')
+    L.append(f'<p class="intro">《{_g_title}》{_g_ver} ｜ {_g_date} ｜ 按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>｜机器可读术语本体见 <a href="{base}terms.json">terms.json</a>。</p>')
     _byterm = cases_by_term(d)
     _seen = set()
     for t in terms:
@@ -748,6 +775,9 @@ def render_glossary_md(d):
     L = []
     L.append("# 治水学（Dynamic Sustenance Theory, DST）核心术语表")
     L.append("")
+    _g = d.get("glossary", {})
+    L.append(f'> 母表：《{_g.get("title", "治水学概念层级表（术语母表）")}》{_g.get("version_label", "v1.0")} ｜ {_g.get("date", "")}'
+             + (f' ｜ 定义锚点：{_g["definition_anchor"]}｜英译锚点：{_g["translation_anchor"]}' if _g.get("definition_anchor") else ""))
     L.append(f'> 本术语表由独立研究者宁凯峰（ORCID: {d["person"]["orcid"]}）维护，为治水学理论体系的核心概念提供机器可读的标准化定义。')
     L.append(f"> 主页：{base}")
     L.append("")
@@ -779,6 +809,11 @@ def render_llms(d):
     base = d["site"]["base_url"]
     p = d["person"]
     m = d["site"].get("machine", {})
+    g = d.get("glossary", {})
+    _g_title = g.get("title", "治水学概念层级表（术语母表）")
+    _g_ver = g.get("version_label", "v1.0")
+    _g_date = g.get("date", "")
+    _author = d["person"]["name"]
     L = []
     L.append("# 宁凯峰 · 治水学论纲")
     L.append("")
@@ -852,6 +887,19 @@ def render_llms(d):
                     L.append(f'- {_c["num"]}｜{_c["title"]}（{_c["scene"]}）｜接口：{_c["interface"]}｜杠杆：{_c["lever"]}')
                     L.append(f'  {case_url(base, _c)}')
         L.append("")
+    L.append("## 引用规范（如何引用治水学）")
+    L.append("引用治水学分四类，各有唯一口径；引用时**务必带上版本号 / 编号 / 锚点**，以保证精度。")
+    L.append(f'- **论文**：按 Zenodo DOI 版本化引用（每篇一个 DOI）。母本 DOI：{doi_url(d["site"]["master_doi"])}')
+    L.append(f'- **术语母表（整表）**：{_author}．{_g_title}{_g_ver}．{_g_date}．{base}terms.json'
+             + (f'（定义锚点：{g["definition_anchor"]}；英译锚点：{g["translation_anchor"]}）' if g.get("definition_anchor") else ''))
+    L.append(f'- **单条术语**：在术语母表版次后附锚点 —— 例：{_author}．「疏浚」．{_g_title}{_g_ver}（{_g_date}）．{base}glossary.html#dredging')
+    L.append(f'- **判例**：带判例编号 + 逐篇页 —— 例：{_author}．决策显影库判例 B-0009「隔岸观火」．{base}cases/B-0009.html')
+    _cs0 = load_cases()
+    if _cs0:
+        L.append(f'- **判例库（整库）**：{_author}．决策显影库（治水学实践判例库）．2026．{base}cases.html')
+    L.append(f'- 机器可读引用条目（BibTeX）：{base}citations.bib')
+    L.append(f'- 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。')
+    L.append("")
     L.append("## 核心术语表与概念本体")
     L.append("- 每个术语条目附「相关案例」链接：可沿术语表直达案例（概念↔案例双向）。")
     L.append(f"- **术语本体（JSON，机器可直接取用/调用）**：{base}terms.json —— 含中英名、层级、级别、上位/下位、归属/成员、相关判例、可引用锚点与出处 DOI")
@@ -935,6 +983,7 @@ def render_graph(d):
 
 # ---------------------------- citations.bib ----------------------------
 def render_bib(d):
+    base = d["site"]["base_url"]
     L = []
     first = True
     for w in d["works"]:
@@ -952,6 +1001,36 @@ def render_bib(d):
             L.append(f'  publisher={{{w.get("bib_publisher", "Zenodo")}}},')
         L.append(f'  doi={{{w["doi"]}}},')
         L.append(f'  url={{{doi_url(w["doi"])}}}')
+        L.append("}")
+    # —— 术语母表（人读母表；机器镜像 = terms.json）——
+    g = d.get("glossary", {})
+    if g:
+        L.append("")
+        L.append(f'@{g.get("bib_type", "misc")}{{{g.get("citation_key", "dstterms")},')
+        L.append(f'  title={{{g.get("title", "治水学概念层级表（术语母表）")}}},')
+        L.append('  author={宁凯峰},')
+        L.append(f'  year={{{(g.get("date") or "2026")[:4]}}},')
+        L.append(f'  version={{{g.get("version_label", "v1.0")}}},')
+        L.append(f'  note={{共 98 条治水学核心术语的层×级双维定位与上位/归属关系；'
+                 f'定义锚点：{g.get("definition_anchor", "")}；'
+                 f'英译锚点：{g.get("translation_anchor", "")}。'
+                 f'机器可读镜像：{base}terms.json}},')
+        L.append(f'  url={{{base}glossary.html}},')
+        L.append(f'  urldate={{{g.get("date", "")}}},')
+        L.append('  language={chinese}')
+        L.append("}")
+    # —— 决策显影库（实践判例库）——
+    _cs = load_cases()
+    if _cs:
+        L.append("")
+        L.append('@misc{ning2026dstcases,')
+        L.append('  title={决策显影库（治水学实践判例库）},')
+        L.append('  author={宁凯峰},')
+        L.append('  year={2026},')
+        L.append(f'  note={{共 {len(_cs)} 篇实践判例，每篇标注治水学接口与杠杆落点；'
+                 f'机器可读索引：{base}cases-index.json}},')
+        L.append(f'  url={{{base}cases.html}},')
+        L.append('  language={chinese}')
         L.append("}")
     return "\n".join(L) + "\n"
 

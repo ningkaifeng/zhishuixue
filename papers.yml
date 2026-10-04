@@ -39,6 +39,24 @@ site:
     bytedance: "9x8XE7vBvbGC1Fpnrll6"
     google: "A7XsLqdS1CtXKPV9g9HabhExlmnGaLH1ChHn4_xBxQI"
 
+# ------------------------------------------------------------
+#  术语母表元数据
+#  人读母表 = 知识库《治水学概念层级表（术语母表）》
+#  机器镜像 = terms.json（随本块版本走）
+#  升版时只改这里的 version / version_label / date 三处
+# ------------------------------------------------------------
+glossary:
+  title: "治水学概念层级表（术语母表）"
+  title_en: "DST Master Term Table (Concept Hierarchy)"
+  version: "1.0"
+  version_label: "v1.0"
+  date: "2026-10-04"
+  license: "CC BY 4.0"
+  definition_anchor: "治水学术语谱系表"
+  translation_anchor: "治水学核心术语英译标准 v1.2"
+  citation_key: "ning2026dstterms"
+  basis: "英译标准 v1.2（92 条）+ 补遗（7 条）− 合并（1 条）= 98 条"
+
 person:
   name: "宁凯峰"
   alternate_name: "Ning Kaifeng"
