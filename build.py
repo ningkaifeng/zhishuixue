@@ -359,9 +359,21 @@ def render_index(d):
         L.append(f'<h2 style="{S["h2"]}">决策显影库（实践案例）</h2>')
         L.append('<p style="margin-top:0; color:#555;">把治水学工具用于真实的历史、商业与治理决策。每篇判例标注所用「治水学接口」与「杠杆落点」，点开可进入完整判例。</p>')
         L.append(f'<div style="{S["ul"]}">')
+        _bycat = {}
         for _c in _cases:
-            L.append(case_card(_c))
-        L.append("</div>")
+            _bycat.setdefault(_c["category"], []).append(_c)
+        if len(_bycat) > 1:
+            L.append("</div>")
+            for _cat in sorted(_bycat):
+                L.append(f'<h3 style="font-size:1.05em;color:#1a4d8f;margin:22px 0 6px;">{_cat}（{len(_bycat[_cat])}）</h3>')
+                L.append(f'<div style="{S["ul"]}">')
+                for _c in _bycat[_cat]:
+                    L.append(case_card(_c))
+                L.append("</div>")
+        else:
+            for _c in _cases:
+                L.append(case_card(_c))
+            L.append("</div>")
     L.append(f'<hr style="{S["foot_hr"]}">')
     L.append(f'<p style="{S["foot"]}">{site["footer"]}</p>')
     L.append("</div>")
