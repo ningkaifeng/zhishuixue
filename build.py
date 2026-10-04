@@ -266,7 +266,7 @@ function render(){
   if(page > pages) page = pages;
   var slice = out.slice((page-1)*PAGE, page*PAGE);
   document.getElementById('list').innerHTML = slice.map(function(c){
-    var con = (c.concepts||[]).map(function(o){return '<a class="cl" href="/glossary.html#'+o.anchor+'">'+esc(o.name)+'</a>';}).join('、');
+    var con = (c.concepts||[]).map(function(o){return o.anchor?('<a class="cl" href="/glossary.html#'+o.anchor+'">'+esc(o.name)+'</a>'):('<span class="cl">'+esc(o.name)+'</span>');}).join('、');
     return '<div class="card"><a class="t" href="'+esc(c.url)+'">'+esc(c.num)+'｜'+esc(c.title)+'</a>'
       + '<div class="m">'+esc(c.category)+' · '+esc(c.scene)+' · '+esc(c.date)+'</div>'
       + '<p class="a">'+esc(c.abstract)+'</p>'
@@ -312,7 +312,29 @@ def render_cases_json(d):
             "source": c.get("source", ""),
             "url": case_url(base, c),
         })
-    return json.dumps({"count": len(items), "cases": items}, ensure_ascii=False, indent=1) + "\n"
+    _names = {t["name"] for t in d["terms"]}
+    _unmounted, _ifaces, _cons, _derived = [], set(), set(), set()
+    for c in items:
+        if not _iface_cell(c.get("interface")):
+            _unmounted.append(c["id"])
+        _b = (c.get("interface") or "").split("（")[0].split("·")[0].strip()
+        if _b and _b not in _names:
+            (_derived if _b in DERIVED_INTERFACE_TERMS else _ifaces).add(_b)
+        for o in c.get("concepts", []):
+            if o.get("name") and not o.get("anchor"):
+                _cons.add(o["name"])
+    _health = {
+        "casesNotMountedInPhases": _unmounted,
+        "interfacesNotInTermTable": sorted(_ifaces),
+        "conceptsNotInTermTable": sorted(_cons),
+        "derivedInterfaces": sorted(_derived),
+        "notes": ("本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / "
+                  "conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 build.py 的 PHASE_BY_TERM 补映射，"
+                  "或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，"
+                  "按决议不进官方母表，单列、不算异常。"),
+    }
+    return json.dumps({"count": len(items), "health": _health, "cases": items},
+                      ensure_ascii=False, indent=1) + "\n"
 
 
 def render_terms_json(d):
@@ -394,6 +416,9 @@ def render_terms_json(d):
     return json.dumps(obj, ensure_ascii=False, indent=1) + "\n"
 
 
+# 显影库自有的衍生接口术语（按决议不纳入官方术语母表；单列，不算异常）
+DERIVED_INTERFACE_TERMS = {"信号层", "响应错位", "响应钝化", "响应锁定", "响应失效"}
+
 # 判例「治水学接口」→ 治水历刻度（用于案例自动挂载；术语按「（」前的主词匹配）
 PHASE_BY_TERM = {
     "结构判断": "P0",
@@ -425,11 +450,15 @@ def render_phases_json(d):
     amap = {t["name"]: t["anchor"] for t in d["terms"]}
     cases = load_cases()
     mount = {}
+    unmounted = []
     for c in cases:
         pid = _iface_cell(c.get("interface"))
         if pid:
             mount.setdefault(pid, []).append(
                 {"id": c["id"], "title": c["title"], "url": case_url(base, c)})
+        else:
+            unmounted.append({"id": c["id"], "title": c["title"],
+                              "interface": c.get("interface", "")})
     lines = []
     lidx = {}
     for ln in ph.get("lines", []):
@@ -473,6 +502,7 @@ def render_phases_json(d):
         "principle": "只给坐标，不给答案；案例天天变，历不变——案例按接口自动挂载，刻度本身不随案例增减。",
         "taboos": ph.get("taboos", []),
         "counts": {"cells": cells_n, "mountedCases": mounted_n, "totalCases": len(cases)},
+        "unmounted": unmounted,
         "howToUse": ph.get("how_to_use", [
             "立界：先问『在哪个系统里、我在不在界内』，并请承压位置的主体确认。",
             "沿三刀走：辨势（三股力各在不在动）→ 定性（脱节走到哪一段）→ 定策（加哪股力）。",
