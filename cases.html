@@ -98,7 +98,7 @@ function render(){
   if(page > pages) page = pages;
   var slice = out.slice((page-1)*PAGE, page*PAGE);
   document.getElementById('list').innerHTML = slice.map(function(c){
-    var con = (c.concepts||[]).map(function(o){return '<a class="cl" href="/glossary.html#'+o.anchor+'">'+esc(o.name)+'</a>';}).join('、');
+    var con = (c.concepts||[]).map(function(o){return o.anchor?('<a class="cl" href="/glossary.html#'+o.anchor+'">'+esc(o.name)+'</a>'):('<span class="cl">'+esc(o.name)+'</span>');}).join('、');
     return '<div class="card"><a class="t" href="'+esc(c.url)+'">'+esc(c.num)+'｜'+esc(c.title)+'</a>'
       + '<div class="m">'+esc(c.category)+' · '+esc(c.scene)+' · '+esc(c.date)+'</div>'
       + '<p class="a">'+esc(c.abstract)+'</p>'
