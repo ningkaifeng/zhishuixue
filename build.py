@@ -20,6 +20,7 @@
 """
 import json
 import os
+import re
 import yaml
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -104,6 +105,131 @@ def load():
 
 def doi_url(doi):
     return "https://doi.org/" + doi
+
+
+# ---------------------------- 决策显影库（案例） ----------------------------
+CASES_FILE = "cases.yml"
+# 自动互链：只链"够独特"的术语，避免 体/相/结构 等短词误链
+AUTOLINK_EXTRA = {"三浪", "三元", "疏浚", "方舟", "祭祀", "存续", "洪水", "失配", "破局"}
+
+
+def load_cases():
+    path = os.path.join(ROOT, CASES_FILE)
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as f:
+        return (yaml.safe_load(f) or {}).get("cases", [])
+
+
+def case_url(base, c):
+    return base + "cases/" + c["id"] + ".html"
+
+
+def _linkable_terms(d):
+    out = {}
+    for t in d["terms"]:
+        n = t["name"]
+        if len(n) >= 3 or n in AUTOLINK_EXTRA:
+            out[n] = t["anchor"]
+    return out
+
+
+def link_concepts(text, d, base):
+    """正文里出现的治水学术语名 -> 自动链接到术语表锚点（长词优先，避免子串误链）"""
+    amap = _linkable_terms(d)
+    if not amap:
+        return text
+    names = sorted(amap, key=len, reverse=True)
+    pattern = re.compile("|".join(re.escape(n) for n in names))
+    return pattern.sub(
+        lambda mo: f'<a class="tlink" href="{base}glossary.html#{amap[mo.group(0)]}">{mo.group(0)}</a>',
+        text)
+
+
+CASE_STYLE = """
+.case-top{font-size:0.9em;color:#555;margin-bottom:18px;}
+.case-meta{font-size:0.85em;color:#888;margin:4px 0;}
+.case-abs{font-size:1.02em;background:#eef4fb;border-left:4px solid #2c7be5;padding:14px 18px;border-radius:0 8px 8px 0;}
+.case-sec{font-size:1em;color:#222;margin:6px 0 20px;}
+.case-note{font-size:0.92em;color:#555;margin:6px 0 20px;background:#f6f6f6;padding:12px 16px;border-radius:8px;}
+.tlink{color:inherit;text-decoration:none;border-bottom:1px dotted #ccc;}
+.tlink:hover{border-bottom:1px solid #333;}
+"""
+
+
+def case_card(c):
+    return (
+        f'<details style="{S["card"]}">\n'
+        f'  <summary style="{S["card_summary"]}">\n'
+        f'    <span style="{S["card_a"]}">{c["card_title"]}</span>\n'
+        f'    <span style="{S["card_meta"]}">{c["card_meta"]}</span>\n'
+        f'  </summary>\n'
+        f'  <p style="{S["card_abs"]}"><b>摘要：</b>{c["abstract"]}</p>\n'
+        f'  <p style="{S["card_cite"]}"><b>接口：</b>{c["interface"]} ｜ <b>杠杆：</b>{c["lever"]}</p>\n'
+        f'  <p style="{S["card_cite"]}"><a href="cases/{c["id"]}.html" style="color:#0066cc;text-decoration:none;">查看完整判例 →</a></p>\n'
+        f'</details>'
+    )
+
+
+def render_case_page(c, d):
+    base = d["site"]["base_url"]
+    url = case_url(base, c)
+    amap = {t["name"]: t["anchor"] for t in d["terms"]}
+    about = [{"@type": "DefinedTerm", "@id": base + "glossary.html#" + amap[nm], "name": nm}
+             for nm in c.get("concepts", []) if nm in amap]
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "@id": url,
+        "name": c["card_title"],
+        "headline": c["title"],
+        "author": {"@id": base + "#person"},
+        "identifier": c["id"],
+        "url": url,
+        "description": c["abstract"],
+        "abstract": c["abstract"],
+        "datePublished": c.get("date"),
+        "inLanguage": "zh-CN",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "keywords": c.get("keywords", []),
+        "isPartOf": {"@type": "CreativeWorkSeries", "name": "治水学·决策显影库", "url": base + "cases/"},
+    }
+    if about:
+        ld["about"] = about
+    if c.get("planet_url"):
+        ld["sameAs"] = [c["planet_url"]]
+
+    L = ["<!DOCTYPE html>", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
+         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+         f'<title>{c["card_title"]} | 治水学·决策显影库</title>',
+         f'<meta name="description" content="{c["abstract"]}">',
+         f'<link rel="canonical" href="{url}">',
+         '<script type="application/ld+json">', j(ld), "</script>",
+         "<style>", GLOSSARY_STYLE, CASE_STYLE, "</style>", "</head>", "<body>",
+         f'<p class="case-top"><a href="{base}">← 治水学主页</a> ｜ <a href="{base}glossary.html">核心术语表</a> ｜ <a href="{base}graph.html">概念图谱</a></p>',
+         f'<h1>{c["num"]}｜{c["title"]}</h1>',
+         f'<p class="case-meta">{c["category"]} ｜ {c["scene"]} ｜ 记录日期：{c.get("date","")} ｜ 许可：{c.get("license","")}</p>',
+         f'<p class="case-abs">{c["abstract"]}</p>']
+    for el in c.get("elements", []):
+        L.append(f'<h2>{el["k"]}</h2>')
+        L.append('<div class="case-sec">' + link_concepts(el["v"].strip(), d, base).replace("\n", "<br>") + "</div>")
+    if about:
+        links = "、".join(f'<a class="tlink" href="{base}glossary.html#{amap[nm]}">{nm}</a>'
+                          for nm in c.get("concepts", []) if nm in amap)
+        L.append("<h2>关联概念</h2>")
+        L.append('<div class="case-sec">' + links + "</div>")
+    if c.get("source_note"):
+        L.append("<h2>信源备注</h2>")
+        L.append('<div class="case-note">' + c["source_note"].strip().replace("\n", "<br>") + "</div>")
+    if c.get("recorder_note"):
+        L.append("<h2>记录人备注</h2>")
+        L.append('<div class="case-note">' + link_concepts(c["recorder_note"].strip(), d, base).replace("\n", "<br>") + "</div>")
+    if c.get("planet_url"):
+        L.append(f'<p class="case-meta">知识星球原文：<a href="{c["planet_url"]}">{c["planet_url"]}</a></p>')
+    L.append(f'<p class="case-meta">本判例收录于「治水学·决策显影库」 ｜ 官网存档：{url}</p>')
+    L.append("</body>")
+    L.append("</html>")
+    return "\n".join(L) + "\n"
 
 
 # ---------------------------- index.html ----------------------------
@@ -227,6 +353,14 @@ def render_index(d):
         for w in d["works"]:
             if w["section"] == sec["id"]:
                 L.append(card_html(w))
+        L.append("</div>")
+    _cases = load_cases()
+    if _cases:
+        L.append(f'<h2 style="{S["h2"]}">决策显影库（实践案例）</h2>')
+        L.append('<p style="margin-top:0; color:#555;">把治水学工具用于真实的历史、商业与治理决策。每篇判例标注所用「治水学接口」与「杠杆落点」，点开可进入完整判例。</p>')
+        L.append(f'<div style="{S["ul"]}">')
+        for _c in _cases:
+            L.append(case_card(_c))
         L.append("</div>")
     L.append(f'<hr style="{S["foot_hr"]}">')
     L.append(f'<p style="{S["foot"]}">{site["footer"]}</p>')
@@ -440,6 +574,15 @@ def render_llms(d):
         for a in m["anchors"]:
             L.append(f"- {a}")
     L.append("")
+    _cs = load_cases()
+    if _cs:
+        L.append("## 决策显影库（实践案例）")
+        L.append("把治水学工具用于真实的历史、商业与治理决策；每篇判例标注所用治水学接口与杠杆落点。")
+        L.append("")
+        for _c in _cs:
+            L.append(f'- {_c["num"]}｜{_c["title"]}（{_c["category"]} · {_c["scene"]}）｜接口：{_c["interface"]}｜杠杆：{_c["lever"]}')
+            L.append(f'  {case_url(base, _c)}')
+        L.append("")
     L.append("## 核心术语表与概念本体")
     L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
     L.append(f"- 术语定义（人类可读）：{base}glossary.md")
@@ -541,7 +684,8 @@ def render_bib(d):
 # ---------------------------- sitemap.xml ----------------------------
 def render_sitemap(d):
     base = d["site"]["base_url"]
-    dates = [w["date"] for w in d["works"] if w.get("date")]
+    _cs = load_cases()
+    dates = [w["date"] for w in d["works"] if w.get("date")] + [_c["date"] for _c in _cs if _c.get("date")]
     lastmod = max(dates) if dates else "2026-01-01"
     pages = [
         (base, "1.0", "weekly"),
@@ -549,6 +693,8 @@ def render_sitemap(d):
         (base + "glossary.md", "0.6", "monthly"),
         (base + "graph.html", "0.7", "monthly"),
     ]
+    for _c in _cs:
+        pages.append((case_url(base, _c), "0.6", "monthly"))
     L = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc, prio, freq in pages:
@@ -578,7 +724,15 @@ def main():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
             f.write(content)
         print(f"  OK dist/{name}  ({len(content)} bytes)")
-    print(f"\n生成完成：{len(d['works'])} 篇作品、{len(d['terms'])} 个术语 -> dist/")
+    _cases = load_cases()
+    if _cases:
+        os.makedirs(os.path.join(DIST, "cases"), exist_ok=True)
+        for _c in _cases:
+            content = render_case_page(_c, d)
+            with open(os.path.join(DIST, "cases", _c["id"] + ".html"), "w", encoding="utf-8") as f:
+                f.write(content)
+            print(f'  OK cases/{_c["id"]}.html  ({len(content)} bytes)')
+    print(f"\n生成完成：{len(d['works'])} 篇作品、{len(d['terms'])} 个术语、{len(_cases)} 篇判例 -> dist/")
 
 
 if __name__ == "__main__":
