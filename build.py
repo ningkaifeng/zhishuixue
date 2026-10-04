@@ -315,6 +315,62 @@ def render_cases_json(d):
     return json.dumps({"count": len(items), "cases": items}, ensure_ascii=False, indent=1) + "\n"
 
 
+def render_terms_json(d):
+    """terms.json —— 治水学术语本体：机器可直接取用/调用（含中英名、层级、上下位、相关判例、可引用锚点）"""
+    base = d["site"]["base_url"]
+    terms = d["terms"]
+    byterm = cases_by_term(d)
+    subs, parts = {}, {}
+    for t in terms:
+        if t.get("broader"):
+            subs.setdefault(t["broader"], []).append(t["name"])
+        if t.get("part_of"):
+            parts.setdefault(t["part_of"], []).append(t["name"])
+    items = []
+    for t in terms:
+        items.append({
+            "id": t["code"],
+            "name": t["name"],
+            "en": t["en"],
+            "anchor": t["anchor"],
+            "url": base + "glossary.html#" + t["anchor"],
+            "definition": t["desc"],
+            "layer": t.get("level", ""),
+            "layerName": t["cat"].split("·")[-1].strip() if t.get("cat") else "",
+            "tier": t.get("tier", ""),
+            "broader": t.get("broader") or None,
+            "partOf": t.get("part_of") or None,
+            "hyponyms": subs.get(t["name"], []),
+            "members": parts.get(t["name"], []),
+            "cases": [{"id": c["id"], "title": c["title"], "url": case_url(base, c)}
+                      for c in byterm.get(t["name"], [])],
+            "doi": doi_url(t["doi"]),
+        })
+    layers, seen = [], {}
+    for t in terms:
+        k = t.get("cat", "")
+        if k not in seen:
+            seen[k] = len(layers)
+            layers.append({"id": t.get("level", ""), "name": k.split("·")[-1].strip(), "count": 0})
+        layers[seen[k]]["count"] += 1
+    obj = {
+        "schema": "dst-terms/1.0",
+        "name": "治水学核心术语本体（DST Core Terminology Ontology）",
+        "source": base + "glossary.html",
+        "masterDoi": d["site"]["master_doi"],
+        "license": "CC BY 4.0",
+        "maintainer": {"name": d["person"]["name"],
+                       "orcid": "https://orcid.org/" + d["person"]["orcid"]},
+        "count": len(items),
+        "layers": layers,
+        "usage": ("每个术语含中英文名、层级（layer）与级别（tier）、上位（broader）/"
+                  "下位（hyponyms）、归属（partOf）/成员（members）、相关判例（cases）、"
+                  "可引用锚点（url）与出处 DOI。机器可据此直接取用治水学概念骨架，无需解析网页。"),
+        "terms": items,
+    }
+    return json.dumps(obj, ensure_ascii=False, indent=1) + "\n"
+
+
 def render_cases_index(d):
     base = d["site"]["base_url"]
     url = base + "cases.html"
@@ -651,7 +707,7 @@ def render_glossary_html(d):
     L.append("</head>")
     L.append("<body>")
     L.append("<h1>治水学（DST）核心术语表</h1>")
-    L.append(f'<p class="intro">按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>。</p>')
+    L.append(f'<p class="intro">按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>｜机器可读术语本体见 <a href="{base}terms.json">terms.json</a>。</p>')
     _byterm = cases_by_term(d)
     _seen = set()
     for t in terms:
@@ -798,6 +854,7 @@ def render_llms(d):
         L.append("")
     L.append("## 核心术语表与概念本体")
     L.append("- 每个术语条目附「相关案例」链接：可沿术语表直达案例（概念↔案例双向）。")
+    L.append(f"- **术语本体（JSON，机器可直接取用/调用）**：{base}terms.json —— 含中英名、层级、级别、上位/下位、归属/成员、相关判例、可引用锚点与出处 DOI")
     L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
     L.append(f"- 术语定义（人类可读）：{base}glossary.md")
     return "\n".join(L) + "\n"
@@ -911,6 +968,7 @@ def render_sitemap(d):
         (base + "glossary.md", "0.6", "monthly"),
         (base + "graph.html", "0.7", "monthly"),
         (base + "cases.html", "0.7", "weekly"),
+        (base + "terms.json", "0.6", "monthly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
@@ -940,6 +998,7 @@ def main():
         "sitemap.xml": render_sitemap(d),
         "cases.html": render_cases_index(d),
         "cases-index.json": render_cases_json(d),
+        "terms.json": render_terms_json(d),
     }
     for name, content in outputs.items():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
