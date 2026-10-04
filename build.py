@@ -394,6 +394,95 @@ def render_terms_json(d):
     return json.dumps(obj, ensure_ascii=False, indent=1) + "\n"
 
 
+# 判例「治水学接口」→ 治水历刻度（用于案例自动挂载；术语按「（」前的主词匹配）
+PHASE_BY_TERM = {
+    "结构判断": "P0",
+    "信号层": "P1",
+    "分层异步": "P4",
+    "响应缺口": "P5",
+    "响应错位": "P15",
+    "响应钝化": "P16",
+    "响应锁定": "P17",
+    "疏浚": "P10",
+    "方舟": "P11",
+    "祭祀": "P12",
+    "破局": "P13",
+}
+
+
+def _iface_cell(interface):
+    """把索引库的接口串映射到刻度 id：特判『对方』语境的响应缺口。"""
+    t = (interface or "").split("（")[0].strip()
+    if t == "响应缺口" and "对方" in (interface or ""):
+        return "P14"
+    return PHASE_BY_TERM.get(t, "")
+
+
+def render_phases_json(d):
+    """phases.json —— 治水历（定位刻度：物候/宜/忌 + 案例自动挂载）"""
+    base = d["site"]["base_url"]
+    ph = d.get("phases", {})
+    amap = {t["name"]: t["anchor"] for t in d["terms"]}
+    cases = load_cases()
+    mount = {}
+    for c in cases:
+        pid = _iface_cell(c.get("interface"))
+        if pid:
+            mount.setdefault(pid, []).append(
+                {"id": c["id"], "title": c["title"], "url": case_url(base, c)})
+    lines = []
+    lidx = {}
+    for ln in ph.get("lines", []):
+        item = {"id": ln["id"], "name": ln["name"], "note": ln.get("note", ""), "cells": []}
+        lines.append(item)
+        lidx[item["id"]] = item
+    defs = {t["name"]: t for t in d["terms"]}
+
+    def _match_term(s):
+        """按『整串 → 去掉 · 后缀 → 去掉（）后缀 → 去掉半角空格』逐级尝试匹配母表术语名。"""
+        for cand in (s.strip(), s.split("·")[0].strip(), s.split("（")[0].strip(),
+                     s.split("（")[0].replace("（", "").strip()):
+            if cand in defs:
+                return cand
+        return ""
+
+    for cel in ph.get("cells", []):
+        c2 = dict(cel)
+        c2["mountedCases"] = mount.get(cel["id"], [])
+        _hit = _match_term(cel.get("term", ""))
+        c2["termAnchor"] = amap.get(_hit, "")
+        c2["termDefined"] = bool(_hit)
+        c2["termLinked"] = _hit
+        lidx[cel["line"]]["cells"].append(c2)
+    cells_n = sum(len(l["cells"]) for l in lines)
+    mounted_n = sum(len(l["cells"][i]["mountedCases"]) for l in lines for i in range(len(l["cells"])))
+    obj = {
+        "schema": "dst-phases/1.0",
+        "title": ph.get("title", "治水历"),
+        "titleEn": ph.get("title_en", ""),
+        "version": ph.get("version", "1.0"),
+        "versionLabel": ph.get("version_label", "v1.0"),
+        "date": ph.get("date", ""),
+        "license": ph.get("license", "CC BY 4.0"),
+        "source": base + "glossary.html",
+        "definitionAnchor": ph.get("definition_anchor", ""),
+        "maintainer": {"name": d["person"]["name"],
+                       "orcid": "https://orcid.org/" + d["person"]["orcid"]},
+        "idea": ph.get("idea", ""),
+        "usage": ph.get("usage", ""),
+        "principle": "只给坐标，不给答案；案例天天变，历不变——案例按接口自动挂载，刻度本身不随案例增减。",
+        "taboos": ph.get("taboos", []),
+        "counts": {"cells": cells_n, "mountedCases": mounted_n, "totalCases": len(cases)},
+        "howToUse": ph.get("how_to_use", [
+            "立界：先问『在哪个系统里、我在不在界内』，并请承压位置的主体确认。",
+            "沿三刀走：辨势（三股力各在不在动）→ 定性（脱节走到哪一段）→ 定策（加哪股力）。",
+            "输出坐标、不给答案：只说落在哪一格、宜什么、忌什么；博弈类另加一镜『观隙』。",
+        ]),
+        "lines": lines,
+    }
+    return json.dumps(obj, ensure_ascii=False, indent=1) + "\n"
+
+
 def render_cases_index(d):
     base = d["site"]["base_url"]
     url = base + "cases.html"
@@ -897,9 +986,34 @@ def render_llms(d):
     _cs0 = load_cases()
     if _cs0:
         L.append(f'- **判例库（整库）**：{_author}．决策显影库（治水学实践判例库）．2026．{base}cases.html')
+    _ph = d.get("phases", {})
+    if _ph:
+        L.append(f'- **治水历（定位刻度）**：{_author}．{_ph.get("title", "治水历")}'
+                 f'{_ph.get("version_label", "v1.0")}．{_ph.get("date", "")}．{base}phases.json')
     L.append(f'- 机器可读引用条目（BibTeX）：{base}citations.bib')
     L.append(f'- 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。')
     L.append("")
+    L.append("## 治水历（定位刻度：怎么给一个局面定位）")
+    _p = d.get("phases", {})
+    if _p:
+        L.append(_p.get("idea", ""))
+        L.append("")
+        _cells = _p.get("cells", [])
+        L.append(f'共 {len(_cells)} 格、{len(_p.get("lines", []))} 条刻度线。{_p.get("usage", "")}。')
+        L.append("**只给坐标，不给答案**；案例按接口自动挂载，刻度本身不随案例增减。")
+        L.append("")
+        for _ln in _p.get("lines", []):
+            L.append(f'### {_ln["name"]}（{_ln.get("note", "")}）')
+            for _c in [x for x in _cells if x["line"] == _ln["id"]]:
+                L.append(f'- **{_c["folk"]}**（{_c["term"]}）：物候——{_c["phenomena"]}；'
+                         f'宜——{_c["good"]}；忌——{_c["avoid"]}')
+            L.append("")
+        L.append("禁忌（贯穿全历）：")
+        for _t in _p.get("taboos", []):
+            L.append(f'- {_t}')
+        L.append("")
+        L.append(f'- 机器可读（含每格自动挂载的判例）：{base}phases.json')
+        L.append("")
     L.append("## 核心术语表与概念本体")
     L.append("- 每个术语条目附「相关案例」链接：可沿术语表直达案例（概念↔案例双向）。")
     L.append(f"- **术语本体（JSON，机器可直接取用/调用）**：{base}terms.json —— 含中英名、层级、级别、上位/下位、归属/成员、相关判例、可引用锚点与出处 DOI")
@@ -1048,6 +1162,7 @@ def render_sitemap(d):
         (base + "graph.html", "0.7", "monthly"),
         (base + "cases.html", "0.7", "weekly"),
         (base + "terms.json", "0.6", "monthly"),
+        (base + "phases.json", "0.7", "monthly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
@@ -1078,6 +1193,7 @@ def main():
         "cases.html": render_cases_index(d),
         "cases-index.json": render_cases_json(d),
         "terms.json": render_terms_json(d),
+        "phases.json": render_phases_json(d),
     }
     for name, content in outputs.items():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
