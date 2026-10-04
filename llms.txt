@@ -418,5 +418,6 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
   https://zhishuixue.com/cases/C-0002.html
 
 ## 核心术语表与概念本体
+- 每个术语条目附「相关案例」链接：可沿术语表直达案例（概念↔案例双向）。
 - 术语定义 + 概念关系图（机器可读）：https://zhishuixue.com/glossary.html
 - 术语定义（人类可读）：https://zhishuixue.com/glossary.md

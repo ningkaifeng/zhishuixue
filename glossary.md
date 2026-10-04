@@ -208,6 +208,7 @@
 - **编号**：DST-D-02
 - **DOI**：10.5281/zenodo.22805434
 - **一句话定义**：规则引导动力去改造、转化、消除压力源；作用对象是压力的生成源。
+- **相关案例**：A-0002｜鲸鱼大楼酬金制账目困局（https://zhishuixue.com/cases/A-0002.html）、A-0003｜长白229街坊充电桩困局（https://zhishuixue.com/cases/A-0003.html）、A-0004｜九里片区“九合一”拆墙并院困局（https://zhishuixue.com/cases/A-0004.html）、B-0002｜围魏救赵（https://zhishuixue.com/cases/B-0002.html）、B-0003｜借刀杀人（https://zhishuixue.com/cases/B-0003.html）、C-0002｜DeepSeek 开源决策（https://zhishuixue.com/cases/C-0002.html）
 
 ### 方舟
 
@@ -215,6 +216,7 @@
 - **编号**：DST-D-03
 - **DOI**：10.5281/zenodo.22805434
 - **一句话定义**：规则引导动力去守护底线、建立防御、维持核心结构稳定；作用对象是系统边界。
+- **相关案例**：A-0001｜业委会秘书“八个严禁”制度边界（https://zhishuixue.com/cases/A-0001.html）
 
 ### 祭祀
 
@@ -222,6 +224,7 @@
 - **编号**：DST-D-04
 - **DOI**：10.5281/zenodo.22805434
 - **一句话定义**：规则引导动力去凝聚共识、校准方向、协调集体行动；作用对象是主体间关系。
+- **相关案例**：B-0001｜瞒天过海（https://zhishuixue.com/cases/B-0001.html）、C-0001｜OpenAI 解雇风波（https://zhishuixue.com/cases/C-0001.html）
 
 ### 疏浚型／方舟型／祭祀型
 
@@ -259,6 +262,7 @@
 - **编号**：DST-E-01
 - **DOI**：10.5281/zenodo.22842961
 - **一句话定义**：动力层与规则层之间结构性的非同步耦合：传导时间差恒大于零且不可消除，使动态适配无法完全闭合。其来源是传导时间差，三浪异步只是充分条件之一。
+- **相关案例**：B-0004｜以逸待劳（https://zhishuixue.com/cases/B-0004.html）
 
 ### 响应缺口
 
@@ -266,6 +270,7 @@
 - **编号**：DST-E-02
 - **DOI**：10.5281/zenodo.22884353
 - **一句话定义**：规则层完成有效响应所需周期，超过系统承受而不发生核心功能损害的时间窗口的部分。响应缺口天然非负——超过窗口才有缺口。
+- **相关案例**：B-0005｜趁火打劫（https://zhishuixue.com/cases/B-0005.html）、B-0006｜声东击西（https://zhishuixue.com/cases/B-0006.html）、B-0007｜无中生有（https://zhishuixue.com/cases/B-0007.html）、B-0008｜暗渡陈仓（https://zhishuixue.com/cases/B-0008.html）
 
 ### 承受窗口
 
@@ -473,6 +478,7 @@
 - **编号**：DST-G-01
 - **DOI**：10.5281/zenodo.23056450
 - **一句话定义**：诊断在认识论层面的视角，是存续域知识的最小单位，是结构维持自身连续性的一个动作。
+- **相关案例**：B-0009｜隔岸观火（https://zhishuixue.com/cases/B-0009.html）
 
 ### 诊断
 
