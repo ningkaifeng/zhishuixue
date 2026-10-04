@@ -1,0 +1,407 @@
+{
+ "schema": "dst-phases/1.0",
+ "title": "治水历",
+ "titleEn": "DST Phases (a positioning calendar)",
+ "version": "1.0",
+ "versionLabel": "v1.0",
+ "date": "2026-10-04",
+ "license": "CC BY 4.0",
+ "source": "https://zhishuixue.com/glossary.html",
+ "definitionAnchor": "治水学概念层级表（术语母表）v1.0",
+ "maintainer": {
+  "name": "宁凯峰",
+  "orcid": "https://orcid.org/0009-0001-4414-6058"
+ },
+ "idea": "像二十四节气：给有限、固定、有序的刻度与物候，只说宜忌类别，不给具体答案；案例天天变，历不变。",
+ "usage": "三步：辨势 → 定性 → 定策（博弈类另加一镜：观隙）",
+ "principle": "只给坐标，不给答案；案例天天变，历不变——案例按接口自动挂载，刻度本身不随案例增减。",
+ "taboos": [
+  "不判对错——只呈结构，不评成败得失，判断权留给使用者",
+  "不代作答——诊断不是答案，只给坐标",
+  "不越尺——个人／组织／国家／文明不共用同一把尺"
+ ],
+ "counts": {
+  "cells": 18,
+  "mountedCases": 15,
+  "totalCases": 15
+ },
+ "howToUse": [
+  "立界：先问『在哪个系统里、我在不在界内』，并请承压位置的主体确认。",
+  "沿三刀走：辨势（三股力各在不在动）→ 定性（脱节走到哪一段）→ 定策（加哪股力）。",
+  "输出坐标、不给答案：只说落在哪一格、宜什么、忌什么；博弈类另加一镜『观隙』。"
+ ],
+ "lines": [
+  {
+   "id": "seq",
+   "name": "序 · 立界",
+   "note": "第一件事，不可跳",
+   "cells": [
+    {
+     "id": "P0",
+     "line": "seq",
+     "folk": "划界",
+     "term": "结构判断·系统边界",
+     "phenomena": "还说不清『这事发生在谁的系统里』",
+     "ask": "这件事在哪个系统里？边界画在哪？我在界内还是界外？",
+     "good": "先写一句话边界声明；由处于承压位置的主体确认",
+     "avoid": "跳过立界直接下判断——边界定，则承载物定、采集方向定、一切定",
+     "mountedCases": [
+      {
+       "id": "B-0009",
+       "title": "隔岸观火",
+       "url": "https://zhishuixue.com/cases/B-0009.html"
+      }
+     ],
+     "termAnchor": "structural-judgment",
+     "termDefined": true,
+     "termLinked": "结构判断"
+    }
+   ]
+  },
+  {
+   "id": "judge",
+   "name": "第一刀 · 辨势",
+   "note": "看三股力，各在不在动",
+   "cells": [
+    {
+     "id": "P1",
+     "line": "judge",
+     "folk": "起风",
+     "term": "突破性动能（→ 信号）",
+     "phenomena": "新变量先动——新技术／新需求／新玩家／新政策出现，某个指标最先变化",
+     "ask": "什么最先动了？谁先注意到的？",
+     "good": "找出最先动的那股力量，追它的源头",
+     "avoid": "把一次性波动当『风』；此时不要急着下结论",
+     "mountedCases": [
+      {
+       "id": "B-0001",
+       "title": "瞒天过海",
+       "url": "https://zhishuixue.com/cases/B-0001.html"
+      }
+     ],
+     "termAnchor": "breakthrough-force",
+     "termDefined": true,
+     "termLinked": "突破性动能"
+    },
+    {
+     "id": "P2",
+     "line": "judge",
+     "folk": "老堤",
+     "term": "稳定性动能（→ 情境第三层）",
+     "phenomena": "制度、流程、结构照旧；『一直都是这么办的』",
+     "ask": "当时受什么约束？什么一直没变？",
+     "good": "把没变的东西列清楚（资源／规则／人员／时间）",
+     "avoid": "低估没变的力量——老堤往往决定成败",
+     "mountedCases": [],
+     "termAnchor": "stability-force",
+     "termDefined": true,
+     "termLinked": "稳定性动能"
+    },
+    {
+     "id": "P3",
+     "line": "judge",
+     "folk": "长河",
+     "term": "方向性动能（→ 预期）",
+     "phenomena": "长期目标、深层共识、集体叙事",
+     "ask": "当时想达到什么？这个方向是谁定的？",
+     "good": "辨认方向由谁锚定；判断它是否仍被多数认同",
+     "avoid": "把大方向当口号——要看它是否在影响具体选择",
+     "mountedCases": [],
+     "termAnchor": "directional-force",
+     "termDefined": true,
+     "termLinked": "方向性动能"
+    },
+    {
+     "id": "P4",
+     "line": "judge",
+     "folk": "水位差",
+     "term": "分层异步",
+     "phenomena": "新水已来、老堤未动——技术快了、制度没跟；上面定了、下面还按老的做",
+     "ask": "这个时间差是真实存在的，还是执行不力？",
+     "good": "确认时间差确实存在，量出它有多大",
+     "avoid": "把正常的时差当失配；不要急于填平——时差恒大于零、不可消除",
+     "mountedCases": [
+      {
+       "id": "B-0004",
+       "title": "以逸待劳",
+       "url": "https://zhishuixue.com/cases/B-0004.html"
+      }
+     ],
+     "termAnchor": "layered-asynchrony",
+     "termDefined": true,
+     "termLinked": "分层异步"
+    }
+   ]
+  },
+  {
+   "id": "locate",
+   "name": "第二刀 · 定性",
+   "note": "脱节走到哪一段——顺着走，不可跳格",
+   "cells": [
+    {
+     "id": "P5",
+     "line": "locate",
+     "folk": "起汛",
+     "term": "响应缺口（自系统）",
+     "phenomena": "开始来不及——同一个问题反复冒头，补救总慢一拍",
+     "ask": "规则层响应周期是否已超过承受窗口？",
+     "good": "量出缺口有多大（个人数周–数月／组织数季度–数年／国家数年–十年／文明数十年–百年，仅经验参照）",
+     "avoid": "把忙不过来当缺口",
+     "mountedCases": [],
+     "termAnchor": "response-gap",
+     "termDefined": true,
+     "termLinked": "响应缺口"
+    },
+    {
+     "id": "P6",
+     "line": "locate",
+     "folk": "见损",
+     "term": "功能损害",
+     "phenomena": "服务受阻／执行停滞／协调失效——出现『烂』的具体表现",
+     "ask": "损害是否可归因于动力-规则适配本身？",
+     "good": "做归因检验：改变适配后若损害仍在，则不可归因于失配",
+     "avoid": "把外部冲击、个别失误算到失配头上",
+     "mountedCases": [],
+     "termAnchor": "functional-impairment",
+     "termDefined": true,
+     "termLinked": "功能损害"
+    },
+    {
+     "id": "P7",
+     "line": "locate",
+     "folk": "偏航",
+     "term": "失配三类型（2+1 结构）",
+     "phenomena": "扩张型＝摊子铺太快、边界失守；保守型＝守着老规矩、错过窗口；空转型＝口号满天飞、落不了地",
+     "ask": "是突破性动能主导（扩张）、稳定性动能主导（保守），还是方向脱离实践（空转）？",
+     "good": "先定类型，再选操作",
+     "avoid": "混判——三型的解法不同",
+     "mountedCases": [],
+     "termAnchor": "three-mismatch-types",
+     "termDefined": true,
+     "termLinked": "失配三类型（2+1 结构）"
+    },
+    {
+     "id": "P8",
+     "line": "locate",
+     "folk": "板结",
+     "term": "锁定模式",
+     "phenomena": "动不了——改革推不动、换人也一样；外部扰动暂时打破后系统仍返回原状态",
+     "ask": "扰动打破之后，系统会不会弹回原状？",
+     "good": "做扰动检验，判断是否已锁定",
+     "avoid": "把暂时困难当锁定",
+     "mountedCases": [],
+     "termAnchor": "lock-in",
+     "termDefined": true,
+     "termLinked": "锁定模式"
+    },
+    {
+     "id": "P9",
+     "line": "locate",
+     "folk": "封冻",
+     "term": "语法锁定",
+     "phenomena": "写进制度、成了结构——『这不是某个人，这是规矩』",
+     "ask": "它断裂了哪条前提？（动力-规则共生／洪水永恒／治水实践先在）",
+     "good": "追断裂前提：疏浚锁定／方舟锁定／祭祀锁定",
+     "avoid": "只换人不换结构",
+     "mountedCases": [],
+     "termAnchor": "syntax-lock-in",
+     "termDefined": true,
+     "termLinked": "语法锁定"
+    }
+   ]
+  },
+  {
+   "id": "act",
+   "name": "第三刀 · 定策",
+   "note": "往哪加力",
+   "cells": [
+    {
+     "id": "P10",
+     "line": "act",
+     "folk": "疏",
+     "term": "疏浚（改源头）",
+     "phenomena": "问题源头明确、可改造",
+     "ask": "压力的生成源在哪？能不能改它？",
+     "good": "开信息／改路径／换出力者／排次序",
+     "avoid": "源头不可及、或改造代价过高时硬疏",
+     "mountedCases": [
+      {
+       "id": "A-0002",
+       "title": "鲸鱼大楼酬金制账目困局",
+       "url": "https://zhishuixue.com/cases/A-0002.html"
+      },
+      {
+       "id": "A-0003",
+       "title": "长白229街坊充电桩困局",
+       "url": "https://zhishuixue.com/cases/A-0003.html"
+      },
+      {
+       "id": "A-0004",
+       "title": "九里片区“九合一”拆墙并院困局",
+       "url": "https://zhishuixue.com/cases/A-0004.html"
+      },
+      {
+       "id": "B-0002",
+       "title": "围魏救赵",
+       "url": "https://zhishuixue.com/cases/B-0002.html"
+      },
+      {
+       "id": "B-0003",
+       "title": "借刀杀人",
+       "url": "https://zhishuixue.com/cases/B-0003.html"
+      },
+      {
+       "id": "C-0002",
+       "title": "DeepSeek 开源决策",
+       "url": "https://zhishuixue.com/cases/C-0002.html"
+      }
+     ],
+     "termAnchor": "dredging",
+     "termDefined": true,
+     "termLinked": "疏浚"
+    },
+    {
+     "id": "P11",
+     "line": "act",
+     "folk": "筑",
+     "term": "方舟（守底线）",
+     "phenomena": "核心功能面临不可逆破坏",
+     "ask": "什么不能失去？底线画在哪？",
+     "good": "先守住资金、信息、决策权等核心功能",
+     "avoid": "守过头——防御过度扩张会变成方舟锁定",
+     "mountedCases": [
+      {
+       "id": "A-0001",
+       "title": "业委会秘书“八个严禁”制度边界",
+       "url": "https://zhishuixue.com/cases/A-0001.html"
+      }
+     ],
+     "termAnchor": "arking",
+     "termDefined": true,
+     "termLinked": "方舟"
+    },
+    {
+     "id": "P12",
+     "line": "act",
+     "folk": "聚",
+     "term": "祭祀（凝共识）",
+     "phenomena": "分歧不在『改不改』，而在『改后利益怎么分』",
+     "ask": "谁是关键少数？他的顾虑是什么？",
+     "good": "先做通少数关键人，把想象的利益受损变成可当面交换的具体利益",
+     "avoid": "把凝聚共识做成统一思想",
+     "mountedCases": [
+      {
+       "id": "C-0001",
+       "title": "OpenAI 解雇风波",
+       "url": "https://zhishuixue.com/cases/C-0001.html"
+      }
+     ],
+     "termAnchor": "sacrificing",
+     "termDefined": true,
+     "termLinked": "祭祀"
+    },
+    {
+     "id": "P13",
+     "line": "act",
+     "folk": "开河",
+     "term": "破局（四步）",
+     "phenomena": "已锁定，但核心底线尚未被击穿",
+     "ask": "属于哪种锁定？（疏浚／方舟／祭祀锁定）",
+     "good": "按锁定类型选一套四步——方舟锁定：祭祀先行→疏浚补能→方舟重构→协同固化；祭祀锁定：疏浚破局→叙事重构→制度固化→协同固化；疏浚锁定：方舟兜底→祭祀校准→精准疏浚→协同固化",
+     "avoid": "核心存续底线已被击穿时，破局路径失效——不承诺『死而复生』",
+     "mountedCases": [],
+     "termAnchor": "unlocking",
+     "termDefined": true,
+     "termLinked": "破局"
+    }
+   ]
+  },
+  {
+   "id": "gap",
+   "name": "一镜 · 观隙",
+   "note": "博弈类专用：反看对方——响应失效四态",
+   "cells": [
+    {
+     "id": "P14",
+     "line": "gap",
+     "folk": "来不及",
+     "term": "响应缺口（对方）· 时间维",
+     "phenomena": "对方的规则层来不及响应，暴露可乘之窗",
+     "ask": "对方是否正处于响应崩溃、无暇他顾的窗口？",
+     "good": "趁其响应崩溃就势出手，得手即收",
+     "avoid": "把假火当真火；火势会反噬自身时不要靠近",
+     "mountedCases": [
+      {
+       "id": "B-0005",
+       "title": "趁火打劫",
+       "url": "https://zhishuixue.com/cases/B-0005.html"
+      }
+     ],
+     "termAnchor": "response-gap",
+     "termDefined": true,
+     "termLinked": "响应缺口"
+    },
+    {
+     "id": "P15",
+     "line": "gap",
+     "folk": "方向错",
+     "term": "响应错位 · 空间维",
+     "phenomena": "对方有明确防守重点，真假目标存在空间差",
+     "ask": "能否用假信号把对方的部署引到错误方向？",
+     "good": "制造声势逼真的假动作（声东），再趁真目标空虚转攻（击西）",
+     "avoid": "与『被钉住』混用——错位是引开，锁定是钉住",
+     "mountedCases": [
+      {
+       "id": "B-0006",
+       "title": "声东击西",
+       "url": "https://zhishuixue.com/cases/B-0006.html"
+      }
+     ],
+     "termAnchor": "",
+     "termDefined": false,
+     "termLinked": ""
+    },
+    {
+     "id": "P16",
+     "line": "gap",
+     "folk": "麻木",
+     "term": "响应钝化 · 敏感度维",
+     "phenomena": "对方有可被反复假信号磨钝的固定响应",
+     "ask": "能否用反复的假信号降低对方的警觉？",
+     "good": "先用假信号骗得真利，再磨钝警觉，最后真动作乘虚突袭",
+     "avoid": "磨钝不等于失效——需确认对方响应确实已迟钝",
+     "mountedCases": [
+      {
+       "id": "B-0007",
+       "title": "无中生有",
+       "url": "https://zhishuixue.com/cases/B-0007.html"
+      }
+     ],
+     "termAnchor": "",
+     "termDefined": false,
+     "termLinked": ""
+    },
+    {
+     "id": "P17",
+     "line": "gap",
+     "folk": "被钉住",
+     "term": "响应锁定 · 锁定维",
+     "phenomena": "对方有明确的、可被锁定的关注点",
+     "ask": "能否用明线把对方的注意力钉死在假方向？",
+     "good": "用明修栈道把对方注意力锁死，再从暗路突袭",
+     "avoid": "与『方向错』混用——锁定是让对方向不动，不是引它动",
+     "mountedCases": [
+      {
+       "id": "B-0008",
+       "title": "暗渡陈仓",
+       "url": "https://zhishuixue.com/cases/B-0008.html"
+      }
+     ],
+     "termAnchor": "",
+     "termDefined": false,
+     "termLinked": ""
+    }
+   ]
+  }
+ ]
+}
