@@ -379,8 +379,36 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 ## 决策显影库（实践案例）
 把治水学工具用于真实的历史、商业与治理决策；每篇判例标注所用治水学接口与杠杆落点。
 
+- A-0001｜业委会秘书“八个严禁”制度边界（A 基层治理 · 制度边界）｜接口：方舟（底线守护）｜杠杆：划底线
+  https://zhishuixue.com/cases/A-0001.html
+- A-0002｜鲸鱼大楼酬金制账目困局（A 基层治理 · 账目与资金）｜接口：疏浚（源头改造）｜杠杆：开信息
+  https://zhishuixue.com/cases/A-0002.html
+- A-0003｜长白229街坊充电桩困局（A 基层治理 · 公共收益与设施）｜接口：疏浚（源头改造）｜杠杆：改路径
+  https://zhishuixue.com/cases/A-0003.html
+- A-0004｜九里片区“九合一”拆墙并院困局（A 基层治理 · 空间改造与合并）｜接口：疏浚（源头改造）｜杠杆：排次序
+  https://zhishuixue.com/cases/A-0004.html
+- B-0001｜瞒天过海（B 历史判例 · 博弈决策）｜接口：信号层（祭祀逆向）｜杠杆：藏信息
+  https://zhishuixue.com/cases/B-0001.html
+- B-0002｜围魏救赵（B 历史判例 · 博弈决策）｜接口：疏浚（改变压力流向）｜杠杆：改优先级
+  https://zhishuixue.com/cases/B-0002.html
+- B-0003｜借刀杀人（B 历史判例 · 博弈决策）｜接口：疏浚（转换出力者）｜杠杆：借第三方
+  https://zhishuixue.com/cases/B-0003.html
+- B-0004｜以逸待劳（B 历史判例 · 博弈决策）｜接口：分层异步（等对方动能衰减）｜杠杆：等衰减
+  https://zhishuixue.com/cases/B-0004.html
+- B-0005｜趁火打劫（B 历史判例 · 博弈决策）｜接口：响应缺口（趁对方响应崩溃）｜杠杆：乘危机
+  https://zhishuixue.com/cases/B-0005.html
+- B-0006｜声东击西（B 历史判例 · 博弈决策）｜接口：响应错位（引导对方部署错位）｜杠杆：调兵力
+  https://zhishuixue.com/cases/B-0006.html
+- B-0007｜无中生有（B 历史判例 · 博弈决策）｜接口：响应钝化（磨钝对方敏感度）｜杠杆：养脱敏
+  https://zhishuixue.com/cases/B-0007.html
+- B-0008｜暗渡陈仓（B 历史判例 · 博弈决策）｜接口：响应锁定（被钉在假方向）｜杠杆：铺明线
+  https://zhishuixue.com/cases/B-0008.html
 - B-0009｜隔岸观火（B 历史判例 · 博弈决策）｜接口：结构判断（系统边界）｜杠杆：划系统边界
   https://zhishuixue.com/cases/B-0009.html
+- C-0001｜OpenAI 解雇风波（C 企业管理 · 组织治理）｜接口：祭祀（承重误判）｜杠杆：辨节点
+  https://zhishuixue.com/cases/C-0001.html
+- C-0002｜DeepSeek 开源决策（C 企业管理 · 战略抉择）｜接口：疏浚（开源造河道）｜杠杆：放技术
+  https://zhishuixue.com/cases/C-0002.html
 
 ## 核心术语表与概念本体
 - 术语定义 + 概念关系图（机器可读）：https://zhishuixue.com/glossary.html
