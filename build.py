@@ -207,7 +207,7 @@ def render_index(d):
     L.append(f'<h1 style="{S["h1"]}">治水学 Dynamic Sustenance Theory (DST)</h1>')
     L.append(f'<p style="{S["sub"]}">独立研究者：{p["name"]} | {p["alternate_name"]}</p>')
     L.append(f'<p style="{S["contact"]}">ORCID：<a href="https://orcid.org/{p["orcid"]}" style="{S["link"]}">{p["orcid"]}</a></p>')
-    L.append(f'<p style="{S["contact"]}">学术邮箱：<a href="mailto:{p["email_primary"]}" style="{S["link"]}">{p["email_primary"]}</a></p>')
+    L.append(f'<p style="{S["contact"]}">机构邮箱：<a href="mailto:{p["email_primary"]}" style="{S["link"]}">{p["email_primary"]}</a></p>')
     L.append(f'<p style="{S["contact"]}">备用邮箱：<a href="mailto:{p["email_backup"]}" style="{S["link"]}">{p["email_backup"]}</a></p>')
     L.append(f'<hr style="{S["hr"]}">')
     L.append(f'<div style="{S["pos"]}">')
