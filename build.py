@@ -60,7 +60,10 @@ h2{font-size:1.05em;color:#1a4d8f;margin-top:28px;margin-bottom:4px;}
 h2.layer{font-size:1.15em;color:#1a4d8f;border-bottom:1px solid #ddd;margin-top:34px;padding-bottom:4px;}
 h3{font-size:1em;margin:16px 0 2px;}
 .tier{font-size:0.75em;color:#888;margin-left:6px;}
-.term-rel{font-size:0.85em;color:#1a4d8f;margin:2px 0;}"""
+.term-rel{font-size:0.85em;color:#1a4d8f;margin:2px 0;}
+.term-cases{font-size:0.85em;color:#1a4d8f;margin:2px 0;}
+.term-case{color:#1a4d8f;text-decoration:none;border-bottom:1px dotted #ccc;}
+.term-case:hover{border-bottom:1px solid #1a4d8f;}"""
 
 # 折叠条目的三角指示器（纯 CSS，无 JS）
 DETAILS_CSS = (
@@ -551,6 +554,15 @@ def render_index(d):
 
 
 # ---------------------------- glossary ----------------------------
+def cases_by_term(d):
+    """术语名 -> 相关案例列表（概念↔案例反向索引）"""
+    by_term = {}
+    for c in load_cases():
+        for n in c.get("concepts", []):
+            by_term.setdefault(n, []).append(c)
+    return by_term
+
+
 def render_glossary_html(d):
     base = d["site"]["base_url"]
     gurl = base + "glossary.html"
@@ -640,6 +652,7 @@ def render_glossary_html(d):
     L.append("<body>")
     L.append("<h1>治水学（DST）核心术语表</h1>")
     L.append(f'<p class="intro">按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>。</p>')
+    _byterm = cases_by_term(d)
     _seen = set()
     for t in terms:
         if t["cat"] not in _seen:
@@ -656,6 +669,10 @@ def render_glossary_html(d):
         if _rel:
             L.append('<p class="term-rel">' + ' ｜ '.join(_rel) + '</p>')
         L.append(f'<p><a class="term-doi" href="{doi_url(t["doi"])}">DOI: {t["doi"]}</a></p>')
+        _rc = _byterm.get(t["name"])
+        if _rc:
+            _links = "、".join(f'<a class="term-case" href="cases/{x["id"]}.html">{x["num"]}｜{x["title"]}</a>' for x in _rc)
+            L.append(f'<p class="term-cases">相关案例：{_links}</p>')
     L.append("</body>")
     L.append("</html>")
     return "\n".join(L) + "\n"
@@ -664,6 +681,7 @@ def render_glossary_html(d):
 def render_glossary_md(d):
     base = d["site"]["base_url"]
     terms = d["terms"]
+    _byterm = cases_by_term(d)
     order, groups = [], {}
     for t in terms:
         c = t["cat"]
@@ -689,6 +707,10 @@ def render_glossary_md(d):
             L.append(f'- **编号**：{t["code"]}')
             L.append(f'- **DOI**：{t["doi"]}')
             L.append(f'- **一句话定义**：{t["desc"]}')
+            _rc = _byterm.get(t["name"])
+            if _rc:
+                _s = "、".join(f'{x["num"]}｜{x["title"]}（{base}cases/{x["id"]}.html）' for x in _rc)
+                L.append(f'- **相关案例**：{_s}')
     L.append("")
     L.append("---")
     L.append("")
@@ -775,6 +797,7 @@ def render_llms(d):
                     L.append(f'  {case_url(base, _c)}')
         L.append("")
     L.append("## 核心术语表与概念本体")
+    L.append("- 每个术语条目附「相关案例」链接：可沿术语表直达案例（概念↔案例双向）。")
     L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
     L.append(f"- 术语定义（人类可读）：{base}glossary.md")
     return "\n".join(L) + "\n"
@@ -835,9 +858,13 @@ def render_graph(d):
     L.append("<h2>上位关系树</h2>")
     L.append('<p class="lv">（缩进表示上位 → 下位；如「存续 → 洪水／体 → 三浪…」）</p>')
 
+    _byterm = cases_by_term(d)
+
     def node(t, depth):
         pad = "&nbsp;" * (depth * 5)
-        s = f'<div class="node">{pad}<a class="tlink" href="{base}glossary.html#{t["anchor"]}">{t["name"]}</a> <span class="term-en">{t["en"]}</span> <span class="lv">{t.get("level","")}·{t.get("tier","")}</span></div>'
+        _n = len(_byterm.get(t["name"], []))
+        _mark = f' <span class="lv">◆{_n}案例</span>' if _n else ''
+        s = f'<div class="node">{pad}<a class="tlink" href="{base}glossary.html#{t["anchor"]}">{t["name"]}</a> <span class="term-en">{t["en"]}</span> <span class="lv">{t.get("level","")}·{t.get("tier","")}</span>{_mark}</div>'
         for c in children.get(t["name"], []):
             s += node(c, depth + 1)
         return s
