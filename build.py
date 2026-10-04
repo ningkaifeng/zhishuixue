@@ -113,12 +113,34 @@ CASES_FILE = "cases.yml"
 AUTOLINK_EXTRA = {"三浪", "三元", "疏浚", "方舟", "祭祀", "存续", "洪水", "失配", "破局"}
 
 
+CASES_HOME = 6          # 主页展示的"最新/精选"案例数
+CASES_DIR = os.path.join(ROOT, "data", "cases")   # 扩容用：每篇一个 yml
+
+
 def load_cases():
+    """案例来源：cases.yml（列表） + data/cases/*.yml（每篇一个），自动去重排序。"""
+    out = []
     path = os.path.join(ROOT, CASES_FILE)
-    if not os.path.exists(path):
-        return []
-    with open(path, encoding="utf-8") as f:
-        return (yaml.safe_load(f) or {}).get("cases", [])
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            out += (yaml.safe_load(f) or {}).get("cases", [])
+    if os.path.isdir(CASES_DIR):
+        for fn in sorted(os.listdir(CASES_DIR)):
+            if not fn.endswith((".yml", ".yaml")):
+                continue
+            with open(os.path.join(CASES_DIR, fn), encoding="utf-8") as f:
+                obj = yaml.safe_load(f) or {}
+            if isinstance(obj, dict):
+                out += obj.get("cases", [])
+            elif isinstance(obj, list):
+                out += obj
+    seen, uniq = set(), []
+    for c in out:
+        if c.get("id") and c["id"] not in seen:
+            seen.add(c["id"])
+            uniq.append(c)
+    uniq.sort(key=lambda c: c["id"])
+    return uniq
 
 
 def case_url(base, c):
@@ -155,6 +177,160 @@ CASE_STYLE = """
 .tlink{color:inherit;text-decoration:none;border-bottom:1px dotted #ccc;}
 .tlink:hover{border-bottom:1px solid #333;}
 """
+
+
+CASES_INDEX_TPL = """<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策显影库（案例总览） | 治水学</title>
+<meta name="description" content="治水学·决策显影库：把治水学工具用于真实历史、商业与治理决策的实践判例总览，可按归目、场景、治水学接口检索。">
+<link rel="canonical" href="__URL__">
+<script type="application/ld+json">
+__LD__
+</script>
+<style>
+body{max-width:860px;margin:0 auto;padding:28px 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.7;color:#222;background:#fafafa;}
+a{color:#0066cc;text-decoration:none;}
+h1{font-size:1.5em;border-bottom:2px solid #1a4d8f;padding-bottom:8px;}
+.top{font-size:0.9em;color:#555;}
+.intro{color:#555;font-size:0.95em;}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
+.ctl input[type=search]{flex:1 1 220px;padding:8px 10px;border:1px solid #ccc;border-radius:8px;font-size:0.95em;}
+.ctl select{padding:8px 6px;border:1px solid #ccc;border-radius:8px;font-size:0.9em;background:#fff;}
+.ctl button{padding:8px 14px;border:1px solid #ccc;border-radius:8px;background:#fff;font-size:0.9em;}
+.stat{color:#888;font-size:0.85em;}
+.card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:12px 16px;margin-bottom:10px;}
+.card .t{font-size:1.02em;color:#1a4d8f;font-weight:500;}
+.card .m{font-size:0.82em;color:#888;}
+.card .a{font-size:0.9em;color:#333;margin:6px 0;}
+.card .k{font-size:0.82em;color:#555;}
+.cl{border-bottom:1px dotted #ccc;}
+.pager{display:flex;align-items:center;gap:12px;justify-content:center;margin:18px 0;}
+.pager button{padding:8px 14px;border:1px solid #ccc;border-radius:8px;background:#fff;}
+.pager span{font-size:0.9em;color:#555;}
+.foot{font-size:0.82em;color:#888;text-align:center;}
+</style>
+</head>
+<body>
+<p class="top"><a href="/">← 治水学主页</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ <a href="/graph.html">概念图谱</a></p>
+<h1>决策显影库（案例总览）</h1>
+<p class="intro">把治水学工具用于真实的历史、商业与治理决策，共 <b id="cnt">__TOTAL__</b> 篇判例；每篇标注所用「治水学接口」与「杠杆落点」。<br>机器可读索引：<a href="/cases-index.json">cases-index.json</a>（供 AI 与检索使用）</p>
+<div class="ctl">
+  <input id="q" type="search" placeholder="搜索：篇名 / 摘要 / 接口 / 杠杆 / 概念">
+  <select id="fc"><option value="">全部归目</option></select>
+  <select id="fs"><option value="">全部场景</option></select>
+  <select id="fi"><option value="">全部接口</option></select>
+  <button id="clr" type="button">清空</button>
+</div>
+<p class="stat" id="stat"></p>
+<div id="list"></div>
+<div class="pager">
+  <button id="prev" type="button">← 上一页</button>
+  <span id="pinfo"></span>
+  <button id="next" type="button">下一页 →</button>
+</div>
+<p class="foot">共 <span id="cnt2">__TOTAL__</span> 篇 · 数据源 cases-index.json</p>
+<script>
+var PAGE = 24, DATA = [], page = 1;
+function esc(s){return (s||'').replace(/[&<>"]/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function fill(sel, key){
+  var set = {};
+  DATA.forEach(function(c){ if(c[key]) set[c[key]] = 1; });
+  var el = document.getElementById(sel);
+  Object.keys(set).sort().forEach(function(v){
+    var o = document.createElement('option'); o.value = v;
+    o.textContent = v + '（' + DATA.filter(function(c){return c[key]===v;}).length + '）';
+    el.appendChild(o);
+  });
+}
+function render(){
+  var q = document.getElementById('q').value.trim().toLowerCase();
+  var fc = document.getElementById('fc').value, fs = document.getElementById('fs').value, fi = document.getElementById('fi').value;
+  var out = DATA.filter(function(c){
+    if(fc && c.category !== fc) return false;
+    if(fs && c.scene !== fs) return false;
+    if(fi && c.interface !== fi) return false;
+    if(q){
+      var hay = [c.num,c.title,c.category,c.scene,c.interface,c.lever,c.abstract,(c.concepts||[]).map(function(o){return o.name;}).join(' ')].join(' ').toLowerCase();
+      if(hay.indexOf(q) < 0) return false;
+    }
+    return true;
+  });
+  document.getElementById('stat').textContent = '匹配 ' + out.length + ' 篇';
+  var pages = Math.max(1, Math.ceil(out.length / PAGE));
+  if(page > pages) page = pages;
+  var slice = out.slice((page-1)*PAGE, page*PAGE);
+  document.getElementById('list').innerHTML = slice.map(function(c){
+    var con = (c.concepts||[]).map(function(o){return '<a class="cl" href="/glossary.html#'+o.anchor+'">'+esc(o.name)+'</a>';}).join('、');
+    return '<div class="card"><a class="t" href="'+esc(c.url)+'">'+esc(c.num)+'｜'+esc(c.title)+'</a>'
+      + '<div class="m">'+esc(c.category)+' · '+esc(c.scene)+' · '+esc(c.date)+'</div>'
+      + '<p class="a">'+esc(c.abstract)+'</p>'
+      + '<div class="k"><b>接口：</b>'+esc(c.interface)+' ｜ <b>杠杆：</b>'+esc(c.lever)+(con?(' ｜ <b>关联概念：</b>'+con):'')+'</div></div>';
+  }).join('');
+  document.getElementById('pinfo').textContent = page + ' / ' + pages;
+  document.getElementById('cnt').textContent = DATA.length;
+  document.getElementById('cnt2').textContent = DATA.length;
+}
+function init(){
+  fill('fc','category'); fill('fs','scene'); fill('fi','interface');
+  ['q','fc','fs','fi'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){ page = 1; render(); });
+  });
+  document.getElementById('clr').addEventListener('click', function(){
+    document.getElementById('q').value = ''; document.getElementById('fc').value = '';
+    document.getElementById('fs').value = ''; document.getElementById('fi').value = ''; page = 1; render();
+  });
+  document.getElementById('prev').addEventListener('click', function(){ if(page > 1){ page--; render(); } });
+  document.getElementById('next').addEventListener('click', function(){ page++; render(); });
+  render();
+}
+fetch('cases-index.json').then(function(r){return r.json();}).then(function(d){ DATA = d.cases || []; init(); })
+  .catch(function(){ document.getElementById('list').innerHTML = '<p>案例数据加载失败；请直接访问 <a href="/cases-index.json">cases-index.json</a>。</p>'; });
+</script>
+</body>
+</html>
+"""
+
+
+def render_cases_json(d):
+    base = d["site"]["base_url"]
+    amap = {t["name"]: t["anchor"] for t in d["terms"]}
+    items = []
+    for c in load_cases():
+        items.append({
+            "id": c["id"], "num": c["num"], "title": c["title"],
+            "category": c.get("category", ""), "scene": c.get("scene", ""),
+            "interface": c.get("interface", ""), "lever": c.get("lever", ""),
+            "date": c.get("date", ""),
+            "concepts": [{"name": n, "anchor": amap.get(n, "")} for n in c.get("concepts", [])],
+            "abstract": c.get("abstract", ""),
+            "source": c.get("source", ""),
+            "url": case_url(base, c),
+        })
+    return json.dumps({"count": len(items), "cases": items}, ensure_ascii=False, indent=1) + "\n"
+
+
+def render_cases_index(d):
+    base = d["site"]["base_url"]
+    url = base + "cases.html"
+    n = len(load_cases())
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": url,
+        "name": "决策显影库（案例总览）",
+        "description": "治水学·决策显影库：把治水学工具用于真实历史、商业与治理决策的实践判例总览，可按归目、场景、治水学接口检索。",
+        "url": url,
+        "inLanguage": "zh-CN",
+        "isPartOf": {"@type": "CreativeWorkSeries", "name": "治水学·决策显影库", "url": url},
+        "about": {"@id": base + "glossary.html"},
+    }
+    return (CASES_INDEX_TPL
+            .replace("__URL__", url)
+            .replace("__LD__", j(ld))
+            .replace("__TOTAL__", str(n)))
 
 
 def case_card(c):
@@ -356,24 +532,16 @@ def render_index(d):
         L.append("</div>")
     _cases = load_cases()
     if _cases:
+        _feat = [c for c in _cases if c.get("featured")]
+        _label = "精选案例" if _feat else "最新案例"
+        _feat = _feat or _cases[-CASES_HOME:]
         L.append(f'<h2 style="{S["h2"]}">决策显影库（实践案例）</h2>')
-        L.append('<p style="margin-top:0; color:#555;">把治水学工具用于真实的历史、商业与治理决策。每篇判例标注所用「治水学接口」与「杠杆落点」，点开可进入完整判例。</p>')
+        L.append(f'<p style="margin-top:0; color:#555;">把治水学工具用于真实的历史、商业与治理决策。现有 <b>{len(_cases)}</b> 篇判例；每篇标注所用「治水学接口」与「杠杆落点」。以下为{_label}：</p>')
         L.append(f'<div style="{S["ul"]}">')
-        _bycat = {}
-        for _c in _cases:
-            _bycat.setdefault(_c["category"], []).append(_c)
-        if len(_bycat) > 1:
-            L.append("</div>")
-            for _cat in sorted(_bycat):
-                L.append(f'<h3 style="font-size:1.05em;color:#1a4d8f;margin:22px 0 6px;">{_cat}（{len(_bycat[_cat])}）</h3>')
-                L.append(f'<div style="{S["ul"]}">')
-                for _c in _bycat[_cat]:
-                    L.append(case_card(_c))
-                L.append("</div>")
-        else:
-            for _c in _cases:
-                L.append(case_card(_c))
-            L.append("</div>")
+        for _c in _feat:
+            L.append(case_card(_c))
+        L.append("</div>")
+        L.append(f'<p style="margin-top:12px;"><a href="cases.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_cases)} 篇案例（可搜索、按归目/场景/接口筛选）→</a></p>')
     L.append(f'<hr style="{S["foot_hr"]}">')
     L.append(f'<p style="{S["foot"]}">{site["footer"]}</p>')
     L.append("</div>")
@@ -588,12 +756,23 @@ def render_llms(d):
     L.append("")
     _cs = load_cases()
     if _cs:
-        L.append("## 决策显影库（实践案例）")
-        L.append("把治水学工具用于真实的历史、商业与治理决策；每篇判例标注所用治水学接口与杠杆落点。")
-        L.append("")
+        _bycat = {}
         for _c in _cs:
-            L.append(f'- {_c["num"]}｜{_c["title"]}（{_c["category"]} · {_c["scene"]}）｜接口：{_c["interface"]}｜杠杆：{_c["lever"]}')
-            L.append(f'  {case_url(base, _c)}')
+            _bycat.setdefault(_c["category"], []).append(_c)
+        _cat_stat = "、".join(f'{_cat} {len(_bycat[_cat])} 篇' for _cat in sorted(_bycat))
+        L.append("## 决策显影库（实践案例）")
+        L.append(f'共 {len(_cs)} 篇判例（{_cat_stat}），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。')
+        L.append("")
+        L.append(f'- 案例机器可读索引（JSON，全部案例的结构化字段）：{base}cases-index.json')
+        L.append(f'- 案例总览（人读，可搜索/筛选）：{base}cases.html')
+        L.append(f'- 逐篇页面：{base}cases/<编号>.html（例：{base}cases/B-0009.html）')
+        if len(_cs) <= 30:
+            L.append("")
+            for _cat in sorted(_bycat):
+                L.append(f'### {_cat}（{len(_bycat[_cat])}）')
+                for _c in _bycat[_cat]:
+                    L.append(f'- {_c["num"]}｜{_c["title"]}（{_c["scene"]}）｜接口：{_c["interface"]}｜杠杆：{_c["lever"]}')
+                    L.append(f'  {case_url(base, _c)}')
         L.append("")
     L.append("## 核心术语表与概念本体")
     L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
@@ -704,6 +883,7 @@ def render_sitemap(d):
         (base + "glossary.html", "0.8", "monthly"),
         (base + "glossary.md", "0.6", "monthly"),
         (base + "graph.html", "0.7", "monthly"),
+        (base + "cases.html", "0.7", "weekly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
@@ -731,6 +911,8 @@ def main():
         "llms.txt": render_llms(d),
         "citations.bib": render_bib(d),
         "sitemap.xml": render_sitemap(d),
+        "cases.html": render_cases_index(d),
+        "cases-index.json": render_cases_json(d),
     }
     for name, content in outputs.items():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
