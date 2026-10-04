@@ -8,6 +8,19 @@
   "name": "宁凯峰",
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
+ "glossary": {
+  "title": "治水学概念层级表（术语母表）",
+  "titleEn": "DST Master Term Table (Concept Hierarchy)",
+  "version": "1.0",
+  "versionLabel": "v1.0",
+  "date": "2026-10-04",
+  "license": "CC BY 4.0",
+  "definitionAnchor": "治水学术语谱系表",
+  "translationAnchor": "治水学核心术语英译标准 v1.2",
+  "basis": "英译标准 v1.2（92 条）+ 补遗（7 条）− 合并（1 条）= 98 条",
+  "citedAs": "宁凯峰．治水学概念层级表（术语母表）v1.0．2026-10-04．https://zhishuixue.com/terms.json",
+  "bibtexKey": "ning2026dstterms"
+ },
  "count": 98,
  "layers": [
   {
@@ -66,7 +79,7 @@
    "count": 1
   }
  ],
- "usage": "每个术语含中英文名、层级（layer）与级别（tier）、上位（broader）/下位（hyponyms）、归属（partOf）/成员（members）、相关判例（cases）、可引用锚点（url）与出处 DOI。机器可据此直接取用治水学概念骨架，无需解析网页。",
+ "usage": "每个术语含中英文名、层级（layer）与级别（tier）、上位（broader）/下位（hyponyms）、归属（partOf）/成员（members）、相关判例（cases）、可引用锚点（url）、规范引用串（citedAs）与引用键（citeKey）、出处 DOI。机器可据此直接取用治水学概念骨架，无需解析网页。引用整表用 glossary.citedAs，引用单条术语用该条目的 citedAs。",
  "terms": [
   {
    "id": "DST-A-01",
@@ -88,6 +101,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-dst",
+   "citedAs": "宁凯峰．「治水学」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#dst",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -105,6 +120,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-master-text",
+   "citedAs": "宁凯峰．「治水学母本」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#master-text",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -122,6 +139,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-meta-question",
+   "citedAs": "宁凯峰．「元问题」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#meta-question",
    "doi": "https://doi.org/10.5281/zenodo.22785849"
   },
   {
@@ -145,6 +164,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-sustenance",
+   "citedAs": "宁凯峰．「存续」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#sustenance",
    "doi": "https://doi.org/10.5281/zenodo.22785849"
   },
   {
@@ -164,6 +185,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-flood",
+   "citedAs": "宁凯峰．「洪水」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#flood",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -183,6 +206,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-sustenance-practice",
+   "citedAs": "宁凯峰．「治水实践」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#sustenance-practice",
    "doi": "https://doi.org/10.5281/zenodo.22789923"
   },
   {
@@ -200,6 +225,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-force-rule-coordination",
+   "citedAs": "宁凯峰．「动力-规则协同」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#force-rule-coordination",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -219,6 +246,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-force-rule-symbiosis",
+   "citedAs": "宁凯峰．「动力-规则共生」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#force-rule-symbiosis",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -236,6 +265,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-force-rule-adaptability",
+   "citedAs": "宁凯峰．「动力-规则适配度」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#force-rule-adaptability",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -263,6 +294,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-ti",
+   "citedAs": "宁凯峰．「体」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#ti",
    "doi": "https://doi.org/10.5281/zenodo.22821896"
   },
   {
@@ -283,6 +316,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-xiang",
+   "citedAs": "宁凯峰．「相」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#xiang",
    "doi": "https://doi.org/10.5281/zenodo.22821896"
   },
   {
@@ -300,6 +335,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-body-phase-correlation",
+   "citedAs": "宁凯峰．「体相关系」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#body-phase-correlation",
    "doi": "https://doi.org/10.5281/zenodo.22821896"
   },
   {
@@ -321,6 +358,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-structure",
+   "citedAs": "宁凯峰．「结构」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#structure",
    "doi": "https://doi.org/10.5281/zenodo.23056450"
   },
   {
@@ -338,6 +377,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-sustenance-priority",
+   "citedAs": "宁凯峰．「存续优先」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#sustenance-priority",
    "doi": "https://doi.org/10.5281/zenodo.22785725"
   },
   {
@@ -355,6 +396,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-perpetuity-of-flood",
+   "citedAs": "宁凯峰．「洪水永恒」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#perpetuity-of-flood",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -372,6 +415,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-practice-precedence",
+   "citedAs": "宁凯峰．「治水实践先在」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#practice-precedence",
    "doi": "https://doi.org/10.5281/zenodo.22789923"
   },
   {
@@ -398,6 +443,8 @@
     "方向性动能"
    ],
    "cases": [],
+   "citeKey": "dst-term-three-waves",
+   "citedAs": "宁凯峰．「三浪」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#three-waves",
    "doi": "https://doi.org/10.5281/zenodo.22795174"
   },
   {
@@ -417,6 +464,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-breakthrough-force",
+   "citedAs": "宁凯峰．「突破性动能」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#breakthrough-force",
    "doi": "https://doi.org/10.5281/zenodo.22795174"
   },
   {
@@ -436,6 +485,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-stability-force",
+   "citedAs": "宁凯峰．「稳定性动能」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#stability-force",
    "doi": "https://doi.org/10.5281/zenodo.22795174"
   },
   {
@@ -455,6 +506,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-directional-force",
+   "citedAs": "宁凯峰．「方向性动能」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#directional-force",
    "doi": "https://doi.org/10.5281/zenodo.22795174"
   },
   {
@@ -472,6 +525,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-tech-wave",
+   "citedAs": "宁凯峰．「技术浪」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#tech-wave",
    "doi": "https://doi.org/10.5281/zenodo.22795174"
   },
   {
@@ -489,6 +544,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-inst-wave",
+   "citedAs": "宁凯峰．「制度浪」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#inst-wave",
    "doi": "https://doi.org/10.5281/zenodo.22795174"
   },
   {
@@ -506,6 +563,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-idea-wave",
+   "citedAs": "宁凯峰．「思想浪」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#idea-wave",
    "doi": "https://doi.org/10.5281/zenodo.22795174"
   },
   {
@@ -525,6 +584,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-three-wave-asynchrony",
+   "citedAs": "宁凯峰．「三浪异步」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#three-wave-asynchrony",
    "doi": "https://doi.org/10.5281/zenodo.22795174"
   },
   {
@@ -542,6 +603,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-three-wave-mismatch",
+   "citedAs": "宁凯峰．「三浪失配」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#three-wave-mismatch",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -559,6 +622,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-power-layer",
+   "citedAs": "宁凯峰．「动力层」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#power-layer",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -587,6 +652,8 @@
     "疏浚型／方舟型／祭祀型"
    ],
    "cases": [],
+   "citeKey": "dst-term-three-phases",
+   "citedAs": "宁凯峰．「三元」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#three-phases",
    "doi": "https://doi.org/10.5281/zenodo.22805434"
   },
   {
@@ -635,6 +702,8 @@
      "url": "https://zhishuixue.com/cases/C-0002.html"
     }
    ],
+   "citeKey": "dst-term-dredging",
+   "citedAs": "宁凯峰．「疏浚」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#dredging",
    "doi": "https://doi.org/10.5281/zenodo.22805434"
   },
   {
@@ -658,6 +727,8 @@
      "url": "https://zhishuixue.com/cases/A-0001.html"
     }
    ],
+   "citeKey": "dst-term-arking",
+   "citedAs": "宁凯峰．「方舟」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#arking",
    "doi": "https://doi.org/10.5281/zenodo.22805434"
   },
   {
@@ -686,6 +757,8 @@
      "url": "https://zhishuixue.com/cases/C-0001.html"
     }
    ],
+   "citeKey": "dst-term-sacrificing",
+   "citedAs": "宁凯峰．「祭祀」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#sacrificing",
    "doi": "https://doi.org/10.5281/zenodo.22805434"
   },
   {
@@ -703,6 +776,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-three-typenames",
+   "citedAs": "宁凯峰．「疏浚型／方舟型／祭祀型」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#three-typenames",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
   },
   {
@@ -720,6 +795,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-three-phase-operations",
+   "citedAs": "宁凯峰．「三元操作」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#three-phase-operations",
    "doi": "https://doi.org/10.5281/zenodo.22805434"
   },
   {
@@ -737,6 +814,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-three-phase-characteristics",
+   "citedAs": "宁凯峰．「三元特征」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#three-phase-characteristics",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
   },
   {
@@ -754,6 +833,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-rule-layer",
+   "citedAs": "宁凯峰．「规则层」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#rule-layer",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -782,6 +863,8 @@
      "url": "https://zhishuixue.com/cases/B-0004.html"
     }
    ],
+   "citeKey": "dst-term-layered-asynchrony",
+   "citedAs": "宁凯峰．「分层异步」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#layered-asynchrony",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -822,6 +905,8 @@
      "url": "https://zhishuixue.com/cases/B-0008.html"
     }
    ],
+   "citeKey": "dst-term-response-gap",
+   "citedAs": "宁凯峰．「响应缺口」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#response-gap",
    "doi": "https://doi.org/10.5281/zenodo.22884353"
   },
   {
@@ -839,6 +924,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-endurance-window",
+   "citedAs": "宁凯峰．「承受窗口」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#endurance-window",
    "doi": "https://doi.org/10.5281/zenodo.22884353"
   },
   {
@@ -856,6 +943,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-functional-impairment",
+   "citedAs": "宁凯峰．「功能损害」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#functional-impairment",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -873,6 +962,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-match",
+   "citedAs": "宁凯峰．「匹配」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#match",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -893,6 +984,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-mismatch",
+   "citedAs": "宁凯峰．「失配」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#mismatch",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -910,6 +1003,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-three-mismatch-types",
+   "citedAs": "宁凯峰．「失配三类型（2+1 结构）」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#three-mismatch-types",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -927,6 +1022,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-expansion-mismatch",
+   "citedAs": "宁凯峰．「扩张型失配」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#expansion-mismatch",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -944,6 +1041,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-conservation-mismatch",
+   "citedAs": "宁凯峰．「保守型失配」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#conservation-mismatch",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -961,6 +1060,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-idling-mismatch",
+   "citedAs": "宁凯峰．「空转型失配」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#idling-mismatch",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
   },
   {
@@ -985,6 +1086,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-syntax-lock-in",
+   "citedAs": "宁凯峰．「语法锁定」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#syntax-lock-in",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
   },
   {
@@ -1004,6 +1107,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-lock-in",
+   "citedAs": "宁凯峰．「锁定模式」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#lock-in",
    "doi": "https://doi.org/10.5281/zenodo.22821896"
   },
   {
@@ -1021,6 +1126,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-dredging-lock-in",
+   "citedAs": "宁凯峰．「疏浚锁定」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#dredging-lock-in",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
   },
   {
@@ -1038,6 +1145,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-arking-lock-in",
+   "citedAs": "宁凯峰．「方舟锁定」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#arking-lock-in",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
   },
   {
@@ -1055,6 +1164,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-sacrificing-lock-in",
+   "citedAs": "宁凯峰．「祭祀锁定」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#sacrificing-lock-in",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
   },
   {
@@ -1072,6 +1183,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-institutional-sedimentation",
+   "citedAs": "宁凯峰．「制度化沉淀」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#institutional-sedimentation",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
   },
   {
@@ -1089,6 +1202,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-mixed-lock-in",
+   "citedAs": "宁凯峰．「混合型锁定」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#mixed-lock-in",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
   },
   {
@@ -1110,6 +1225,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-unlocking",
+   "citedAs": "宁凯峰．「破局」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#unlocking",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1139,6 +1256,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-four-step-unlocking",
+   "citedAs": "宁凯峰．「四步破局法」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#four-step-unlocking",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1156,6 +1275,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-unlocking-causal-chain",
+   "citedAs": "宁凯峰．「解锁因果链」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#unlocking-causal-chain",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1173,6 +1294,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-sacrifice-first",
+   "citedAs": "宁凯峰．「祭祀先行」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#sacrifice-first",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1190,6 +1313,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-dredging-empowerment",
+   "citedAs": "宁凯峰．「疏浚补能」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#dredging-empowerment",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1207,6 +1332,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-arking-reconstruction",
+   "citedAs": "宁凯峰．「方舟重构」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#arking-reconstruction",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1224,6 +1351,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-dredging-breakthrough",
+   "citedAs": "宁凯峰．「疏浚破局」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#dredging-breakthrough",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1241,6 +1370,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-narrative-reconstruction",
+   "citedAs": "宁凯峰．「叙事重构」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#narrative-reconstruction",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1258,6 +1389,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-institutional-consolidation",
+   "citedAs": "宁凯峰．「制度固化」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#institutional-consolidation",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1275,6 +1408,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-arking-backstop",
+   "citedAs": "宁凯峰．「方舟兜底」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#arking-backstop",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1292,6 +1427,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-sacrifice-recalibration",
+   "citedAs": "宁凯峰．「祭祀校准」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#sacrifice-recalibration",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1309,6 +1446,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-precision-dredging",
+   "citedAs": "宁凯峰．「精准疏浚」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#precision-dredging",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1326,6 +1465,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-collaborative-consolidation",
+   "citedAs": "宁凯峰．「协同固化」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#collaborative-consolidation",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1352,6 +1493,8 @@
      "url": "https://zhishuixue.com/cases/B-0009.html"
     }
    ],
+   "citeKey": "dst-term-structural-judgment",
+   "citedAs": "宁凯峰．「结构判断」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#structural-judgment",
    "doi": "https://doi.org/10.5281/zenodo.23056450"
   },
   {
@@ -1374,6 +1517,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-diagnosis",
+   "citedAs": "宁凯峰．「诊断」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#diagnosis",
    "doi": "https://doi.org/10.5281/zenodo.23056450"
   },
   {
@@ -1391,6 +1536,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-pattern",
+   "citedAs": "宁凯峰．「模式」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#pattern",
    "doi": "https://doi.org/10.5281/zenodo.23056450"
   },
   {
@@ -1410,6 +1557,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-problem-domain",
+   "citedAs": "宁凯峰．「问题域」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#problem-domain",
    "doi": "https://doi.org/10.5281/zenodo.22785849"
   },
   {
@@ -1427,6 +1576,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-cognitive-redundancy",
+   "citedAs": "宁凯峰．「认知冗余」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#cognitive-redundancy",
    "doi": "https://doi.org/10.5281/zenodo.22785849"
   },
   {
@@ -1447,6 +1598,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-sustenance-domain-epistemology",
+   "citedAs": "宁凯峰．「存续域认识论」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#sustenance-domain-epistemology",
    "doi": "https://doi.org/10.5281/zenodo.23056450"
   },
   {
@@ -1466,6 +1619,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-epistemology-methodology-unity",
+   "citedAs": "宁凯峰．「认识论与方法论合一」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#epistemology-methodology-unity",
    "doi": "https://doi.org/10.5281/zenodo.23056450"
   },
   {
@@ -1485,6 +1640,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-structure-to-structure",
+   "citedAs": "宁凯峰．「结构到结构」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#structure-to-structure",
    "doi": "https://doi.org/10.5281/zenodo.23056450"
   },
   {
@@ -1509,6 +1666,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-pattern-continuity",
+   "citedAs": "宁凯峰．「模式连续性」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#pattern-continuity",
    "doi": "https://doi.org/10.5281/zenodo.22785562"
   },
   {
@@ -1526,6 +1685,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-carrier-independence",
+   "citedAs": "宁凯峰．「载体独立性」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#carrier-independence",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1543,6 +1704,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-normative-sustenance",
+   "citedAs": "宁凯峰．「规范持存」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#normative-sustenance",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1560,6 +1723,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-symbiotic-extension",
+   "citedAs": "宁凯峰．「共生扩展」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#symbiotic-extension",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1580,6 +1745,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-civilization",
+   "citedAs": "宁凯峰．「文明」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#civilization",
    "doi": "https://doi.org/10.5281/zenodo.22301915"
   },
   {
@@ -1597,6 +1764,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-state",
+   "citedAs": "宁凯峰．「国家」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#state",
    "doi": "https://doi.org/10.5281/zenodo.22301915"
   },
   {
@@ -1616,6 +1785,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-autonomous-knowledge-system",
+   "citedAs": "宁凯峰．「自主知识体系」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#autonomous-knowledge-system",
    "doi": "https://doi.org/10.5281/zenodo.21897465"
   },
   {
@@ -1633,6 +1804,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-six-dimensional-framework",
+   "citedAs": "宁凯峰．「六维能力框架」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#six-dimensional-framework",
    "doi": "https://doi.org/10.5281/zenodo.21897465"
   },
   {
@@ -1655,6 +1828,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-structural-disclosure",
+   "citedAs": "宁凯峰．「显影法」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#structural-disclosure",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1672,6 +1847,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-structural-disclosure-method",
+   "citedAs": "宁凯峰．「结构显影」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#structural-disclosure-method",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1689,6 +1866,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-case",
+   "citedAs": "宁凯峰．「判例」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#case",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1706,6 +1885,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-case-library",
+   "citedAs": "宁凯峰．「实践智慧案例库」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#case-library",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1723,6 +1904,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-seven-question",
+   "citedAs": "宁凯峰．「七问自诊法」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#seven-question",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1740,6 +1923,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-element-distillation",
+   "citedAs": "宁凯峰．「要素归纳法」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#element-distillation",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1757,6 +1942,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-seven-step-loop",
+   "citedAs": "宁凯峰．「七步闭环」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#seven-step-loop",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1774,6 +1961,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-steady-state-sustenance",
+   "citedAs": "宁凯峰．「稳态运维」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#steady-state-sustenance",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1791,6 +1980,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-scale-mapping",
+   "citedAs": "宁凯峰．「尺度映射」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#scale-mapping",
    "doi": "https://doi.org/10.5281/zenodo.22821827"
   },
   {
@@ -1808,6 +1999,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-carrier-substitution-test",
+   "citedAs": "宁凯峰．「换承载物测试」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#carrier-substitution-test",
    "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
@@ -1825,6 +2018,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-anchor",
+   "citedAs": "宁凯峰．「锚点」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#anchor",
    "doi": "https://doi.org/10.5281/zenodo.22821827"
   },
   {
@@ -1845,6 +2040,8 @@
    ],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-addition-subtraction",
+   "citedAs": "宁凯峰．「加减法」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#addition-subtraction",
    "doi": "https://doi.org/10.5281/zenodo.22821827"
   },
   {
@@ -1862,6 +2059,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-snowball-effect",
+   "citedAs": "宁凯峰．「滚雪球」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#snowball-effect",
    "doi": "https://doi.org/10.5281/zenodo.22821827"
   },
   {
@@ -1879,6 +2078,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-dst-interface",
+   "citedAs": "宁凯峰．「治水学接口」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#dst-interface",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1896,6 +2097,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-leverage-point",
+   "citedAs": "宁凯峰．「杠杆落点」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#leverage-point",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1913,6 +2116,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-category",
+   "citedAs": "宁凯峰．「归目」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#category",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   },
   {
@@ -1930,6 +2135,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-ai-governance",
+   "citedAs": "宁凯峰．「AI治理」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#ai-governance",
    "doi": "https://doi.org/10.2139/ssrn.7453298"
   },
   {
@@ -1947,6 +2154,8 @@
    "hyponyms": [],
    "members": [],
    "cases": [],
+   "citeKey": "dst-term-burden-bearing-position",
+   "citedAs": "宁凯峰．「承压位置」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#burden-bearing-position",
    "doi": "https://doi.org/10.5281/zenodo.22698811"
   }
  ]

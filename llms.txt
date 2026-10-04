@@ -417,6 +417,16 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - C-0002｜DeepSeek 开源决策（战略抉择）｜接口：疏浚（开源造河道）｜杠杆：放技术
   https://zhishuixue.com/cases/C-0002.html
 
+## 引用规范（如何引用治水学）
+引用治水学分四类，各有唯一口径；引用时**务必带上版本号 / 编号 / 锚点**，以保证精度。
+- **论文**：按 Zenodo DOI 版本化引用（每篇一个 DOI）。母本 DOI：https://doi.org/10.5281/zenodo.20372186
+- **术语母表（整表）**：宁凯峰．治水学概念层级表（术语母表）v1.0．2026-10-04．https://zhishuixue.com/terms.json（定义锚点：治水学术语谱系表；英译锚点：治水学核心术语英译标准 v1.2）
+- **单条术语**：在术语母表版次后附锚点 —— 例：宁凯峰．「疏浚」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#dredging
+- **判例**：带判例编号 + 逐篇页 —— 例：宁凯峰．决策显影库判例 B-0009「隔岸观火」．https://zhishuixue.com/cases/B-0009.html
+- **判例库（整库）**：宁凯峰．决策显影库（治水学实践判例库）．2026．https://zhishuixue.com/cases.html
+- 机器可读引用条目（BibTeX）：https://zhishuixue.com/citations.bib
+- 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。
+
 ## 核心术语表与概念本体
 - 每个术语条目附「相关案例」链接：可沿术语表直达案例（概念↔案例双向）。
 - **术语本体（JSON，机器可直接取用/调用）**：https://zhishuixue.com/terms.json —— 含中英名、层级、级别、上位/下位、归属/成员、相关判例、可引用锚点与出处 DOI
