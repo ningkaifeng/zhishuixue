@@ -37,7 +37,7 @@ jobs:
             git commit -m "Auto-build site from papers.yml"
             git push
           fi
-       - name: Submit to IndexNow
+      - name: Submit to IndexNow
         if: always()
         run: |
           sleep 20
