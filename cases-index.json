@@ -1,4 +1,15 @@
 {
+ "schema": "dst-cases/1.0",
+ "title": "治水学·决策显影库",
+ "titleEn": "DST Decision Shadowing Case Library",
+ "versionLabel": "v1.0",
+ "date": "2026-10-05",
+ "license": "CC BY 4.0",
+ "source": "https://zhishuixue.com/cases.html",
+ "maintainer": {
+  "name": "宁凯峰",
+  "orcid": "https://orcid.org/0009-0001-4414-6058"
+ },
  "count": 16,
  "health": {
   "casesNotMountedInPhases": [],
