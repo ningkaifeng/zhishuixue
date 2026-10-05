@@ -217,9 +217,9 @@ h1{font-size:1.5em;border-bottom:2px solid #1a4d8f;padding-bottom:8px;}
 </style>
 </head>
 <body>
-<p class="top"><a href="/">← 治水学主页</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ <a href="/graph.html">概念图谱</a> ｜ <a href="/about.html">关于</a></p>
+<p class="top"><a href="/">← 治水学主页</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ <a href="/graph.html">概念图谱</a></p>
 <h1>决策显影库（案例总览）</h1>
-<p class="intro">把治水学工具用于真实的历史、商业与治理决策，共 <b id="cnt">__TOTAL__</b> 篇判例；每篇标注所用「治水学接口」与「杠杆落点」。<br>机器可读索引：<a href="/cases-index.json">cases-index.json</a>（供 AI 与检索使用）</p>
+<p class="intro">把治水学工具用于真实的历史、商业与治理决策，共 <b id="cnt">__TOTAL__</b> 篇判例；每篇标注所用「治水学接口」与「杠杆落点」。</p>
 <div class="ctl">
   <input id="q" type="search" placeholder="搜索：篇名 / 摘要 / 接口 / 杠杆 / 概念">
   <select id="fc"><option value="">全部归目</option></select>
@@ -234,7 +234,7 @@ h1{font-size:1.5em;border-bottom:2px solid #1a4d8f;padding-bottom:8px;}
   <span id="pinfo"></span>
   <button id="next" type="button">下一页 →</button>
 </div>
-<p class="foot">共 <span id="cnt2">__TOTAL__</span> 篇 · 数据源 cases-index.json</p>
+<p class="foot">共 <span id="cnt2">__TOTAL__</span> 篇</p>
 <script>
 var PAGE = 24, DATA = [], page = 1;
 function esc(s){return (s||'').replace(/[&<>"]/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -290,7 +290,7 @@ function init(){
   render();
 }
 fetch('cases-index.json').then(function(r){return r.json();}).then(function(d){ DATA = d.cases || []; init(); })
-  .catch(function(){ document.getElementById('list').innerHTML = '<p>案例数据加载失败；请直接访问 <a href="/cases-index.json">cases-index.json</a>。</p>'; });
+  .catch(function(){ document.getElementById('list').innerHTML = '<p>案例数据加载失败，请刷新页面重试。</p>'; });
 </script>
 </body>
 </html>
@@ -735,7 +735,6 @@ def render_index(d):
     L.append(f'<p style="{S["contact"]}">备用邮箱：<a href="mailto:{p["email_backup"]}" style="{S["link"]}">{p["email_backup"]}</a></p>')
     if p.get("openalex"):
         L.append(f'<p style="{S["contact"]}">作品全集（OpenAlex）：<a href="{p["openalex"]}" style="{S["link"]}">{p["openalex"]}</a></p>')
-    L.append(f'<p style="{S["contact"]}">关于与生长：<a href="{base}about.html" style="{S["link"]}">关于治水学</a> ｜ <a href="{base}growth.json" style="{S["link"]}">生长记录</a> ｜ <a href="{base}llms.txt" style="{S["link"]}">给 AI 的索引</a></p>')
     L.append(f'<hr style="{S["hr"]}">')
     L.append(f'<div style="{S["pos"]}">')
     L.append(f'<p style="{S["pos_t"]}">一句话定位</p>')
@@ -879,7 +878,7 @@ def render_glossary_html(d):
     L.append("</head>")
     L.append("<body>")
     L.append("<h1>治水学（DST）核心术语表</h1>")
-    L.append(f'<p class="intro">《{_g_title}》{_g_ver} ｜ {_g_date} ｜ 按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>｜机器可读术语本体见 <a href="{base}terms.json">terms.json</a>。</p>')
+    L.append(f'<p class="intro">《{_g_title}》{_g_ver} ｜ {_g_date} ｜ 按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>。</p>')
     _byterm = cases_by_term(d)
     _seen = set()
     for t in terms:
