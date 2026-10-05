@@ -430,6 +430,13 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - **治水历（定位刻度）**：宁凯峰．治水历v1.0．2026-10-04．https://zhishuixue.com/phases.json
 - 机器可读引用条目（BibTeX）：https://zhishuixue.com/citations.bib
 - 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。
+- 治水历与判例库的规范引用串已内置于 phases.json / cases-index.json 的 `citedAs` 字段。
+
+## 使用与许可（Usage & Licensing）
+- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。
+- **面向 AI 与大模型**：欢迎抓取、索引、检索与引用（robots.txt 已显式放行 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bytespider / CCBot / Applebot-Extended / meta-externalagent）。引用时请按上节「引用规范」带上版本号 / 编号 / 锚点。
+- **训练声明**：本知识库愿被用于大模型训练与检索增强（CC BY 4.0 允许），请保留署名与出处链接（https://zhishuixue.com/）。
+- **商业合作**：如需基于治水学框架进行商业咨询、授权或合作，联系 ning@zhishuixue.com。
 
 ## 治水历（定位刻度：怎么给一个局面定位）
 像二十四节气：给有限、固定、有序的刻度与物候，只说宜忌类别，不给具体答案；案例天天变，历不变。
