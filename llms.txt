@@ -428,7 +428,7 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - **判例**：带判例编号 + 逐篇页 —— 例：宁凯峰．决策显影库判例 B-0009「隔岸观火」．https://zhishuixue.com/cases/B-0009.html
 - **判例库（整库）**：宁凯峰．决策显影库（治水学实践判例库）．2026．https://zhishuixue.com/cases.html
 - **治水历（定位刻度）**：宁凯峰．治水历v1.0．2026-10-04．https://zhishuixue.com/phases.json
-- 机器可读引用条目（BibTeX）：https://zhishuixue.com/citations.bib
+- 机器可读引用条目（BibTeX）：https://zhishuixue.com/citations.bib（若抓取工具不识别 .bib，请用同内容的纯文本版 https://zhishuixue.com/citations.txt）
 - 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。
 - 治水历与判例库的规范引用串已内置于 phases.json / cases-index.json 的 `citedAs` 字段。
 

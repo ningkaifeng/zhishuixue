@@ -1,0 +1,182 @@
+@misc{ning2026volume0,
+  title={结构到结构——治水学知识形态的认识论奠基},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.23056450},
+  url={https://doi.org/10.5281/zenodo.23056450}
+}
+
+@misc{ning2026d1,
+  title={治水学论纲·第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22785849},
+  url={https://doi.org/10.5281/zenodo.22785849}
+}
+
+@misc{ning2026d2,
+  title={治水学论纲·第二篇：存续优先——一个践言冲突论证},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22785725},
+  url={https://doi.org/10.5281/zenodo.22785725}
+}
+
+@misc{ning2026d3,
+  title={治水学论纲·第三篇：模式连续性——流变中的同一性如何可能},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22785562},
+  url={https://doi.org/10.5281/zenodo.22785562}
+}
+
+@misc{ning2026d4,
+  title={治水学论纲·第四篇：治水实践先在——系统的存续相关属性如何在治水实践中生成并维持},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22789923},
+  url={https://doi.org/10.5281/zenodo.22789923}
+}
+
+@misc{ning2026d5,
+  title={治水学论纲·第五篇：三浪不可还原——系统动力的三个维度},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22795174},
+  url={https://doi.org/10.5281/zenodo.22795174}
+}
+
+@misc{ning2026d6,
+  title={治水学论纲·第六篇：三元互斥穷尽——规则约束的三种元操作},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22805434},
+  url={https://doi.org/10.5281/zenodo.22805434}
+}
+
+@misc{ning2026d7,
+  title={治水学论纲·第七篇：体相关系——动力层与特征层的生成耦合},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22821896},
+  url={https://doi.org/10.5281/zenodo.22821896}
+}
+
+@misc{ning2026d8,
+  title={治水学论纲·第八篇：分层异步——动力-规则共生的核心机制},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22842961},
+  url={https://doi.org/10.5281/zenodo.22842961}
+}
+
+@misc{ning2026d9,
+  title={治水学论纲·第九篇：语法锁定——失配在结构层的制度化沉淀},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.23113642},
+  url={https://doi.org/10.5281/zenodo.23113642}
+}
+
+@book{ning2026aks1,
+  title={治水文明与自主知识体系建设},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.21753086},
+  url={https://doi.org/10.5281/zenodo.21753086}
+}
+
+@misc{ning2026aks2,
+  title={自主知识体系的概念重构与六维能力框架},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.21897465},
+  url={https://doi.org/10.5281/zenodo.21897465}
+}
+
+@misc{ning2026aks3,
+  title={关于“文明”、“国家”与“自主知识体系”的重定义},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22301915},
+  url={https://doi.org/10.5281/zenodo.22301915}
+}
+
+@misc{ning2026en1,
+  title={Why AI Governance Must Be Dynamic: Pattern Continuity as the Ontological Ground for Diagnostic Governance},
+  author={宁凯峰},
+  year={2026},
+  howpublished={SSRN Working Paper},
+  doi={10.2139/ssrn.7453298},
+  url={https://doi.org/10.2139/ssrn.7453298}
+}
+
+@misc{ning2026en2,
+  title={Method, Not Stance: Structural Disclosure as an Operative Methodology for Human-AI Division of Labor},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22698811},
+  url={https://doi.org/10.5281/zenodo.22698811}
+}
+
+@misc{ning2026en3,
+  title={Why Law Always Lags AI: A Dynamic Sustenance Theory Analysis of AI Governance},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22884353},
+  url={https://doi.org/10.5281/zenodo.22884353}
+}
+
+@book{ning2026zhishuitu,
+  title={治水图：一个普通人的秩序重建日志（治水学·发生学卷）},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.22821827},
+  url={https://doi.org/10.5281/zenodo.22821827}
+}
+
+@misc{ning2026dstterms,
+  title={治水学概念层级表（术语母表）},
+  author={宁凯峰},
+  year={2026},
+  version={v1.0},
+  note={共 98 条治水学核心术语的层×级双维定位与上位/归属关系；定义锚点：治水学术语谱系表；英译锚点：治水学核心术语英译标准 v1.2。机器可读镜像：https://zhishuixue.com/terms.json},
+  url={https://zhishuixue.com/glossary.html},
+  urldate={2026-10-04},
+  language={chinese}
+}
+
+@misc{ning2026dstcases,
+  title={决策显影库（治水学实践判例库）},
+  author={宁凯峰},
+  year={2026},
+  note={共 16 篇实践判例，每篇标注治水学接口与杠杆落点；机器可读索引：https://zhishuixue.com/cases-index.json},
+  url={https://zhishuixue.com/cases.html},
+  language={chinese}
+}
+
+@misc{ning2026dstphases,
+  title={治水历（治水学定位刻度）},
+  author={宁凯峰},
+  year={2026},
+  version={v1.0},
+  note={治水学定位刻度：18 格 + 3 禁忌，案例按「治水学接口」自动挂载；机器可读镜像：https://zhishuixue.com/phases.json},
+  url={https://zhishuixue.com/phases.json},
+  language={chinese}
+}
