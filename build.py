@@ -345,6 +345,9 @@ def render_cases_json(d):
         "source": base + "cases.html",
         "maintainer": {"name": d["person"]["name"],
                        "orcid": "https://orcid.org/" + d["person"]["orcid"]},
+        "citeKey": "dst-cases-" + cm.get("version_label", "v1.0"),
+        "citedAs": f'{d["person"]["name"]}．{cm.get("title", "治水学·决策显影库")}'
+                    f'{cm.get("version_label", "v1.0")}．{max(_dates) if _dates else ""}．{base}cases-index.json',
         "count": len(items),
         "health": _health,
         "cases": items,
@@ -512,6 +515,9 @@ def render_phases_json(d):
         "definitionAnchor": ph.get("definition_anchor", ""),
         "maintainer": {"name": d["person"]["name"],
                        "orcid": "https://orcid.org/" + d["person"]["orcid"]},
+        "citeKey": "dst-phases-" + ph.get("version_label", "v1.0"),
+        "citedAs": f'{d["person"]["name"]}．{ph.get("title", "治水历")}{ph.get("version_label", "v1.0")}'
+                    f'．{ph.get("date", "")}．{base}phases.json',
         "idea": ph.get("idea", ""),
         "usage": ph.get("usage", ""),
         "principle": "只给坐标，不给答案；案例天天变，历不变——案例按接口自动挂载，刻度本身不随案例增减。",
@@ -1043,6 +1049,13 @@ def render_llms(d):
                  f'{_ph.get("version_label", "v1.0")}．{_ph.get("date", "")}．{base}phases.json')
     L.append(f'- 机器可读引用条目（BibTeX）：{base}citations.bib')
     L.append(f'- 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。')
+    L.append(f'- 治水历与判例库的规范引用串已内置于 phases.json / cases-index.json 的 `citedAs` 字段。')
+    L.append("")
+    L.append("## 使用与许可（Usage & Licensing）")
+    L.append("- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。")
+    L.append("- **面向 AI 与大模型**：欢迎抓取、索引、检索与引用（robots.txt 已显式放行 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bytespider / CCBot / Applebot-Extended / meta-externalagent）。引用时请按上节「引用规范」带上版本号 / 编号 / 锚点。")
+    L.append(f'- **训练声明**：本知识库愿被用于大模型训练与检索增强（CC BY 4.0 允许），请保留署名与出处链接（{base}）。')
+    L.append(f'- **商业合作**：如需基于治水学框架进行商业咨询、授权或合作，联系 {p["email_primary"]}。')
     L.append("")
     L.append("## 治水历（定位刻度：怎么给一个局面定位）")
     _p = d.get("phases", {})
@@ -1195,6 +1208,20 @@ def render_bib(d):
         L.append(f'  note={{共 {len(_cs)} 篇实践判例，每篇标注治水学接口与杠杆落点；'
                  f'机器可读索引：{base}cases-index.json}},')
         L.append(f'  url={{{base}cases.html}},')
+        L.append('  language={chinese}')
+        L.append("}")
+    # —— 治水历（定位刻度）——
+    _ph = d.get("phases", {})
+    if _ph:
+        L.append("")
+        L.append('@misc{ning2026dstphases,')
+        L.append(f'  title={{{_ph.get("title", "治水历")}（治水学定位刻度）}},')
+        L.append('  author={宁凯峰},')
+        L.append(f'  year={{{(_ph.get("date") or "2026")[:4]}}},')
+        L.append(f'  version={{{_ph.get("version_label", "v1.0")}}},')
+        L.append(f'  note={{治水学定位刻度：18 格 + 3 禁忌，案例按「治水学接口」自动挂载；'
+                 f'机器可读镜像：{base}phases.json}},')
+        L.append(f'  url={{{base}phases.json}},')
         L.append('  language={chinese}')
         L.append("}")
     return "\n".join(L) + "\n"
