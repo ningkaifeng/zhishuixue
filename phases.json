@@ -22,8 +22,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 15,
-  "totalCases": 15
+  "mountedCases": 16,
+  "totalCases": 16
  },
  "unmounted": [],
  "howToUse": [
@@ -291,6 +291,11 @@
      "good": "先做通少数关键人，把想象的利益受损变成可当面交换的具体利益",
      "avoid": "把凝聚共识做成统一思想",
      "mountedCases": [
+      {
+       "id": "B-0010",
+       "title": "笑里藏刀",
+       "url": "https://zhishuixue.com/cases/B-0010.html"
+      },
       {
        "id": "C-0001",
        "title": "OpenAI 解雇风波",

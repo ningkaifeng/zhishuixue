@@ -1,5 +1,5 @@
 {
- "count": 15,
+ "count": 16,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -259,6 +259,25 @@
    "abstract": "袁绍死后二子相争，曹操按兵不动、坐观内斗。精妙不在不动手，而在划清系统边界——看准火在“袁家子系统”里烧、自己不在其内，才敢隔岸；等二袁自耗殆尽，逐个击破。",
    "source": "《三国志·魏书·袁绍传》《后汉书·袁绍刘表列传》等",
    "url": "https://zhishuixue.com/cases/B-0009.html"
+  },
+  {
+   "id": "B-0010",
+   "num": "B-0010",
+   "title": "笑里藏刀",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "祭祀（共识凝聚）",
+   "lever": "制造亲善共识",
+   "date": "2026-10-05",
+   "concepts": [
+    {
+     "name": "祭祀",
+     "anchor": "sacrificing"
+    }
+   ],
+   "abstract": "郑武公欲伐胡，不硬攻，先嫁女结亲、再当众诛杀主张伐胡的大夫关其思，让胡君认定郑国把自己当亲兄弟、从此不备，最后袭胡灭之。精妙在用两个“善意证据”主动制造“亲善”共识、解除对方戒备，而非隐藏敌意；与瞒天过海（利用已有惯性）相对，这是祭祀（共识凝聚）的正向运用。",
+   "source": "《韩非子·说难》",
+   "url": "https://zhishuixue.com/cases/B-0010.html"
   },
   {
    "id": "C-0001",
