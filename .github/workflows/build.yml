@@ -1,5 +1,5 @@
 name: Build site from papers.yml
-
+ 
 on:
   push:
     branches: [ main ]
@@ -7,11 +7,13 @@ on:
       - "papers.yml"
       - "cases.yml"
       - "build.py"
+      - "indexnow.py"
+      - ".github/workflows/build.yml"
   workflow_dispatch:
-
+ 
 permissions:
   contents: write
-
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,3 +37,9 @@ jobs:
             git commit -m "Auto-build site from papers.yml"
             git push
           fi
+       - name: Submit to IndexNow
+        if: always()
+        run: |
+          sleep 20
+          python3 indexnow.py || true
+ 
