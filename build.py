@@ -1047,7 +1047,7 @@ def render_llms(d):
     if _ph:
         L.append(f'- **治水历（定位刻度）**：{_author}．{_ph.get("title", "治水历")}'
                  f'{_ph.get("version_label", "v1.0")}．{_ph.get("date", "")}．{base}phases.json')
-    L.append(f'- 机器可读引用条目（BibTeX）：{base}citations.bib')
+    L.append(f'- 机器可读引用条目（BibTeX）：{base}citations.bib（若抓取工具不识别 .bib，请用同内容的纯文本版 {base}citations.txt）')
     L.append(f'- 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。')
     L.append(f'- 治水历与判例库的规范引用串已内置于 phases.json / cases-index.json 的 `citedAs` 字段。')
     L.append("")
@@ -1372,6 +1372,7 @@ def render_sitemap(d):
         (base + "cases-index.json", "0.6", "weekly"),
         (base + "about.html", "0.8", "monthly"),
         (base + "growth.json", "0.6", "weekly"),
+        (base + "citations.txt", "0.5", "monthly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
@@ -1398,6 +1399,7 @@ def main():
         "graph.html": render_graph(d),
         "llms.txt": render_llms(d),
         "citations.bib": render_bib(d),
+        "citations.txt": render_bib(d),
         "sitemap.xml": render_sitemap(d),
         "cases.html": render_cases_index(d),
         "cases-index.json": render_cases_json(d),
