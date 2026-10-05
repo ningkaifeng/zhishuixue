@@ -333,8 +333,23 @@ def render_cases_json(d):
                   "或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，"
                   "按决议不进官方母表，单列、不算异常。"),
     }
-    return json.dumps({"count": len(items), "health": _health, "cases": items},
-                      ensure_ascii=False, indent=1) + "\n"
+    cm = d.get("cases_meta", {})
+    _dates = [c.get("date") for c in items if c.get("date")]
+    header = {
+        "schema": "dst-cases/1.0",
+        "title": cm.get("title", "治水学·决策显影库"),
+        "titleEn": cm.get("title_en", "DST Decision Shadowing Case Library"),
+        "versionLabel": cm.get("version_label", "v1.0"),
+        "date": max(_dates) if _dates else "",
+        "license": cm.get("license", "CC BY 4.0"),
+        "source": base + "cases.html",
+        "maintainer": {"name": d["person"]["name"],
+                       "orcid": "https://orcid.org/" + d["person"]["orcid"]},
+        "count": len(items),
+        "health": _health,
+        "cases": items,
+    }
+    return json.dumps(header, ensure_ascii=False, indent=1) + "\n"
 
 
 def render_terms_json(d):
@@ -712,6 +727,8 @@ def render_index(d):
     L.append(f'<p style="{S["contact"]}">ORCID：<a href="https://orcid.org/{p["orcid"]}" style="{S["link"]}">{p["orcid"]}</a></p>')
     L.append(f'<p style="{S["contact"]}">机构邮箱：<a href="mailto:{p["email_primary"]}" style="{S["link"]}">{p["email_primary"]}</a></p>')
     L.append(f'<p style="{S["contact"]}">备用邮箱：<a href="mailto:{p["email_backup"]}" style="{S["link"]}">{p["email_backup"]}</a></p>')
+    if p.get("openalex"):
+        L.append(f'<p style="{S["contact"]}">作品全集（OpenAlex）：<a href="{p["openalex"]}" style="{S["link"]}">{p["openalex"]}</a></p>')
     L.append(f'<hr style="{S["hr"]}">')
     L.append(f'<div style="{S["pos"]}">')
     L.append(f'<p style="{S["pos_t"]}">一句话定位</p>')
@@ -744,6 +761,8 @@ def render_index(d):
         L.append("</div>")
         L.append(f'<p style="margin-top:12px;"><a href="cases.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_cases)} 篇案例（可搜索、按归目/场景/接口筛选）→</a></p>')
     L.append(f'<hr style="{S["foot_hr"]}">')
+    if site.get("contact_note"):
+        L.append(f'<p style="{S["foot"]}">{site["contact_note"]}</p>')
     L.append(f'<p style="{S["foot"]}">{site["footer"]}</p>')
     L.append("</div>")
     L.append("</body>")
@@ -947,6 +966,8 @@ def render_llms(d):
     L.append(f"- 主页：{base}")
     L.append(f'- ORCID：https://orcid.org/{p["orcid"]}')
     L.append(f'- Academia.edu：{p["academia"]}')
+    if p.get("openalex"):
+        L.append(f'- OpenAlex（作品全集）：{p["openalex"]}')
     for sec in d["sections"]:
         works = [w for w in d["works"] if w["section"] == sec["id"]]
         if not works:
@@ -1193,6 +1214,7 @@ def render_sitemap(d):
         (base + "cases.html", "0.7", "weekly"),
         (base + "terms.json", "0.6", "monthly"),
         (base + "phases.json", "0.7", "monthly"),
+        (base + "cases-index.json", "0.6", "weekly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))

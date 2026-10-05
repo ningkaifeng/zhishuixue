@@ -19,6 +19,7 @@ site:
   master_doi: "10.5281/zenodo.20372186"
   master_label: "治水学 v15.0（元辩护版）"
   footer: "洪水不止，治水不息。"
+  contact_note: "合作入口：治水学理论体系与决策显影库已开源（CC BY 4.0）。如需基于该框架进行商业咨询、合作或授权（AI 智能体授权 · 系统存续诊断 · 出版与翻译），请联系上方机构邮箱。"
   series_total: 38
   machine:
     positioning_en: "Dynamic Sustenance Theory (DST) is an ontological framework for complex adaptive systems. Core claim: a system persists not by staying unchanged, but by maintaining structural continuity under flux. Core mechanism: force-rule symbiosis. Key concepts: Three Waves, Three Phases, Ti-Xiang Correlation, Layered Asynchrony, Syntax Lock-in."
@@ -237,6 +238,12 @@ phases:
       ask: "能否用明线把对方的注意力钉死在假方向？"
       good: "用明修栈道把对方注意力锁死，再从暗路突袭"
       avoid: "与『方向错』混用——锁定是让对方向不动，不是引它动"
+
+cases_meta:
+  title: "治水学·决策显影库"
+  title_en: "DST Decision Shadowing Case Library"
+  version_label: "v1.0"
+  license: "CC BY 4.0"
 
 person:
   name: "宁凯峰"
