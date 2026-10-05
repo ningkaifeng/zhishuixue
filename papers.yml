@@ -20,6 +20,7 @@ site:
   master_label: "治水学 v15.0（元辩护版）"
   footer: "洪水不止，治水不息。"
   contact_note: "合作入口：治水学理论体系与决策显影库已开源（CC BY 4.0）。如需基于该框架进行商业咨询、合作或授权（AI 智能体授权 · 系统存续诊断 · 出版与翻译），请联系上方机构邮箱。"
+  indexnow_key: "1a61bd608d303403a7f909bb1718b51f"
   series_total: 38
   machine:
     positioning_en: "Dynamic Sustenance Theory (DST) is an ontological framework for complex adaptive systems. Core claim: a system persists not by staying unchanged, but by maintaining structural continuity under flux. Core mechanism: force-rule symbiosis. Key concepts: Three Waves, Three Phases, Ti-Xiang Correlation, Layered Asynchrony, Syntax Lock-in."
@@ -238,6 +239,24 @@ phases:
       ask: "能否用明线把对方的注意力钉死在假方向？"
       good: "用明修栈道把对方注意力锁死，再从暗路突袭"
       avoid: "与『方向错』混用——锁定是让对方向不动，不是引它动"
+
+about:
+  title: "关于治水学"
+  title_en: "About Dynamic Sustenance Theory (DST)"
+  intro: "治水学（Dynamic Sustenance Theory, DST）是由独立研究者宁凯峰创立的一套面向复杂适应系统的存续分析元理论。它回答的不是“系统如何演化”，而是“系统如何在永恒流变中维持自身存续”——并以一套可诊断、可干预的语法，把这一视角变成可操作的工具。"
+  what:
+    - "论文：治水学论纲系列（含第零卷认识论奠基，及第一至第九篇等），每篇一个 Zenodo DOI。"
+    - "术语母表：98 条核心术语，含中英名、层级、上下位与归属关系；机器镜像为 terms.json。"
+    - "决策显影库：把治水学工具用于真实历史、商业与治理决策的实践判例；机器索引为 cases-index.json。"
+    - "治水历：定位刻度——只给坐标、不给答案，案例按“治水学接口”自动挂载；机器镜像为 phases.json。"
+  open: "本知识体系以 CC BY 4.0 开放：欢迎任何人（包括 AI 与大模型）抓取、索引、引用、再分发与训练，署名“宁凯峰 / 治水学（DST）”即可。"
+  collab: "如需基于该框架进行商业咨询、合作或授权（AI 智能体授权 · 系统存续诊断 · 出版与翻译），请联系机构邮箱。"
+
+growth:
+  title: "治水学·生长记录"
+  title_en: "DST Growth Log"
+  version_label: "v1.0"
+  note: "本文件由 build.py 自动生成：从 papers.yml（论文）与 cases.yml（判例）的日期字段汇总，反映“知识库如何逐日长大”，供 AI 与检索判断其时效与规模。"
 
 cases_meta:
   title: "治水学·决策显影库"

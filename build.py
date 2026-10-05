@@ -217,7 +217,7 @@ h1{font-size:1.5em;border-bottom:2px solid #1a4d8f;padding-bottom:8px;}
 </style>
 </head>
 <body>
-<p class="top"><a href="/">← 治水学主页</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ <a href="/graph.html">概念图谱</a></p>
+<p class="top"><a href="/">← 治水学主页</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ <a href="/graph.html">概念图谱</a> ｜ <a href="/about.html">关于</a></p>
 <h1>决策显影库（案例总览）</h1>
 <p class="intro">把治水学工具用于真实的历史、商业与治理决策，共 <b id="cnt">__TOTAL__</b> 篇判例；每篇标注所用「治水学接口」与「杠杆落点」。<br>机器可读索引：<a href="/cases-index.json">cases-index.json</a>（供 AI 与检索使用）</p>
 <div class="ctl">
@@ -735,6 +735,7 @@ def render_index(d):
     L.append(f'<p style="{S["contact"]}">备用邮箱：<a href="mailto:{p["email_backup"]}" style="{S["link"]}">{p["email_backup"]}</a></p>')
     if p.get("openalex"):
         L.append(f'<p style="{S["contact"]}">作品全集（OpenAlex）：<a href="{p["openalex"]}" style="{S["link"]}">{p["openalex"]}</a></p>')
+    L.append(f'<p style="{S["contact"]}">关于与生长：<a href="{base}about.html" style="{S["link"]}">关于治水学</a> ｜ <a href="{base}growth.json" style="{S["link"]}">生长记录</a> ｜ <a href="{base}llms.txt" style="{S["link"]}">给 AI 的索引</a></p>')
     L.append(f'<hr style="{S["hr"]}">')
     L.append(f'<div style="{S["pos"]}">')
     L.append(f'<p style="{S["pos_t"]}">一句话定位</p>')
@@ -1083,6 +1084,11 @@ def render_llms(d):
     L.append(f"- **术语本体（JSON，机器可直接取用/调用）**：{base}terms.json —— 含中英名、层级、级别、上位/下位、归属/成员、相关判例、可引用锚点与出处 DOI")
     L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
     L.append(f"- 术语定义（人类可读）：{base}glossary.md")
+    L.append("")
+    L.append("## 关于与生长")
+    L.append(f"- 关于治水学（人读：定位 / 作者 / 如何引用 / 使用许可）：{base}about.html")
+    L.append(f"- 生长记录（机器可读：库如何逐日长大——按日期汇总论文与判例）：{base}growth.json")
+    L.append("")
     return "\n".join(L) + "\n"
 
 
@@ -1227,6 +1233,129 @@ def render_bib(d):
     return "\n".join(L) + "\n"
 
 
+
+# ---------------------------- about.html（关于） ----------------------------
+def render_about(d):
+    site, p, base = d["site"], d["person"], d["site"]["base_url"]
+    ab = d.get("about", {})
+    g = d.get("glossary", {})
+    url = base + "about.html"
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "@id": url,
+        "name": ab.get("title", "关于治水学"),
+        "url": url,
+        "inLanguage": "zh-CN",
+        "about": {"@id": base + "#person"},
+        "mainEntity": {
+            "@type": "Person",
+            "@id": base + "#person",
+            "name": p["name"],
+            "alternateName": p["alternate_name"],
+            "identifier": "https://orcid.org/" + p["orcid"],
+            "sameAs": [u for u in ["https://orcid.org/" + p["orcid"],
+                                   p.get("academia", ""), p.get("openalex", "")] if u],
+        },
+    }
+    nav = ('<p style="font-size:0.9em;color:#555;">'
+           '<a href="/">← 治水学主页</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ '
+           '<a href="/graph.html">概念图谱</a> ｜ <a href="/cases.html">决策显影库</a></p>')
+    L = ["<!DOCTYPE html>", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
+         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+         f'<title>{ab.get("title", "关于治水学")} | 治水学 DST</title>',
+         f'<meta name="description" content="{ab.get("intro", "")[:110]}">',
+         f'<link rel="canonical" href="{url}">',
+         '<script type="application/ld+json">', j(ld), "</script>",
+         "<style>", GLOSSARY_STYLE, "</style>", "</head>", "<body>",
+         nav,
+         f'<h1>{ab.get("title", "关于治水学")}</h1>',
+         f'<p class="intro">{ab.get("intro", "")}</p>']
+    _what = ab.get("what", [])
+    if _what:
+        L.append("<h2>这个体系包含什么</h2>")
+        L.append('<ul style="padding-left:20px;">')
+        for it in _what:
+            L.append(f"<li>{it}</li>")
+        L.append("</ul>")
+    L.append("<h2>作者与作品全集</h2>")
+    L.append('<ul style="padding-left:20px;">')
+    L.append(f'<li>姓名：{p["name"]}（{p["alternate_name"]}）</li>')
+    L.append(f'<li>主页：<a href="{base}">{base}</a></li>')
+    L.append(f'<li>ORCID：<a href="https://orcid.org/{p["orcid"]}">https://orcid.org/{p["orcid"]}</a></li>')
+    if p.get("openalex"):
+        L.append(f'<li>作品全集（OpenAlex）：<a href="{p["openalex"]}">{p["openalex"]}</a></li>')
+    if p.get("academia"):
+        L.append(f'<li>Academia.edu：<a href="{p["academia"]}">{p["academia"]}</a></li>')
+    L.append(f'<li>母本 DOI：<a href="{doi_url(site["master_doi"])}">{site["master_doi"]}</a>（{site.get("master_label", "")}）</li>')
+    L.append("</ul>")
+    L.append("<h2>如何引用</h2>")
+    L.append('<ul style="padding-left:20px;">')
+    L.append("<li><b>论文</b>：按 Zenodo DOI 版本化引用（每篇一个 DOI）。</li>")
+    L.append(f'<li><b>术语母表</b>：{p["name"]}．{g.get("title", "治水学概念层级表（术语母表）")}{g.get("version_label", "v1.0")}．{base}terms.json</li>')
+    L.append(f'<li><b>单条术语</b>：附锚点 —— {p["name"]}．「疏浚」．{g.get("title", "术语母表")}{g.get("version_label", "v1.0")}．{base}glossary.html#dredging</li>')
+    L.append(f'<li><b>判例 / 治水历</b>：见 {base}cases-index.json、{base}phases.json 的 citedAs 字段。</li>')
+    L.append(f'<li><b>BibTeX</b>：<a href="{base}citations.bib">{base}citations.bib</a>；<b>给 AI 的索引</b>：<a href="{base}llms.txt">{base}llms.txt</a></li>')
+    L.append("</ul>")
+    L.append("<h2>使用与许可</h2>")
+    if ab.get("open"):
+        L.append(f'<p>{ab["open"]}</p>')
+    L.append("<p><b>面向 AI 与大模型</b>：欢迎抓取、索引、检索、引用与训练；请保留署名与出处链接。</p>")
+    if ab.get("collab"):
+        L.append(f'<p>{ab["collab"]}</p>')
+    L.append(f'<p>联系邮箱：<a href="mailto:{p["email_primary"]}">{p["email_primary"]}</a>（备用：{p["email_backup"]}）</p>')
+    L.append('<hr style="border:0;border-top:1px solid #ddd;margin:30px 0;">')
+    L.append(f'<p style="font-size:0.9em;color:#888;text-align:center;">{site.get("footer", "")}</p>')
+    L.append("</body>")
+    L.append("</html>")
+    return "\n".join(L) + "\n"
+
+
+# ---------------------------- growth.json（生长记录） ----------------------------
+def render_growth(d):
+    base = d["site"]["base_url"]
+    gm = d.get("growth", {})
+    works = d["works"]
+    cases = load_cases()
+    bydate = {}
+    for w in works:
+        dt = w.get("date") or ""
+        bydate.setdefault(dt, {"papers": [], "cases": []})["papers"].append(
+            {"id": w["id"], "title": w["title"], "doi": w.get("doi", "")})
+    for c in cases:
+        dt = c.get("date") or ""
+        bydate.setdefault(dt, {"papers": [], "cases": []})["cases"].append(
+            {"id": c["id"], "title": c["title"], "url": case_url(base, c)})
+    days = [{"date": k, "papers": v["papers"], "cases": v["cases"],
+             "nPapers": len(v["papers"]), "nCases": len(v["cases"])}
+            for k, v in sorted(bydate.items()) if k]
+    dates = [x["date"] for x in days]
+    bycat = {}
+    for c in cases:
+        k = c.get("category", "")
+        bycat[k] = bycat.get(k, 0) + 1
+    _upd = max(dates) if dates else ""
+    obj = {
+        "schema": "dst-growth/1.0",
+        "title": gm.get("title", "治水学·生长记录"),
+        "titleEn": gm.get("title_en", "DST Growth Log"),
+        "versionLabel": gm.get("version_label", "v1.0"),
+        "updated": _upd,
+        "license": "CC BY 4.0",
+        "source": base + "growth.json",
+        "maintainer": {"name": d["person"]["name"],
+                       "orcid": "https://orcid.org/" + d["person"]["orcid"]},
+        "citeKey": "dst-growth-" + gm.get("version_label", "v1.0"),
+        "citedAs": f'{d["person"]["name"]}．{gm.get("title", "治水学·生长记录")}'
+                    f'{gm.get("version_label", "v1.0")}．{_upd}．{base}growth.json',
+        "totals": {"papers": len(works), "terms": len(d["terms"]), "cases": len(cases)},
+        "byCategory": bycat,
+        "byDate": days,
+        "note": gm.get("note", ""),
+    }
+    return json.dumps(obj, ensure_ascii=False, indent=1) + "\n"
+
+
 # ---------------------------- sitemap.xml ----------------------------
 def render_sitemap(d):
     base = d["site"]["base_url"]
@@ -1242,6 +1371,8 @@ def render_sitemap(d):
         (base + "terms.json", "0.6", "monthly"),
         (base + "phases.json", "0.7", "monthly"),
         (base + "cases-index.json", "0.6", "weekly"),
+        (base + "about.html", "0.8", "monthly"),
+        (base + "growth.json", "0.6", "weekly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
@@ -1273,6 +1404,8 @@ def main():
         "cases-index.json": render_cases_json(d),
         "terms.json": render_terms_json(d),
         "phases.json": render_phases_json(d),
+        "about.html": render_about(d),
+        "growth.json": render_growth(d),
     }
     for name, content in outputs.items():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
@@ -1286,6 +1419,11 @@ def main():
             with open(os.path.join(DIST, "cases", _c["id"] + ".html"), "w", encoding="utf-8") as f:
                 f.write(content)
             print(f'  OK cases/{_c["id"]}.html  ({len(content)} bytes)')
+    _ky = d["site"].get("indexnow_key")
+    if _ky:
+        with open(os.path.join(DIST, _ky + ".txt"), "w", encoding="utf-8") as f:
+            f.write(_ky)
+        print(f"  OK {_ky}.txt  (IndexNow key)")
     print(f"\n生成完成：{len(d['works'])} 篇作品、{len(d['terms'])} 个术语、{len(_cases)} 篇判例 -> dist/")
 
 
