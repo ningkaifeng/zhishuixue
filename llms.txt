@@ -484,3 +484,8 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - **术语本体（JSON，机器可直接取用/调用）**：https://zhishuixue.com/terms.json —— 含中英名、层级、级别、上位/下位、归属/成员、相关判例、可引用锚点与出处 DOI
 - 术语定义 + 概念关系图（机器可读）：https://zhishuixue.com/glossary.html
 - 术语定义（人类可读）：https://zhishuixue.com/glossary.md
+
+## 关于与生长
+- 关于治水学（人读：定位 / 作者 / 如何引用 / 使用许可）：https://zhishuixue.com/about.html
+- 生长记录（机器可读：库如何逐日长大——按日期汇总论文与判例）：https://zhishuixue.com/growth.json
+

@@ -1,0 +1,292 @@
+{
+ "schema": "dst-growth/1.0",
+ "title": "治水学·生长记录",
+ "titleEn": "DST Growth Log",
+ "versionLabel": "v1.0",
+ "updated": "2026-10-05",
+ "license": "CC BY 4.0",
+ "source": "https://zhishuixue.com/growth.json",
+ "maintainer": {
+  "name": "宁凯峰",
+  "orcid": "https://orcid.org/0009-0001-4414-6058"
+ },
+ "citeKey": "dst-growth-v1.0",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-05．https://zhishuixue.com/growth.json",
+ "totals": {
+  "papers": 17,
+  "terms": 98,
+  "cases": 16
+ },
+ "byCategory": {
+  "A 基层治理": 4,
+  "B 历史判例": 10,
+  "C 企业管理": 2
+ },
+ "byDate": [
+  {
+   "date": "2026-09-16",
+   "papers": [
+    {
+     "id": "article-1",
+     "title": "治水学论纲·第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展",
+     "doi": "10.5281/zenodo.22785849"
+    },
+    {
+     "id": "article-2",
+     "title": "治水学论纲·第二篇：存续优先——一个践言冲突论证",
+     "doi": "10.5281/zenodo.22785725"
+    },
+    {
+     "id": "article-3",
+     "title": "治水学论纲·第三篇：模式连续性——流变中的同一性如何可能",
+     "doi": "10.5281/zenodo.22785562"
+    },
+    {
+     "id": "article-4",
+     "title": "治水学论纲·第四篇：治水实践先在——系统的存续相关属性如何在治水实践中生成并维持",
+     "doi": "10.5281/zenodo.22789923"
+    },
+    {
+     "id": "article-5",
+     "title": "治水学论纲·第五篇：三浪不可还原——系统动力的三个维度",
+     "doi": "10.5281/zenodo.22795174"
+    },
+    {
+     "id": "article-en-1",
+     "title": "Why AI Governance Must Be Dynamic: Pattern Continuity as the Ontological Ground for Diagnostic Governance",
+     "doi": "10.2139/ssrn.7453298"
+    }
+   ],
+   "cases": [],
+   "nPapers": 6,
+   "nCases": 0
+  },
+  {
+   "date": "2026-09-17",
+   "papers": [
+    {
+     "id": "article-6",
+     "title": "治水学论纲·第六篇：三元互斥穷尽——规则约束的三种元操作",
+     "doi": "10.5281/zenodo.22805434"
+    }
+   ],
+   "cases": [],
+   "nPapers": 1,
+   "nCases": 0
+  },
+  {
+   "date": "2026-09-18",
+   "papers": [
+    {
+     "id": "article-7",
+     "title": "治水学论纲·第七篇：体相关系——动力层与特征层的生成耦合",
+     "doi": "10.5281/zenodo.22821896"
+    },
+    {
+     "id": "article-en-2",
+     "title": "Method, Not Stance: Structural Disclosure as an Operative Methodology for Human-AI Division of Labor",
+     "doi": "10.5281/zenodo.22698811"
+    },
+    {
+     "id": "genesis-volume",
+     "title": "治水图：一个普通人的秩序重建日志",
+     "doi": "10.5281/zenodo.22821827"
+    }
+   ],
+   "cases": [],
+   "nPapers": 3,
+   "nCases": 0
+  },
+  {
+   "date": "2026-09-19",
+   "papers": [
+    {
+     "id": "article-8",
+     "title": "治水学论纲·第八篇：分层异步——动力-规则共生的核心机制",
+     "doi": "10.5281/zenodo.22842961"
+    }
+   ],
+   "cases": [],
+   "nPapers": 1,
+   "nCases": 0
+  },
+  {
+   "date": "2026-09-22",
+   "papers": [
+    {
+     "id": "article-en-3",
+     "title": "Why Law Always Lags AI: A Dynamic Sustenance Theory Analysis of AI Governance",
+     "doi": "10.5281/zenodo.22884353"
+    }
+   ],
+   "cases": [],
+   "nPapers": 1,
+   "nCases": 0
+  },
+  {
+   "date": "2026-09-27",
+   "papers": [],
+   "cases": [
+    {
+     "id": "A-0001",
+     "title": "业委会秘书“八个严禁”制度边界",
+     "url": "https://zhishuixue.com/cases/A-0001.html"
+    },
+    {
+     "id": "A-0002",
+     "title": "鲸鱼大楼酬金制账目困局",
+     "url": "https://zhishuixue.com/cases/A-0002.html"
+    },
+    {
+     "id": "A-0003",
+     "title": "长白229街坊充电桩困局",
+     "url": "https://zhishuixue.com/cases/A-0003.html"
+    },
+    {
+     "id": "A-0004",
+     "title": "九里片区“九合一”拆墙并院困局",
+     "url": "https://zhishuixue.com/cases/A-0004.html"
+    },
+    {
+     "id": "B-0001",
+     "title": "瞒天过海",
+     "url": "https://zhishuixue.com/cases/B-0001.html"
+    },
+    {
+     "id": "B-0002",
+     "title": "围魏救赵",
+     "url": "https://zhishuixue.com/cases/B-0002.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 6
+  },
+  {
+   "date": "2026-09-28",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0003",
+     "title": "借刀杀人",
+     "url": "https://zhishuixue.com/cases/B-0003.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 1
+  },
+  {
+   "date": "2026-09-29",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0004",
+     "title": "以逸待劳",
+     "url": "https://zhishuixue.com/cases/B-0004.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 1
+  },
+  {
+   "date": "2026-09-30",
+   "papers": [
+    {
+     "id": "volume-0-epistemology",
+     "title": "结构到结构——治水学知识形态的认识论奠基",
+     "doi": "10.5281/zenodo.23056450"
+    }
+   ],
+   "cases": [
+    {
+     "id": "B-0005",
+     "title": "趁火打劫",
+     "url": "https://zhishuixue.com/cases/B-0005.html"
+    }
+   ],
+   "nPapers": 1,
+   "nCases": 1
+  },
+  {
+   "date": "2026-10-01",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0006",
+     "title": "声东击西",
+     "url": "https://zhishuixue.com/cases/B-0006.html"
+    },
+    {
+     "id": "C-0001",
+     "title": "OpenAI 解雇风波",
+     "url": "https://zhishuixue.com/cases/C-0001.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 2
+  },
+  {
+   "date": "2026-10-02",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0007",
+     "title": "无中生有",
+     "url": "https://zhishuixue.com/cases/B-0007.html"
+    },
+    {
+     "id": "C-0002",
+     "title": "DeepSeek 开源决策",
+     "url": "https://zhishuixue.com/cases/C-0002.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 2
+  },
+  {
+   "date": "2026-10-03",
+   "papers": [
+    {
+     "id": "article-9",
+     "title": "治水学论纲·第九篇：语法锁定——失配在结构层的制度化沉淀",
+     "doi": "10.5281/zenodo.23113642"
+    }
+   ],
+   "cases": [
+    {
+     "id": "B-0008",
+     "title": "暗渡陈仓",
+     "url": "https://zhishuixue.com/cases/B-0008.html"
+    }
+   ],
+   "nPapers": 1,
+   "nCases": 1
+  },
+  {
+   "date": "2026-10-04",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0009",
+     "title": "隔岸观火",
+     "url": "https://zhishuixue.com/cases/B-0009.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 1
+  },
+  {
+   "date": "2026-10-05",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0010",
+     "title": "笑里藏刀",
+     "url": "https://zhishuixue.com/cases/B-0010.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 1
+  }
+ ],
+ "note": "本文件由 build.py 自动生成：从 papers.yml（论文）与 cases.yml（判例）的日期字段汇总，反映“知识库如何逐日长大”，供 AI 与检索判断其时效与规模。"
+}
