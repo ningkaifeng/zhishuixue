@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 16,
-  "totalCases": 16
+  "mountedCases": 17,
+  "totalCases": 17
  },
  "unmounted": [],
  "howToUse": [
@@ -252,6 +252,11 @@
        "id": "B-0003",
        "title": "借刀杀人",
        "url": "https://zhishuixue.com/cases/B-0003.html"
+      },
+      {
+       "id": "B-0011",
+       "title": "李代桃僵",
+       "url": "https://zhishuixue.com/cases/B-0011.html"
       },
       {
        "id": "C-0002",

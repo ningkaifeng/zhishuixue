@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-10-05",
+ "updated": "2026-10-06",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,15 +11,15 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-05．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-06．https://zhishuixue.com/growth.json",
  "totals": {
   "papers": 17,
   "terms": 98,
-  "cases": 16
+  "cases": 17
  },
  "byCategory": {
   "A 基层治理": 4,
-  "B 历史判例": 10,
+  "B 历史判例": 11,
   "C 企业管理": 2
  },
  "byDate": [
@@ -282,6 +282,19 @@
      "id": "B-0010",
      "title": "笑里藏刀",
      "url": "https://zhishuixue.com/cases/B-0010.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 1
+  },
+  {
+   "date": "2026-10-06",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0011",
+     "title": "李代桃僵",
+     "url": "https://zhishuixue.com/cases/B-0011.html"
     }
    ],
    "nPapers": 0,

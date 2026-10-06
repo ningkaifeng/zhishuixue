@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-05",
+ "date": "2026-10-06",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-05．https://zhishuixue.com/cases-index.json",
- "count": 16,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-06．https://zhishuixue.com/cases-index.json",
+ "count": 17,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -291,6 +291,25 @@
    "abstract": "郑武公欲伐胡，不硬攻，先嫁女结亲、再当众诛杀主张伐胡的大夫关其思，让胡君认定郑国把自己当亲兄弟、从此不备，最后袭胡灭之。精妙在用两个“善意证据”主动制造“亲善”共识、解除对方戒备，而非隐藏敌意；与瞒天过海（利用已有惯性）相对，这是祭祀（共识凝聚）的正向运用。",
    "source": "《韩非子·说难》",
    "url": "https://zhishuixue.com/cases/B-0010.html"
+  },
+  {
+   "id": "B-0011",
+   "num": "B-0011",
+   "title": "李代桃僵",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "疏浚（损失重定向）",
+   "lever": "改损失落点",
+   "date": "2026-10-06",
+   "concepts": [
+    {
+     "name": "疏浚",
+     "anchor": "dredging"
+    }
+   ],
+   "abstract": "刘邦被困荥阳、粮尽，损失已不可避免。部将纪信主动假扮刘邦、乘黄屋车从东门“降”，把楚军注意力全部吸走，刘邦率数十骑从西门脱身，纪信被项羽烧死。精妙在损失落点的重定向——把必然的损失精准砸在可替代的替身（阴）上、保全不可替代的核心（阳）。与围魏救赵（疏浚·压力向）、借刀杀人（疏浚·出力向）同属疏浚三向，此为损失向。",
+   "source": "《史记·项羽本纪》",
+   "url": "https://zhishuixue.com/cases/B-0011.html"
   },
   {
    "id": "C-0001",

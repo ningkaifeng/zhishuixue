@@ -209,7 +209,7 @@
 - **编号**：DST-D-02
 - **DOI**：10.5281/zenodo.22805434
 - **一句话定义**：规则引导动力去改造、转化、消除压力源；作用对象是压力的生成源。
-- **相关案例**：A-0002｜鲸鱼大楼酬金制账目困局（https://zhishuixue.com/cases/A-0002.html）、A-0003｜长白229街坊充电桩困局（https://zhishuixue.com/cases/A-0003.html）、A-0004｜九里片区“九合一”拆墙并院困局（https://zhishuixue.com/cases/A-0004.html）、B-0002｜围魏救赵（https://zhishuixue.com/cases/B-0002.html）、B-0003｜借刀杀人（https://zhishuixue.com/cases/B-0003.html）、C-0002｜DeepSeek 开源决策（https://zhishuixue.com/cases/C-0002.html）
+- **相关案例**：A-0002｜鲸鱼大楼酬金制账目困局（https://zhishuixue.com/cases/A-0002.html）、A-0003｜长白229街坊充电桩困局（https://zhishuixue.com/cases/A-0003.html）、A-0004｜九里片区“九合一”拆墙并院困局（https://zhishuixue.com/cases/A-0004.html）、B-0002｜围魏救赵（https://zhishuixue.com/cases/B-0002.html）、B-0003｜借刀杀人（https://zhishuixue.com/cases/B-0003.html）、B-0011｜李代桃僵（https://zhishuixue.com/cases/B-0011.html）、C-0002｜DeepSeek 开源决策（https://zhishuixue.com/cases/C-0002.html）
 
 ### 方舟
 

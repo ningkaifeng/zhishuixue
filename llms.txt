@@ -378,7 +378,7 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - ontology of complex systems
 
 ## 决策显影库（实践案例）
-共 16 篇判例（A 基层治理 4 篇、B 历史判例 10 篇、C 企业管理 2 篇），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。
+共 17 篇判例（A 基层治理 4 篇、B 历史判例 11 篇、C 企业管理 2 篇），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。
 
 - 案例机器可读索引（JSON，全部案例的结构化字段）：https://zhishuixue.com/cases-index.json
 - 案例总览（人读，可搜索/筛选）：https://zhishuixue.com/cases.html
@@ -393,7 +393,7 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
   https://zhishuixue.com/cases/A-0003.html
 - A-0004｜九里片区“九合一”拆墙并院困局（空间改造与合并）｜接口：疏浚（源头改造）｜杠杆：排次序
   https://zhishuixue.com/cases/A-0004.html
-### B 历史判例（10）
+### B 历史判例（11）
 - B-0001｜瞒天过海（博弈决策）｜接口：信号层（祭祀逆向）｜杠杆：藏信息
   https://zhishuixue.com/cases/B-0001.html
 - B-0002｜围魏救赵（博弈决策）｜接口：疏浚（改变压力流向）｜杠杆：改优先级
@@ -414,6 +414,8 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
   https://zhishuixue.com/cases/B-0009.html
 - B-0010｜笑里藏刀（博弈决策）｜接口：祭祀（共识凝聚）｜杠杆：制造亲善共识
   https://zhishuixue.com/cases/B-0010.html
+- B-0011｜李代桃僵（博弈决策）｜接口：疏浚（损失重定向）｜杠杆：改损失落点
+  https://zhishuixue.com/cases/B-0011.html
 ### C 企业管理（2）
 - C-0001｜OpenAI 解雇风波（组织治理）｜接口：祭祀（承重误判）｜杠杆：辨节点
   https://zhishuixue.com/cases/C-0001.html
