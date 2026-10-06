@@ -305,6 +305,23 @@ sections:
 works:
 
   # ---------- 第零卷 ----------
+  - id: volume-0-epistemology-proto
+    section: volume-0
+    type: ScholarlyArticle
+    title: "大禹治水与存续域的知识形态——一种被遮蔽的认识论原型"
+    card_title: "大禹治水与存续域的知识形态——一种被遮蔽的认识论原型"
+    doi: "10.5281/zenodo.23185396"
+    date: "2026-10-06"
+    lang: "zh-CN"
+    card_meta: "第零卷·认识论部分 · Zenodo, 2026"
+    abstract: "以四千年前大禹治水为样本，显影一种被长期遮蔽的认识论原型：知识的最小单位不是命题，而是结构判断。鲧与禹的分野不是方法优劣，而是问题域的分叉——鲧在存在域追问“洪水是什么”，禹在存续域追问“洪水如何流”。大禹的“疏”，是存续域知识形态的第一次系统显影。"
+    jsonld_abstract: "本文是《存续域认识论——结构到结构》的显影篇：理论版回答“为什么”，本篇回答“什么样”。以四千年前大禹治水为样本，本文展示存在域知识（命题、符合实在、逻辑推导）与存续域知识（结构判断、存续判据、结构到结构接续）两种知识形态的分叉，并以“左准绳、右规矩”的工具化姿态与“三过家门而不入”的字面同构，说明存续域知识的操作语法。大禹治水不是直觉，是另一种知识在运作。"
+    keywords: ["大禹治水", "存续域认识论", "结构判断", "知识形态", "字面同构", "epistemology", "宁凯峰"]
+    cite_title: "大禹治水与存续域的知识形态——一种被遮蔽的认识论原型（治水学论纲·第零卷·认识论部分）"
+    bib_key: ning2026dayu
+    bib_type: misc
+    bib_publisher: Zenodo
+
   - id: volume-0-epistemology
     section: volume-0
     type: ScholarlyArticle
