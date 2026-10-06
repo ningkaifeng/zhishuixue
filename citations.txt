@@ -1,3 +1,12 @@
+@misc{ning2026dayu,
+  title={大禹治水与存续域的知识形态——一种被遮蔽的认识论原型},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.23185396},
+  url={https://doi.org/10.5281/zenodo.23185396}
+}
+
 @misc{ning2026volume0,
   title={结构到结构——治水学知识形态的认识论奠基},
   author={宁凯峰},

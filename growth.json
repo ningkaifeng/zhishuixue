@@ -13,7 +13,7 @@
  "citeKey": "dst-growth-v1.0",
  "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-06．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 17,
+  "papers": 18,
   "terms": 98,
   "cases": 17
  },
@@ -289,7 +289,13 @@
   },
   {
    "date": "2026-10-06",
-   "papers": [],
+   "papers": [
+    {
+     "id": "volume-0-epistemology-proto",
+     "title": "大禹治水与存续域的知识形态——一种被遮蔽的认识论原型",
+     "doi": "10.5281/zenodo.23185396"
+    }
+   ],
    "cases": [
     {
      "id": "B-0011",
@@ -297,7 +303,7 @@
      "url": "https://zhishuixue.com/cases/B-0011.html"
     }
    ],
-   "nPapers": 0,
+   "nPapers": 1,
    "nCases": 1
   }
  ],
