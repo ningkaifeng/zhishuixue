@@ -271,7 +271,7 @@
 - **编号**：DST-E-02
 - **DOI**：10.5281/zenodo.22884353
 - **一句话定义**：规则层完成有效响应所需周期，超过系统承受而不发生核心功能损害的时间窗口的部分。响应缺口天然非负——超过窗口才有缺口。
-- **相关案例**：B-0005｜趁火打劫（https://zhishuixue.com/cases/B-0005.html）、B-0006｜声东击西（https://zhishuixue.com/cases/B-0006.html）、B-0007｜无中生有（https://zhishuixue.com/cases/B-0007.html）、B-0008｜暗渡陈仓（https://zhishuixue.com/cases/B-0008.html）
+- **相关案例**：B-0005｜趁火打劫（https://zhishuixue.com/cases/B-0005.html）、B-0006｜声东击西（https://zhishuixue.com/cases/B-0006.html）、B-0007｜无中生有（https://zhishuixue.com/cases/B-0007.html）、B-0008｜暗渡陈仓（https://zhishuixue.com/cases/B-0008.html）、B-0012｜顺手牵羊（https://zhishuixue.com/cases/B-0012.html）
 
 ### 承受窗口
 

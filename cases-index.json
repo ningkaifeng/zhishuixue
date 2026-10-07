@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-06",
+ "date": "2026-10-07",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,14 +11,15 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-06．https://zhishuixue.com/cases-index.json",
- "count": 17,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-07．https://zhishuixue.com/cases-index.json",
+ "count": 18,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
   "conceptsNotInTermTable": [],
   "derivedInterfaces": [
    "信号层",
+   "响应微隙",
    "响应钝化",
    "响应锁定",
    "响应错位"
@@ -310,6 +311,25 @@
    "abstract": "刘邦被困荥阳、粮尽，损失已不可避免。部将纪信主动假扮刘邦、乘黄屋车从东门“降”，把楚军注意力全部吸走，刘邦率数十骑从西门脱身，纪信被项羽烧死。精妙在损失落点的重定向——把必然的损失精准砸在可替代的替身（阴）上、保全不可替代的核心（阳）。与围魏救赵（疏浚·压力向）、借刀杀人（疏浚·出力向）同属疏浚三向，此为损失向。",
    "source": "《史记·项羽本纪》",
    "url": "https://zhishuixue.com/cases/B-0011.html"
+  },
+  {
+   "id": "B-0012",
+   "num": "B-0012",
+   "title": "顺手牵羊",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "响应微隙（趁小疏忽顺手取利）",
+   "lever": "乘微隙",
+   "date": "2026-10-07",
+   "concepts": [
+    {
+     "name": "响应缺口",
+     "anchor": "response-gap"
+    }
+   ],
+   "abstract": "前秦苻坚号称百万大军压境，东晋谢玄仅八万兵隔淝水对峙。谢玄不正面决战，先看准微隙（苻坚骄狂、秦军厌战、大军一动就乱），再派人激苻坚“暂退一箭之地”，百万大军一退即乱，晋军乘乱追击、顺手收割辎重，把“挡住秦军”的主目标放大成“击溃秦军”。精妙在“顺手”——捕捉对方移动中露出的微隙，顺手取利，不因小失大；与趁火打劫（趁大乱取大利）相对，这是抓微隙、取微利的微缺口变体。",
+   "source": "《晋书·苻坚载记》",
+   "url": "https://zhishuixue.com/cases/B-0012.html"
   },
   {
    "id": "C-0001",

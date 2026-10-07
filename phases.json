@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 17,
-  "totalCases": 17
+  "mountedCases": 18,
+  "totalCases": 18
  },
  "unmounted": [],
  "howToUse": [
@@ -348,6 +348,11 @@
        "id": "B-0005",
        "title": "趁火打劫",
        "url": "https://zhishuixue.com/cases/B-0005.html"
+      },
+      {
+       "id": "B-0012",
+       "title": "顺手牵羊",
+       "url": "https://zhishuixue.com/cases/B-0012.html"
       }
      ],
      "termAnchor": "response-gap",
