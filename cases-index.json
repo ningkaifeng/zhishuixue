@@ -20,12 +20,13 @@
   "derivedInterfaces": [
    "信号层",
    "信号探测",
+   "响应失效",
    "响应微隙",
    "响应钝化",
    "响应锁定",
    "响应错位"
   ],
-  "notes": "本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 build.py 的 PHASE_BY_TERM 补映射，或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，按决议不进官方母表，单列、不算异常。"
+  "notes": "本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 papers.yml 的 case_interfaces.phase_map 补映射，或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，按决议不进官方母表，单列、不算异常。"
  },
  "cases": [
   {
