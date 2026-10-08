@@ -463,7 +463,13 @@
     "技术浪"
    ],
    "members": [],
-   "cases": [],
+   "cases": [
+    {
+     "id": "B-0013",
+     "title": "打草惊蛇",
+     "url": "https://zhishuixue.com/cases/B-0013.html"
+    }
+   ],
    "citeKey": "dst-term-breakthrough-force",
    "citedAs": "宁凯峰．「突破性动能」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#breakthrough-force",
    "doi": "https://doi.org/10.5281/zenodo.22795174"

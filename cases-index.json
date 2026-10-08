@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-07",
+ "date": "2026-10-08",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,14 +11,15 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-07．https://zhishuixue.com/cases-index.json",
- "count": 18,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-08．https://zhishuixue.com/cases-index.json",
+ "count": 19,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
   "conceptsNotInTermTable": [],
   "derivedInterfaces": [
    "信号层",
+   "信号探测",
    "响应微隙",
    "响应钝化",
    "响应锁定",
@@ -330,6 +331,25 @@
    "abstract": "前秦苻坚号称百万大军压境，东晋谢玄仅八万兵隔淝水对峙。谢玄不正面决战，先看准微隙（苻坚骄狂、秦军厌战、大军一动就乱），再派人激苻坚“暂退一箭之地”，百万大军一退即乱，晋军乘乱追击、顺手收割辎重，把“挡住秦军”的主目标放大成“击溃秦军”。精妙在“顺手”——捕捉对方移动中露出的微隙，顺手取利，不因小失大；与趁火打劫（趁大乱取大利）相对，这是抓微隙、取微利的微缺口变体。",
    "source": "《晋书·苻坚载记》",
    "url": "https://zhishuixue.com/cases/B-0012.html"
+  },
+  {
+   "id": "B-0013",
+   "num": "B-0013",
+   "title": "打草惊蛇",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "信号探测（发试探、读响应）",
+   "lever": "探虚实",
+   "date": "2026-10-08",
+   "concepts": [
+    {
+     "name": "突破性动能",
+     "anchor": "breakthrough-force"
+    }
+   ],
+   "abstract": "刘备为报关羽之仇率大军伐吴，连营数百里，陆逊兵力居下风。陆逊不全线强攻、不死守，而是先派一军攻蜀军一营、故意试探虚实，虽不利却因此摸清蜀军“依山傍林、草木茂密”的致命破绽（“吾已晓破之之术”），随即令士兵各持茅草火攻，火烧连营，大破刘备。精妙在“疑以叩实、察而后动”——用小规模试探把藏敌虚实叩出来、再对症下药；与瞒天过海（造假信号骗对方）相对，这是发试探信号读对方。",
+   "source": "《三国志·吴书·陆逊传》",
+   "url": "https://zhishuixue.com/cases/B-0013.html"
   },
   {
    "id": "C-0001",

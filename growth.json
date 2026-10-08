@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-10-07",
+ "updated": "2026-10-08",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,15 +11,15 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-07．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-08．https://zhishuixue.com/growth.json",
  "totals": {
   "papers": 18,
   "terms": 98,
-  "cases": 18
+  "cases": 19
  },
  "byCategory": {
   "A 基层治理": 4,
-  "B 历史判例": 12,
+  "B 历史判例": 13,
   "C 企业管理": 2
  },
  "byDate": [
@@ -314,6 +314,19 @@
      "id": "B-0012",
      "title": "顺手牵羊",
      "url": "https://zhishuixue.com/cases/B-0012.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 1
+  },
+  {
+   "date": "2026-10-08",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0013",
+     "title": "打草惊蛇",
+     "url": "https://zhishuixue.com/cases/B-0013.html"
     }
    ],
    "nPapers": 0,

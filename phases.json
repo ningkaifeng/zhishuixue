@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 18,
-  "totalCases": 18
+  "mountedCases": 19,
+  "totalCases": 19
  },
  "unmounted": [],
  "howToUse": [
@@ -80,6 +80,11 @@
        "id": "B-0001",
        "title": "瞒天过海",
        "url": "https://zhishuixue.com/cases/B-0001.html"
+      },
+      {
+       "id": "B-0013",
+       "title": "打草惊蛇",
+       "url": "https://zhishuixue.com/cases/B-0013.html"
       }
      ],
      "termAnchor": "breakthrough-force",
