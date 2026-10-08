@@ -313,13 +313,16 @@ def render_cases_json(d):
             "url": case_url(base, c),
         })
     _names = {t["name"] for t in d["terms"]}
-    _unmounted, _ifaces, _cons, _derived = [], set(), set(), set()
+    _ci = d.get("case_interfaces", {}) or {}
+    _phase_map = _ci.get("phase_map", {}) or {}
+    _derived = set(_ci.get("derived_terms", []) or [])
+    _unmounted, _ifaces, _cons = [], set(), set()
     for c in items:
-        if not _iface_cell(c.get("interface")):
+        if not _iface_cell(c.get("interface"), _phase_map):
             _unmounted.append(c["id"])
         _b = (c.get("interface") or "").split("（")[0].split("·")[0].strip()
         if _b and _b not in _names:
-            (_derived if _b in DERIVED_INTERFACE_TERMS else _ifaces).add(_b)
+            (_derived if _b in _derived else _ifaces).add(_b)
         for o in c.get("concepts", []):
             if o.get("name") and not o.get("anchor"):
                 _cons.add(o["name"])
@@ -329,7 +332,7 @@ def render_cases_json(d):
         "conceptsNotInTermTable": sorted(_cons),
         "derivedInterfaces": sorted(_derived),
         "notes": ("本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / "
-                  "conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 build.py 的 PHASE_BY_TERM 补映射，"
+                  "conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 papers.yml 的 case_interfaces.phase_map 补映射，"
                   "或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，"
                   "按决议不进官方母表，单列、不算异常。"),
     }
@@ -434,33 +437,16 @@ def render_terms_json(d):
     return json.dumps(obj, ensure_ascii=False, indent=1) + "\n"
 
 
-# 显影库自有的衍生接口术语（按决议不纳入官方术语母表；单列，不算异常）
-DERIVED_INTERFACE_TERMS = {"信号层", "响应错位", "响应钝化", "响应锁定", "响应失效", "响应微隙", "信号探测"}
-
-# 判例「治水学接口」→ 治水历刻度（用于案例自动挂载；术语按「（」前的主词匹配）
-PHASE_BY_TERM = {
-    "结构判断": "P0",
-    "信号层": "P1",
-    "信号探测": "P1",
-    "分层异步": "P4",
-    "响应缺口": "P5",
-    "响应错位": "P15",
-    "响应钝化": "P16",
-    "响应锁定": "P17",
-    "响应微隙": "P14",
-    "疏浚": "P10",
-    "方舟": "P11",
-    "祭祀": "P12",
-    "破局": "P13",
-}
+# 判例接口术语与刻度映射已数据化，见 papers.yml 的 case_interfaces 块
+# （derived_terms / phase_map），由各 render 函数从 d 读取。
 
 
-def _iface_cell(interface):
+def _iface_cell(interface, phase_map):
     """把索引库的接口串映射到刻度 id：特判『对方』语境的响应缺口。"""
     t = (interface or "").split("（")[0].strip()
     if t == "响应缺口" and "对方" in (interface or ""):
         return "P14"
-    return PHASE_BY_TERM.get(t, "")
+    return (phase_map or {}).get(t, "")
 
 
 def render_phases_json(d):
@@ -469,10 +455,12 @@ def render_phases_json(d):
     ph = d.get("phases", {})
     amap = {t["name"]: t["anchor"] for t in d["terms"]}
     cases = load_cases()
+    _ci = d.get("case_interfaces", {}) or {}
+    _phase_map = _ci.get("phase_map", {}) or {}
     mount = {}
     unmounted = []
     for c in cases:
-        pid = _iface_cell(c.get("interface"))
+        pid = _iface_cell(c.get("interface"), _phase_map)
         if pid:
             mount.setdefault(pid, []).append(
                 {"id": c["id"], "title": c["title"], "url": case_url(base, c)})
