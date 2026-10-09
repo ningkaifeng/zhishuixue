@@ -443,7 +443,7 @@ def render_terms_json(d):
 
 def _iface_cell(interface, phase_map):
     """把索引库的接口串映射到刻度 id：特判『对方』语境的响应缺口。"""
-    t = (interface or "").split("（")[0].strip()
+    t = (interface or "").split("（")[0].split("·")[0].strip()
     if t == "响应缺口" and "对方" in (interface or ""):
         return "P14"
     return (phase_map or {}).get(t, "")
