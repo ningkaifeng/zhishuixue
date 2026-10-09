@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-08",
+ "date": "2026-10-09",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-08．https://zhishuixue.com/cases-index.json",
- "count": 19,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-09．https://zhishuixue.com/cases-index.json",
+ "count": 20,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -351,6 +351,25 @@
    "abstract": "刘备为报关羽之仇率大军伐吴，连营数百里，陆逊兵力居下风。陆逊不全线强攻、不死守，而是先派一军攻蜀军一营、故意试探虚实，虽不利却因此摸清蜀军“依山傍林、草木茂密”的致命破绽（“吾已晓破之之术”），随即令士兵各持茅草火攻，火烧连营，大破刘备。精妙在“疑以叩实、察而后动”——用小规模试探把藏敌虚实叩出来、再对症下药；与瞒天过海（造假信号骗对方）相对，这是发试探信号读对方。",
    "source": "《三国志·吴书·陆逊传》",
    "url": "https://zhishuixue.com/cases/B-0013.html"
+  },
+  {
+   "id": "B-0014",
+   "num": "B-0014",
+   "title": "借尸还魂",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "祭祀·共识嫁接（借旧共识凝聚新力量）",
+   "lever": "嫁接共识",
+   "date": "2026-10-09",
+   "concepts": [
+    {
+     "name": "祭祀",
+     "anchor": "sacrificing"
+    }
+   ],
+   "abstract": "陈胜、吴广是底层戍卒，大泽乡遇雨误期、进退皆死。陈胜不自号、不硬拼，而是借两个“死人”名号——被冤杀的公子扶苏、生死不明的楚将项燕，诈称其名起兵，再以“鱼腹丹书”“篝火狐鸣”造天意，天下云集响应。精妙在“借不能用者而用之”——自己没名分，就借“死了但名望还在”的旧名号（尸）装自己的新意图（魂）；本质是祭祀·共识嫁接，借旧共识凝聚新力量。",
+   "source": "《史记·陈涉世家》",
+   "url": "https://zhishuixue.com/cases/B-0014.html"
   },
   {
    "id": "C-0001",

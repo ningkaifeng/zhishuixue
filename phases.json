@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 19,
-  "totalCases": 19
+  "mountedCases": 20,
+  "totalCases": 20
  },
  "unmounted": [],
  "howToUse": [
@@ -307,6 +307,11 @@
        "id": "B-0010",
        "title": "笑里藏刀",
        "url": "https://zhishuixue.com/cases/B-0010.html"
+      },
+      {
+       "id": "B-0014",
+       "title": "借尸还魂",
+       "url": "https://zhishuixue.com/cases/B-0014.html"
       },
       {
        "id": "C-0001",
