@@ -12,7 +12,7 @@
  },
  "citeKey": "dst-cases-v1.0",
  "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-09．https://zhishuixue.com/cases-index.json",
- "count": 20,
+ "count": 21,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -408,6 +408,25 @@
    "abstract": "DeepSeek 在算力受限、资本受限的条件下，选择把最强模型完全开源，而非跟随行业闭源惯例。核心判断是：闭源护城河短暂，开源能建立生态引力；只赚\"六倍利润\"、不追求最大化，开源与商业可持续不冲突。结果 R1 成为全球最受欢迎开源模型，公司首轮融资估值约 520 亿美元。",
    "source": "梁文锋投资人会议实录（2026年）＋ 梁文锋早期访谈（2024年）＋ DeepSeek 官方公告",
    "url": "https://zhishuixue.com/cases/C-0002.html"
+  },
+  {
+   "id": "E-0001",
+   "num": "E-0001",
+   "title": "双轨告知：隐私与生命的制度接口",
+   "category": "E 宏观案例",
+   "scene": "权责边界",
+   "interface": "疏浚（从堵到疏）",
+   "lever": "代为告知",
+   "date": "2026-10-09",
+   "concepts": [
+    {
+     "name": "疏浚",
+     "anchor": "dredging"
+    }
+   ],
+   "abstract": "面对「旧版行政拦截失效、上位法告知与保密两条规则内部裂缝、感染者隐私保护反被用作隐瞒传播挡箭牌、一线医生告知与否两头受罚」的制度死结，地方立法者不放开隐私、也不继续依赖自觉，而以「特定对象最小披露＋机构代为告知＋公众不公开」的三段式接口，把公共卫生介入从灰色地带变成有边界的明确入口。",
+   "source": "《重庆市艾滋病防治条例》全文（2026）＋官方解读",
+   "url": "https://zhishuixue.com/cases/E-0001.html"
   }
  ]
 }

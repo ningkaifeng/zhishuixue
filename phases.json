@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 20,
-  "totalCases": 20
+  "mountedCases": 21,
+  "totalCases": 21
  },
  "unmounted": [],
  "howToUse": [
@@ -267,6 +267,11 @@
        "id": "C-0002",
        "title": "DeepSeek 开源决策",
        "url": "https://zhishuixue.com/cases/C-0002.html"
+      },
+      {
+       "id": "E-0001",
+       "title": "双轨告知：隐私与生命的制度接口",
+       "url": "https://zhishuixue.com/cases/E-0001.html"
       }
      ],
      "termAnchor": "dredging",

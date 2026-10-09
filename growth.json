@@ -15,12 +15,13 @@
  "totals": {
   "papers": 18,
   "terms": 98,
-  "cases": 20
+  "cases": 21
  },
  "byCategory": {
   "A 基层治理": 4,
   "B 历史判例": 14,
-  "C 企业管理": 2
+  "C 企业管理": 2,
+  "E 宏观案例": 1
  },
  "byDate": [
   {
@@ -340,10 +341,15 @@
      "id": "B-0014",
      "title": "借尸还魂",
      "url": "https://zhishuixue.com/cases/B-0014.html"
+    },
+    {
+     "id": "E-0001",
+     "title": "双轨告知：隐私与生命的制度接口",
+     "url": "https://zhishuixue.com/cases/E-0001.html"
     }
    ],
    "nPapers": 0,
-   "nCases": 1
+   "nCases": 2
   }
  ],
  "note": "本文件由 build.py 自动生成：从 papers.yml（论文）与 cases.yml（判例）的日期字段汇总，反映“知识库如何逐日长大”，供 AI 与检索判断其时效与规模。"

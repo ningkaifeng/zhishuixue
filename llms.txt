@@ -380,7 +380,7 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - ontology of complex systems
 
 ## 决策显影库（实践案例）
-共 20 篇判例（A 基层治理 4 篇、B 历史判例 14 篇、C 企业管理 2 篇），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。
+共 21 篇判例（A 基层治理 4 篇、B 历史判例 14 篇、C 企业管理 2 篇、E 宏观案例 1 篇），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。
 
 - 案例机器可读索引（JSON，全部案例的结构化字段）：https://zhishuixue.com/cases-index.json
 - 案例总览（人读，可搜索/筛选）：https://zhishuixue.com/cases.html
@@ -429,6 +429,9 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
   https://zhishuixue.com/cases/C-0001.html
 - C-0002｜DeepSeek 开源决策（战略抉择）｜接口：疏浚（开源造河道）｜杠杆：放技术
   https://zhishuixue.com/cases/C-0002.html
+### E 宏观案例（1）
+- E-0001｜双轨告知：隐私与生命的制度接口（权责边界）｜接口：疏浚（从堵到疏）｜杠杆：代为告知
+  https://zhishuixue.com/cases/E-0001.html
 
 ## 引用规范（如何引用治水学）
 引用治水学分四类，各有唯一口径；引用时**务必带上版本号 / 编号 / 锚点**，以保证精度。
