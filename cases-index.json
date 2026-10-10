@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-09",
+ "date": "2026-10-10",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-09．https://zhishuixue.com/cases-index.json",
- "count": 21,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-10．https://zhishuixue.com/cases-index.json",
+ "count": 22,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -370,6 +370,25 @@
    "abstract": "陈胜、吴广是底层戍卒，大泽乡遇雨误期、进退皆死。陈胜不自号、不硬拼，而是借两个“死人”名号——被冤杀的公子扶苏、生死不明的楚将项燕，诈称其名起兵，再以“鱼腹丹书”“篝火狐鸣”造天意，天下云集响应。精妙在“借不能用者而用之”——自己没名分，就借“死了但名望还在”的旧名号（尸）装自己的新意图（魂）；本质是祭祀·共识嫁接，借旧共识凝聚新力量。",
    "source": "《史记·陈涉世家》",
    "url": "https://zhishuixue.com/cases/B-0014.html"
+  },
+  {
+   "id": "B-0015",
+   "num": "B-0015",
+   "title": "调虎离山",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "疏浚·位置向（调对手离开依托）",
+   "lever": "引离",
+   "date": "2026-10-10",
+   "concepts": [
+    {
+     "name": "疏浚",
+     "anchor": "dredging"
+    }
+   ],
+   "abstract": "孙策欲取庐江，刘勋兵强且据守皖城坚城（虎＋山）。孙策不硬攻，而是顺着刘勋贪财自大的弱点，卑辞厚礼、假意示弱，诱其出兵远征上缭，把虎调离山；刘勋一离城，孙策即与周瑜奇袭皖城，并派孙贲、孙辅截断其退路，大败刘勋、夺取庐江。精妙在“疏浚·位置向”——把对手本人从其优势依托上引开，让强失去支点；与围魏救赵（压力向）、借刀杀人（出力向）、李代桃僵（损失向）并列为疏浚四向。",
+   "source": "《三国志·吴书·孙策传》（裴松之注引《江表传》）",
+   "url": "https://zhishuixue.com/cases/B-0015.html"
   },
   {
    "id": "C-0001",
