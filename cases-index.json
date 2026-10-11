@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-10",
+ "date": "2026-10-11",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-10．https://zhishuixue.com/cases-index.json",
- "count": 22,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-11．https://zhishuixue.com/cases-index.json",
+ "count": 23,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -389,6 +389,25 @@
    "abstract": "孙策欲取庐江，刘勋兵强且据守皖城坚城（虎＋山）。孙策不硬攻，而是顺着刘勋贪财自大的弱点，卑辞厚礼、假意示弱，诱其出兵远征上缭，把虎调离山；刘勋一离城，孙策即与周瑜奇袭皖城，并派孙贲、孙辅截断其退路，大败刘勋、夺取庐江。精妙在“疏浚·位置向”——把对手本人从其优势依托上引开，让强失去支点；与围魏救赵（压力向）、借刀杀人（出力向）、李代桃僵（损失向）并列为疏浚四向。",
    "source": "《三国志·吴书·孙策传》（裴松之注引《江表传》）",
    "url": "https://zhishuixue.com/cases/B-0015.html"
+  },
+  {
+   "id": "B-0016",
+   "num": "B-0016",
+   "title": "欲擒故纵",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "疏浚·泄势向（不逼反纵，松手泄势）",
+   "lever": "纵（松手不迫）",
+   "date": "2026-10-11",
+   "concepts": [
+    {
+     "name": "疏浚",
+     "anchor": "dredging"
+    }
+   ],
+   "abstract": "郑庄公面对亲弟共叔段在母亲武姜撑腰下的夺位图谋，不提前动手（逼则反兵），反而松手纵容，任其一步步坐实谋反罪名，待其起兵袭郑时一举讨伐、铲除后患。精妙在“疏浚·泄势向”——不硬堵，松手让对手的势自己泄到“自毙”的绝境；与围魏救赵（压力向）、借刀杀人（出力向）、李代桃僵（损失向）、调虎离山（位置向）并列为疏浚五向。",
+   "source": "《三十六计·第十六计（攻战计）》；《左传·隐公元年》",
+   "url": "https://zhishuixue.com/cases/B-0016.html"
   },
   {
    "id": "C-0001",

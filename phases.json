@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 22,
-  "totalCases": 22
+  "mountedCases": 23,
+  "totalCases": 23
  },
  "unmounted": [],
  "howToUse": [
@@ -267,6 +267,11 @@
        "id": "B-0015",
        "title": "调虎离山",
        "url": "https://zhishuixue.com/cases/B-0015.html"
+      },
+      {
+       "id": "B-0016",
+       "title": "欲擒故纵",
+       "url": "https://zhishuixue.com/cases/B-0016.html"
       },
       {
        "id": "C-0002",
