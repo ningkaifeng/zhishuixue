@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 24,
-  "totalCases": 24
+  "mountedCases": 25,
+  "totalCases": 25
  },
  "unmounted": [],
  "howToUse": [
@@ -53,6 +53,11 @@
        "id": "B-0009",
        "title": "隔岸观火",
        "url": "https://zhishuixue.com/cases/B-0009.html"
+      },
+      {
+       "id": "B-0018",
+       "title": "擒贼擒王",
+       "url": "https://zhishuixue.com/cases/B-0018.html"
       }
      ],
      "termAnchor": "structural-judgment",

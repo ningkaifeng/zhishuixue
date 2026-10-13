@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-12",
+ "date": "2026-10-13",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-12．https://zhishuixue.com/cases-index.json",
- "count": 24,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-13．https://zhishuixue.com/cases-index.json",
+ "count": 25,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -427,6 +427,25 @@
    "abstract": "孙膑马陵之战，面对强魏追兵、兵力悬殊，不硬拼，反以“减灶”示弱——三天灶坑十万、五万、三万，诱庞涓误信齐军溃散、轻兵急追；再在马陵险道设伏，削树皮刻字“庞涓死于此树之下”，火光一现万箭齐发，逼死庞涓、全歼魏军主力。精妙在“信号层·抛饵诱进”——抛一个精准命中对方偏见的假饵，让对方自己钻进埋伏；与瞒天过海（造信号）、打草惊蛇（探信号）并列为信号层三态。",
    "source": "《三十六计·第十七计（攻战计）》；《史记·孙子吴起列传》",
    "url": "https://zhishuixue.com/cases/B-0017.html"
+  },
+  {
+   "id": "B-0018",
+   "num": "B-0018",
+   "title": "擒贼擒王",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "结构判断·攻其枢要（识别并直击体系枢纽，令整体瓦解）",
+   "lever": "王（主将／枢纽）",
+   "date": "2026-10-13",
+   "concepts": [
+    {
+     "name": "结构判断",
+     "anchor": "structural-judgment"
+    }
+   ],
+   "abstract": "安史之乱，叛将尹子奇率十余万大军围睢阳，守将张巡以六七千兵力死守。张巡不摊开硬拼，直取“王”——先用“剡蒿为矢”（蒿秆当箭）诱叛军误以为其箭尽、跑去报告主帅，从而锁定尹子奇位置，再命神箭手南霁云一箭射中其左眼，叛军主将重伤、指挥失灵、收兵退还，睢阳之围暂解。精妙在“结构判断·攻其枢要”——先识王（找出指挥中枢），再擒王（拔掉枢纽），十几万大军群龙无首、不攻自乱。",
+   "source": "《三十六计·第十八计（攻战计）》；《资治通鉴·唐纪》（张巡守睢阳）",
+   "url": "https://zhishuixue.com/cases/B-0018.html"
   },
   {
    "id": "C-0001",
