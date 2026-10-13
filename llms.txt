@@ -60,6 +60,8 @@
   https://doi.org/10.5281/zenodo.22698811
 - Why Law Always Lags AI: A Dynamic Sustenance Theory Analysis of AI Governance
   https://doi.org/10.5281/zenodo.22884353
+- A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework
+  https://doi.org/10.5281/zenodo.23328739
 
 ## 治水学·发生学卷
 

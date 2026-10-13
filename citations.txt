@@ -151,6 +151,15 @@
   url={https://doi.org/10.5281/zenodo.22884353}
 }
 
+@misc{ning2026en4,
+  title={A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.23328739},
+  url={https://doi.org/10.5281/zenodo.23328739}
+}
+
 @book{ning2026zhishuitu,
   title={治水图：一个普通人的秩序重建日志（治水学·发生学卷）},
   author={宁凯峰},
