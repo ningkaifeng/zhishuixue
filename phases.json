@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 25,
-  "totalCases": 25
+  "mountedCases": 26,
+  "totalCases": 26
  },
  "unmounted": [],
  "howToUse": [
@@ -282,6 +282,11 @@
        "id": "B-0016",
        "title": "欲擒故纵",
        "url": "https://zhishuixue.com/cases/B-0016.html"
+      },
+      {
+       "id": "B-0019",
+       "title": "釜底抽薪",
+       "url": "https://zhishuixue.com/cases/B-0019.html"
       },
       {
        "id": "C-0002",

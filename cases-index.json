@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-13",
+ "date": "2026-10-14",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-13．https://zhishuixue.com/cases-index.json",
- "count": 25,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-14．https://zhishuixue.com/cases-index.json",
+ "count": 26,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -24,7 +24,8 @@
    "响应微隙",
    "响应钝化",
    "响应锁定",
-   "响应错位"
+   "响应错位",
+   "断源消势"
   ],
   "notes": "本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 papers.yml 的 case_interfaces.phase_map 补映射，或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，按决议不进官方母表，单列、不算异常。"
  },
@@ -446,6 +447,25 @@
    "abstract": "安史之乱，叛将尹子奇率十余万大军围睢阳，守将张巡以六七千兵力死守。张巡不摊开硬拼，直取“王”——先用“剡蒿为矢”（蒿秆当箭）诱叛军误以为其箭尽、跑去报告主帅，从而锁定尹子奇位置，再命神箭手南霁云一箭射中其左眼，叛军主将重伤、指挥失灵、收兵退还，睢阳之围暂解。精妙在“结构判断·攻其枢要”——先识王（找出指挥中枢），再擒王（拔掉枢纽），十几万大军群龙无首、不攻自乱。",
    "source": "《三十六计·第十八计（攻战计）》；《资治通鉴·唐纪》（张巡守睢阳）",
    "url": "https://zhishuixue.com/cases/B-0018.html"
+  },
+  {
+   "id": "B-0019",
+   "num": "B-0019",
+   "title": "釜底抽薪",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "断源消势（不敌其力，而消其势）",
+   "lever": "薪（粮草／根本供给）",
+   "date": "2026-10-14",
+   "concepts": [
+    {
+     "name": "疏浚",
+     "anchor": "dredging"
+    }
+   ],
+   "abstract": "官渡之战，曹操以两万余兵力对抗袁绍十余万大军，粮草将尽、濒临溃败。曹操采纳许攸之计，不正面硬拼，亲率五千精兵夜袭乌巢、烧毁袁绍万余车粮草，袁军断粮军心大乱，张郃高览投降，曹操乘势出击歼灭袁军七八万，袁绍仅带八百亲兵逃回河北。精妙在“断源消势”——不敌其力而消其势：对方表面强大的“力”挡不住，就断掉其“力”的源头（粮草），火一灭、水自凉。",
+   "source": "《三十六计·第十九计（混战计）》；《三国志·魏书·武帝纪》（官渡之战）",
+   "url": "https://zhishuixue.com/cases/B-0019.html"
   },
   {
    "id": "C-0001",
