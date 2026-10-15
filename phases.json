@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 26,
-  "totalCases": 26
+  "mountedCases": 27,
+  "totalCases": 27
  },
  "unmounted": [],
  "howToUse": [
@@ -393,6 +393,11 @@
        "id": "B-0012",
        "title": "顺手牵羊",
        "url": "https://zhishuixue.com/cases/B-0012.html"
+      },
+      {
+       "id": "B-0020",
+       "title": "浑水摸鱼",
+       "url": "https://zhishuixue.com/cases/B-0020.html"
       }
      ],
      "termAnchor": "response-gap",
