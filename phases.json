@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 27,
-  "totalCases": 27
+  "mountedCases": 28,
+  "totalCases": 28
  },
  "unmounted": [],
  "howToUse": [
@@ -458,6 +458,11 @@
        "id": "B-0008",
        "title": "暗渡陈仓",
        "url": "https://zhishuixue.com/cases/B-0008.html"
+      },
+      {
+       "id": "B-0021",
+       "title": "金蝉脱壳",
+       "url": "https://zhishuixue.com/cases/B-0021.html"
       }
      ],
      "termAnchor": "",

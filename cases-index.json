@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-15",
+ "date": "2026-10-16",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-15．https://zhishuixue.com/cases-index.json",
- "count": 27,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-16．https://zhishuixue.com/cases-index.json",
+ "count": 28,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -26,7 +26,8 @@
    "响应钝化",
    "响应锁定",
    "响应错位",
-   "断源消势"
+   "断源消势",
+   "留壳抽身"
   ],
   "notes": "本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 papers.yml 的 case_interfaces.phase_map 补映射，或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，按决议不进官方母表，单列、不算异常。"
  },
@@ -486,6 +487,25 @@
    "abstract": "东汉末年天下大乱，刘备无立足之地，寄居荆州。益州牧刘璋暗弱无主，听张松、法正之劝迎刘备入川。刘备留孔明守荆州，带庞统入川，驻葭萌关厚树恩德、收拢人心，待时机成熟借“借兵回援”翻脸，庞统献三策，刘备采中策诱杀杨怀高沛、夺涪城，最终逼刘璋投降、取益州为根基，奠定三分天下。精妙在“乘乱取利”——趁天下乱、刘璋无主，把又肥又弱又无主的“鱼”摸到手。",
    "source": "《三十六计·第二十计（混战计）》；《三国志·蜀书·先主传》《三国志·蜀书·庞统传》",
    "url": "https://zhishuixue.com/cases/B-0020.html"
+  },
+  {
+   "id": "B-0021",
+   "num": "B-0021",
+   "title": "金蝉脱壳",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "留壳抽身（存其形，完其势，留壳稳住对方，本体脱身）",
+   "lever": "壳（稳住对方的假象）",
+   "date": "2026-10-16",
+   "concepts": [
+    {
+     "name": "响应缺口",
+     "anchor": "response-gap"
+    }
+   ],
+   "abstract": "南宋开禧二年，宋将毕再遇以几千人马对抗金军数万精锐，寡不敌众、决意撤退。为免金兵追杀，毕再遇不直接撤，而是“悬羊击鼓”——把羊倒吊树上、前蹄蹬鼓，制造“宋军还在”的假象，全军在鼓声掩护下悄悄撤离。金兵听鼓声不停、见旗帜如林，两天不敢进兵，等察觉是羊击鼓，宋军早已远遁。精妙在“留壳抽身”——留一副空壳稳住对方，本体安全脱身。",
+   "source": "《三十六计·第二十一计（混战计）》；《宋史·毕再遇传》",
+   "url": "https://zhishuixue.com/cases/B-0021.html"
   },
   {
    "id": "C-0001",
