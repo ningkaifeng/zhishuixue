@@ -309,6 +309,9 @@ def render_cases_json(d):
             "date": c.get("date", ""),
             "concepts": [{"name": n, "anchor": amap.get(n, "")} for n in c.get("concepts", [])],
             "abstract": c.get("abstract", ""),
+            "effect": c.get("effect", ""),
+            "reusable_condition": c.get("reusable_condition", ""),
+            "non_applicable": c.get("non_applicable", ""),
             "source": c.get("source", ""),
             "url": case_url(base, c),
         })
@@ -352,6 +355,11 @@ def render_cases_json(d):
         "citedAs": f'{d["person"]["name"]}．{cm.get("title", "治水学·决策显影库")}'
                     f'{cm.get("version_label", "v1.0")}．{max(_dates) if _dates else ""}．{base}cases-index.json',
         "count": len(items),
+        "fieldNotes": {
+            "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
+            "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
+            "non_applicable": "不适用条件（取自判例记录人备注「适用边界·不适用于」；正文未写者为 null）",
+        },
         "health": _health,
         "cases": items,
     }
