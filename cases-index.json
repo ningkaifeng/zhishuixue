@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-16",
+ "date": "2026-10-17",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-16．https://zhishuixue.com/cases-index.json",
- "count": 28,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-17．https://zhishuixue.com/cases-index.json",
+ "count": 29,
  "health": {
   "casesNotMountedInPhases": [],
   "interfacesNotInTermTable": [],
@@ -21,6 +21,7 @@
    "乘乱取利",
    "信号层",
    "信号探测",
+   "关门困敌",
    "响应失效",
    "响应微隙",
    "响应钝化",
@@ -506,6 +507,25 @@
    "abstract": "南宋开禧二年，宋将毕再遇以几千人马对抗金军数万精锐，寡不敌众、决意撤退。为免金兵追杀，毕再遇不直接撤，而是“悬羊击鼓”——把羊倒吊树上、前蹄蹬鼓，制造“宋军还在”的假象，全军在鼓声掩护下悄悄撤离。金兵听鼓声不停、见旗帜如林，两天不敢进兵，等察觉是羊击鼓，宋军早已远遁。精妙在“留壳抽身”——留一副空壳稳住对方，本体安全脱身。",
    "source": "《三十六计·第二十一计（混战计）》；《宋史·毕再遇传》",
    "url": "https://zhishuixue.com/cases/B-0021.html"
+  },
+  {
+   "id": "B-0022",
+   "num": "B-0022",
+   "title": "关门捉贼",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "关门困敌（小敌困之，断其去路，围而歼之）",
+   "lever": "门（退路／去路）",
+   "date": "2026-10-17",
+   "concepts": [
+    {
+     "name": "方舟",
+     "anchor": "arking"
+    }
+   ],
+   "abstract": "长平之战，秦将白起面对赵括亲率的四十万大军，不硬拼、不追击，而是先佯败诱敌，等赵军离开坚固营垒、深入秦境，再派奇兵截断其退路、切断粮道，把四十万赵军围成“瓮中之鳖”，围困46天、粮绝，赵括突围被射杀，赵军全军覆没。精妙在“关门困敌”——不追不赶，先关门（断退路）、再捉贼（围歼），让敌人无路可逃、一网打尽。",
+   "source": "《三十六计·第二十二计（混战计）》；《史记·白起王翦列传》（长平之战）",
+   "url": "https://zhishuixue.com/cases/B-0022.html"
   },
   {
    "id": "C-0001",
