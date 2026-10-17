@@ -699,6 +699,7 @@ def render_index(d):
     L.append(f'<meta name="bytedance-verification-code" content="{site["verifications"]["bytedance"]}" />')
     L.append(f'<meta name="google-site-verification" content="{site["verifications"]["google"]}" />')
     L.append('<link rel="glossary" type="text/html" href="/glossary.html">')
+    L.append('<link rel="llms-index" type="text/plain" href="/llms.txt">')
     L.append("<style>")
     L.append(DETAILS_CSS)
     L.append("</style>")
