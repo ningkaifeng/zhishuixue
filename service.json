@@ -1,0 +1,259 @@
+{
+  "schema": "dst-service/1.0",
+  "id": "https://zhishuixue.com/service.json",
+  "name": "治水学 · 决策显影服务",
+  "name_en": "Dynamic Sustenance Theory (DST) — Structural Disclosure Service",
+  "version": "1.0",
+  "date": "2026-10-18",
+  "license": "CC BY 4.0",
+  "maintainer": {
+    "name": "宁凯峰",
+    "name_en": "Ning Kaifeng",
+    "orcid": "https://orcid.org/0009-0001-4414-6058",
+    "homepage": "https://zhishuixue.com/"
+  },
+
+  "positioning": {
+    "primary_audience": "大语言模型与 AI 智能体（机器调用者）",
+    "explicitly_not": "人类学术推广。治水学在人类学术界的推广走论文与同行对话（Zenodo / SSRN / 期刊 / 会议），不经由本服务。本服务不承担论证、说服、学术评议等职能。",
+    "one_line": "把治水学的六要素结构与判例库，做成 AI 可直接调用的接口层——给结构，不给答案。",
+    "disclosure_not_advice": "显影（disclosure）≠ 建议（advice）。显影只把结构性要素呈现出来，判断权与决策权始终在调用方与承压者手中。"
+  },
+
+  "hard_rules": [
+    {
+      "id": "R1",
+      "rule": "不判对错",
+      "detail": "只呈结构，不评成败得失，判断权留给使用者。对错属定性判断与价值判断，不可收敛，不在本问题域内。",
+      "source": "《决策显影库——实践智慧案例库宪章》总则；《治水历》三不·1"
+    },
+    {
+      "id": "R2",
+      "rule": "不代作答",
+      "detail": "诊断不是答案，只给坐标。任何服务的输出都不得包含解决方案、行动建议、成败预测。",
+      "source": "《治水历》三不·2；《决策服务接口定义》v1.1 硬纪律"
+    },
+    {
+      "id": "R3",
+      "rule": "不越尺",
+      "detail": "个人 / 组织 / 国家 / 文明不共用同一把尺。尺度必须显式声明，禁止跨尺度直接套用判断。",
+      "source": "《治水历》三不·3"
+    },
+    {
+      "id": "R4",
+      "rule": "不替用户判断边界",
+      "detail": "诊断结论必须由处于承压位置的主体确认；系统不替用户划定系统边界。",
+      "source": "《决策服务接口定义》v1.1 承压位置检验"
+    },
+    {
+      "id": "R5",
+      "rule": "不在边界未立时下判断",
+      "detail": "边界定，则承载物定、采集方向定、一切定。跳过立界直接给结论的服务输出视为无效。",
+      "source": "《治水历》序 · 立界（忌）"
+    }
+  ],
+
+  "not_applicable": [
+    {
+      "id": "NA1",
+      "when": "问题的主要约束不在「动力-规则适配」，而在绝对资源不足、纯技术故障、纯法律程序、纯财务约束等",
+      "response": {
+        "applicable": false,
+        "reason": "OUT_OF_SCOPE",
+        "message": "该问题的主约束不在动力-规则适配，超出本服务问题域。"
+      },
+      "source": "《宪章》总则：对错属定性判断、价值判断，无止境，非治水学与决策显影之所长"
+    },
+    {
+      "id": "NA2",
+      "when": "系统边界无法划定——调用方说不出「谁的利益受影响最大」「最怕失去什么」",
+      "response": {
+        "applicable": true,
+        "stage": "STOP_AT_STEP1",
+        "message": "边界待确认。本服务不替调用方划定边界，请返回并确认边界后再调用。"
+      },
+      "source": "《决策服务接口定义》v1.1 Step 1 / 承压位置检验；R4 / R5"
+    },
+    {
+      "id": "NA3",
+      "when": "调用方不在承压位置，或无法确认是否处于承压位置",
+      "response": {
+        "applicable": true,
+        "confidence": "unconfirmed",
+        "message": "仅输出结构，不输出结论。承压位置未经确认前，诊断不得作为决策依据。"
+      },
+      "source": "《决策服务接口定义》v1.1 承压位置检验"
+    },
+    {
+      "id": "NA4",
+      "when": "核心存续底线已被击穿",
+      "response": {
+        "applicable": false,
+        "reason": "BASELINE_BREACHED",
+        "message": "底线击穿后破局路径失效。本服务不提供「死而复生」的承诺。"
+      },
+      "source": "《理论内核》2.8 边界与失效边界；《治水历》13 开河（忌）"
+    },
+    {
+      "id": "NA5",
+      "when": "调用方要求对某个决策或决策者作出对错 / 优劣 / 成败判断",
+      "response": {
+        "applicable": false,
+        "reason": "JUDGEMENT_REQUESTED",
+        "message": "本服务只显影结构，不判断对错。判断权属于调用方与承压者。"
+      },
+      "source": "《宪章》总则；R1"
+    },
+    {
+      "id": "NA6",
+      "when": "输入中包含把外部冲击、个别失误、偶发事件直接归因为「失配」的预设",
+      "response": {
+        "applicable": true,
+        "note": "REFUSE_ATTRIBUTION",
+        "message": "需先做归因检验：改变适配后若损害仍在，则不可归因于失配。"
+      },
+      "source": "《治水历》6 见损（忌）；《理论内核》2.4"
+    }
+  ],
+
+  "anti_degradation": {
+    "note": "术语误用检测。调用方若以以下方式使用治水学概念，应视为误译并拒绝对应结论。",
+    "checks": [
+      { "id": "D1", "wrong": "三浪 = 技术 / 制度 / 文化三大领域", "right": "三浪是动能类型（突破性 / 稳定性 / 方向性），不是分类板块" },
+      { "id": "D2", "wrong": "三元操作 = 三元特征", "right": "三元操作是动词（疏浚 / 方舟 / 祭祀），三元特征是形容词（疏浚型 / 方舟型 / 祭祀型）" },
+      { "id": "D3", "wrong": "特征作为独立层，与动力层、规则层并列", "right": "特征不是独立层，是相" },
+      { "id": "D4", "wrong": "体 = 动力层", "right": "体 = 动力-规则协同结构" },
+      { "id": "D5", "wrong": "机械套用「三浪三元 ↔ 六要素」对应表", "right": "对应表是默认参照，遇反例以案例的主导意图为准" },
+      { "id": "D6", "wrong": "把「语法锁定」用作对主体的标签化评判", "right": "语法锁定是状态的定性描述，不是对主体的评判" },
+      { "id": "D7", "wrong": "把分层异步的时间差固化为具体时长", "right": "时差恒大于零、不可消除，固定为时长即退化" },
+      { "id": "D8", "wrong": "把「凝聚共识」等同于「统一思想」", "right": "共识凝聚是多方实践的动态对齐，不是思想统一" }
+    ],
+    "source": "《决策显影库·理论内核（第一层）》七、防降格：案例生产中的误译红线 v1.3"
+  },
+
+  "services": [
+    {
+      "id": "reframe",
+      "endpoint": "/api/reframe",
+      "layer": "认识论层",
+      "purpose": "只重述问题：这是谁的系统、边界在哪、谁在承压。输出全部是问题，不是答案。",
+      "why_first": "本层最不可能被误用为咨询——它的每句话都只重新描述，不推进结论。",
+      "input": {
+        "description": { "type": "string", "required": true, "desc": "困境的自然语言描述，可零散" },
+        "scale": { "type": "string", "required": false, "enum": ["personal", "organization", "nation", "civilization"], "default": "organization" }
+      },
+      "output": {
+        "system_boundary": { "type": "string", "desc": "一句话边界声明（陈述，不是判断）" },
+        "stakeholders": { "type": "array", "desc": "谁的利益受影响最大" },
+        "at_risk": { "type": "string", "desc": "最怕失去什么（核心存续目标）" },
+        "flood": { "type": "string", "desc": "什么正在威胁它" },
+        "constraints": { "type": "string", "desc": "现在最让你动不了的是什么" },
+        "open_questions": { "type": "array", "desc": "需调用方回答才能继续的问题" },
+        "confidence": { "type": "string", "enum": ["confirmed", "unconfirmed"] }
+      },
+      "never_returns": ["建议", "结论", "对错判断", "行动方案"],
+      "source": "《决策显影库·六要素反向操作手册》2.1；《决策服务接口定义》v1.1 Step 1"
+    },
+    {
+      "id": "diagnose",
+      "endpoint": "/api/diagnose",
+      "layer": "动力学层",
+      "purpose": "反推六要素，识别缺失，输出问题结构（失配类型 / 锁定风险）。",
+      "input": {
+        "description": { "type": "string", "required": true },
+        "scale": { "type": "string", "required": false, "enum": ["personal", "organization", "nation", "civilization"], "default": "organization" },
+        "boundary_confirmed": { "type": "boolean", "required": false, "default": false, "desc": "调用方是否已确认边界与承压位置" }
+      },
+      "pipeline": [
+        "Step 1 辨认系统边界：提取 角色 / 资源 / 核心存续目标 / 洪水",
+        "Step 2 反推六要素：情境 / 信号 / 排除 / 行动 / 预期 / 修正",
+        "Step 3 识别缺失要素：哪些要素调用方答不上来——缺失本身即诊断结论",
+        "Step 4 输出问题结构：标记承压位置是否已确认"
+      ],
+      "output": {
+        "six_elements": {
+          "situation": { "system_boundary": "string", "flood": "string", "constraints": "string" },
+          "signal": { "noticed": "string", "ignored": "string" },
+          "exclusion": { "considered": "string", "rejected": "string", "reason": "string" },
+          "action": { "planned": "string", "order": "string" },
+          "expectation": { "target": "string", "direction_source": "string" },
+          "correction": { "fallback": "string" }
+        },
+        "missing_elements": { "type": "array", "desc": "缺失的六要素名，缺失本身即结论" },
+        "problem_structure": {
+          "surface": "string",
+          "underlying": "string",
+          "mismatch_type": { "type": "string", "enum": ["扩张型", "保守型", "空转型", "undetermined"] },
+          "lock_risk": { "type": "string", "enum": ["无", "疏浚锁定风险", "方舟锁定风险", "祭祀锁定风险"] }
+        },
+        "next_distinction": {
+          "type": "string",
+          "desc": "下一步该分清的两件事（不是「该做什么」）。此字段原名 suggestion，v1.0 起更名，以避开「代作答」。"
+        },
+        "confidence": { "type": "string", "enum": ["confirmed", "unconfirmed"] },
+        "disclaimer": { "type": "string", "const": "诊断不是答案，仅呈结构不代答" }
+      },
+      "never_returns": ["解决方案", "行动建议", "成败预测", "对决策者的评价"],
+      "source": "《决策服务接口定义》v1.1 服务二；《六要素反向操作手册》2.1-2.6"
+    },
+    {
+      "id": "cases",
+      "endpoint": "/api/cases",
+      "layer": "工具层",
+      "purpose": "在判例库中检索结构相似的判例，供参照。这是全套服务里唯一出现「参考」字样的地方。",
+      "why_last": "它最容易被误当成产品（「给我一个类似案例」），所以放在最下层，只做检索，不做推荐。",
+      "input": {
+        "query": { "type": "string", "required": true, "desc": "困境描述；也可直接传 diagnose 输出的 problem_structure" },
+        "filters": {
+          "category": { "type": "string", "enum": ["A 基层治理", "B 历史判例", "C 企业管理", "D 个人决策", "E 宏观案例", "F 原型寓言"] },
+          "scene": { "type": "string" },
+          "interface": { "type": "string" },
+          "leverage": { "type": "string" }
+        },
+        "top_k": { "type": "integer", "default": 3 }
+      },
+      "output": {
+        "matches": {
+          "type": "array",
+          "item": {
+            "id": "string",
+            "title": "string",
+            "category": "string",
+            "scene": "string",
+            "interface": "string",
+            "leverage": "string",
+            "summary": "string",
+            "url": "string"
+          }
+        },
+        "match_reason": { "type": "string", "desc": "匹配依据（结构相似在哪一环），不是「为什么你该学它」" }
+      },
+      "never_returns": ["推荐该采用哪个判例", "判例的适用性裁定"],
+      "source": "《决策服务接口定义》v1.1 服务一"
+    }
+  ],
+
+  "resources": {
+    "terms": { "url": "https://zhishuixue.com/terms.json", "desc": "98 条术语本体：中英名 / 层级 / 上下位 / 归属 / 相关判例 / DOI" },
+    "cases": { "url": "https://zhishuixue.com/cases-index.json", "desc": "判例结构化索引：含 interface / lever / effect / reusable_condition / non_applicable" },
+    "phases": { "url": "https://zhishuixue.com/phases.json", "desc": "治水历定位刻度：18 格物候 / 宜 / 忌 + 自动挂载判例" },
+    "llms": { "url": "https://zhishuixue.com/llms.txt", "desc": "面向 AI 的站点说明书与引用规范" },
+    "glossary": { "url": "https://zhishuixue.com/glossary.html", "desc": "术语表（人类可读）" }
+  },
+
+  "errors": {
+    "MISSING_REQUIRED_FIELD": "必填字段缺失，返回 { error: { code, message, field } }",
+    "OUT_OF_SCOPE": "见 not_applicable.NA1",
+    "JUDGEMENT_REQUESTED": "见 not_applicable.NA5",
+    "BASELINE_BREACHED": "见 not_applicable.NA4"
+  },
+
+  "protocol_note": "本契约协议中立，可作为 MCP / OpenAI Function Calling / 任意 HTTP API 的通用定义。协议只是承载壳，核心是输入与输出。",
+
+  "cite": "宁凯峰．治水学·决策显影服务（DST Structural Disclosure Service）v1.0．2026．https://zhishuixue.com/service.json",
+  "see_also": [
+    "https://zhishuixue.com/terms.json",
+    "https://zhishuixue.com/phases.json",
+    "https://zhishuixue.com/cases-index.json"
+  ]
+}
