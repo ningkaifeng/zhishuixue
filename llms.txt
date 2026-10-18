@@ -442,7 +442,7 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
   https://zhishuixue.com/cases/B-0021.html
 - B-0022｜关门捉贼（博弈决策）｜接口：关门困敌（小敌困之，断其去路，围而歼之）｜杠杆：门（退路／去路）
   https://zhishuixue.com/cases/B-0022.html
-- B-0023｜远交近攻（博弈决策）｜接口：边界划定（把系统边界划到全局未来的尺度，才有远近可分）｜杠杆：边界划定
+- B-0023｜远交近攻（博弈决策）｜接口：动力调控·压力错峰（把多个对手按远近分层、分批处理压力）｜杠杆：远近分层
   https://zhishuixue.com/cases/B-0023.html
 ### C 企业管理（2）
 - C-0001｜OpenAI 解雇风波（组织治理）｜接口：祭祀（承重误判）｜杠杆：辨节点

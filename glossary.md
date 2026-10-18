@@ -194,6 +194,7 @@
 - **编号**：DST-C-10
 - **DOI**：10.5281/zenodo.22842961
 - **一句话定义**：系统改变自身状态以应对洪水的能力层——即三浪。
+- **相关案例**：B-0023｜远交近攻（https://zhishuixue.com/cases/B-0023.html）
 
 ## 四、D · 规则层
 
@@ -480,7 +481,7 @@
 - **编号**：DST-G-01
 - **DOI**：10.5281/zenodo.23056450
 - **一句话定义**：诊断在认识论层面的视角，是存续域知识的最小单位，是结构维持自身连续性的一个动作。
-- **相关案例**：B-0009｜隔岸观火（https://zhishuixue.com/cases/B-0009.html）、B-0018｜擒贼擒王（https://zhishuixue.com/cases/B-0018.html）、B-0023｜远交近攻（https://zhishuixue.com/cases/B-0023.html）
+- **相关案例**：B-0009｜隔岸观火（https://zhishuixue.com/cases/B-0009.html）、B-0018｜擒贼擒王（https://zhishuixue.com/cases/B-0018.html）
 
 ### 诊断
 

@@ -627,7 +627,13 @@
    "partOf": null,
    "hyponyms": [],
    "members": [],
-   "cases": [],
+   "cases": [
+    {
+     "id": "B-0023",
+     "title": "远交近攻",
+     "url": "https://zhishuixue.com/cases/B-0023.html"
+    }
+   ],
    "citeKey": "dst-term-power-layer",
    "citedAs": "宁凯峰．「动力层」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#power-layer",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
@@ -1562,11 +1568,6 @@
      "id": "B-0018",
      "title": "擒贼擒王",
      "url": "https://zhishuixue.com/cases/B-0018.html"
-    },
-    {
-     "id": "B-0023",
-     "title": "远交近攻",
-     "url": "https://zhishuixue.com/cases/B-0023.html"
     }
    ],
    "citeKey": "dst-term-structural-judgment",
