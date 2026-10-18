@@ -187,7 +187,7 @@ CASES_INDEX_TPL = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>决策显影库（案例总览） | 治水学</title>
+<title>决策显影库（案例总览） | 治水学 DST</title>
 <meta name="description" content="治水学·决策显影库：把治水学工具用于真实历史、商业与治理决策的实践判例总览，可按归目、场景、治水学接口检索。">
 <link rel="canonical" href="__URL__">
 <script type="application/ld+json">
@@ -597,7 +597,7 @@ def render_case_page(c, d):
 
     L = ["<!DOCTYPE html>", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
          '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
-         f'<title>{c["card_title"]} | 治水学·决策显影库</title>',
+         f'<title>{c["card_title"]} | 治水学 DST · 决策显影库</title>',
          f'<meta name="description" content="{c["abstract"]}">',
          f'<link rel="canonical" href="{url}">',
          '<script type="application/ld+json">', j(ld), "</script>",
