@@ -768,6 +768,8 @@ def render_index(d):
     L.append(f'<hr style="{S["foot_hr"]}">')
     if site.get("contact_note"):
         L.append(f'<p style="{S["foot"]}">{site["contact_note"]}</p>')
+    if site.get("offer_note"):
+        L.append(f'<p style="{S["foot"]}">{site["offer_note"]}</p>')
     L.append(f'<p style="{S["foot"]}">{site["footer"]}</p>')
     L.append("</div>")
     L.append("</body>")

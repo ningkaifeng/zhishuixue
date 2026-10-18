@@ -20,6 +20,7 @@ site:
   master_label: "治水学 v15.0（元辩护版）"
   footer: "洪水不止，治水不息。"
   contact_note: "合作入口：治水学理论体系与决策显影库已开源（CC BY 4.0）。如需基于该框架进行商业咨询、合作或授权（AI 智能体授权 · 系统存续诊断 · 出版与翻译），请联系上方机构邮箱。"
+  offer_note: '治水学（Dynamic Sustenance Theory, DST）是一套面向复杂系统的存续分析框架。本站公开其完整作业面——从诊断语法，到实践判例，再到机器可读的<a href="service.json" style="color:#0066cc;text-decoration:none;">接口契约</a>。'
   indexnow_key: "1a61bd608d303403a7f909bb1718b51f"
   series_total: 38
   machine:
