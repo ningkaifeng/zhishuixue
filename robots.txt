@@ -1,7 +1,13 @@
+# zhishuixue.com robots.txt
+# Rule: every crawler is allowed (User-agent: * / Allow: /).
+# The user agents below are named explicitly so that crawl traffic can be
+# attributed in server logs, and so the list can be reused directly as a
+# WAF / CDN allow-list if one is ever enabled.
+
 User-agent: *
 Allow: /
 
-# AI crawlers — explicitly allowed
+# --- Overseas AI / LLM crawlers ---
 User-agent: GPTBot
 Allow: /
 
@@ -14,9 +20,6 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Bytespider
-Allow: /
-
 User-agent: CCBot
 Allow: /
 
@@ -24,6 +27,34 @@ User-agent: meta-externalagent
 Allow: /
 
 User-agent: Applebot-Extended
+Allow: /
+
+# --- Chinese AI search / LLM crawlers ---
+User-agent: Bytespider
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Baiduspider-render
+Allow: /
+
+User-agent: KimiBot
+Allow: /
+
+User-agent: ChatGLM-Spider
+Allow: /
+
+User-agent: TongyiBot
+Allow: /
+
+User-agent: YiyanBot
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: PanguBot
 Allow: /
 
 Sitemap: https://zhishuixue.com/sitemap.xml
