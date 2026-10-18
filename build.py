@@ -1406,6 +1406,87 @@ def render_sitemap(d):
     return "\n".join(L) + "\n"
 
 
+# ---------------------- service.json 契约自检（v1.0） ----------------------
+def validate_service_contract():
+    """字段级自检：结构、必填字段、端点唯一性、URL 前缀、定位句。
+    返回 (errors, warnings)。errors 非空表示契约已坏，必须修。"""
+    errs, warns = [], []
+    path = os.path.join(ROOT, "service.json")
+    if not os.path.exists(path):
+        return ["service.json 不存在（契约缺失）"], warns
+    try:
+        with open(path, encoding="utf-8") as f:
+            svc = json.load(f)
+    except Exception as e:
+        return [f"JSON 解析失败：{e}"], warns
+
+    def need(obj, keys, where):
+        if not isinstance(obj, dict):
+            errs.append(f"{where} 不是对象")
+            return
+        for k in keys:
+            if k not in obj or obj[k] in (None, "", [], {}):
+                errs.append(f"{where} 缺少必填字段：{k}")
+
+    need(svc, ["schema", "id", "name", "version", "date", "license", "maintainer",
+               "positioning", "hard_rules", "not_applicable", "services"], "根")
+
+    pos = svc.get("positioning") or {}
+    need(pos, ["primary_audience", "explicitly_not", "one_line"], "positioning")
+
+    hr = svc.get("hard_rules") or []
+    if len(hr) < 3:
+        errs.append(f"hard_rules 少于 3 条（现 {len(hr)}）")
+    seen = set()
+    for i, r in enumerate(hr):
+        need(r, ["id", "rule", "detail", "source"], f"hard_rules[{i}]")
+        if r.get("id") in seen:
+            errs.append(f"hard_rules id 重复：{r.get('id')}")
+        seen.add(r.get("id"))
+
+    na = svc.get("not_applicable") or []
+    if len(na) < 4:
+        errs.append(f"not_applicable 少于 4 条（现 {len(na)}）")
+    seen = set()
+    for i, r in enumerate(na):
+        need(r, ["id", "when", "response", "source"], f"not_applicable[{i}]")
+        resp = r.get("response")
+        if not isinstance(resp, dict) or "applicable" not in resp:
+            errs.append(f"not_applicable[{i}].response 缺少 applicable")
+        if r.get("id") in seen:
+            errs.append(f"not_applicable id 重复：{r.get('id')}")
+        seen.add(r.get("id"))
+
+    ad = svc.get("anti_degradation") or {}
+    for i, r in enumerate(ad.get("checks") or []):
+        need(r, ["id", "wrong", "right"], f"anti_degradation.checks[{i}]")
+
+    svcs = svc.get("services") or []
+    if len(svcs) != 3:
+        errs.append(f"services 应为 3 个（现 {len(svcs)}）")
+    eps = set()
+    for i, s2 in enumerate(svcs):
+        need(s2, ["id", "endpoint", "layer", "purpose", "input", "output"], f"services[{i}]")
+        ep = s2.get("endpoint", "")
+        if not ep.startswith("/"):
+            errs.append(f"services[{i}].endpoint 必须以 / 开头：{ep}")
+        if ep in eps:
+            errs.append(f"endpoint 重复：{ep}")
+        eps.add(ep)
+        if not s2.get("never_returns"):
+            warns.append(f"services[{i}]（{s2.get('id')}）未声明 never_returns")
+
+    for k, v in (svc.get("resources") or {}).items():
+        u = (v or {}).get("url", "")
+        if not u.startswith("https://zhishuixue.com/"):
+            errs.append(f"resources.{k}.url 须为本站绝对地址：{u}")
+
+    if "不给答案" not in (pos.get("one_line") or ""):
+        warns.append("positioning.one_line 未包含「不给答案」字样（定位句建议保留）")
+
+    return errs, warns
+
+
 def main():
     d = load()
     os.makedirs(DIST, exist_ok=True)
@@ -1442,6 +1523,15 @@ def main():
         with open(os.path.join(DIST, _ky + ".txt"), "w", encoding="utf-8") as f:
             f.write(_ky)
         print(f"  OK {_ky}.txt  (IndexNow key)")
+    _se, _sw = validate_service_contract()
+    if _se:
+        print("\n[契约体检] service.json  X")
+        for _x in _se:
+            print("   x " + _x)
+    else:
+        print("\n[契约体检] service.json  OK  结构与必填字段全部通过")
+    for _x in _sw:
+        print("   ! " + _x)
     print(f"\n生成完成：{len(d['works'])} 篇作品、{len(d['terms'])} 个术语、{len(_cases)} 篇判例 -> dist/")
 
 
