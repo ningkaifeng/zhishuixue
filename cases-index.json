@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-17",
+ "date": "2026-10-18",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-17．https://zhishuixue.com/cases-index.json",
- "count": 29,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-18．https://zhishuixue.com/cases-index.json",
+ "count": 30,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -33,7 +33,8 @@
    "响应锁定",
    "响应错位",
    "断源消势",
-   "留壳抽身"
+   "留壳抽身",
+   "边界划定"
   ],
   "notes": "本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 papers.yml 的 case_interfaces.phase_map 补映射，或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，按决议不进官方母表，单列、不算异常。"
  },
@@ -609,6 +610,28 @@
    "non_applicable": "“敌人依托完整、粮草充足（关不住）”或“敌人势大、围不住”的情形",
    "source": "《三十六计·第二十二计（混战计）》；《史记·白起王翦列传》（长平之战）",
    "url": "https://zhishuixue.com/cases/B-0022.html"
+  },
+  {
+   "id": "B-0023",
+   "num": "B-0023",
+   "title": "远交近攻",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "边界划定（把系统边界划到全局未来的尺度，才有远近可分）",
+   "lever": "边界划定",
+   "date": "2026-10-18",
+   "concepts": [
+    {
+     "name": "结构判断",
+     "anchor": "structural-judgment"
+    }
+   ],
+   "abstract": "战国末期，范雎向秦昭襄王献“远交近攻”——纠正穰侯魏冉“越韩魏而远攻齐”的路线，把六国按远近分层：先稳住远的齐楚燕（远交），集中力量蚕食近的韩魏（近攻），得寸则寸、得尺则尺，由近及远各个击破，最终一统天下。精妙在“边界划定”——把存续边界划到统一天下的全局未来，才有远近可分。",
+   "effect": "先拿下韩、魏这个天下枢纽，再北慑赵、南伐楚，最后平齐——由近及远、各个击破，最终一统天下",
+   "reusable_condition": "“系统边界划在全局未来、多对手有远近之分、远敌暂时够不着”的场景",
+   "non_applicable": "“系统边界只划在眼前物质利益／局部（边界划窄，此计即失效）”的情形",
+   "source": "《三十六计·第二十三计（混战计）》；《战国策·秦策三》（范雎献远交近攻）",
+   "url": "https://zhishuixue.com/cases/B-0023.html"
   },
   {
    "id": "C-0001",
