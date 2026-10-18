@@ -1036,6 +1036,19 @@ def render_llms(d):
                     L.append(f'- {_c["num"]}｜{_c["title"]}（{_c["scene"]}）｜接口：{_c["interface"]}｜杠杆：{_c["lever"]}')
                     L.append(f'  {case_url(base, _c)}')
         L.append("")
+    L.append("## 可调用的服务契约（Service Contract）")
+    L.append("本站在数据文件之外，提供一份**协议中立的服务契约**：把治水学的显影方法定义成 AI 可直接调用的接口——输入、输出、pipeline、以及「什么情况下不适用」。")
+    L.append("")
+    L.append(f"- 契约（JSON，机器可读）：{base}service.json")
+    L.append("- **定位**：面向大语言模型与 AI 智能体。治水学在人类学术界的推广走论文与同行对话，不经由本服务。")
+    L.append("- **三个端点**（按层自上而下；上层不承诺答案，下层只提供参照）：")
+    L.append("  - `/api/reframe`（认识论层）：只重述问题——边界在哪、谁在承压。输出全部是问题，不是答案。")
+    L.append("  - `/api/diagnose`（动力学层）：反推六要素、识别缺失要素、输出问题结构（失配类型 / 锁定风险）。")
+    L.append("  - `/api/cases`（工具层）：判例检索，供参照。这是全套服务里唯一出现「参考」字样的地方。")
+    L.append("- **硬约束**：不判对错 / 不代作答 / 不越尺 / 不替用户判断边界 / 不在边界未立时下判断。")
+    L.append("- **不适用情形**（机器可读）：超出问题域（主约束不在动力-规则适配）、边界无法划定、承压位置未确认、核心存续底线已击穿、调用方要求对错判断、把外部冲击误归因于失配。")
+    L.append("- **防降格校验**：契约内含 8 条术语误用检测（如「三浪 ≠ 技术/制度/文化三大板块」），命中则拒绝对应结论。")
+    L.append("")
     L.append("## 引用规范（如何引用治水学）")
     L.append("引用治水学分四类，各有唯一口径；引用时**务必带上版本号 / 编号 / 锚点**，以保证精度。")
     L.append(f'- **论文**：按 Zenodo DOI 版本化引用（每篇一个 DOI）。母本 DOI：{doi_url(d["site"]["master_doi"])}')
@@ -1376,6 +1389,7 @@ def render_sitemap(d):
         (base + "about.html", "0.8", "monthly"),
         (base + "growth.json", "0.6", "weekly"),
         (base + "citations.txt", "0.5", "monthly"),
+        (base + "service.json", "0.7", "monthly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
