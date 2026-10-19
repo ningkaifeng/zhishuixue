@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-18",
+ "date": "2026-10-19",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-18．https://zhishuixue.com/cases-index.json",
- "count": 30,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-19．https://zhishuixue.com/cases-index.json",
+ "count": 31,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -26,6 +26,7 @@
    "乘乱取利",
    "信号层",
    "信号探测",
+   "借道渗透",
    "关门困敌",
    "动力调控",
    "响应失效",
@@ -633,6 +634,28 @@
    "non_applicable": "“系统边界只划在眼前物质利益／局部（边界划窄，此计即失效）”的情形",
    "source": "《三十六计·第二十三计（混战计）》；《战国策·秦策三》（范雎献远交近攻）",
    "url": "https://zhishuixue.com/cases/B-0023.html"
+  },
+  {
+   "id": "B-0024",
+   "num": "B-0024",
+   "title": "假道伐虢",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "借道渗透（借路为名，渗入力量，先达真目标，回头吞掉借道者）",
+   "lever": "道（借路／借名义）",
+   "date": "2026-10-19",
+   "concepts": [
+    {
+     "name": "疏浚",
+     "anchor": "dredging"
+    }
+   ],
+   "abstract": "春秋时，晋献公欲吞并相邻的虢、虞两个小国，二者唇齿相依、互为犄角。大夫荀息献“假道伐虢”——用屈产良马、垂棘美璧贿赂贪财的虞公，借虞国通道伐虢，灭虢后回师顺手灭了虞国，一石二鸟。精妙在“借道渗透”——借中间人的路／名义作跳板，先打真目标，回头把借道者也一并吞掉（唇亡齿寒）。",
+   "effect": "一石二鸟：先借道灭虢（第一目标），回头灭虞（借道者），两个小国先后吞并——宝物只是“暂存”虞国府库，终究物归原主",
+   "reusable_condition": "“中间人可收买／可欺，且真实目标与中间人都够得着”的场景",
+   "non_applicable": "“中间人识破（唇亡齿寒）、或中间人太强、借道反被夹击”的情形",
+   "source": "《三十六计·第二十四计（混战计）》；《左传·僖公二年／五年》（荀息假道伐虢）",
+   "url": "https://zhishuixue.com/cases/B-0024.html"
   },
   {
    "id": "C-0001",

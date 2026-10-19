@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 30,
-  "totalCases": 30
+  "mountedCases": 31,
+  "totalCases": 31
  },
  "unmounted": [],
  "howToUse": [
@@ -292,6 +292,11 @@
        "id": "B-0023",
        "title": "远交近攻",
        "url": "https://zhishuixue.com/cases/B-0023.html"
+      },
+      {
+       "id": "B-0024",
+       "title": "假道伐虢",
+       "url": "https://zhishuixue.com/cases/B-0024.html"
       },
       {
        "id": "C-0002",

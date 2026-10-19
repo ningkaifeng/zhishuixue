@@ -384,76 +384,11 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - ontology of complex systems
 
 ## 决策显影库（实践案例）
-共 30 篇判例（A 基层治理 4 篇、B 历史判例 23 篇、C 企业管理 2 篇、E 宏观案例 1 篇），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。
+共 31 篇判例（A 基层治理 4 篇、B 历史判例 24 篇、C 企业管理 2 篇、E 宏观案例 1 篇），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。
 
 - 案例机器可读索引（JSON，全部案例的结构化字段）：https://zhishuixue.com/cases-index.json
 - 案例总览（人读，可搜索/筛选）：https://zhishuixue.com/cases.html
 - 逐篇页面：https://zhishuixue.com/cases/<编号>.html（例：https://zhishuixue.com/cases/B-0009.html）
-
-### A 基层治理（4）
-- A-0001｜业委会秘书“八个严禁”制度边界（制度边界）｜接口：方舟（底线守护）｜杠杆：划底线
-  https://zhishuixue.com/cases/A-0001.html
-- A-0002｜鲸鱼大楼酬金制账目困局（账目与资金）｜接口：疏浚（源头改造）｜杠杆：开信息
-  https://zhishuixue.com/cases/A-0002.html
-- A-0003｜长白229街坊充电桩困局（公共收益与设施）｜接口：疏浚（源头改造）｜杠杆：改路径
-  https://zhishuixue.com/cases/A-0003.html
-- A-0004｜九里片区“九合一”拆墙并院困局（空间改造与合并）｜接口：疏浚（源头改造）｜杠杆：排次序
-  https://zhishuixue.com/cases/A-0004.html
-### B 历史判例（23）
-- B-0001｜瞒天过海（博弈决策）｜接口：信号层（祭祀逆向）｜杠杆：藏信息
-  https://zhishuixue.com/cases/B-0001.html
-- B-0002｜围魏救赵（博弈决策）｜接口：疏浚（改变压力流向）｜杠杆：改优先级
-  https://zhishuixue.com/cases/B-0002.html
-- B-0003｜借刀杀人（博弈决策）｜接口：疏浚（转换出力者）｜杠杆：借第三方
-  https://zhishuixue.com/cases/B-0003.html
-- B-0004｜以逸待劳（博弈决策）｜接口：分层异步（等对方动能衰减）｜杠杆：等衰减
-  https://zhishuixue.com/cases/B-0004.html
-- B-0005｜趁火打劫（博弈决策）｜接口：响应缺口（趁对方响应崩溃）｜杠杆：乘危机
-  https://zhishuixue.com/cases/B-0005.html
-- B-0006｜声东击西（博弈决策）｜接口：响应错位（引导对方部署错位）｜杠杆：调兵力
-  https://zhishuixue.com/cases/B-0006.html
-- B-0007｜无中生有（博弈决策）｜接口：响应钝化（磨钝对方敏感度）｜杠杆：养脱敏
-  https://zhishuixue.com/cases/B-0007.html
-- B-0008｜暗渡陈仓（博弈决策）｜接口：响应锁定（被钉在假方向）｜杠杆：铺明线
-  https://zhishuixue.com/cases/B-0008.html
-- B-0009｜隔岸观火（博弈决策）｜接口：结构判断（系统边界）｜杠杆：划系统边界
-  https://zhishuixue.com/cases/B-0009.html
-- B-0010｜笑里藏刀（博弈决策）｜接口：祭祀（共识凝聚）｜杠杆：制造亲善共识
-  https://zhishuixue.com/cases/B-0010.html
-- B-0011｜李代桃僵（博弈决策）｜接口：疏浚（损失重定向）｜杠杆：改损失落点
-  https://zhishuixue.com/cases/B-0011.html
-- B-0012｜顺手牵羊（博弈决策）｜接口：响应微隙（趁小疏忽顺手取利）｜杠杆：乘微隙
-  https://zhishuixue.com/cases/B-0012.html
-- B-0013｜打草惊蛇（博弈决策）｜接口：信号探测（发试探、读响应）｜杠杆：探虚实
-  https://zhishuixue.com/cases/B-0013.html
-- B-0014｜借尸还魂（博弈决策）｜接口：祭祀·共识嫁接（借旧共识凝聚新力量）｜杠杆：嫁接共识
-  https://zhishuixue.com/cases/B-0014.html
-- B-0015｜调虎离山（博弈决策）｜接口：疏浚·位置向（调对手离开依托）｜杠杆：引离
-  https://zhishuixue.com/cases/B-0015.html
-- B-0016｜欲擒故纵（博弈决策）｜接口：疏浚·泄势向（不逼反纵，松手泄势）｜杠杆：纵（松手不迫）
-  https://zhishuixue.com/cases/B-0016.html
-- B-0017｜抛砖引玉（博弈决策）｜接口：信号层·抛饵诱进（抛饵诱对方上钩入伏）｜杠杆：饵（减灶示弱）
-  https://zhishuixue.com/cases/B-0017.html
-- B-0018｜擒贼擒王（博弈决策）｜接口：结构判断·攻其枢要（识别并直击体系枢纽，令整体瓦解）｜杠杆：王（主将／枢纽）
-  https://zhishuixue.com/cases/B-0018.html
-- B-0019｜釜底抽薪（博弈决策）｜接口：断源消势（不敌其力，而消其势）｜杠杆：薪（粮草／根本供给）
-  https://zhishuixue.com/cases/B-0019.html
-- B-0020｜浑水摸鱼（博弈决策）｜接口：乘乱取利（乘其阴乱，利其弱而无主）｜杠杆：乱（对方弱而无主）
-  https://zhishuixue.com/cases/B-0020.html
-- B-0021｜金蝉脱壳（博弈决策）｜接口：留壳抽身（存其形，完其势，留壳稳住对方，本体脱身）｜杠杆：壳（稳住对方的假象）
-  https://zhishuixue.com/cases/B-0021.html
-- B-0022｜关门捉贼（博弈决策）｜接口：关门困敌（小敌困之，断其去路，围而歼之）｜杠杆：门（退路／去路）
-  https://zhishuixue.com/cases/B-0022.html
-- B-0023｜远交近攻（博弈决策）｜接口：动力调控·压力错峰（把多个对手按远近分层、分批处理压力）｜杠杆：远近分层
-  https://zhishuixue.com/cases/B-0023.html
-### C 企业管理（2）
-- C-0001｜OpenAI 解雇风波（组织治理）｜接口：祭祀（承重误判）｜杠杆：辨节点
-  https://zhishuixue.com/cases/C-0001.html
-- C-0002｜DeepSeek 开源决策（战略抉择）｜接口：疏浚（开源造河道）｜杠杆：放技术
-  https://zhishuixue.com/cases/C-0002.html
-### E 宏观案例（1）
-- E-0001｜双轨告知：隐私与生命的制度接口（权责边界）｜接口：疏浚（从堵到疏）｜杠杆：代为告知
-  https://zhishuixue.com/cases/E-0001.html
 
 ## 可调用的服务契约（Service Contract）
 本站在数据文件之外，提供一份**协议中立的服务契约**：把治水学的显影方法定义成 AI 可直接调用的接口——输入、输出、pipeline、以及「什么情况下不适用」。
