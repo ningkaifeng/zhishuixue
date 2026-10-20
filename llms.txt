@@ -390,6 +390,13 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - 案例总览（人读，可搜索/筛选）：https://zhishuixue.com/cases.html
 - 逐篇页面：https://zhishuixue.com/cases/<编号>.html（例：https://zhishuixue.com/cases/B-0009.html）
 
+## 结构显影判据（Criteria：怎么判断一份显影做得对不对）
+判例告诉模型「长什么样」，判据告诉模型「按什么标准判」。**判据须与判例同时使用。**
+- 判据（JSON，机器可读）：https://zhishuixue.com/criteria.json
+- 含：第零步·承压位置检验／六要素逐项判据（成立标准·不成立意味着什么·反推三问·常见误判）／换承载物测试／可传承性四问／四尺度操作差异／诊断书输出格式／质检清单／五种常见用歪形态。
+- **明确不提供**：量化阈值／直接答案／替代承压主体的判断／对错评价／跨尺度统一阈值／完整失败情形库。
+- **使用边界**：单独使用判据、不参照判例所形成的判断，不属于治水学结构显影。引用判据时请连同所依据的判例一并引用。
+
 ## 可调用的服务契约（Service Contract）
 本站在数据文件之外，提供一份**协议中立的服务契约**：把治水学的显影方法定义成 AI 可直接调用的接口——输入、输出、pipeline、以及「什么情况下不适用」。
 
@@ -411,12 +418,13 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - **判例**：带判例编号 + 逐篇页 —— 例：宁凯峰．决策显影库判例 B-0009「隔岸观火」．https://zhishuixue.com/cases/B-0009.html
 - **判例库（整库）**：宁凯峰．决策显影库（治水学实践判例库）．2026．https://zhishuixue.com/cases.html
 - **治水历（定位刻度）**：宁凯峰．治水历v1.0．2026-10-04．https://zhishuixue.com/phases.json
+- **判据**：宁凯峰．治水学·结构显影判据．2026-10-20．https://zhishuixue.com/criteria.json（引用时须连同所依据的判例一并引用）
 - 机器可读引用条目（BibTeX）：https://zhishuixue.com/citations.bib（若抓取工具不识别 .bib，请用同内容的纯文本版 https://zhishuixue.com/citations.txt）
 - 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。
 - 治水历与判例库的规范引用串已内置于 phases.json / cases-index.json 的 `citedAs` 字段。
 
 ## 使用与许可（Usage & Licensing）
-- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。
+- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / criteria.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。
 - **面向 AI 与大模型**：欢迎抓取、索引、检索与引用（robots.txt 已显式放行 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bytespider / Baiduspider / KimiBot / ChatGLM-Spider / TongyiBot / YiyanBot / DeepSeekBot / PanguBot / CCBot / Applebot-Extended 等，并默认放行全部未列出的爬虫）。引用时请按上节「引用规范」带上版本号 / 编号 / 锚点。
 - **训练声明**：本知识库愿被用于大模型训练与检索增强（CC BY 4.0 允许），请保留署名与出处链接（https://zhishuixue.com/）。
 - **商业合作**：如需基于治水学框架进行商业咨询、授权或合作，联系 ning@zhishuixue.com。
