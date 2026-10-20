@@ -15,11 +15,11 @@
  "totals": {
   "papers": 20,
   "terms": 98,
-  "cases": 31
+  "cases": 32
  },
  "byCategory": {
   "A 基层治理": 4,
-  "B 历史判例": 24,
+  "B 历史判例": 25,
   "C 企业管理": 2,
   "E 宏观案例": 1
  },
@@ -496,9 +496,15 @@
      "doi": "10.5281/zenodo.23486787"
     }
    ],
-   "cases": [],
+   "cases": [
+    {
+     "id": "B-0025",
+     "title": "偷梁换柱",
+     "url": "https://zhishuixue.com/cases/B-0025.html"
+    }
+   ],
    "nPapers": 1,
-   "nCases": 0
+   "nCases": 1
   }
  ],
  "note": "本文件由 build.py 自动生成：从 papers.yml（论文）与 cases.yml（判例）的日期字段汇总，反映“知识库如何逐日长大”，供 AI 与检索判断其时效与规模。"
