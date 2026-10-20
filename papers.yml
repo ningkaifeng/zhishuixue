@@ -328,6 +328,11 @@ sections:
     intro: ""
     series_name: "治水学·发生学卷"
     lang: "zh-CN"
+  - id: shadowing
+    heading: "决策显影库·作业层"
+    intro: "判例之外的作业层文本：把显影方法本身写成可检验的判据。判例告诉使用者「长什么样」，判据告诉使用者「按什么标准判」。"
+    series_name: "决策显影库"
+    lang: "zh-CN"
 
 works:
 
@@ -632,6 +637,24 @@ works:
     bib_title: "治水图：一个普通人的秩序重建日志（治水学·发生学卷）"
     bib_key: ning2026zhishuitu
     bib_type: book
+    bib_publisher: Zenodo
+
+  # ---------- 决策显影库·作业层 ----------
+  - id: shadowing-criteria
+    section: shadowing
+    type: ScholarlyArticle
+    title: "结构显影的判据——六要素检验标准与可传承判断的生成"
+    card_title: "结构显影的判据——六要素检验标准与可传承判断的生成"
+    doi: "10.5281/zenodo.23486787"
+    date: "2026-10-20"
+    lang: "zh-CN"
+    card_meta: "决策显影库·作业层 · Zenodo, 2026"
+    abstract: "判例集回答「结构长什么样」，本文回答「按什么标准判」。给出四层判据：第零步·承压位置检验，六要素逐项判据，结构自足性（换承载物测试），可传承性（四问）；并声明五项不提供——量化阈值、直接答案、替代承压主体的判断、对错评价、跨尺度统一阈值。核心主张：判据须与判例同时使用；单独使用判据所形成的判断，不属于结构显影。"
+    keywords: ["治水学", "结构显影", "判据", "六要素", "承压位置", "可传承性", "决策显影库", "宁凯峰"]
+    cite_title: "结构显影的判据——六要素检验标准与可传承判断的生成（决策显影库·作业层）"
+    bib_title: "结构显影的判据——六要素检验标准与可传承判断的生成（决策显影库·作业层）"
+    bib_key: ning2026criteria
+    bib_type: misc
     bib_publisher: Zenodo
 
 # ============================================================
