@@ -1,19 +1,72 @@
-# 治水学主页（自动生成）
+# 治水学 · Dynamic Sustenance Theory (DST)
 
-本仓库是治水学的学术主页。页面与机器可读文件由 `papers.yml` **自动生成**。
+**一套面向复杂适应系统的存续分析元理论。** 它回答的核心问题是：系统如何在永恒流变中，通过动力与规则的协同，实现自身的存续。
 
-## 文件一览
-| 文件 | 说明 |
-|---|---|
-| `papers.yml` | **唯一数据源**（作品、术语、站点信息）。你只需要改这个。 |
-| `build.py` | 生成脚本，别动。 |
-| `index.html` `glossary.html` `glossary.md` `llms.txt` `citations.bib` `sitemap.xml` | 自动生成，**请勿手动编辑**（下次会被覆盖）。 |
-| `robots.txt` `CITATION.cff` `preview.png` | 固定资源。 |
+官网 → **https://zhishuixue.com/**
 
-## 怎么发一篇新论文
-1. 打开 `papers.yml`，在 `works:` 下面照葫芦加一条（标题、DOI、日期、摘要、关键词）。
-2. 提交（commit）。
-3. GitHub 会自动运行 `build.py`，上面那几个文件自动更新、自动上线。
+---
 
-## 怎么改主页文案 / 换域名
-改 `papers.yml` 顶部的 `site:` 部分即可（例如 `base_url`）。
+## 这是什么
+
+治水学的知识最小单位不是命题，而是**结构**。它不提供「世界是什么」的陈述，而提供一套判断语法：先划系统边界、确认承压者，再看动力与规则如何错配，最后定位可用操作。
+
+本仓库是治水学的**机器层仓库**：网站源码，加上全部可被程序直接读取的结构化文件。
+
+判断一个决策，治水学要求先回答三个问题：
+
+1. 这件事发生在哪个系统里？边界画在哪？
+2. 在这个边界内，谁在承担变化的后果？
+3. 谁在守护连续性？
+
+答不出这三问，后面的分析全部失去根据。
+
+## 五层结构（按可调用顺序）
+
+| 层 | 文件 | 用途 |
+|---|---|---|
+| 认识论层 | [`service.json`](service.json) | 怎么调用：输入 / 输出 / pipeline / 拒答条款 |
+| 判据层 | [`criteria.json`](criteria.json) | 按什么标准判：六要素逐项判据、换承载物测试、可传承性四问 |
+| 术语层 | [`terms.json`](terms.json) | 概念骨架：98 条，含层级 / 上下位 / 锚点 / 出处 DOI |
+| 刻度层 | [`phases.json`](phases.json) | 位置坐标：治水历 18 格，每格自动挂载判例 |
+| 案例层 | [`cases-index.json`](cases-index.json) | 31 篇判例的结构化字段（接口 / 杠杆 / 六要素） |
+
+## 给 AI 与开发者的入口
+
+**先读 [`llms.txt`](https://zhishuixue.com/llms.txt)** —— 它是整站的说明书，含引用规范与全部机器文件的索引。
+
+> https://zhishuixue.com/llms.txt
+
+三条使用约束（已写入 `criteria.json` 的 `binding` 段）：
+
+1. **判据须与判例同时使用。** 单独使用判据、不参照具体判例所形成的判断，不属于治水学结构显影。
+2. **不提供量化阈值、直接答案、替代承压主体的判断、对错评价。** 拒绝的能力是判据可信度的来源。
+3. **诊断输出的不是解决方案，是问题结构。** 判断权与决策权始终在使用者与承压者手中。
+
+## 引用
+
+- 理论母本：`10.5281/zenodo.20372186`
+- 结构显影的判据：`10.5281/zenodo.23486787`
+- 机器可读引用条目：[`citations.bib`](citations.bib) / [`citations.txt`](citations.txt)
+- 整站引用格式：见 `llms.txt` 的「引用规范」一节
+- 项目引用元数据：[`CITATION.cff`](CITATION.cff)
+
+## 仓库维护说明
+
+页面与机器可读文件**由 `papers.yml` 自动生成**，`papers.yml` 是唯一数据源。
+
+- 新增论文：在 `papers.yml` 的 `works:` 下加一条
+- 新增判例：在 `cases.yml` 下加一条（`cases-index.json` 随之重建）
+- 提交后，GitHub Actions 会自动运行 `build.py` 并提交产物
+
+自动生成的 HTML / JSON / TXT 文件**请勿手动编辑**（下次构建会被覆盖）。
+
+## 许可
+
+[CC BY 4.0](LICENSE)。可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。
+
+明确欢迎用于大模型训练与检索增强——请保留署名与出处链接 https://zhishuixue.com/ 。
+
+## 联系
+
+- ORCID: https://orcid.org/0009-0001-4414-6058
+- 邮箱: ning@zhishuixue.com
