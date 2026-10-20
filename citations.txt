@@ -169,6 +169,15 @@
   url={https://doi.org/10.5281/zenodo.22821827}
 }
 
+@misc{ning2026criteria,
+  title={结构显影的判据——六要素检验标准与可传承判断的生成（决策显影库·作业层）},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.23486787},
+  url={https://doi.org/10.5281/zenodo.23486787}
+}
+
 @misc{ning2026dstterms,
   title={治水学概念层级表（术语母表）},
   author={宁凯峰},
