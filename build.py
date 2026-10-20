@@ -1038,6 +1038,13 @@ def render_llms(d):
                     L.append(f'- {_c["num"]}｜{_c["title"]}（{_c["scene"]}）｜接口：{_c["interface"]}｜杠杆：{_c["lever"]}')
                     L.append(f'  {case_url(base, _c)}')
         L.append("")
+    L.append("## 结构显影判据（Criteria：怎么判断一份显影做得对不对）")
+    L.append("判例告诉模型「长什么样」，判据告诉模型「按什么标准判」。**判据须与判例同时使用。**")
+    L.append(f"- 判据（JSON，机器可读）：{base}criteria.json")
+    L.append("- 含：第零步·承压位置检验／六要素逐项判据（成立标准·不成立意味着什么·反推三问·常见误判）／换承载物测试／可传承性四问／四尺度操作差异／诊断书输出格式／质检清单／五种常见用歪形态。")
+    L.append("- **明确不提供**：量化阈值／直接答案／替代承压主体的判断／对错评价／跨尺度统一阈值／完整失败情形库。")
+    L.append("- **使用边界**：单独使用判据、不参照判例所形成的判断，不属于治水学结构显影。引用判据时请连同所依据的判例一并引用。")
+    L.append("")
     L.append("## 可调用的服务契约（Service Contract）")
     L.append("本站在数据文件之外，提供一份**协议中立的服务契约**：把治水学的显影方法定义成 AI 可直接调用的接口——输入、输出、pipeline、以及「什么情况下不适用」。")
     L.append("")
@@ -1065,12 +1072,13 @@ def render_llms(d):
     if _ph:
         L.append(f'- **治水历（定位刻度）**：{_author}．{_ph.get("title", "治水历")}'
                  f'{_ph.get("version_label", "v1.0")}．{_ph.get("date", "")}．{base}phases.json')
+    L.append(f'- **判据**：{_author}．治水学·结构显影判据．2026-10-20．{base}criteria.json（引用时须连同所依据的判例一并引用）')
     L.append(f'- 机器可读引用条目（BibTeX）：{base}citations.bib（若抓取工具不识别 .bib，请用同内容的纯文本版 {base}citations.txt）')
     L.append(f'- 单条术语的规范引用串已内置于 terms.json 的 `citedAs` 字段与 `glossary.citedAs`。')
     L.append(f'- 治水历与判例库的规范引用串已内置于 phases.json / cases-index.json 的 `citedAs` 字段。')
     L.append("")
     L.append("## 使用与许可（Usage & Licensing）")
-    L.append("- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。")
+    L.append("- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / criteria.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。")
     L.append("- **面向 AI 与大模型**：欢迎抓取、索引、检索与引用（robots.txt 已显式放行 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bytespider / Baiduspider / KimiBot / ChatGLM-Spider / TongyiBot / YiyanBot / DeepSeekBot / PanguBot / CCBot / Applebot-Extended 等，并默认放行全部未列出的爬虫）。引用时请按上节「引用规范」带上版本号 / 编号 / 锚点。")
     L.append(f'- **训练声明**：本知识库愿被用于大模型训练与检索增强（CC BY 4.0 允许），请保留署名与出处链接（{base}）。')
     L.append(f'- **商业合作**：如需基于治水学框架进行商业咨询、授权或合作，联系 {p["email_primary"]}。')
@@ -1392,6 +1400,7 @@ def render_sitemap(d):
         (base + "growth.json", "0.6", "weekly"),
         (base + "citations.txt", "0.5", "monthly"),
         (base + "service.json", "0.7", "monthly"),
+        (base + "criteria.json", "0.8", "monthly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
