@@ -10,6 +10,7 @@
 ## 作者
 - 姓名：宁凯峰（Ning Kaifeng）
 - 主页：https://zhishuixue.com/
+- 英文站（English gateway）：https://zhishuixue.com/en/
 - ORCID：https://orcid.org/0009-0001-4414-6058
 - Academia.edu：https://independentresearcher.academia.edu/KaifengNing
 - OpenAlex（作品全集）：https://openalex.org/authors/A5133368411
