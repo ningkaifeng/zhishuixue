@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-20",
+ "date": "2026-10-21",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-20．https://zhishuixue.com/cases-index.json",
- "count": 32,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-21．https://zhishuixue.com/cases-index.json",
+ "count": 33,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -37,6 +37,7 @@
    "响应错位",
    "断源消势",
    "留壳抽身",
+   "立威树纪",
    "边界划定"
   ],
   "notes": "本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 papers.yml 的 case_interfaces.phase_map 补映射，或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，按决议不进官方母表，单列、不算异常。"
@@ -679,6 +680,28 @@
    "non_applicable": "“文书权不在己方／关键同谋不配合／承重件在朝中且有反制能力”的情形",
    "source": "《三十六计·第二十五计（并战计）》；《史记·秦始皇本纪》《史记·李斯列传》（沙丘之变）",
    "url": "https://zhishuixue.com/cases/B-0025.html"
+  },
+  {
+   "id": "B-0026",
+   "num": "B-0026",
+   "title": "指桑骂槐",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "规则层·立威树纪（惩戒典型，确立规则权威）",
+   "lever": "典型（杀鸡儆猴的“鸡”）",
+   "date": "2026-10-21",
+   "concepts": [
+    {
+     "name": "规则层",
+     "anchor": "rule-layer"
+    }
+   ],
+   "abstract": "春秋时，吴王阖闾令孙武操练 180 名宫女以试兵法。宫女嬉笑不听号令，孙武三令五申无效后，斩了担任左右队长的吴王两名宠妃，杀一儆百；再操练，宫女进退整齐、令行禁止。精妙在“立威树纪”——惩戒一个最不能罚的典型，把“违令必惩”的预期传导给全体，用最小代价建立号令的权威。",
+   "effect": "预期（当时的）：宫女令行禁止、号令生效，孙武证明自己能练兵、取得将位",
+   "reusable_condition": "“号令已讲清、利诱已试过仍不从，且违令者中有足够分量、惩戒者有处置权”的情形",
+   "non_applicable": "“号令未讲清（将之过）／还有利诱空间／惩戒对象没分量／惩戒者无权（君命可废将令）”的情形",
+   "source": "《三十六计·第二十六计（并战计）》；《史记·孙子吴起列传》（吴宫教战）",
+   "url": "https://zhishuixue.com/cases/B-0026.html"
   },
   {
    "id": "C-0001",

@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 32,
-  "totalCases": 32
+  "mountedCases": 33,
+  "totalCases": 33
  },
  "unmounted": [],
  "howToUse": [
@@ -337,6 +337,11 @@
        "id": "B-0022",
        "title": "关门捉贼",
        "url": "https://zhishuixue.com/cases/B-0022.html"
+      },
+      {
+       "id": "B-0026",
+       "title": "指桑骂槐",
+       "url": "https://zhishuixue.com/cases/B-0026.html"
       }
      ],
      "termAnchor": "arking",

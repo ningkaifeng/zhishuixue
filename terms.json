@@ -894,7 +894,13 @@
    "partOf": null,
    "hyponyms": [],
    "members": [],
-   "cases": [],
+   "cases": [
+    {
+     "id": "B-0026",
+     "title": "指桑骂槐",
+     "url": "https://zhishuixue.com/cases/B-0026.html"
+    }
+   ],
    "citeKey": "dst-term-rule-layer",
    "citedAs": "宁凯峰．「规则层」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#rule-layer",
    "doi": "https://doi.org/10.5281/zenodo.22842961"
