@@ -727,6 +727,7 @@ def render_index(d):
     # body
     L.append(f'<body style="{S["body"]}">')
     L.append(f'<div style="{S["wrap"]}">')
+    L.append(f'<p style="text-align:right;margin:0 0 6px;"><a href="{base}en/" style="{S["link"]}font-size:0.9em;">English →</a></p>')
     L.append(f'<h1 style="{S["h1"]}">治水学 Dynamic Sustenance Theory (DST)</h1>')
     L.append(f'<p style="{S["sub"]}">独立研究者：{p["name"]} | {p["alternate_name"]}</p>')
     L.append(f'<p style="{S["contact"]}">ORCID：<a href="https://orcid.org/{p["orcid"]}" style="{S["link"]}">{p["orcid"]}</a></p>')
@@ -975,6 +976,7 @@ def render_llms(d):
     L.append("## 作者")
     L.append(f'- 姓名：{p["name"]}（{p["alternate_name"]}）')
     L.append(f"- 主页：{base}")
+    L.append(f"- 英文站（English gateway）：{base}en/")
     L.append(f'- ORCID：https://orcid.org/{p["orcid"]}')
     L.append(f'- Academia.edu：{p["academia"]}')
     if p.get("openalex"):
@@ -1389,6 +1391,7 @@ def render_sitemap(d):
     lastmod = max(dates) if dates else "2026-01-01"
     pages = [
         (base, "1.0", "weekly"),
+        (base + "en/", "0.8", "monthly"),
         (base + "glossary.html", "0.8", "monthly"),
         (base + "glossary.md", "0.6", "monthly"),
         (base + "graph.html", "0.7", "monthly"),
