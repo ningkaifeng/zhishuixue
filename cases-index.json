@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-21",
+ "date": "2026-10-22",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-21．https://zhishuixue.com/cases-index.json",
- "count": 33,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-22．https://zhishuixue.com/cases-index.json",
+ "count": 34,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -38,6 +38,7 @@
    "断源消势",
    "留壳抽身",
    "立威树纪",
+   "藏锋",
    "边界划定"
   ],
   "notes": "本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 papers.yml 的 case_interfaces.phase_map 补映射，或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，按决议不进官方母表，单列、不算异常。"
@@ -702,6 +703,28 @@
    "non_applicable": "“号令未讲清（将之过）／还有利诱空间／惩戒对象没分量／惩戒者无权（君命可废将令）”的情形",
    "source": "《三十六计·第二十六计（并战计）》；《史记·孙子吴起列传》（吴宫教战）",
    "url": "https://zhishuixue.com/cases/B-0026.html"
+  },
+  {
+   "id": "B-0027",
+   "num": "B-0027",
+   "title": "假痴不癫",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "藏锋（藏巧于拙，伪装无害，静不露机，待时后发）",
+   "lever": "伪装（假痴的壳）",
+   "date": "2026-10-22",
+   "concepts": [
+    {
+     "name": "祭祀",
+     "anchor": "sacrificing"
+    }
+   ],
+   "abstract": "三国时，曹爽夺司马懿兵权后，司马懿装病不朝，装成病入膏肓、神志不清，骗过曹爽派来试探的李胜；曹爽放松警惕后，司马懿趁其陪皇帝外出扫墓、京城防备空虚之机发动政变，诛曹爽、独揽大权。精妙在“藏锋”——伪装无害、静不露机，把真实意图与实力藏起来，等对手放松、时机一到，后发制人。",
+   "effect": "预期（当时的）：曹爽放松警觉、司马懿保住性命并等到翻盘时机",
+   "reusable_condition": "“实力不足、受制于人，且对手会因你无害而放松”的情形",
+   "non_applicable": "“对手无论如何都要除你（不信你的假痴）／你本可正面硬拼却装傻（错失战机）”的情形",
+   "source": "《三十六计·第二十七计（并战计）》；《晋书·宣帝纪》（司马懿装病）",
+   "url": "https://zhishuixue.com/cases/B-0027.html"
   },
   {
    "id": "C-0001",

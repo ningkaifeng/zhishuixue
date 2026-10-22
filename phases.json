@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 33,
-  "totalCases": 33
+  "mountedCases": 34,
+  "totalCases": 34
  },
  "unmounted": [],
  "howToUse": [
@@ -100,6 +100,11 @@
        "id": "B-0017",
        "title": "抛砖引玉",
        "url": "https://zhishuixue.com/cases/B-0017.html"
+      },
+      {
+       "id": "B-0027",
+       "title": "假痴不癫",
+       "url": "https://zhishuixue.com/cases/B-0027.html"
       }
      ],
      "termAnchor": "breakthrough-force",
