@@ -21,6 +21,7 @@
 import json
 import os
 import re
+import html
 import yaml
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -214,6 +215,13 @@ h1{font-size:1.5em;border-bottom:2px solid #1a4d8f;padding-bottom:8px;}
 .pager button{padding:8px 14px;border:1px solid #ccc;border-radius:8px;background:#fff;}
 .pager span{font-size:0.9em;color:#555;}
 .foot{font-size:0.82em;color:#888;text-align:center;}
+.static-list{margin-top:26px;padding-top:12px;border-top:1px solid #ddd;}
+.static-list h2{font-size:1.1em;color:#1a4d8f;}
+.static-list ul{padding-left:0;list-style:none;}
+.static-list li{margin-bottom:14px;padding-bottom:10px;border-bottom:1px dotted #eee;}
+.static-list .m{font-size:0.82em;color:#888;}
+.static-list .a{font-size:0.9em;color:#333;margin:4px 0;}
+.static-list .k{font-size:0.82em;color:#555;}
 </style>
 </head>
 <body>
@@ -229,6 +237,7 @@ h1{font-size:1.5em;border-bottom:2px solid #1a4d8f;padding-bottom:8px;}
 </div>
 <p class="stat" id="stat"></p>
 <div id="list"></div>
+__NOSCRIPT__
 <div class="pager">
   <button id="prev" type="button">← 上一页</button>
   <span id="pinfo"></span>
@@ -535,7 +544,8 @@ def render_phases_json(d):
 def render_cases_index(d):
     base = d["site"]["base_url"]
     url = base + "cases.html"
-    n = len(load_cases())
+    cases = load_cases()
+    n = len(cases)
     ld = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -547,10 +557,26 @@ def render_cases_index(d):
         "isPartOf": {"@type": "CreativeWorkSeries", "name": "治水学·决策显影库", "url": url},
         "about": {"@id": base + "glossary.html"},
     }
+    items = []
+    for c in cases:
+        items.append(
+            '<li><a href="cases/' + str(c["id"]) + '.html">'
+            + html.escape(str(c["num"])) + '｜' + html.escape(str(c["title"])) + '</a>'
+            + '<span class="m"> ' + html.escape(str(c["category"])) + ' · ' + html.escape(str(c["scene"])) + '</span>'
+            + '<div class="a">' + html.escape(str(c.get("abstract", ""))) + '</div>'
+            + '<div class="k">接口：' + html.escape(str(c.get("interface", "")))
+            + ' ｜ 杠杆：' + html.escape(str(c.get("lever", ""))) + '</div></li>'
+        )
+    noscript = (
+        '<noscript><div class="static-list"><h2>全部判例（' + str(n) + ' 篇）</h2>'
+        '<p class="stat">以下为静态目录，便于搜索引擎与未启用 JavaScript 的读者浏览。</p>'
+        '<ul>' + "".join(items) + '</ul></div></noscript>'
+    )
     return (CASES_INDEX_TPL
             .replace("__URL__", url)
             .replace("__LD__", j(ld))
-            .replace("__TOTAL__", str(n)))
+            .replace("__TOTAL__", str(n))
+            .replace("__NOSCRIPT__", noscript))
 
 
 def case_card(c):
