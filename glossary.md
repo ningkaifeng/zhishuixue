@@ -219,7 +219,7 @@
 - **编号**：DST-D-03
 - **DOI**：10.5281/zenodo.22805434
 - **一句话定义**：规则引导动力去守护底线、建立防御、维持核心结构稳定；作用对象是系统边界。
-- **相关案例**：A-0001｜业委会秘书“八个严禁”制度边界（https://zhishuixue.com/cases/A-0001.html）、B-0022｜关门捉贼（https://zhishuixue.com/cases/B-0022.html）
+- **相关案例**：A-0001｜业委会秘书“八个严禁”制度边界（https://zhishuixue.com/cases/A-0001.html）、B-0022｜关门捉贼（https://zhishuixue.com/cases/B-0022.html）、B-0028｜上屋抽梯（https://zhishuixue.com/cases/B-0028.html）
 
 ### 祭祀
 

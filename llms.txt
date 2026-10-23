@@ -390,7 +390,7 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - ontology of complex systems
 
 ## 决策显影库（实践案例）
-共 34 篇判例（A 基层治理 4 篇、B 历史判例 27 篇、C 企业管理 2 篇、E 宏观案例 1 篇），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。
+共 35 篇判例（A 基层治理 4 篇、B 历史判例 28 篇、C 企业管理 2 篇、E 宏观案例 1 篇），把治水学工具用于真实的历史、商业与治理决策；每篇标注所用治水学接口与杠杆落点。
 
 - 案例机器可读索引（JSON，全部案例的结构化字段）：https://zhishuixue.com/cases-index.json
 - 案例总览（人读，可搜索/筛选）：https://zhishuixue.com/cases.html

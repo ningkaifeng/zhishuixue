@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-22",
+ "date": "2026-10-23",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-22．https://zhishuixue.com/cases-index.json",
- "count": 34,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-23．https://zhishuixue.com/cases-index.json",
+ "count": 35,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -39,6 +39,7 @@
    "留壳抽身",
    "立威树纪",
    "藏锋",
+   "设饵断梯",
    "边界划定"
   ],
   "notes": "本块为『日更体检』：新判例入库后若 casesNotMountedInPhases / interfacesNotInTermTable / conceptsNotInTermTable 三项非空，说明有新词未被归位——需在 papers.yml 的 case_interfaces.phase_map 补映射，或在 papers.yml 的 terms 补术语。三项全空即健康。derivedInterfaces 为显影库自有衍生术语，按决议不进官方母表，单列、不算异常。"
@@ -725,6 +726,28 @@
    "non_applicable": "“对手无论如何都要除你（不信你的假痴）／你本可正面硬拼却装傻（错失战机）”的情形",
    "source": "《三十六计·第二十七计（并战计）》；《晋书·宣帝纪》（司马懿装病）",
    "url": "https://zhishuixue.com/cases/B-0027.html"
+  },
+  {
+   "id": "B-0028",
+   "num": "B-0028",
+   "title": "上屋抽梯",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "设饵断梯（假之以便，诱其上屋，断其援应，陷之死地）",
+   "lever": "梯（上屋的凭借＋退身的凭借）",
+   "date": "2026-10-23",
+   "concepts": [
+    {
+     "name": "方舟",
+     "anchor": "arking"
+    }
+   ],
+   "abstract": "战国齐魏之战，孙膑针对庞涓“悍勇而轻齐”的认知，用“减灶”逐日减少军灶数目（十万→五万→三万），制造齐军大量逃亡的假象诱庞涓轻敌冒进；庞涓弃步军率轻锐追击，夜至马陵道，孙膑伏万弩断其退路，庞涓自刎、太子申被俘，魏国自此衰落。",
+   "effect": "孙膑设局时的预判：庞涓看到灶数递减，会认定齐军怯战、逃亡过半，于是弃步军、率轻锐昼夜追击；其暮当至马陵，见树字必举火照看，火光一起、万弩齐发，庞涓难逃",
+   "reusable_condition": "“对手轻己且求胜心切、且其判断依据可被你操纵（如灶数＝兵力）”的情形",
+   "non_applicable": "“对手谨慎持重、会派斥候核实，或不上钩、不急于追击”的情形",
+   "source": "《三十六计·第二十八计（并战计）》；《史记·孙子吴起列传》（马陵之战）",
+   "url": "https://zhishuixue.com/cases/B-0028.html"
   },
   {
    "id": "C-0001",

@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 34,
-  "totalCases": 34
+  "mountedCases": 35,
+  "totalCases": 35
  },
  "unmounted": [],
  "howToUse": [
@@ -347,6 +347,11 @@
        "id": "B-0026",
        "title": "指桑骂槐",
        "url": "https://zhishuixue.com/cases/B-0026.html"
+      },
+      {
+       "id": "B-0028",
+       "title": "上屋抽梯",
+       "url": "https://zhishuixue.com/cases/B-0028.html"
       }
      ],
      "termAnchor": "arking",
