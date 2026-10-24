@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-23",
+ "date": "2026-10-24",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-23．https://zhishuixue.com/cases-index.json",
- "count": 35,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-24．https://zhishuixue.com/cases-index.json",
+ "count": 36,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -26,6 +26,7 @@
    "乘乱取利",
    "信号层",
    "信号探测",
+   "借局布势",
    "借道渗透",
    "偷换承重",
    "关门困敌",
@@ -748,6 +749,28 @@
    "non_applicable": "“对手谨慎持重、会派斥候核实，或不上钩、不急于追击”的情形",
    "source": "《三十六计·第二十八计（并战计）》；《史记·孙子吴起列传》（马陵之战）",
    "url": "https://zhishuixue.com/cases/B-0028.html"
+  },
+  {
+   "id": "B-0029",
+   "num": "B-0029",
+   "title": "树上开花",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "借局布势（借局布势，力小势大，以弱示强）",
+   "lever": "势（借来的声势／假象）",
+   "date": "2026-10-24",
+   "concepts": [
+    {
+     "name": "祭祀",
+     "anchor": "sacrificing"
+    }
+   ],
+   "abstract": "东汉虞诩赴任武都，遭数千羌军拦截而兵少，先扬言“上书请兵”诱羌人分兵，再日夜兼行、令吏士各作两灶日增倍之，用“增灶”制造援军已到的假象，羌人误判汉军兵力而不敢追击，虞诩得以安全通过；与孙膑“减灶示弱”相反，此为“增灶示强”的虚张声势。",
+   "effect": "虞诩设局时的预判：羌人见灶数日增，必以为武都郡兵已来迎接（援兵到了），我军人数既多、行动又快，他们必然不敢追我",
+   "reusable_condition": "“敌众我寡、需示强自保（让对手高估你）”的情形",
+   "non_applicable": "“己方兵多、需诱敌（应减灶示弱）；或对手谨慎、会派探子核实虚实”的情形",
+   "source": "《三十六计·第二十九计（并战计）》；《后汉书·虞诩传》（增灶示强）",
+   "url": "https://zhishuixue.com/cases/B-0029.html"
   },
   {
    "id": "C-0001",

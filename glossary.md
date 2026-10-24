@@ -227,7 +227,7 @@
 - **编号**：DST-D-04
 - **DOI**：10.5281/zenodo.22805434
 - **一句话定义**：规则引导动力去凝聚共识、校准方向、协调集体行动；作用对象是主体间关系。
-- **相关案例**：B-0001｜瞒天过海（https://zhishuixue.com/cases/B-0001.html）、B-0010｜笑里藏刀（https://zhishuixue.com/cases/B-0010.html）、B-0014｜借尸还魂（https://zhishuixue.com/cases/B-0014.html）、B-0017｜抛砖引玉（https://zhishuixue.com/cases/B-0017.html）、B-0027｜假痴不癫（https://zhishuixue.com/cases/B-0027.html）、C-0001｜OpenAI 解雇风波（https://zhishuixue.com/cases/C-0001.html）
+- **相关案例**：B-0001｜瞒天过海（https://zhishuixue.com/cases/B-0001.html）、B-0010｜笑里藏刀（https://zhishuixue.com/cases/B-0010.html）、B-0014｜借尸还魂（https://zhishuixue.com/cases/B-0014.html）、B-0017｜抛砖引玉（https://zhishuixue.com/cases/B-0017.html）、B-0027｜假痴不癫（https://zhishuixue.com/cases/B-0027.html）、B-0029｜树上开花（https://zhishuixue.com/cases/B-0029.html）、C-0001｜OpenAI 解雇风波（https://zhishuixue.com/cases/C-0001.html）
 
 ### 疏浚型／方舟型／祭祀型
 

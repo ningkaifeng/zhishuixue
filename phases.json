@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 35,
-  "totalCases": 35
+  "mountedCases": 36,
+  "totalCases": 36
  },
  "unmounted": [],
  "howToUse": [
@@ -105,6 +105,11 @@
        "id": "B-0027",
        "title": "假痴不癫",
        "url": "https://zhishuixue.com/cases/B-0027.html"
+      },
+      {
+       "id": "B-0029",
+       "title": "树上开花",
+       "url": "https://zhishuixue.com/cases/B-0029.html"
       }
      ],
      "termAnchor": "breakthrough-force",
