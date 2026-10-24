@@ -593,6 +593,35 @@ def case_card(c):
     )
 
 
+def _all_cases_cached():
+    global _CASES_CACHE
+    try:
+        return _CASES_CACHE
+    except NameError:
+        pass
+    _CASES_CACHE = load_cases()
+    return _CASES_CACHE
+
+
+def _related_cases(c, d, limit=3):
+    """相邻判例：同治水历刻度优先，其次同场景。用于站内互链（改善爬虫可达性）。"""
+    _pm = (d.get("case_interfaces", {}) or {}).get("phase_map", {}) or {}
+    my = _iface_cell(c.get("interface"), _pm)
+    same, similar = [], []
+    for x in _all_cases_cached():
+        if x.get("id") == c.get("id"):
+            continue
+        cell = _iface_cell(x.get("interface"), _pm)
+        if my and cell == my:
+            same.append((x, cell))
+        elif x.get("scene") == c.get("scene"):
+            similar.append((x, None))
+    out = same[:limit]
+    if len(out) < limit:
+        out += similar[:limit - len(out)]
+    return out
+
+
 def render_case_page(c, d):
     base = d["site"]["base_url"]
     url = case_url(base, c)
@@ -648,6 +677,15 @@ def render_case_page(c, d):
         L.append('<div class="case-note">' + link_concepts(c["recorder_note"].strip(), d, base).replace("\n", "<br>") + "</div>")
     if c.get("planet_url"):
         L.append(f'<p class="case-meta">知识星球原文：<a href="{c["planet_url"]}">{c["planet_url"]}</a></p>')
+    _rel = _related_cases(c, d)
+    if _rel:
+        _items = []
+        for _x, _cell in _rel:
+            _tag = f'（同刻度 {_cell}）' if _cell else ('（同场景 · ' + str(_x.get("scene", "")) + '）')
+            _items.append(f'· <a class="tlink" href="{base}cases/{_x["id"]}.html">{_x["num"]}｜{_x["title"]}</a> — 接口：{_x.get("interface", "")}{_tag}')
+        L.append("<h2>相邻判例</h2>")
+        L.append('<div class="case-sec">' + "<br>".join(_items) + "</div>")
+        L.append(f'<p class="case-meta">更多判例见 <a href="{base}cases.html">决策显影库总览</a> ｜ <a href="{base}phases.html">治水历定位刻度</a></p>')
     L.append(f'<p class="case-meta">本判例收录于「治水学·决策显影库」 ｜ 官网存档：{url}</p>')
     L.append("</body>")
     L.append("</html>")
