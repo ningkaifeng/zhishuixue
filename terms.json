@@ -21,7 +21,7 @@
   "citedAs": "宁凯峰．治水学概念层级表（术语母表）v1.0．2026-10-04．https://zhishuixue.com/terms.json",
   "bibtexKey": "ning2026dstterms"
  },
- "count": 98,
+ "count": 100,
  "layers": [
   {
    "id": "A",
@@ -61,7 +61,7 @@
   {
    "id": "H",
    "name": "文明级",
-   "count": 8
+   "count": 10
   },
   {
    "id": "I",
@@ -1849,7 +1849,9 @@
    "partOf": null,
    "hyponyms": [
     "国家",
-    "自主知识体系"
+    "自主知识体系",
+    "民族",
+    "文明比较"
    ],
    "members": [],
    "cases": [],
@@ -1915,6 +1917,44 @@
    "citeKey": "dst-term-six-dimensional-framework",
    "citedAs": "宁凯峰．「六维能力框架」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#six-dimensional-framework",
    "doi": "https://doi.org/10.5281/zenodo.21897465"
+  },
+  {
+   "id": "DST-H-09",
+   "name": "民族",
+   "en": "Nation",
+   "anchor": "nation",
+   "url": "https://zhishuixue.com/glossary.html#nation",
+   "definition": "以人群为载体、承载治水智慧连续性的存续单元：判据不在血统或语言的纯粹性，而在核心智慧能否在迁徙、离散、王朝更替后被该人群读取、复用、迭代。",
+   "layer": "H",
+   "layerName": "文明级",
+   "tier": "延伸",
+   "broader": "文明",
+   "partOf": null,
+   "hyponyms": [],
+   "members": [],
+   "cases": [],
+   "citeKey": "dst-term-nation",
+   "citedAs": "宁凯峰．「民族」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#nation",
+   "doi": "https://doi.org/10.5281/zenodo.23613865"
+  },
+  {
+   "id": "DST-H-10",
+   "name": "文明比较",
+   "en": "Comparing Civilizations",
+   "anchor": "comparing-civilizations",
+   "url": "https://zhishuixue.com/glossary.html#comparing-civilizations",
+   "definition": "以“适配度＋载体独立性＋语法兼容性”三诊断替代优劣排序的文明比较方法。",
+   "layer": "H",
+   "layerName": "文明级",
+   "tier": "延伸",
+   "broader": "文明",
+   "partOf": null,
+   "hyponyms": [],
+   "members": [],
+   "cases": [],
+   "citeKey": "dst-term-comparing-civilizations",
+   "citedAs": "宁凯峰．「文明比较」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#comparing-civilizations",
+   "doi": "https://doi.org/10.5281/zenodo.21753086"
   },
   {
    "id": "DST-I-01",
