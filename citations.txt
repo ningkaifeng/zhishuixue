@@ -115,6 +115,15 @@
   url={https://doi.org/10.5281/zenodo.21753086}
 }
 
+@book{ning2026zaiti,
+  title={治水文明与载体独立性},
+  author={宁凯峰},
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.23613865},
+  url={https://doi.org/10.5281/zenodo.23613865}
+}
+
 @misc{ning2026aks2,
   title={自主知识体系的概念重构与六维能力框架},
   author={宁凯峰},

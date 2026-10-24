@@ -13,7 +13,7 @@
  "citeKey": "dst-growth-v1.0",
  "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-24．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 21,
+  "papers": 22,
   "terms": 98,
   "cases": 36
  },
@@ -552,6 +552,11 @@
      "id": "volume-0-epistemology-mingti",
      "title": "命题式与结构式：人类知识形态的另一种读法",
      "doi": "10.5281/zenodo.23609363"
+    },
+    {
+     "id": "aks-1b",
+     "title": "治水文明与载体独立性",
+     "doi": "10.5281/zenodo.23613865"
     }
    ],
    "cases": [
@@ -561,7 +566,7 @@
      "url": "https://zhishuixue.com/cases/B-0029.html"
     }
    ],
-   "nPapers": 1,
+   "nPapers": 2,
    "nCases": 1
   }
  ],
