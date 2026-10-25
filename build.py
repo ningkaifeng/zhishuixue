@@ -225,7 +225,7 @@ h1{font-size:1.5em;border-bottom:2px solid #1a4d8f;padding-bottom:8px;}
 </style>
 </head>
 <body>
-<p class="top"><a href="/">← 治水学主页</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ <a href="/graph.html">概念图谱</a></p>
+<p class="top"><a href="/">← 治水学主页</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ <a href="/graph.html">概念图谱</a> ｜ <a href="/about.html">关于</a></p>
 <h1>决策显影库（案例总览）</h1>
 <p class="intro">把治水学工具用于真实的历史、商业与治理决策，共 <b id="cnt">__TOTAL__</b> 篇判例；每篇标注所用「治水学接口」与「杠杆落点」。</p>
 <div class="ctl">
@@ -657,7 +657,7 @@ def render_case_page(c, d):
          f'<link rel="canonical" href="{url}">',
          '<script type="application/ld+json">', j(ld), "</script>",
          "<style>", GLOSSARY_STYLE, CASE_STYLE, "</style>", "</head>", "<body>",
-         f'<p class="case-top"><a href="{base}">← 治水学主页</a> ｜ <a href="{base}glossary.html">核心术语表</a> ｜ <a href="{base}graph.html">概念图谱</a></p>',
+         f'<p class="case-top"><a href="{base}">← 治水学主页</a> ｜ <a href="{base}glossary.html">核心术语表</a> ｜ <a href="{base}graph.html">概念图谱</a> ｜ <a href="{base}cases.html">案例总览</a> ｜ <a href="{base}about.html">关于</a></p>',
          f'<h1>{c["num"]}｜{c["title"]}</h1>',
          f'<p class="case-meta">{c["category"]} ｜ {c["scene"]} ｜ 记录日期：{c.get("date","")} ｜ 许可：{c.get("license","")}</p>',
          f'<p class="case-abs">{c["abstract"]}</p>']
@@ -760,6 +760,7 @@ def render_index(d):
     L.append('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
     L.append(f'<title>{site["site_title"]}</title>')
     L.append(f'<meta name="description" content="{site["description"]}">')
+    L.append(f'<link rel="canonical" href="{base}">')
     L.append('<link rel="sitemap" type="application/xml" href="/sitemap.xml">')
     L.append(f'<link rel="author" href="https://orcid.org/{p["orcid"]}">')
     L.append('<meta property="og:title" content="治水学 Dynamic Sustenance Theory (DST)">')
@@ -943,6 +944,7 @@ def render_glossary_html(d):
     L.append("</style>")
     L.append("</head>")
     L.append("<body>")
+    L.append('<p style="font-size:0.9em;color:#555;"><a href="/">← 治水学主页</a> ｜ <a href="/cases.html">决策显影库</a> ｜ <a href="/graph.html">概念图谱</a> ｜ <a href="/about.html">关于</a></p>')
     L.append("<h1>治水学（DST）核心术语表</h1>")
     L.append(f'<p class="intro">《{_g_title}》{_g_ver} ｜ {_g_date} ｜ 按 A–L 层级组织；🔴核心 / 🟡支柱 / ⚪延伸。概念图谱见 <a href="{base}graph.html">graph.html</a>。</p>')
     _byterm = cases_by_term(d)
@@ -1249,6 +1251,7 @@ def render_graph(d):
          ".node{margin:3px 0;}", ".lv{color:#888;font-size:0.85em;}",
          ".tlink{color:inherit;text-decoration:none;border-bottom:1px dotted #ccc;}", ".tlink:hover{border-bottom:1px solid #333;}",
          "</style>", "</head>", "<body>",
+         '<p style="font-size:0.9em;color:#555;"><a href="/">← 治水学主页</a> ｜ <a href="/cases.html">决策显影库</a> ｜ <a href="/glossary.html">核心术语表</a> ｜ <a href="/about.html">关于</a></p>',
          "<h1>治水学概念图谱（DST Concept Graph）</h1>",
          f'<p class="intro">共 {len(terms)} 个概念 · 按 A–L 层 / 核心·支柱·延伸 定位 · 上位关系树。'
          f'术语定义见 <a href="{base}glossary.html">glossary.html</a>。</p>',
@@ -1476,6 +1479,7 @@ def render_sitemap(d):
     lastmod = max(dates) if dates else "2026-01-01"
     pages = [
         (base, "1.0", "weekly"),
+        (base + "llms.txt", "0.8", "weekly"),
         (base + "en/", "0.8", "monthly"),
         (base + "glossary.html", "0.8", "monthly"),
         (base + "glossary.md", "0.6", "monthly"),
