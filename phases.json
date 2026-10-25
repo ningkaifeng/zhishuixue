@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 36,
-  "totalCases": 36
+  "mountedCases": 37,
+  "totalCases": 37
  },
  "unmounted": [],
  "howToUse": [
@@ -63,6 +63,11 @@
        "id": "B-0025",
        "title": "偷梁换柱",
        "url": "https://zhishuixue.com/cases/B-0025.html"
+      },
+      {
+       "id": "B-0030",
+       "title": "反客为主",
+       "url": "https://zhishuixue.com/cases/B-0030.html"
       }
      ],
      "termAnchor": "structural-judgment",

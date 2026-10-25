@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-24",
+ "date": "2026-10-25",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-24．https://zhishuixue.com/cases-index.json",
- "count": 36,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-25．https://zhishuixue.com/cases-index.json",
+ "count": 37,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -24,6 +24,7 @@
   "conceptsNotInTermTable": [],
   "derivedInterfaces": [
    "乘乱取利",
+   "乘隙夺主",
    "信号层",
    "信号探测",
    "借局布势",
@@ -771,6 +772,28 @@
    "non_applicable": "“己方兵多、需诱敌（应减灶示弱）；或对手谨慎、会派探子核实虚实”的情形",
    "source": "《三十六计·第二十九计（并战计）》；《后汉书·虞诩传》（增灶示强）",
    "url": "https://zhishuixue.com/cases/B-0029.html"
+  },
+  {
+   "id": "B-0030",
+   "num": "B-0030",
+   "title": "反客为主",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "乘隙夺主（乘对方疏漏插足，渐进握住主机，把客位变主位）",
+   "lever": "主机（冀州牧的名分与权柄）",
+   "date": "2026-10-25",
+   "concepts": [
+    {
+     "name": "结构判断",
+     "anchor": "structural-judgment"
+    }
+   ],
+   "abstract": "东汉末年，渤海太守袁绍（客位）暗约公孙瓒南下攻冀制造危机，再遣荀谌三问游说，冀州牧韩馥自认不如、遣子送印绶让位，袁绍不费一兵一卒得冀州、反客为主；核心是乘对方疏漏插足、渐进握住“主机（权柄）”，把客位变成主位。",
+   "effect": "袁绍设局时的预判：公孙瓒南下，韩馥必慌；再派人游说，韩馥（素怯懦）必让位；袁绍不费一兵一卒，得冀州全境",
+   "reusable_condition": "“主位者怯懦、客位者声望足以压倒主位者（自认不如）”的格局",
+   "non_applicable": "“主位者能拍板、采纳主战派主张；或客位者的意图被提前识破”的情形",
+   "source": "《三十六计·第三十计（并战计）》；《三国志·袁绍传》（智取冀州）",
+   "url": "https://zhishuixue.com/cases/B-0030.html"
   },
   {
    "id": "C-0001",
