@@ -1,5 +1,5 @@
 name: Build site from papers.yml
- 
+
 on:
   push:
     branches: [ main ]
@@ -8,12 +8,13 @@ on:
       - "cases.yml"
       - "build.py"
       - "indexnow.py"
+      - "gen_knowledge_pack.py"
       - ".github/workflows/build.yml"
   workflow_dispatch:
- 
+
 permissions:
   contents: write
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,6 +27,8 @@ jobs:
         run: pip install pyyaml
       - name: Build
         run: python3 build.py
+      - name: Build knowledge pack
+        run: python3 gen_knowledge_pack.py
       - name: Commit generated files
         run: |
           git config user.name "github-actions[bot]"
@@ -42,4 +45,3 @@ jobs:
         run: |
           sleep 20
           python3 indexnow.py || true
- 
