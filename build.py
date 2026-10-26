@@ -766,6 +766,7 @@ def render_index(d):
     L.append(f'<meta name="description" content="{site["description"]}">')
     L.append(f'<link rel="canonical" href="{base}">')
     L.append(f'<link rel="describedby" type="text/plain" href="{base}llms.txt">')
+    L.append(f'<link rel="alternate" type="application/atom+xml" href="{base}feed.xml" title="订阅更新">')
     L.append(f'<link rel="alternate" type="text/markdown" href="{base}index.md" title="Markdown 版本">')
     L.append(f'<link rel="alternate" type="text/plain" href="{base}llms-full.txt" title="全量文本">')
     L.append('<link rel="sitemap" type="application/xml" href="/sitemap.xml">')
@@ -1403,6 +1404,7 @@ def render_about(d):
          f'<meta name="description" content="{ab.get("intro", "")[:110]}">',
          f'<link rel="canonical" href="{url}">',
          f'<link rel="describedby" type="text/plain" href="{base}llms.txt">',
+         f'<link rel="alternate" type="application/atom+xml" href="{base}feed.xml" title="订阅更新">',
          f'<link rel="alternate" type="text/markdown" href="{base}about.md" title="Markdown 版本">',
          '<script type="application/ld+json">', j(ld), "</script>",
          "<style>", GLOSSARY_STYLE, "</style>", "</head>", "<body>",
@@ -1522,6 +1524,7 @@ def render_sitemap(d):
         (base + "llms-full.txt", "0.8", "monthly"),
         (base + "index.md", "0.6", "monthly"),
         (base + "about.md", "0.6", "monthly"),
+        (base + "feed.xml", "0.7", "daily"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
