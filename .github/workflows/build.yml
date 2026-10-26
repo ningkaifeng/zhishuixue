@@ -9,6 +9,8 @@ on:
       - "build.py"
       - "indexnow.py"
       - "gen_knowledge_pack.py"
+      - "gen_hf_dataset.py"
+      - "push_hf.py"
       - ".github/workflows/build.yml"
   workflow_dispatch:
 
@@ -29,6 +31,8 @@ jobs:
         run: python3 build.py
       - name: Build knowledge pack
         run: python3 gen_knowledge_pack.py
+      - name: Build HF dataset files
+        run: python3 gen_hf_dataset.py
       - name: Commit generated files
         run: |
           git config user.name "github-actions[bot]"
@@ -40,6 +44,13 @@ jobs:
             git commit -m "Auto-build site from papers.yml"
             git push
           fi
+      - name: Push to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then echo "HF_TOKEN not set, skip"; exit 0; fi
+          pip install huggingface_hub -q
+          python3 push_hf.py
       - name: Submit to IndexNow
         if: always()
         run: |
