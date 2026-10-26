@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-25",
+ "date": "2026-10-26",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -11,8 +11,8 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-25．https://zhishuixue.com/cases-index.json",
- "count": 37,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-26．https://zhishuixue.com/cases-index.json",
+ "count": 38,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -25,6 +25,7 @@
   "derivedInterfaces": [
    "乘乱取利",
    "乘隙夺主",
+   "伐情",
    "信号层",
    "信号探测",
    "借局布势",
@@ -794,6 +795,28 @@
    "non_applicable": "“主位者能拍板、采纳主战派主张；或客位者的意图被提前识破”的情形",
    "source": "《三十六计·第三十计（并战计）》；《三国志·袁绍传》（智取冀州）",
    "url": "https://zhishuixue.com/cases/B-0030.html"
+  },
+  {
+   "id": "B-0031",
+   "num": "B-0031",
+   "title": "美人计",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "伐情（兵强者攻其将，将智者伐其情）",
+   "lever": "情（夫差的意志／霸主锐气）",
+   "date": "2026-10-26",
+   "concepts": [
+    {
+     "name": "结构判断",
+     "anchor": "structural-judgment"
+    }
+   ],
+   "abstract": "春秋末吴越争霸，越王勾践夫椒战败后卧薪尝胆，深知吴国兵强将智不可力敌，用文种之计选苎萝山鬻薪女西施、郑旦，教以歌舞容步三年，进献吴王夫差；夫差好色纳之，建馆娃宫沉湎酒色、疏远并赐死伍子胥，吴政荒废，越乘虚伐吴、转败为胜。",
+   "effect": "夫差好色，纳西施必沉湎；吴政荒废、忠良离心之后，越国可乘虚复仇、反败为胜",
+   "reusable_condition": "“对方中枢有好色、贪欲等可乘之情，且己方无力正面取胜、耗得起时间”的格局",
+   "non_applicable": "“对方中枢不沉迷（不好色）、忠良谏言被采纳、或己方耗不起十余年时间”的情形",
+   "source": "《三十六计·第三十一计（败战计）》；《吴越春秋·勾践阴谋外传》（西施入吴）",
+   "url": "https://zhishuixue.com/cases/B-0031.html"
   },
   {
    "id": "C-0001",

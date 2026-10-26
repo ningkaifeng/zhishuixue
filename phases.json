@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 37,
-  "totalCases": 37
+  "mountedCases": 38,
+  "totalCases": 38
  },
  "unmounted": [],
  "howToUse": [
@@ -68,6 +68,11 @@
        "id": "B-0030",
        "title": "反客为主",
        "url": "https://zhishuixue.com/cases/B-0030.html"
+      },
+      {
+       "id": "B-0031",
+       "title": "美人计",
+       "url": "https://zhishuixue.com/cases/B-0031.html"
       }
      ],
      "termAnchor": "structural-judgment",
