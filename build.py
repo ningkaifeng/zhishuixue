@@ -746,11 +746,13 @@ def render_index(d):
         "alternateName": p["alternate_name"],
         "url": base,
         "identifier": "https://orcid.org/" + p["orcid"],
-        "sameAs": [
+        "sameAs": [u for u in [
             "https://orcid.org/" + p["orcid"],
-            p["academia"],
-            p["openalex"],
-        ],
+            p.get("academia", ""),
+            p.get("openalex", ""),
+            p.get("github", ""),
+            p.get("huggingface", ""),
+        ] if u],
     }
     L = []
     L.append("<!DOCTYPE html>")
@@ -1047,6 +1049,8 @@ def render_llms(d):
     L.append(f'- Academia.edu：{p["academia"]}')
     if p.get("openalex"):
         L.append(f'- OpenAlex（作品全集）：{p["openalex"]}')
+    if p.get("huggingface"):
+        L.append(f'- Hugging Face（数据集镜像）：{p["huggingface"]}')
     for sec in d["sections"]:
         works = [w for w in d["works"] if w["section"] == sec["id"]]
         if not works:
@@ -1378,7 +1382,8 @@ def render_about(d):
             "alternateName": p["alternate_name"],
             "identifier": "https://orcid.org/" + p["orcid"],
             "sameAs": [u for u in ["https://orcid.org/" + p["orcid"],
-                                   p.get("academia", ""), p.get("openalex", "")] if u],
+                                   p.get("academia", ""), p.get("openalex", ""),
+                                   p.get("github", ""), p.get("huggingface", "")] if u],
         },
     }
     nav = ('<p style="font-size:0.9em;color:#555;">'
@@ -1410,6 +1415,8 @@ def render_about(d):
         L.append(f'<li>作品全集（OpenAlex）：<a href="{p["openalex"]}">{p["openalex"]}</a></li>')
     if p.get("academia"):
         L.append(f'<li>Academia.edu：<a href="{p["academia"]}">{p["academia"]}</a></li>')
+    if p.get("huggingface"):
+        L.append(f'<li>Hugging Face 数据集：<a href="{p["huggingface"]}">{p["huggingface"]}</a></li>')
     L.append(f'<li>母本 DOI：<a href="{doi_url(site["master_doi"])}">{site["master_doi"]}</a>（{site.get("master_label", "")}）</li>')
     L.append("</ul>")
     L.append("<h2>如何引用</h2>")

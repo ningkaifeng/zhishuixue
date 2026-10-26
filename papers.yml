@@ -303,6 +303,8 @@ person:
   orcid: "0009-0001-4414-6058"
   academia: "https://independentresearcher.academia.edu/KaifengNing"
   openalex: "https://openalex.org/authors/A5133368411"
+  huggingface: "https://huggingface.co/datasets/zhishuixue/dst-decision-disclosure"
+  github: "https://github.com/ningkaifeng/zhishuixue"
   email_primary: "ning@zhishuixue.com"
   email_backup: "ningkaifeng.dst@gmail.com"
 
