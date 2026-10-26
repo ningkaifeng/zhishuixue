@@ -362,8 +362,12 @@ def render_cases_json(d):
         "maintainer": {"name": d["person"]["name"],
                        "orcid": "https://orcid.org/" + d["person"]["orcid"]},
         "citeKey": "dst-cases-" + cm.get("version_label", "v1.0"),
-        "citedAs": f'{d["person"]["name"]}．{cm.get("title", "治水学·决策显影库")}'
-                    f'{cm.get("version_label", "v1.0")}．{max(_dates) if _dates else ""}．{base}cases-index.json',
+        "doi": cm.get("doi", ""),
+        "doiVersion": cm.get("doi_version", ""),
+        "citedAs": (f'{d["person"]["name"]}．{cm.get("title", "治水学·决策显影库")}'
+                    f'{cm.get("version_label", "v1.0")}．{max(_dates) if _dates else ""}．'
+                    + (f'Zenodo．https://doi.org/{cm["doi"]}．' if cm.get("doi") else "")
+                    + f'{base}cases-index.json'),
         "count": len(items),
         "fieldNotes": {
             "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",

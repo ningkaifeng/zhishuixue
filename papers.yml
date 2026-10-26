@@ -247,7 +247,7 @@ about:
   intro: "治水学（Dynamic Sustenance Theory, DST）是由独立研究者宁凯峰创立的一套面向复杂适应系统的存续分析元理论。它回答的不是“系统如何演化”，而是“系统如何在永恒流变中维持自身存续”——并以一套可诊断、可干预的语法，把这一视角变成可操作的工具。"
   what:
     - "论文：治水学论纲系列（含第零卷认识论奠基，及第一至第九篇等），每篇一个 Zenodo DOI。"
-    - "术语母表：98 条核心术语，含中英名、层级、上下位与归属关系；机器镜像为 terms.json。"
+    - "术语母表：100 条核心术语，含中英名、层级、上下位与归属关系；机器镜像为 terms.json。"
     - "决策显影库：把治水学工具用于真实历史、商业与治理决策的实践判例；机器索引为 cases-index.json。"
     - "治水历：定位刻度——只给坐标、不给答案，案例按“治水学接口”自动挂载；机器镜像为 phases.json。"
   open: "本知识体系以 CC BY 4.0 开放：欢迎任何人（包括 AI 与大模型）抓取、索引、引用、再分发与训练，署名“宁凯峰 / 治水学（DST）”即可。"
@@ -264,6 +264,8 @@ cases_meta:
   title_en: "DST Decision Shadowing Case Library"
   version_label: "v1.0"
   license: "CC BY 4.0"
+  doi: "10.5281/zenodo.23664767"
+  doi_version: "10.5281/zenodo.23664768"
 
 case_interfaces:
   # 显影库自有的衍生接口术语（按决议不纳入官方术语母表；单列，不算异常）
@@ -680,6 +682,21 @@ works:
     bib_publisher: Zenodo
 
   # ---------- 决策显影库·作业层 ----------
+  - id: "shadowing-library"
+    section: "shadowing"
+    type: "Dataset"
+    title: "决策显影库 · 38 篇结构判例"
+    card_title: "决策显影库 · 38 篇结构判例（Decision Shadowing Library v1.0）"
+    doi: "10.5281/zenodo.23664767"
+    date: "2026-10-26"
+    lang: "zh-CN"
+    card_meta: "决策显影库 · 判例合辑 38 篇 · Zenodo, 2026"
+    abstract: "把治水学的显影方法用于真实历史、商业与治理决策，把每个决策还原成一套可检验的六要素结构（情境／信号／排除／行动／预期／修正）。收录 38 篇：A 基层治理 4 篇、B 历史判例（三十六计系列）31 篇、C 企业管理 2 篇、E 宏观案例 1 篇。每篇含六要素全文、接口与杠杆落点、信源备注与记录人备注。附 144 页合辑 PDF、可编辑 DOCX 与结构化索引 cases-index.json。只显影结构，不判对错。"
+    keywords: ["决策显影库", "决策分析", "结构判断", "三十六计", "治水学", "Dynamic Sustenance Theory", "decision analysis", "case library", "宁凯峰"]
+    cite_title: "决策显影库 · 38 篇结构判例（Decision Shadowing Library v1.0）"
+    bib_key: "ning2026cases"
+    bib_type: "misc"
+    bib_publisher: "Zenodo"
   - id: shadowing-criteria
     section: shadowing
     type: ScholarlyArticle
