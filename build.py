@@ -191,6 +191,7 @@ CASES_INDEX_TPL = """<!DOCTYPE html>
 <title>决策显影库（案例总览） | 治水学 DST</title>
 <meta name="description" content="治水学·决策显影库：把治水学工具用于真实历史、商业与治理决策的实践判例总览，可按归目、场景、治水学接口检索。">
 <link rel="canonical" href="__URL__">
+<link rel="describedby" type="text/plain" href="https://zhishuixue.com/llms.txt">
 <script type="application/ld+json">
 __LD__
 </script>
@@ -655,6 +656,7 @@ def render_case_page(c, d):
          f'<title>{c["card_title"]} | 治水学 DST · 决策显影库</title>',
          f'<meta name="description" content="{c["abstract"]}">',
          f'<link rel="canonical" href="{url}">',
+         f'<link rel="describedby" type="text/plain" href="{base}llms.txt">',
          '<script type="application/ld+json">', j(ld), "</script>",
          "<style>", GLOSSARY_STYLE, CASE_STYLE, "</style>", "</head>", "<body>",
          f'<p class="case-top"><a href="{base}">← 治水学主页</a> ｜ <a href="{base}glossary.html">核心术语表</a> ｜ <a href="{base}graph.html">概念图谱</a> ｜ <a href="{base}cases.html">案例总览</a> ｜ <a href="{base}about.html">关于</a></p>',
@@ -763,6 +765,9 @@ def render_index(d):
     L.append(f'<title>{site["site_title"]}</title>')
     L.append(f'<meta name="description" content="{site["description"]}">')
     L.append(f'<link rel="canonical" href="{base}">')
+    L.append(f'<link rel="describedby" type="text/plain" href="{base}llms.txt">')
+    L.append(f'<link rel="alternate" type="text/markdown" href="{base}index.md" title="Markdown 版本">')
+    L.append(f'<link rel="alternate" type="text/plain" href="{base}llms-full.txt" title="全量文本">')
     L.append('<link rel="sitemap" type="application/xml" href="/sitemap.xml">')
     L.append(f'<link rel="author" href="https://orcid.org/{p["orcid"]}">')
     L.append('<meta property="og:title" content="治水学 Dynamic Sustenance Theory (DST)">')
@@ -934,6 +939,7 @@ def render_glossary_html(d):
     L.append('<meta charset="UTF-8">')
     L.append("<title>治水学核心术语表 | Dynamic Sustenance Theory</title>")
     L.append('<meta name="description" content="治水学（DST）核心术语的标准化定义，由独立研究者宁凯峰维护。">')
+    L.append(f'<link rel="describedby" type="text/plain" href="{base}llms.txt">')
     L.append('<script type="application/ld+json">')
     L.append(json.dumps(ld, ensure_ascii=False, indent=2))
     L.append("</script>")
@@ -1141,7 +1147,8 @@ def render_llms(d):
     L.append("## 单文件知识包（Knowledge Pack：一次读完即可用）")
     L.append("上面那些文件是分开的；如果只想用一次请求就把治水学装进上下文，读这一个文件即可。")
     L.append("")
-    L.append(f"- 知识包（JSON，约 150 KB / 6 万 token）：{base}knowledge-pack.json")
+    L.append(f"- 全量纯文本（llms-full.txt，约 130 KB）：{base}llms-full.txt —— 判据 + 判例 + 术语 + 治水历，最省事的「一次读完」入口。")
+    L.append(f"- 知识包（JSON，约 160 KB / 6 万 token）：{base}knowledge-pack.json")
     L.append("- **含**：判据全文 + 全部判例的结构摘要（接口 / 杠杆 / 效果 / 适用条件 / 不适用条件）+ 10 篇判例的六要素全文（覆盖各接口族）+ 100 条术语 + 治水历 18 格 + 诊断书输出格式 + 引用规范。")
     L.append("- **为什么打包**：判据须与判例同时使用。只给判据不给判例，判据会退化成一套通用框架。这个文件把尺子和实物一次给全。")
     L.append("- **用法**：读完后按包内 `how_to_use` 的步骤执行；引用时用包内 `citation` 的口径。")
@@ -1257,7 +1264,8 @@ def render_graph(d):
           "url": gurl, "isPartOf": base + "glossary.html", "hasDefinedTerm": graph}
     L = ["<!DOCTYPE html>", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
          "<title>治水学概念图谱 | DST Concept Graph</title>",
-         '<meta name="description" content="治水学 98 个概念的层级、级别与上位关系图谱。">',
+         '<meta name="description" content="治水学概念的层级、级别与上位关系图谱。">',
+         f'<link rel="describedby" type="text/plain" href="{base}llms.txt">',
          '<script type="application/ld+json">', json.dumps(ld, ensure_ascii=False, indent=2),
          "</script>", "<style>", GLOSSARY_STYLE,
          ".node{margin:3px 0;}", ".lv{color:#888;font-size:0.85em;}",
@@ -1394,6 +1402,8 @@ def render_about(d):
          f'<title>{ab.get("title", "关于治水学")} | 治水学 DST</title>',
          f'<meta name="description" content="{ab.get("intro", "")[:110]}">',
          f'<link rel="canonical" href="{url}">',
+         f'<link rel="describedby" type="text/plain" href="{base}llms.txt">',
+         f'<link rel="alternate" type="text/markdown" href="{base}about.md" title="Markdown 版本">',
          '<script type="application/ld+json">', j(ld), "</script>",
          "<style>", GLOSSARY_STYLE, "</style>", "</head>", "<body>",
          nav,
@@ -1509,6 +1519,9 @@ def render_sitemap(d):
         (base + "service.json", "0.7", "monthly"),
         (base + "criteria.json", "0.8", "monthly"),
         (base + "knowledge-pack.json", "0.8", "monthly"),
+        (base + "llms-full.txt", "0.8", "monthly"),
+        (base + "index.md", "0.6", "monthly"),
+        (base + "about.md", "0.6", "monthly"),
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
