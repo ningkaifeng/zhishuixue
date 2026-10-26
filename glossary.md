@@ -155,21 +155,21 @@
 
 ### 技术浪
 
-- **英文**：Tech-Wave
+- **英文**：Tech-Wave (metaphor of Breakthrough Force)
 - **编号**：DST-C-05
 - **DOI**：10.5281/zenodo.22795174
 - **一句话定义**：突破性动能的隐喻命名（文明尺度上最典型的载体是技术）。
 
 ### 制度浪
 
-- **英文**：Inst-Wave
+- **英文**：Inst-Wave (metaphor of Stability Force)
 - **编号**：DST-C-06
 - **DOI**：10.5281/zenodo.22795174
 - **一句话定义**：稳定性动能的隐喻命名（文明尺度上最典型的载体是制度）。
 
 ### 思想浪
 
-- **英文**：Idea-Wave
+- **英文**：Idea-Wave (metaphor of Directional Force)
 - **编号**：DST-C-07
 - **DOI**：10.5281/zenodo.22795174
 - **一句话定义**：方向性动能的隐喻命名（文明尺度上最典型的载体是思想）。

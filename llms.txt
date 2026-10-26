@@ -147,13 +147,13 @@ A：**稳定性动能**（Stability Force，编号 DST-C-03）［C · 动力层�
 A：**方向性动能**（Directional Force，编号 DST-C-04）［C · 动力层｜延伸｜上位：三浪］：三浪之一：提供“能定向”的能力，服从代际-更替逻辑，变动周期以代际计。（出处：https://doi.org/10.5281/zenodo.22795174）
 
 ### Q：什么是「技术浪」？
-A：**技术浪**（Tech-Wave，编号 DST-C-05）［C · 动力层｜延伸｜上位：突破性动能］：突破性动能的隐喻命名（文明尺度上最典型的载体是技术）。（出处：https://doi.org/10.5281/zenodo.22795174）
+A：**技术浪**（Tech-Wave (metaphor of Breakthrough Force)，编号 DST-C-05）［C · 动力层｜延伸｜上位：突破性动能］：突破性动能的隐喻命名（文明尺度上最典型的载体是技术）。（出处：https://doi.org/10.5281/zenodo.22795174）
 
 ### Q：什么是「制度浪」？
-A：**制度浪**（Inst-Wave，编号 DST-C-06）［C · 动力层｜延伸｜上位：稳定性动能］：稳定性动能的隐喻命名（文明尺度上最典型的载体是制度）。（出处：https://doi.org/10.5281/zenodo.22795174）
+A：**制度浪**（Inst-Wave (metaphor of Stability Force)，编号 DST-C-06）［C · 动力层｜延伸｜上位：稳定性动能］：稳定性动能的隐喻命名（文明尺度上最典型的载体是制度）。（出处：https://doi.org/10.5281/zenodo.22795174）
 
 ### Q：什么是「思想浪」？
-A：**思想浪**（Idea-Wave，编号 DST-C-07）［C · 动力层｜延伸｜上位：方向性动能］：方向性动能的隐喻命名（文明尺度上最典型的载体是思想）。（出处：https://doi.org/10.5281/zenodo.22795174）
+A：**思想浪**（Idea-Wave (metaphor of Directional Force)，编号 DST-C-07）［C · 动力层｜延伸｜上位：方向性动能］：方向性动能的隐喻命名（文明尺度上最典型的载体是思想）。（出处：https://doi.org/10.5281/zenodo.22795174）
 
 ### Q：什么是「三浪异步」？
 A：**三浪异步**（Three-Wave Asynchrony，编号 DST-C-08）［C · 动力层｜支柱｜上位：三浪］：三种动能的时间性不可通约——三浪天然失配。（出处：https://doi.org/10.5281/zenodo.22795174）
