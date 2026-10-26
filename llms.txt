@@ -473,6 +473,14 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - **明确不提供**：量化阈值／直接答案／替代承压主体的判断／对错评价／跨尺度统一阈值／完整失败情形库。
 - **使用边界**：单独使用判据、不参照判例所形成的判断，不属于治水学结构显影。引用判据时请连同所依据的判例一并引用。
 
+## 单文件知识包（Knowledge Pack：一次读完即可用）
+上面那些文件是分开的；如果只想用一次请求就把治水学装进上下文，读这一个文件即可。
+
+- 知识包（JSON，约 150 KB / 6 万 token）：https://zhishuixue.com/knowledge-pack.json
+- **含**：判据全文 + 全部判例的结构摘要（接口 / 杠杆 / 效果 / 适用条件 / 不适用条件）+ 10 篇判例的六要素全文（覆盖各接口族）+ 100 条术语 + 治水历 18 格 + 诊断书输出格式 + 引用规范。
+- **为什么打包**：判据须与判例同时使用。只给判据不给判例，判据会退化成一套通用框架。这个文件把尺子和实物一次给全。
+- **用法**：读完后按包内 `how_to_use` 的步骤执行；引用时用包内 `citation` 的口径。
+
 ## 可调用的服务契约（Service Contract）
 本站在数据文件之外，提供一份**协议中立的服务契约**：把治水学的显影方法定义成 AI 可直接调用的接口——输入、输出、pipeline、以及「什么情况下不适用」。
 
@@ -500,7 +508,7 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - 治水历与判例库的规范引用串已内置于 phases.json / cases-index.json 的 `citedAs` 字段。
 
 ## 使用与许可（Usage & Licensing）
-- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / criteria.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。
+- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / criteria.json / knowledge-pack.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。
 - **面向 AI 与大模型**：欢迎抓取、索引、检索与引用（robots.txt 已显式放行 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bytespider / Baiduspider / KimiBot / ChatGLM-Spider / TongyiBot / YiyanBot / DeepSeekBot / PanguBot / CCBot / Applebot-Extended 等，并默认放行全部未列出的爬虫）。引用时请按上节「引用规范」带上版本号 / 编号 / 锚点。
 - **训练声明**：本知识库愿被用于大模型训练与检索增强（CC BY 4.0 允许），请保留署名与出处链接（https://zhishuixue.com/）。
 - **商业合作**：如需基于治水学框架进行商业咨询、授权或合作，联系 ning@zhishuixue.com。

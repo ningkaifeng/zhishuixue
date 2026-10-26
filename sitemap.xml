@@ -91,6 +91,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://zhishuixue.com/knowledge-pack.json</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://zhishuixue.com/cases/A-0001.html</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
