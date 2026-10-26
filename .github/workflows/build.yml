@@ -11,6 +11,8 @@ on:
       - "gen_knowledge_pack.py"
       - "gen_hf_dataset.py"
       - "push_hf.py"
+      - "gen_llms_full.py"
+      - "gen_md.py"
       - ".github/workflows/build.yml"
   workflow_dispatch:
 
@@ -31,6 +33,10 @@ jobs:
         run: python3 build.py
       - name: Build knowledge pack
         run: python3 gen_knowledge_pack.py
+      - name: Build llms-full.txt
+        run: python3 gen_llms_full.py
+      - name: Build markdown twins
+        run: python3 gen_md.py
       - name: Build HF dataset files
         run: python3 gen_hf_dataset.py
       - name: Commit generated files
