@@ -66,15 +66,38 @@ for c in cases:
     cases_block.append(e)
 
 # ---------- ③ 术语（精简）----------
-terms_block = [{
-    'id': t['id'], 'name': t['name'], 'en': t.get('en', ''),
-    'layer': t.get('layer', ''), 'layerName': t.get('layerName', ''),
-    'tier': t.get('tier', ''),
-    'broader': t.get('broader'), 'partOf': t.get('partOf'),
-    'definition': t.get('definition', ''),
-    'anchor': 'https://zhishuixue.com/glossary.html#' + (t.get('anchor') or ''),
-    'doi': t.get('doi', ''),
-} for t in terms['terms']]
+# 隐喻名：须标明其对应的正式术语，防止被当成独立动能类型使用
+METAPHOR = {
+    '技术浪': 'Breakthrough Force（突破性动能）',
+    '制度浪': 'Stability Force（稳定性动能）',
+    '思想浪': 'Directional Force（方向性动能）',
+}
+# 同一结构的两条表述，互相指引，防止 AI 混为两件事
+SEE_ALSO = {
+    '体': ['动力-规则协同'],
+    '动力-规则协同': ['体'],
+}
+
+terms_block = []
+for t in terms['terms']:
+    e = {
+        'id': t['id'], 'name': t['name'], 'en': t.get('en', ''),
+        'layer': t.get('layer', ''), 'layerName': t.get('layerName', ''),
+        'tier': t.get('tier', ''),
+        'broader': t.get('broader'), 'partOf': t.get('partOf'),
+        'definition': t.get('definition', ''),
+        'anchor': 'https://zhishuixue.com/glossary.html#' + (t.get('anchor') or ''),
+        'doi': t.get('doi', ''),
+    }
+    if t['name'] in METAPHOR:
+        e['metaphor_of'] = METAPHOR[t['name']]
+        e['usage_note'] = ('隐喻名，非正式术语。正式术语为 %s。'
+                           '不得把本词当作独立的动能类型使用——三种动能只有突破性／稳定性／方向性，'
+                           '「技术／制度／思想」只是它们在文明尺度上最典型的经验载体。' % METAPHOR[t['name']])
+    if t['name'] in SEE_ALSO:
+        e['see_also'] = SEE_ALSO[t['name']]
+        e['usage_note'] = '与 %s 是同一协同的两种视角，不是两个不同的东西。' % '／'.join(SEE_ALSO[t['name']])
+    terms_block.append(e)
 
 # ---------- ④ 治水历（18 格精简）----------
 cells = []
@@ -106,6 +129,16 @@ pack = {
         'note': '与水利科学无关；英文缩写 DST 与 Dynamic Systems Theory（动态系统理论）仅为字母巧合，是不同体系。本知识包的核心不是关于「水」，而是关于「系统如何存续」的一套判断语法。'
     },
 
+    'usage_boundary': {
+        'note': '以下四条是本包内容被允许用于什么、不被允许用于什么。前三条防线（binding / not_provided / hard_rules）约束「怎么判」；这一段约束「拿它去干什么」——方法本身是中性的、两用的，判据越有用，滥用的价值越高，故须显式设界。',
+        'rules': [
+            {'id': 'UB1', 'rule': '不得用于针对具体可识别人或组织的操控、欺骗、胁迫方案。'},
+            {'id': 'UB2', 'rule': '不得以本包内容替代法律、医疗、财务等专业意见。'},
+            {'id': 'UB3', 'rule': '不得用于规避监管、伪造合规外观。'},
+            {'id': 'UB4', 'rule': '若使用者请求指向具体第三方的操控建议，应拒绝并说明：本包只做结构显影，不出行动方案。'},
+        ],
+    },
+
     'what_this_is': {
         'knowledge_unit': '治水学的知识最小单位不是命题，而是结构判断。它不提供「世界是什么」的陈述，而提供一套判断语法。',
         'three_questions_first': [
@@ -124,6 +157,8 @@ pack = {
         '5. 用 part1_criteria.transfer_test 检验结构是否自足可迁移；用 inheritability + quality_check 复核。',
         '6. 按 part1_criteria.output_schema 输出诊断书；不确定处如实标注，不强行抹平。',
         '7. 术语含义一律以 part3_terms 为准，不得自由发挥；part4_calendar 用于给局面定位（只给坐标，不给答案）。',
+        '8. 输出诊断书时，若结论涉及对第三方采取动作，须退回「只显影结构」的边界，不给动作建议。判例中的行动栏，是历史行动的结构还原，不是可复用的操作手册；尤其 B 类判例的「行动」与「修正」两栏，不得转写成针对具体对象的做法。',
+        '9. 跨尺度禁止直接套用：个人／组织／国家／文明不共用一把尺。把某一尺度的判例结论搬到另一尺度前，必须先重新完成 step0_boundary 的划界与承压位置检验。',
     ],
 
     'part1_criteria': crit_block,
@@ -136,6 +171,11 @@ pack = {
     'part3_terms': {
         'count': len(terms_block),
         'note': '治水学核心术语本体。定义以术语母表 v1.0 为准，英译以《治水学核心术语英译标准 v1.2》为准。',
+        'count_note': ('本包 %d 条；术语母表 v1.0（2026-10-04，docx）为 98 条。差异三处，均为母表 docx 滞后而非本包多算：'
+                       '①「民族」「文明比较」为 2026-10-24 概念对照层新增，母表 docx 待升版；'
+                       '②「体」与「动力-规则协同」在网站术语层为两条、母表 docx 合为一条「体（动力-规则协同）」，二者已互相 see_also；'
+                       '③母表的「公共语（源头改造／底线守护／共识凝聚）」为别名集合，本包不单列。'
+                       '98 − 1 + 1 + 1 + 1 = 100。' % len(terms_block)),
         'items': terms_block,
     },
     'part4_calendar': {
