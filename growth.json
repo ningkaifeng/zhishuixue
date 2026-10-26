@@ -13,7 +13,7 @@
  "citeKey": "dst-growth-v1.0",
  "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-26．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 22,
+  "papers": 23,
   "terms": 100,
   "cases": 38
  },
@@ -584,7 +584,13 @@
   },
   {
    "date": "2026-10-26",
-   "papers": [],
+   "papers": [
+    {
+     "id": "shadowing-library",
+     "title": "决策显影库 · 38 篇结构判例",
+     "doi": "10.5281/zenodo.23664767"
+    }
+   ],
    "cases": [
     {
      "id": "B-0031",
@@ -592,7 +598,7 @@
      "url": "https://zhishuixue.com/cases/B-0031.html"
     }
    ],
-   "nPapers": 0,
+   "nPapers": 1,
    "nCases": 1
   }
  ],

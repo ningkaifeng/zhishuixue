@@ -78,6 +78,8 @@
 
 ## 决策显影库·作业层
 
+- 决策显影库 · 38 篇结构判例（Decision Shadowing Library v1.0）
+  https://doi.org/10.5281/zenodo.23664767
 - 结构显影的判据——六要素检验标准与可传承判断的生成
   https://doi.org/10.5281/zenodo.23486787
 

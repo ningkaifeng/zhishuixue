@@ -11,7 +11,9 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-cases-v1.0",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-26．https://zhishuixue.com/cases-index.json",
+ "doi": "10.5281/zenodo.23664767",
+ "doiVersion": "10.5281/zenodo.23664768",
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-26．Zenodo．https://doi.org/10.5281/zenodo.23664767．https://zhishuixue.com/cases-index.json",
  "count": 38,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",

@@ -13,6 +13,15 @@
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
   <entry>
+    <title>决策显影库 · 38 篇结构判例</title>
+    <link href="https://doi.org/10.5281/zenodo.23664767"/>
+    <id>https://doi.org/10.5281/zenodo.23664767</id>
+    <updated>2026-10-26T00:00:00Z</updated>
+    <published>2026-10-26T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>把治水学的显影方法用于真实历史、商业与治理决策，把每个决策还原成一套可检验的六要素结构（情境／信号／排除／行动／预期／修正）。收录 38 篇：A 基层治理 4 篇、B 历史判例（三十六计系列）31 篇、C 企业管理 2 篇、E 宏观案例 1 篇。每篇含六要素全文、接口与杠杆落点、信源备注与记录人备注。附 144 页合辑 PDF、可编辑 DOCX 与结构化索引 cases-index.json。只显影结构，不判对错。</summary>
+  </entry>
+  <entry>
     <title>B-0031｜美人计</title>
     <link href="https://zhishuixue.com/cases/B-0031.html"/>
     <id>https://zhishuixue.com/cases/B-0031.html</id>
@@ -362,14 +371,5 @@
     <published>2026-09-28T00:00:00Z</published>
     <category term="判例"/>
     <summary>面对敌人已明、正面出手损耗巨大而第三方态度未定的局面，决策者不亲自出手、不与第三方正面结盟，而是识别并激化第三方与敌人之间的矛盾，诱导第三方出手（引友杀敌），借第三方之力削弱敌人，自己保存实力、坐收其成。</summary>
-  </entry>
-  <entry>
-    <title>A-0001｜业委会秘书“八个严禁”制度边界</title>
-    <link href="https://zhishuixue.com/cases/A-0001.html"/>
-    <id>https://zhishuixue.com/cases/A-0001.html</id>
-    <updated>2026-09-27T00:00:00Z</updated>
-    <published>2026-09-27T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>面对业委会秘书角色法规依据不足、职责泛化、利益冲突风险显现的困局，制度设计者不追求一步到位立法，而是以负面清单形式划出八条不可触碰的行为底线，用“方舟操作”先守住资金、信息、决策权等核心功能，为后续规范管理提供基础性制度支撑。</summary>
   </entry>
 </feed>
