@@ -477,7 +477,8 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 ## 单文件知识包（Knowledge Pack：一次读完即可用）
 上面那些文件是分开的；如果只想用一次请求就把治水学装进上下文，读这一个文件即可。
 
-- 知识包（JSON，约 150 KB / 6 万 token）：https://zhishuixue.com/knowledge-pack.json
+- 全量纯文本（llms-full.txt，约 130 KB）：https://zhishuixue.com/llms-full.txt —— 判据 + 判例 + 术语 + 治水历，最省事的「一次读完」入口。
+- 知识包（JSON，约 160 KB / 6 万 token）：https://zhishuixue.com/knowledge-pack.json
 - **含**：判据全文 + 全部判例的结构摘要（接口 / 杠杆 / 效果 / 适用条件 / 不适用条件）+ 10 篇判例的六要素全文（覆盖各接口族）+ 100 条术语 + 治水历 18 格 + 诊断书输出格式 + 引用规范。
 - **为什么打包**：判据须与判例同时使用。只给判据不给判例，判据会退化成一套通用框架。这个文件把尺子和实物一次给全。
 - **用法**：读完后按包内 `how_to_use` 的步骤执行；引用时用包内 `citation` 的口径。
