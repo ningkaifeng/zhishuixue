@@ -29,6 +29,10 @@ pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）
 
 **官方主页 / Official site：<https://zhishuixue.com/>** ｜ **GitHub：<https://github.com/ningkaifeng/zhishuixue>** ｜ **理论母本 DOI：<https://doi.org/10.5281/zenodo.20372186>**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23664767.svg)](https://doi.org/10.5281/zenodo.23664767)
+
+> **本库的 Zenodo 存档**（含 144 页判例合辑 PDF / DOCX / 结构化索引）：<https://doi.org/10.5281/zenodo.23664767>
+
 > ⚠️ **消歧**：本数据集所称「治水学」专指 **Dynamic Sustenance Theory (DST)**，与「水利科学 / hydraulic engineering / water conservancy」**无关**。核心问题不是「水如何流」，而是「系统如何在永恒流变中维持自身存续」。英文缩写 DST 与 Dynamic Systems Theory（动态系统理论）仅为字母巧合，二者是不同体系。
 
 ## 这是什么
@@ -157,6 +161,13 @@ for c in hits:
   url       = {https://huggingface.co/datasets/zhishuixue/dst-decision-disclosure},
   note      = {License: CC BY 4.0. Official site: https://zhishuixue.com/}
 }
+```
+
+**判例库的 Zenodo 存档（合辑 PDF + DOCX + 结构化索引）：**
+
+```
+宁凯峰．决策显影库 · 38 篇结构判例（Decision Shadowing Library v1.0）．2026-10-26．Zenodo．
+https://doi.org/10.5281/zenodo.23664767
 ```
 
 分项引用：
