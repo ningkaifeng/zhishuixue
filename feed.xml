@@ -13,6 +13,60 @@
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
   <entry>
+    <title>X-0001｜孙子兵法——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0001.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0001.html</id>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <published>2026-10-27T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>先为不可胜，以待敌之可胜（存续第一要务是先立于不败之地）｜先胜存续系统</summary>
+  </entry>
+  <entry>
+    <title>X-0002｜逻辑学——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0002.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0002.html</id>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <published>2026-10-27T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>形式有效——形式对、前提真则结论必真，与内容无关｜形式存续系统</summary>
+  </entry>
+  <entry>
+    <title>X-0003｜辩证法——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0003.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0003.html</id>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <published>2026-10-27T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>不回避否定、在矛盾中前进，通过扬弃在更高环节既否定又保存｜扬弃存续系统</summary>
+  </entry>
+  <entry>
+    <title>X-0004｜进化论——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0004.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0004.html</id>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <published>2026-10-27T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>生命存续靠的不是设计而是变异+选择的自然过程，适者存续、不适者淘汰，世代累积产生适应与多样性｜自然选择存续系统</summary>
+  </entry>
+  <entry>
+    <title>X-0005｜经典力学——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0005.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0005.html</id>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <published>2026-10-27T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>宇宙是一部服从统一力学定律的精密机器，用少数定律即可计算并预测一切运动｜力学定律存续系统</summary>
+  </entry>
+  <entry>
+    <title>X-0006｜相对论——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0006.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0006.html</id>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <published>2026-10-27T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>时空不是固定舞台，而是与物质、运动、引力相互构成的结构；用相对性原理+光速不变与等效原理自洽描述一切物理世界｜相对性存续系统</summary>
+  </entry>
+  <entry>
     <title>B-0032｜空城计</title>
     <link href="https://zhishuixue.com/cases/B-0032.html"/>
     <id>https://zhishuixue.com/cases/B-0032.html</id>
@@ -317,59 +371,5 @@
     <published>2026-10-02T00:00:00Z</published>
     <category term="判例"/>
     <summary>面对箭矢耗尽、正面无法补充的绝境，决策者不硬拼、不硬守，而是先用假信号（草人）骗得真利（箭），再用假信号的反复磨钝对方的警觉，最后用真动作（敢死队）乘虚突袭，适用于对方有可被反复假信号磨钝的固定响应、且真假难辨的场景。</summary>
-  </entry>
-  <entry>
-    <title>C-0002｜DeepSeek 开源决策</title>
-    <link href="https://zhishuixue.com/cases/C-0002.html"/>
-    <id>https://zhishuixue.com/cases/C-0002.html</id>
-    <updated>2026-10-02T00:00:00Z</updated>
-    <published>2026-10-02T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>DeepSeek 在算力受限、资本受限的条件下，选择把最强模型完全开源，而非跟随行业闭源惯例。核心判断是：闭源护城河短暂，开源能建立生态引力；只赚"六倍利润"、不追求最大化，开源与商业可持续不冲突。结果 R1 成为全球最受欢迎开源模型，公司首轮融资估值约 520 亿美元。</summary>
-  </entry>
-  <entry>
-    <title>B-0006｜声东击西</title>
-    <link href="https://zhishuixue.com/cases/B-0006.html"/>
-    <id>https://zhishuixue.com/cases/B-0006.html</id>
-    <updated>2026-10-01T00:00:00Z</updated>
-    <published>2026-10-01T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>面对敌方重兵防守真实目标、正面强攻受挫的局面，决策者不硬攻真目标、不真打假方向，而是制造声势逼真的假动作（声东）把敌方防守引到错误方向，再趁真实目标空虚突然转攻（击西），适用于敌方有明确防守重点、真假目标存在空间差、假信号能调动对方的场景。</summary>
-  </entry>
-  <entry>
-    <title>C-0001｜OpenAI 解雇风波</title>
-    <link href="https://zhishuixue.com/cases/C-0001.html"/>
-    <id>https://zhishuixue.com/cases/C-0001.html</id>
-    <updated>2026-10-01T00:00:00Z</updated>
-    <published>2026-10-01T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>2023 年 OpenAI 董事会以"沟通破裂"为由解雇 CEO Sam Altman，引发员工与投资者全体反弹、Altman 数日内复职。这篇判例显影这场失败决策：董事会以为在"换一个高管"，实际上在"拔掉缝合点"——动手前没问清 Altman 是"可替换零件"还是"承重墙"。适用：动关键人物前，先判断他是"结构缝合点"还是"可替换部件"。</summary>
-  </entry>
-  <entry>
-    <title>结构到结构——治水学知识形态的认识论奠基</title>
-    <link href="https://doi.org/10.5281/zenodo.23056450"/>
-    <id>https://doi.org/10.5281/zenodo.23056450</id>
-    <updated>2026-09-30T00:00:00Z</updated>
-    <published>2026-09-30T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>本文提出并论证治水学的存续域认识论：知识不是命题而是结构，知识的运动是结构到结构的接续。确立“结构判断”为知识最小单位，论证本体单位与认识单位的字面同构。</summary>
-  </entry>
-  <entry>
-    <title>B-0005｜趁火打劫</title>
-    <link href="https://zhishuixue.com/cases/B-0005.html"/>
-    <id>https://zhishuixue.com/cases/B-0005.html</id>
-    <updated>2026-09-30T00:00:00Z</updated>
-    <published>2026-09-30T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>面对敌方已陷入内乱、无暇他顾的窗口，决策者不正面强攻、不点火造势，而是识别敌方因危机暴露的存续命脉，就势出手夺取本属于敌方的利益，得手即收、不引火烧身，适用于敌方危机为“真火”、且火势不会反噬自身的场景。</summary>
-  </entry>
-  <entry>
-    <title>B-0004｜以逸待劳</title>
-    <link href="https://zhishuixue.com/cases/B-0004.html"/>
-    <id>https://zhishuixue.com/cases/B-0004.html</id>
-    <updated>2026-09-29T00:00:00Z</updated>
-    <published>2026-09-29T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>面对敌方主动进攻、锐气正盛而正面迎击损耗巨大的局面，决策者不主动出击、不消极避战，而是退守有利态势、养精蓄锐，等待对方攻势的衰减拐点（锐气耗尽、补给不济），再以逸击劳、一击致命，适用于己方有地势与时间资本、敌方劳师袭远不可持久的场景。</summary>
   </entry>
 </feed>

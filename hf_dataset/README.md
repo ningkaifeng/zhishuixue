@@ -18,6 +18,8 @@ configs:
   data_files: dst-terms.jsonl
 - config_name: cases
   data_files: dst-cases.jsonl
+- config_name: thoughts
+  data_files: dst-thoughts.jsonl
 pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）
 ---
 
@@ -51,6 +53,7 @@ pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）
 | --- | --- | --- |
 | `dst-terms.jsonl` | 核心术语本体：中英名 / 层级 / 级别 / 上位 / 归属 / 定义 / DOI | 100 |
 | `dst-cases.jsonl` | 决策判例：接口 / 杠杆 / 六要素全文 / 效果 / 适用条件 / 不适用条件 | 39 |
+| `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | 6 |
 | `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 | 1 份 |
 
 ## 数据结构
