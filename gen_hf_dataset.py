@@ -81,6 +81,7 @@ with io.open(f'{OUT}/dst-thoughts.jsonl', 'w', encoding='utf-8') as f:
             'five_sections': secs,
             'remainder': t.get('remainder', []),
             'anchors': t.get('anchors', []),
+            'faq': t.get('faq', []),
             'note': t.get('note', ''),
             'url': 'https://zhishuixue.com/thoughts/%s.html' % t['id'],
         }

@@ -264,6 +264,17 @@ if _th.get('items'):
             for an in t['anchors']:
                 A('- %s%s' % (an.get('k', '') + ('：' if an.get('k') else ''), an['v']))
             A('')
+        if t.get('faq'):
+            A('#### 常见问法（%d 条）' % len(t['faq']))
+            A('')
+            for _q in t['faq']:
+                A('**%s**' % _q['q'])
+                A('')
+                A(_q['a'])
+                if _q.get('src'):
+                    A('')
+                    A('*依据：%s*' % _q['src'])
+                A('')
         A('**结构档案**：边界＝%s ｜ 洪水＝%s ｜ 三种动能＝%s ｜ 三类规则操作＝%s ｜ 关键判断＝%s' % (
             t.get('border', ''), t.get('flood', ''), t.get('forces', ''),
             t.get('operations', ''), t.get('judgment', '')))

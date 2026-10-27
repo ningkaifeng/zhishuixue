@@ -216,6 +216,7 @@ for _t in (_th.get('thoughts') or []):
         'limit_notice': _t.get('limit', ''),
         'remainder': _t.get('remainder', []),
         'anchors': _t.get('anchors', []),
+        'faq': _t.get('faq', []),
         'sections': [{'k': x['k'], 'v': x['v']} for x in (_t.get('sections') or [])],
         'url': 'https://zhishuixue.com/thoughts/%s.html' % _t['id'],
     })

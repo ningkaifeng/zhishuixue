@@ -771,6 +771,8 @@ def render_thoughts_json(d):
             "sectionCount": len(t.get("sections") or []),
             "remainder": t.get("remainder", []),
             "anchors": t.get("anchors", []),
+            "faq": t.get("faq", []),
+            "faqCount": len(t.get("faq") or []),
             "note": t.get("note", ""),
             "url": thought_url(base, t),
         })
@@ -901,6 +903,13 @@ fill();render();
     return "\n".join(L) + "\n"
 
 
+def _th_desc(t):
+    """description 三段式：类型 + 边界/判断 + 命名（让搜索者一眼知道这是什么内容）"""
+    _j = (t.get("judgment") or "").split("｜")[0].strip()
+    return ("%s五段结构分析（边界／威胁／三种动能／三类规则操作／关键判断）：%s。命名：%s。"
+            % (t.get("title", ""), _j, t.get("naming", "")))
+
+
 def render_thought_page(t, d, all_thoughts):
     base = d["site"]["base_url"]
     url = thought_url(base, t)
@@ -925,7 +934,7 @@ def render_thought_page(t, d, all_thoughts):
     L = ["<!DOCTYPE html", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
          '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
          '<title>' + t.get("full_title", t["title"]) + " | 治水学 DST · 思想显影</title>",
-         '<meta name="description" content="' + (t.get("judgment", "") or "") + '">',
+         '<meta name="description" content="' + _th_desc(t) + '">',
          '<link rel="canonical" href="' + url + '">',
          '<link rel="describedby" type="text/plain" href="' + base + 'llms.txt">',
          '<script type="application/ld+json">', j(ld), "</script>",
@@ -960,6 +969,28 @@ def render_thought_page(t, d, all_thoughts):
         if v:
             L.append("<tr><th>" + k + "</th><td>" + v + "</td></tr>")
     L.append("</tbody></table>")
+    if t.get("faq"):
+        faq_ld = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": url + "#faq",
+            "inLanguage": "zh-CN",
+            "isPartOf": {"@id": url},
+            "mainEntity": [{"@type": "Question", "name": f["q"],
+                            "acceptedAnswer": {"@type": "Answer", "text": f["a"]}}
+                           for f in t["faq"]],
+        }
+        L.append('<script type="application/ld+json">' + j(faq_ld) + "</script>")
+        L.append("<h2>常见问法</h2>")
+        L.append('<div class="th-box" style="background:#fff;border:1px solid #e0e0e0;">'
+                 "出处类、术语释义类、事实争议类问句——只答事实，不评高低。</div>")
+        for _i, f in enumerate(t["faq"], 1):
+            L.append('<div class="th-sec"><h3 style="font-size:1.02em;color:#222;margin:18px 0 6px;font-weight:600;">Q%d｜%s</h3>'
+                     % (_i, f["q"]))
+            L.append("<p>" + f["a"] + "</p>")
+            if f.get("src"):
+                L.append('<p class="case-meta">依据：' + f["src"] + "</p>")
+            L.append("</div>")
     rel = [x for x in all_thoughts if x["id"] != t["id"] and x.get("category") == t.get("category")][:3]
     if len(rel) < 3:
         rel += [x for x in all_thoughts if x["id"] != t["id"] and x not in rel][:3 - len(rel)]
