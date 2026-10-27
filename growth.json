@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-10-26",
+ "updated": "2026-10-27",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,15 +11,15 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-26．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-10-27．https://zhishuixue.com/growth.json",
  "totals": {
   "papers": 23,
   "terms": 100,
-  "cases": 38
+  "cases": 39
  },
  "byCategory": {
   "A 基层治理": 4,
-  "B 历史判例": 31,
+  "B 历史判例": 32,
   "C 企业管理": 2,
   "E 宏观案例": 1
  },
@@ -599,6 +599,19 @@
     }
    ],
    "nPapers": 1,
+   "nCases": 1
+  },
+  {
+   "date": "2026-10-27",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0032",
+     "title": "空城计",
+     "url": "https://zhishuixue.com/cases/B-0032.html"
+    }
+   ],
+   "nPapers": 0,
    "nCases": 1
   }
  ],

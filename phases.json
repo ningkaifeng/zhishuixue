@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 38,
-  "totalCases": 38
+  "mountedCases": 39,
+  "totalCases": 39
  },
  "unmounted": [],
  "howToUse": [
@@ -120,6 +120,11 @@
        "id": "B-0029",
        "title": "树上开花",
        "url": "https://zhishuixue.com/cases/B-0029.html"
+      },
+      {
+       "id": "B-0032",
+       "title": "空城计",
+       "url": "https://zhishuixue.com/cases/B-0032.html"
       }
      ],
      "termAnchor": "breakthrough-force",

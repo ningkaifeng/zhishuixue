@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-26",
+ "date": "2026-10-27",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -13,8 +13,8 @@
  "citeKey": "dst-cases-v1.0",
  "doi": "10.5281/zenodo.23664767",
  "doiVersion": "10.5281/zenodo.23664768",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-26．Zenodo．https://doi.org/10.5281/zenodo.23664767．https://zhishuixue.com/cases-index.json",
- "count": 38,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-27．Zenodo．https://doi.org/10.5281/zenodo.23664767．https://zhishuixue.com/cases-index.json",
+ "count": 39,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -27,6 +27,7 @@
   "derivedInterfaces": [
    "乘乱取利",
    "乘隙夺主",
+   "以虚示虚",
    "伐情",
    "信号层",
    "信号探测",
@@ -819,6 +820,28 @@
    "non_applicable": "“对方中枢不沉迷（不好色）、忠良谏言被采纳、或己方耗不起十余年时间”的情形",
    "source": "《三十六计·第三十一计（败战计）》；《吴越春秋·勾践阴谋外传》（西施入吴）",
    "url": "https://zhishuixue.com/cases/B-0031.html"
+  },
+  {
+   "id": "B-0032",
+   "num": "B-0032",
+   "title": "空城计",
+   "category": "B 历史判例",
+   "scene": "博弈决策",
+   "interface": "以虚示虚（虚者虚之，亮出真弱，令多疑者疑中生疑）",
+   "lever": "疑（对手心中的既有判断反过来咬他自己）",
+   "date": "2026-10-27",
+   "concepts": [
+    {
+     "name": "祭祀",
+     "anchor": "sacrificing"
+    }
+   ],
+   "abstract": "蜀汉第一次北伐，街亭失守后诸葛亮孤守西城，兵少将寡而司马懿大军压境。诸葛亮辨出这局的承重件不是城墙，而是对手脑中“诸葛亮从不弄险”的既有判断，反用这条判断——大开城门、藏起旌旗、登楼焚香抚琴，把“城空”如实亮出来，令多疑的司马懿疑中生疑、以为有伏兵而退。此计零成本、零战力，赌注是全部家底，只可作权宜缓兵，不可作常策。",
+   "effect": "一向谨慎的人忽然做出反常举动，司马懿会顺着“他从不弄险”这条旧判断往下推，得出“必有伏兵”的结论而退兵",
+   "reusable_condition": "“对手多疑、且对我方有稳定的既有判断（认为我方从不弄险），而己方兵力空虚、战不能战撤不及撤”的格局",
+   "non_applicable": "“对手不多疑、或肯派小股试探、或有准确情报已知城空”的情形",
+   "source": "《三十六计·第三十二计（败战计）》；《三国演义》第九十五回（文学虚构，史源见信源备注）",
+   "url": "https://zhishuixue.com/cases/B-0032.html"
   },
   {
    "id": "C-0001",

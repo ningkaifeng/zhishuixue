@@ -5,13 +5,22 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-10-26T00:00:00Z</updated>
+  <updated>2026-10-27T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>B-0032｜空城计</title>
+    <link href="https://zhishuixue.com/cases/B-0032.html"/>
+    <id>https://zhishuixue.com/cases/B-0032.html</id>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <published>2026-10-27T00:00:00Z</published>
+    <category term="判例"/>
+    <summary>蜀汉第一次北伐，街亭失守后诸葛亮孤守西城，兵少将寡而司马懿大军压境。诸葛亮辨出这局的承重件不是城墙，而是对手脑中“诸葛亮从不弄险”的既有判断，反用这条判断——大开城门、藏起旌旗、登楼焚香抚琴，把“城空”如实亮出来，令多疑的司马懿疑中生疑、以为有伏兵而退。此计零成本、零战力，赌注是全部家底，只可作权宜缓兵，不可作常策。</summary>
+  </entry>
   <entry>
     <title>决策显影库 · 38 篇结构判例</title>
     <link href="https://doi.org/10.5281/zenodo.23664767"/>
@@ -362,14 +371,5 @@
     <published>2026-09-29T00:00:00Z</published>
     <category term="判例"/>
     <summary>面对敌方主动进攻、锐气正盛而正面迎击损耗巨大的局面，决策者不主动出击、不消极避战，而是退守有利态势、养精蓄锐，等待对方攻势的衰减拐点（锐气耗尽、补给不济），再以逸击劳、一击致命，适用于己方有地势与时间资本、敌方劳师袭远不可持久的场景。</summary>
-  </entry>
-  <entry>
-    <title>B-0003｜借刀杀人</title>
-    <link href="https://zhishuixue.com/cases/B-0003.html"/>
-    <id>https://zhishuixue.com/cases/B-0003.html</id>
-    <updated>2026-09-28T00:00:00Z</updated>
-    <published>2026-09-28T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>面对敌人已明、正面出手损耗巨大而第三方态度未定的局面，决策者不亲自出手、不与第三方正面结盟，而是识别并激化第三方与敌人之间的矛盾，诱导第三方出手（引友杀敌），借第三方之力削弱敌人，自己保存实力、坐收其成。</summary>
   </entry>
 </feed>
