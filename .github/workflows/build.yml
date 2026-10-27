@@ -6,6 +6,7 @@ on:
     paths:
       - "papers.yml"
       - "cases.yml"
+      - "thoughts.yml"
       - "build.py"
       - "indexnow.py"
       - "gen_knowledge_pack.py"
