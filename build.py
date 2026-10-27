@@ -704,6 +704,7 @@ THOUGHTS_CATS = ["系统方案", "解释框架", "思维工具", "辩证方法"]
 THOUGHT_STYLE = """
 .th-top{font-size:0.9em;color:#555;margin-bottom:18px;}
 .th-limit{font-size:0.88em;color:#6a5200;background:#fff8e6;border-left:4px solid #d99a00;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0 22px;}
+.th-dialogue{font-size:0.9em;color:#3d4a5c;background:#f4f7fa;border-left:4px solid #8aa3bf;padding:10px 16px;border-radius:0 8px 8px 0;margin:0 0 20px;}
 .th-lead{font-size:1.02em;color:#333;margin:14px 0 20px;}
 .th-name{display:inline-block;font-size:0.95em;background:#eef4fb;border:1px solid #b9d4f2;color:#1a4d8f;padding:5px 14px;border-radius:999px;margin:6px 0 18px;font-weight:500;}
 .th-sec h2{font-size:1.08em;color:#1a4d8f;border-left:4px solid #1a4d8f;padding-left:10px;margin:24px 0 10px;}
@@ -768,6 +769,7 @@ def render_thoughts_json(d):
             "operations": t.get("operations", ""),
             "judgment": t.get("judgment", ""),
             "limitNotice": t.get("limit", ""),
+            "dialogue": t.get("dialogue", ""),
             "sectionCount": len(t.get("sections") or []),
             "remainder": t.get("remainder", []),
             "anchors": t.get("anchors", []),
@@ -799,6 +801,7 @@ def render_thoughts_json(d):
             "judgment": "五段追问5：关键判断结构（可独立引用的单句）",
             "naming": "关键判断结构命名，格式「XX存续系统」",
             "limitNotice": "显影限度声明（每篇固定篇首短栏）",
+            "dialogue": "对话脚注：主流研究将该对象视为 Y，显影补充存续维度的操作框架",
             "remainder": "剩余物：这套语法没接住什么",
             "anchors": "厚度锚点：指向原典的路标（关键词／关键文本／核心争议／历史案例）",
         },
@@ -945,6 +948,8 @@ def render_thought_page(t, d, all_thoughts):
          + (t.get("date", "") or "") + " ｜ 许可：" + (t.get("license", "CC BY 4.0") or "") + "</p>",
          '<div class="th-name">关键判断结构命名：' + (t.get("naming", "") or "") + "</div>",
          '<div class="th-limit"><b>显影限度：</b>' + (t.get("limit", "") or "") + "</div>"]
+    if t.get("dialogue"):
+        L.append('<div class="th-dialogue"><b>对话脚注：</b>' + t["dialogue"] + "</div>")
     if t.get("lead"):
         L.append('<p class="th-lead">' + t["lead"] + "</p>")
     for sec in t.get("sections", []):
@@ -1482,7 +1487,7 @@ def render_llms(d):
         _tm = _td.get("meta", {}) or {}
         L.append("## 思想显影（实践学显影：五段框架显影「方案／体系／理论」）")
         L.append(_tm.get("intro", ""))
-        L.append(f'共 {len(_ts)} 篇。与决策显影库分工：决策显影用六要素显影「事件」，思想显影用五段显影「体系」。每篇含五段（边界／威胁／三种动能／三类规则操作／关键判断结构）＋ 三栏（显影限度声明、剩余物、厚度锚点）＋ 关键判断结构命名（格式「XX存续系统」）。')
+        L.append(f'共 {len(_ts)} 篇。与决策显影库分工：决策显影用六要素显影「事件」，思想显影用五段显影「体系」。每篇含五段（边界／威胁／三种动能／三类规则操作／关键判断结构）＋ 四栏（显影限度声明、对话脚注、剩余物、厚度锚点）＋ 关键判断结构命名（格式「XX存续系统」）。')
         L.append("")
         L.append(f'- 思想显影机器可读索引（JSON）：{base}thoughts-index.json')
         L.append(f'- 思想显影总览（人读，可搜索/按归目筛选）：{base}thoughts.html')

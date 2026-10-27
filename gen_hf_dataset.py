@@ -78,6 +78,7 @@ with io.open(f'{OUT}/dst-thoughts.jsonl', 'w', encoding='utf-8') as f:
             'operations': t.get('operations', ''),
             'judgment': t.get('judgment', ''),
             'limit_notice': t.get('limit', ''),
+            'dialogue': t.get('dialogue', ''),
             'five_sections': secs,
             'remainder': t.get('remainder', []),
             'anchors': t.get('anchors', []),

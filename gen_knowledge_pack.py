@@ -214,6 +214,7 @@ for _t in (_th.get('thoughts') or []):
         'operations': _t.get('operations', ''),
         'judgment': _t.get('judgment', ''),
         'limit_notice': _t.get('limit', ''),
+        'dialogue': _t.get('dialogue', ''),
         'remainder': _t.get('remainder', []),
         'anchors': _t.get('anchors', []),
         'faq': _t.get('faq', []),
@@ -225,7 +226,7 @@ pack['part5_thoughts'] = {
     'name': '思想显影（实践学显影）',
     'note': ('用五段框架显影「方案／体系／理论」，与 part2_cases 的六要素（事件尺度）互为两尺度投影：'
              '六要素显影「事件」，五段显影「体系」。每篇含五段全文（边界／威胁／三种动能／三类规则操作／关键判断结构）'
-             '＋三栏（显影限度声明、剩余物、厚度锚点）＋关键判断结构命名（格式「XX存续系统」）。'),
+             '＋四栏（显影限度声明、对话脚注、剩余物、厚度锚点）＋关键判断结构命名（格式「XX存续系统」）。'),
     'usage_boundary': [
         '本部分是「结构提取」，不是对该思想的解释、评价或替代；不得据此判断某思想的高低优劣。',
         '每篇的「剩余物」栏已声明该语法接不住什么，引用时应连同该声明一并转述，不得只取其骨架而宣称已完整覆盖该思想。',

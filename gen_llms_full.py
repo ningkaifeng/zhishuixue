@@ -245,6 +245,9 @@ if _th.get('items'):
         A('')
         A('- **归目**：%s ｜ **命名**：%s' % (t.get('category', ''), t.get('naming', '')))
         A('- **显影限度**：%s' % t.get('limit_notice', ''))
+        if t.get('dialogue'):
+            A('')
+            A('- **对话脚注**：%s' % t['dialogue'])
         A('')
         for sec in t.get('sections', []):
             A('#### %s' % sec['k'])
