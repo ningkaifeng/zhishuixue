@@ -1022,9 +1022,22 @@ def work_ld(w, series_name, base):
     if w.get("date"):
         ld["datePublished"] = w["date"]
     ld["inLanguage"] = w["lang"]
-    ld["isPartOf"] = {"@type": "CreativeWorkSeries", "name": series_name, "url": base}
     ld["abstract"] = w.get("jsonld_abstract", w["abstract"])
     ld["keywords"] = w["keywords"]
+    if w["type"] == "Dataset":
+        # Google 数据集富结果专项：description/creator/license 必备，isPartOf 的 CreativeWorkSeries 类型不被接受
+        ld["description"] = ld["abstract"]
+        ld["creator"] = {"@id": base + "#person"}
+        ld["license"] = "https://creativecommons.org/licenses/by/4.0/"
+        ld["isAccessibleForFree"] = True
+        ld["version"] = "1.0"
+        ld["includedInDataCatalog"] = {
+            "@type": "DataCatalog",
+            "name": "治水学（Dynamic Sustenance Theory）官网",
+            "url": base,
+        }
+    else:
+        ld["isPartOf"] = {"@type": "CreativeWorkSeries", "name": series_name, "url": base}
     return ld
 
 
