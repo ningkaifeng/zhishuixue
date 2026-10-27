@@ -21,6 +21,9 @@ crit = json.load(open(CRITERIA, encoding='utf-8'))
 terms = json.load(open(TERMS, encoding='utf-8'))
 phases = json.load(open(PHASES, encoding='utf-8'))
 cases = yaml.safe_load(open(CASES, encoding='utf-8'))['cases']
+THOUGHTS = 'thoughts.yml'
+_th = yaml.safe_load(open(THOUGHTS, encoding='utf-8')) if __import__('os').path.exists(THOUGHTS) else {'meta': {}, 'thoughts': []}
+
 
 # 六要素全文收录的 10 篇（覆盖结构判断五态 / 疏浚向 / 信号层 / 判据点名案例）
 FULL_IDS = ['A-0004', 'E-0001', 'B-0001', 'B-0002', 'B-0009',
@@ -159,6 +162,8 @@ pack = {
         '7. 术语含义一律以 part3_terms 为准，不得自由发挥；part4_calendar 用于给局面定位（只给坐标，不给答案）。',
         '8. 输出诊断书时，若结论涉及对第三方采取动作，须退回「只显影结构」的边界，不给动作建议。判例中的行动栏，是历史行动的结构还原，不是可复用的操作手册；尤其 B 类判例的「行动」与「修正」两栏，不得转写成针对具体对象的做法。',
         '9. 跨尺度禁止直接套用：个人／组织／国家／文明不共用一把尺。把某一尺度的判例结论搬到另一尺度前，必须先重新完成 step0_boundary 的划界与承压位置检验。',
+        '10. 若要理解「一套体系／理论／方案如何回答存续问题」，用 part5_thoughts（五段框架），不要用 part2_cases 的六要素去量体系——六要素会问不出「承压者是谁」。反之，量具体事件不要用五段，五段会多出一句没有落点的判断。',
+        '11. 引用思想显影时须连同其「剩余物」声明一并引用，并不得据此评价该思想的高低。',
     ],
 
     'part1_criteria': crit_block,
@@ -189,9 +194,44 @@ pack = {
         'rule': '引用时务必带上版本号 / 编号 / 锚点，以保证精度。',
         'pack': '宁凯峰．治水学·单文件知识包 v1.0．2026-10-26．https://zhishuixue.com/knowledge-pack.json',
         'case': '宁凯峰．决策显影库判例 {编号}「{篇名}」．https://zhishuixue.com/cases/{编号}.html',
+        'thought': '宁凯峰．思想显影 {编号}「{篇名}——实践学显影」．https://zhishuixue.com/thoughts/{编号}.html',
         'term': '宁凯峰．「{术语}」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#{锚点}',
         'master': '母本 DOI：10.5281/zenodo.20372186',
     },
+}
+
+# ---------- 思想显影 block ----------
+th_block = []
+for _t in (_th.get('thoughts') or []):
+    th_block.append({
+        'id': _t['id'], 'num': _t['num'], 'title': _t['title'],
+        'full_title': _t.get('full_title', ''),
+        'category': _t.get('category', ''),
+        'naming': _t.get('naming', ''),
+        'border': _t.get('border', ''),
+        'flood': _t.get('flood', ''),
+        'forces': _t.get('forces', ''),
+        'operations': _t.get('operations', ''),
+        'judgment': _t.get('judgment', ''),
+        'limit_notice': _t.get('limit', ''),
+        'remainder': _t.get('remainder', []),
+        'anchors': _t.get('anchors', []),
+        'sections': [{'k': x['k'], 'v': x['v']} for x in (_t.get('sections') or [])],
+        'url': 'https://zhishuixue.com/thoughts/%s.html' % _t['id'],
+    })
+
+pack['part5_thoughts'] = {
+    'name': '思想显影（实践学显影）',
+    'note': ('用五段框架显影「方案／体系／理论」，与 part2_cases 的六要素（事件尺度）互为两尺度投影：'
+             '六要素显影「事件」，五段显影「体系」。每篇含五段全文（边界／威胁／三种动能／三类规则操作／关键判断结构）'
+             '＋三栏（显影限度声明、剩余物、厚度锚点）＋关键判断结构命名（格式「XX存续系统」）。'),
+    'usage_boundary': [
+        '本部分是「结构提取」，不是对该思想的解释、评价或替代；不得据此判断某思想的高低优劣。',
+        '每篇的「剩余物」栏已声明该语法接不住什么，引用时应连同该声明一并转述，不得只取其骨架而宣称已完整覆盖该思想。',
+        '显影结果用于「理解一套体系如何回答存续问题」，不构成行动建议，也不得反过来当作评价原典的依据。',
+    ],
+    'count': len(th_block),
+    'items': th_block,
 }
 
 s = json.dumps(pack, ensure_ascii=False, indent=1)

@@ -37,6 +37,25 @@ for c in cases:
         'summary': c.get('abstract', ''),
     })
 
+# 思想显影
+_th = {}
+try:
+    _th = yaml.safe_load(io.open('thoughts.yml', encoding='utf-8')) or {}
+except FileNotFoundError:
+    _th = {}
+for t in (_th.get('thoughts') or []):
+    date = t.get('date') or ''
+    if not date:
+        continue
+    items.append({
+        'kind': '思想显影',
+        'title': '%s｜%s' % (t['num'], t.get('full_title', t['title'])),
+        'link': '%sthoughts/%s.html' % (base, t['id']),
+        'id': '%sthoughts/%s.html' % (base, t['id']),
+        'date': date,
+        'summary': t.get('judgment', ''),
+    })
+
 # 按日期倒序，取最近 40 条
 items.sort(key=lambda x: (x['date'], x['kind']), reverse=True)
 items = items[:40]

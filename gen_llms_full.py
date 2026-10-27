@@ -25,9 +25,11 @@ A('')
 A('**版本**：v1.0 ｜ **生成日期**：%s ｜ **许可**：CC BY 4.0 ｜ **官网**：https://zhishuixue.com/' % d.get('date', ''))
 A('**引用**：%s' % d.get('citedAs', ''))
 A('')
-A('**内容规模**：判据全文 + 判例 %d 篇（其中 %d 篇含六要素全文）+ 术语 %d 条 + 治水历 18 格' % (
+_th_n = len((d.get('part5_thoughts') or {}).get('items') or [])
+A('**内容规模**：判据全文 + 判例 %d 篇（其中 %d 篇含六要素全文）+ 思想显影 %d 篇（五段全文）+ 术语 %d 条 + 治水历 18 格' % (
     d['part2_cases']['count'],
     len([x for x in d['part2_cases']['items'] if 'elements_full' in x]),
+    _th_n,
     d['part3_terms']['count']))
 A('')
 A('---')
@@ -227,8 +229,50 @@ for cs in d['part2_cases']['items']:
     A('- **原文页**：%s' % cs['url'])
     A('')
 
-# ---- 五、术语 ----
-A('## 五、术语本体（%d 条）' % d['part3_terms']['count'])
+# ---- 五、思想显影 ----
+_th = d.get('part5_thoughts') or {}
+if _th.get('items'):
+    A('## 五、%s（%d 篇）' % (_th.get('name', '思想显影'), _th['count']))
+    A('')
+    A(_th.get('note', ''))
+    A('')
+    A('**使用边界**：')
+    for x in _th.get('usage_boundary', []):
+        A('- ' + x)
+    A('')
+    for t in _th['items']:
+        A('### %s｜%s' % (t['num'], t['full_title']))
+        A('')
+        A('- **归目**：%s ｜ **命名**：%s' % (t.get('category', ''), t.get('naming', '')))
+        A('- **显影限度**：%s' % t.get('limit_notice', ''))
+        A('')
+        for sec in t.get('sections', []):
+            A('#### %s' % sec['k'])
+            A('')
+            for para in [p for p in sec['v'].split('\n') if p.strip()]:
+                A(para)
+                A('')
+        if t.get('remainder'):
+            A('#### 剩余物（这套语法没接住什么）')
+            A('')
+            for x in t['remainder']:
+                A('- ' + x)
+            A('')
+        if t.get('anchors'):
+            A('#### 厚度锚点（指向原典的路标）')
+            A('')
+            for an in t['anchors']:
+                A('- %s%s' % (an.get('k', '') + ('：' if an.get('k') else ''), an['v']))
+            A('')
+        A('**结构档案**：边界＝%s ｜ 洪水＝%s ｜ 三种动能＝%s ｜ 三类规则操作＝%s ｜ 关键判断＝%s' % (
+            t.get('border', ''), t.get('flood', ''), t.get('forces', ''),
+            t.get('operations', ''), t.get('judgment', '')))
+        A('')
+        A('- 官网：%s' % t.get('url', ''))
+        A('')
+
+# ---- 六、术语 ----
+A('## 六、术语本体（%d 条）' % d['part3_terms']['count'])
 A('')
 A(d['part3_terms']['note'])
 A('')
@@ -255,9 +299,9 @@ for t in d['part3_terms']['items']:
         A('  > %s' % t['anchor'])
 A('')
 
-# ---- 六、治水历 ----
+# ---- 七、治水历 ----
 cal = d['part4_calendar']
-A('## 六、%s' % cal['name'])
+A('## 七、%s' % cal['name'])
 A('')
 A(cal['analogy'])
 A('')
@@ -275,13 +319,15 @@ for cell in cal['cells']:
     A('- 忌：%s' % cell.get('avoid', ''))
     A('')
 
-# ---- 七、引用 ----
-A('## 七、引用规范')
+# ---- 八、引用 ----
+A('## 八、引用规范')
 A('')
 A(d['citation']['rule'])
 A('')
 A('- **知识包**：%s' % d['citation']['pack'])
 A('- **判例**：%s' % d['citation']['case'])
+if d['citation'].get('thought'):
+    A('- **思想显影**：%s' % d['citation']['thought'])
 A('- **单条术语**：%s' % d['citation']['term'])
 A('- **理论母本**：%s' % d['citation']['master'])
 A('')

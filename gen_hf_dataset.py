@@ -13,6 +13,13 @@ terms = json.load(open(TERMS, encoding='utf-8'))
 crit  = json.load(open(CRIT, encoding='utf-8'))
 cases = yaml.safe_load(open(CASES, encoding='utf-8'))['cases']
 
+# ---- 思想显影 ----
+try:
+    _thd = yaml.safe_load(io.open('thoughts.yml', encoding='utf-8')) or {}
+except FileNotFoundError:
+    _thd = {'meta': {}, 'thoughts': []}
+thoughts = _thd.get('thoughts', [])
+
 # ---------------- 1. dst-terms.jsonl ----------------
 METAPHOR = {
     '技术浪': 'Breakthrough Force',
@@ -52,6 +59,30 @@ with io.open(f'{OUT}/dst-cases.jsonl', 'w', encoding='utf-8') as f:
             'source_note': c.get('source_note', '').strip(),
             'recorder_note': c.get('recorder_note', '').strip(),
             'url': 'https://zhishuixue.com/cases/%s.html' % c['id'],
+        }
+        f.write(json.dumps(rec, ensure_ascii=False) + '\n')
+
+# ---------------- 2b. dst-thoughts.jsonl ----------------
+with io.open(f'{OUT}/dst-thoughts.jsonl', 'w', encoding='utf-8') as f:
+    for t in thoughts:
+        secs = {x['k']: x['v'].strip() for x in t.get('sections', [])}
+        rec = {
+            'id': t['id'], 'title': t['title'],
+            'full_title': t.get('full_title', ''),
+            'category': t.get('category', ''),
+            'naming': t.get('naming', ''),
+            'date': t.get('date', ''),
+            'border': t.get('border', ''),
+            'flood': t.get('flood', ''),
+            'forces': t.get('forces', ''),
+            'operations': t.get('operations', ''),
+            'judgment': t.get('judgment', ''),
+            'limit_notice': t.get('limit', ''),
+            'five_sections': secs,
+            'remainder': t.get('remainder', []),
+            'anchors': t.get('anchors', []),
+            'note': t.get('note', ''),
+            'url': 'https://zhishuixue.com/thoughts/%s.html' % t['id'],
         }
         f.write(json.dumps(rec, ensure_ascii=False) + '\n')
 
@@ -171,6 +202,8 @@ R.append('- config_name: terms')
 R.append('  data_files: dst-terms.jsonl')
 R.append('- config_name: cases')
 R.append('  data_files: dst-cases.jsonl')
+R.append('- config_name: thoughts')
+R.append('  data_files: dst-thoughts.jsonl')
 R.append('pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）')
 R.append('---')
 R.append('')
@@ -204,6 +237,7 @@ R.append('| 文件 | 内容 | 条数 |')
 R.append('| --- | --- | --- |')
 R.append('| `dst-terms.jsonl` | 核心术语本体：中英名 / 层级 / 级别 / 上位 / 归属 / 定义 / DOI | %d |' % len(terms['terms']))
 R.append('| `dst-cases.jsonl` | 决策判例：接口 / 杠杆 / 六要素全文 / 效果 / 适用条件 / 不适用条件 | %d |' % len(cases))
+R.append('| `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | %d |' % len(thoughts))
 R.append('| `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 | 1 份 |')
 R.append('')
 R.append('## 数据结构')

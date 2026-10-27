@@ -698,6 +698,283 @@ def render_case_page(c, d):
     return "\n".join(L) + "\n"
 
 
+# ---------------------------- 思想显影库（thoughts） ----------------------------
+THOUGHTS_FILE = "thoughts.yml"
+THOUGHTS_CATS = ["系统方案", "解释框架", "思维工具", "辩证方法"]
+THOUGHT_STYLE = """
+.th-top{font-size:0.9em;color:#555;margin-bottom:18px;}
+.th-limit{font-size:0.88em;color:#6a5200;background:#fff8e6;border-left:4px solid #d99a00;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0 22px;}
+.th-lead{font-size:1.02em;color:#333;margin:14px 0 20px;}
+.th-name{display:inline-block;font-size:0.95em;background:#eef4fb;border:1px solid #b9d4f2;color:#1a4d8f;padding:5px 14px;border-radius:999px;margin:6px 0 18px;font-weight:500;}
+.th-sec h2{font-size:1.08em;color:#1a4d8f;border-left:4px solid #1a4d8f;padding-left:10px;margin:24px 0 10px;}
+.th-sec p{margin:8px 0;}
+.th-box{font-size:0.92em;color:#444;background:#f6f6f6;padding:12px 16px;border-radius:8px;margin:8px 0 20px;}
+.th-fields{width:100%;border-collapse:collapse;font-size:0.9em;margin:8px 0 20px;}
+.th-fields th,.th-fields td{border:1px solid #e0e0e0;padding:8px 10px;text-align:left;vertical-align:top;}
+.th-fields th{background:#f2f6fa;color:#1a4d8f;white-space:nowrap;}
+.th-card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px 16px;margin-bottom:10px;}
+.th-card .t{font-size:1.04em;color:#1a4d8f;font-weight:500;}
+.th-card .m{font-size:0.82em;color:#888;margin:4px 0;}
+.th-card .n{font-size:0.9em;color:#0b6b3a;margin:6px 0;}
+.th-card .a{font-size:0.9em;color:#333;margin:6px 0;}
+"""
+
+
+def load_thoughts():
+    path = os.path.join(ROOT, THOUGHTS_FILE)
+    if not os.path.exists(path):
+        return {"meta": {}, "thoughts": []}
+    with open(path, encoding="utf-8") as f:
+        return yaml.safe_load(f) or {"meta": {}, "thoughts": []}
+
+
+def thought_url(base, t):
+    return base + "thoughts/" + t["id"] + ".html"
+
+
+def _thought_health(items):
+    bad_name = [t["id"] for t in items if not (t.get("naming") or "").endswith("存续系统")]
+    bad_cat = [t["id"] for t in items if t.get("category") not in THOUGHTS_CATS]
+    miss = [t["id"] for t in items
+            if not all([t.get("border"), t.get("flood"), t.get("forces"),
+                        t.get("operations"), t.get("judgment")])]
+    miss_sec = [t["id"] for t in items if len(t.get("sections") or []) != 5]
+    return {
+        "namingNotConforming": bad_name,
+        "categoriesNotInEnum": bad_cat,
+        "missingIndexFields": miss,
+        "sectionsNotFive": miss_sec,
+        "notes": ("判断结构和命名的日更体检：namingNotConforming 检查命名是否以「存续系统」结尾；"
+                  "categoriesNotInEnum 检查归目是否在四类内；missingIndexFields 检查索引五列是否有空；"
+                  "sectionsNotFive 检查五段是否齐。四项全空即健康。"),
+    }
+
+
+def render_thoughts_json(d):
+    base = d["site"]["base_url"]
+    td = load_thoughts()
+    meta = td.get("meta", {}) or {}
+    items = []
+    for t in td.get("thoughts", []):
+        items.append({
+            "id": t["id"], "num": t["num"], "title": t["title"],
+            "fullTitle": t.get("full_title", ""),
+            "category": t.get("category", ""),
+            "naming": t.get("naming", ""),
+            "date": t.get("date", ""),
+            "border": t.get("border", ""),
+            "flood": t.get("flood", ""),
+            "forces": t.get("forces", ""),
+            "operations": t.get("operations", ""),
+            "judgment": t.get("judgment", ""),
+            "limitNotice": t.get("limit", ""),
+            "sectionCount": len(t.get("sections") or []),
+            "remainder": t.get("remainder", []),
+            "anchors": t.get("anchors", []),
+            "note": t.get("note", ""),
+            "url": thought_url(base, t),
+        })
+    dates = [x["date"] for x in items if x.get("date")]
+    header = {
+        "schema": "dst-thoughts/1.0",
+        "title": meta.get("title", "治水学·思想显影（实践学显影）"),
+        "titleEn": meta.get("title_en", "DST Thought Shadowing Library"),
+        "versionLabel": meta.get("version_label", "v1.0"),
+        "date": max(dates) if dates else "",
+        "license": meta.get("license", "CC BY 4.0"),
+        "source": base + "thoughts.html",
+        "intro": meta.get("intro", ""),
+        "maintainer": {"name": d["person"]["name"],
+                       "orcid": "https://orcid.org/" + d["person"]["orcid"]},
+        "citeKey": "dst-thoughts-" + meta.get("version_label", "v1.0"),
+        "citedAs": (f'{d["person"]["name"]}．{meta.get("title", "治水学·思想显影")}'
+                    f'{meta.get("version_label", "v1.0")}．{max(dates) if dates else ""}．{base}thoughts-index.json'),
+        "fieldNotes": {
+            "border": "五段追问1：边界画在哪（存续单位）",
+            "flood": "五段追问2：把什么当最大威胁",
+            "forces": "五段追问3：三种动能的承载物与配置",
+            "operations": "五段追问4：三类规则操作（源头改造／底线守护／共识凝聚）",
+            "judgment": "五段追问5：关键判断结构（可独立引用的单句）",
+            "naming": "关键判断结构命名，格式「XX存续系统」",
+            "limitNotice": "显影限度声明（每篇固定篇首短栏）",
+            "remainder": "剩余物：这套语法没接住什么",
+            "anchors": "厚度锚点：指向原典的路标（关键词／关键文本／核心争议／历史案例）",
+        },
+        "count": len(items),
+        "health": _thought_health(td.get("thoughts", [])),
+        "thoughts": items,
+    }
+    return json.dumps(header, ensure_ascii=False, indent=1) + "\n"
+
+
+def render_thoughts_index(d):
+    base = d["site"]["base_url"]
+    td = load_thoughts()
+    meta = td.get("meta", {}) or {}
+    items = td.get("thoughts", [])
+    url = base + "thoughts.html"
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": url,
+        "name": "思想显影（实践学显影）",
+        "description": meta.get("intro", ""),
+        "url": url,
+        "inLanguage": "zh-CN",
+        "author": {"@id": base + "#person"},
+        "isPartOf": {"@type": "CreativeWorkSeries", "name": "治水学·思想显影", "url": url},
+        "hasPart": [{"@type": "ScholarlyArticle", "name": t.get("full_title", t["title"]),
+                     "url": thought_url(base, t)} for t in items],
+    }
+    L = ["<!DOCTYPE html", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
+         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+         "<title>思想显影（实践学显影·总览） | 治水学 DST</title>",
+         f'<meta name="description" content="{meta.get("intro", "")}">',
+         f'<link rel="canonical" href="{url}">',
+         f'<link rel="describedby" type="text/plain" href="{base}llms.txt">',
+         '<script type="application/ld+json">', j(ld), "</script>",
+         "<style>",
+         'body{max-width:860px;margin:0 auto;padding:28px 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.7;color:#222;background:#fafafa;}',
+         "a{color:#0066cc;text-decoration:none;}",
+         "h1{font-size:1.5em;border-bottom:2px solid #1a4d8f;padding-bottom:8px;}",
+         ".top{font-size:0.9em;color:#555;}.intro{color:#555;font-size:0.95em;}",
+         ".ctl{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}",
+         ".ctl input[type=search]{flex:1 1 220px;padding:8px 10px;border:1px solid #ccc;border-radius:8px;font-size:0.95em;}",
+         ".ctl select{padding:8px 6px;border:1px solid #ccc;border-radius:8px;font-size:0.9em;background:#fff;}",
+         ".foot{font-size:0.82em;color:#888;text-align:center;margin-top:26px;}",
+         THOUGHT_STYLE,
+         "</style>", "</head>", "<body>",
+         f'<p class="top"><a href="{base}">← 治水学主页</a> ｜ <a href="{base}cases.html">决策显影库</a> ｜ <a href="{base}glossary.html">核心术语表</a> ｜ <a href="{base}graph.html">概念图谱</a> ｜ <a href="{base}about.html">关于</a></p>',
+         "<h1>思想显影（实践学显影·总览）</h1>",
+         f'<p class="intro">{meta.get("intro", "")}</p>',
+         '<p class="intro" style="font-size:0.88em;color:#888;">与决策显影库的分工：决策显影用六要素显影「事件」，思想显影用五段显影「体系」。共 '
+         '<b id="cnt">' + str(len(items)) + "</b> 篇。</p>",
+         '<div class="ctl"><input type="search" id="q" placeholder="搜索：篇名 / 归目 / 命名 / 边界 / 判断…">',
+         '<select id="fc"><option value="">全部归目</option></select></div>',
+         '<div id="list"></div>',
+         '<p class="foot">只显影结构，不评价思想高低 ｜ 正文用公共语言（三种动能／三类规则操作），不用治水学内部黑话</p>',
+         f'<p class="foot"><a href="{base}thoughts-index.json">机器可读索引 thoughts-index.json</a></p>',
+         "<script>",
+         "var DATA = " + json.dumps([
+             {"num": t["num"], "title": t["title"], "full": t.get("full_title", ""),
+              "cat": t.get("category", ""), "name": t.get("naming", ""),
+              "border": t.get("border", ""), "judge": t.get("judgment", ""),
+              "u": thought_url(base, t)} for t in items], ensure_ascii=False) + ";",
+         r"""
+function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function fill(){
+  var sel=document.getElementById('fc'), set={};
+  DATA.forEach(function(t){ if(t.cat) set[t.cat]=1; });
+  Object.keys(set).sort().forEach(function(v){
+    var o=document.createElement('option'); o.value=v; o.textContent=v;
+    sel.appendChild(o);
+  });
+}
+function render(){
+  var q=document.getElementById('q').value.trim().toLowerCase();
+  var fc=document.getElementById('fc').value;
+  var out=DATA.filter(function(t){
+    if(fc && t.cat!==fc) return false;
+    if(q){
+      var hay=[t.num,t.title,t.full,t.cat,t.name,t.border,t.judge].join(' ').toLowerCase();
+      if(hay.indexOf(q)<0) return false;
+    }
+    return true;
+  });
+  document.getElementById('cnt').textContent=out.length;
+  document.getElementById('list').innerHTML=out.map(function(t){
+    return '<div class="th-card">'
+      + '<div class="t"><a href="'+t.u+'">'+esc(t.num)+'｜'+esc(t.full)+'</a></div>'
+      + '<div class="m">'+esc(t.cat)+'</div>'
+      + '<div class="n">命名：'+esc(t.name)+'</div>'
+      + '<div class="a"><b>边界：</b>'+esc(t.border)+'</div>'
+      + '<div class="a"><b>关键判断：</b>'+esc(t.judge)+'</div>'
+      + '<div class="m"><a href="'+t.u+'">阅读全文 →</a></div>'
+      + '</div>';
+  }).join('') || '<p class="intro">没有匹配的篇目。</p>';
+}
+document.getElementById('q').addEventListener('input',render);
+document.getElementById('fc').addEventListener('change',render);
+fill();render();
+""",
+         "</script>", "</body>", "</html>"]
+    return "\n".join(L) + "\n"
+
+
+def render_thought_page(t, d, all_thoughts):
+    base = d["site"]["base_url"]
+    url = thought_url(base, t)
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "@id": url,
+        "name": t.get("full_title", t["title"]),
+        "headline": t.get("full_title", t["title"]),
+        "author": {"@id": base + "#person"},
+        "identifier": t["id"],
+        "url": url,
+        "description": t.get("judgment", ""),
+        "abstract": t.get("judgment", ""),
+        "datePublished": t.get("date", ""),
+        "inLanguage": "zh-CN",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "keywords": [t["title"], t.get("naming", ""), t.get("category", ""),
+                     "思想显影", "实践学显影", "五段框架", "治水学"],
+        "isPartOf": {"@type": "CreativeWorkSeries", "name": "治水学·思想显影", "url": base + "thoughts.html"},
+    }
+    L = ["<!DOCTYPE html", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
+         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+         '<title>' + t.get("full_title", t["title"]) + " | 治水学 DST · 思想显影</title>",
+         '<meta name="description" content="' + (t.get("judgment", "") or "") + '">',
+         '<link rel="canonical" href="' + url + '">',
+         '<link rel="describedby" type="text/plain" href="' + base + 'llms.txt">',
+         '<script type="application/ld+json">', j(ld), "</script>",
+         "<style>", GLOSSARY_STYLE, CASE_STYLE, THOUGHT_STYLE, "</style>", "</head>", "<body>",
+         '<p class="th-top"><a href="' + base + '">← 治水学主页</a> ｜ <a href="' + base + 'thoughts.html">思想显影总览</a> ｜ <a href="' + base + 'cases.html">决策显影库</a> ｜ <a href="' + base + 'glossary.html">核心术语表</a> ｜ <a href="' + base + 'about.html">关于</a></p>',
+         "<h1>" + t["num"] + "｜" + t.get("full_title", t["title"]) + "</h1>",
+         '<p class="case-meta">归目：' + (t.get("category", "") or "") + " ｜ 记录日期："
+         + (t.get("date", "") or "") + " ｜ 许可：" + (t.get("license", "CC BY 4.0") or "") + "</p>",
+         '<div class="th-name">关键判断结构命名：' + (t.get("naming", "") or "") + "</div>",
+         '<div class="th-limit"><b>显影限度：</b>' + (t.get("limit", "") or "") + "</div>"]
+    if t.get("lead"):
+        L.append('<p class="th-lead">' + t["lead"] + "</p>")
+    for sec in t.get("sections", []):
+        L.append('<div class="th-sec"><h2>' + sec["k"] + "</h2>")
+        for para in [x for x in sec["v"].split("\n") if x.strip()]:
+            L.append("<p>" + para + "</p>")
+        L.append("</div>")
+    if t.get("remainder"):
+        L.append("<h2>剩余物（这套语法没接住什么）</h2>")
+        L.append('<div class="th-box">' + "<br>".join("· " + x for x in t["remainder"]) + "</div>")
+    if t.get("anchors"):
+        L.append("<h2>厚度锚点（指向原典的路标）</h2>")
+        L.append('<div class="th-box">' + "<br>".join("· " + (a.get("k", "") + ("：" if a.get("k") else "") + a["v"]) for a in t["anchors"]) + "</div>")
+    L.append("<h2>结构档案（索引字段）</h2>")
+    rows = [("编号", t["num"]), ("篇名", t.get("full_title", "")), ("归目", t.get("category", "")),
+            ("边界（追问1）", t.get("border", "")), ("洪水（追问2）", t.get("flood", "")),
+            ("三种动能（追问3）", t.get("forces", "")), ("三类规则操作（追问4）", t.get("operations", "")),
+            ("关键判断结构（追问5）", t.get("judgment", "")), ("命名", t.get("naming", "")),
+            ("备注", t.get("note", ""))]
+    L.append('<table class="th-fields"><tbody>')
+    for k, v in rows:
+        if v:
+            L.append("<tr><th>" + k + "</th><td>" + v + "</td></tr>")
+    L.append("</tbody></table>")
+    rel = [x for x in all_thoughts if x["id"] != t["id"] and x.get("category") == t.get("category")][:3]
+    if len(rel) < 3:
+        rel += [x for x in all_thoughts if x["id"] != t["id"] and x not in rel][:3 - len(rel)]
+    if rel:
+        L.append("<h2>同类显影</h2>")
+        L.append('<div class="th-box">' + "<br>".join(
+            "· <a href=\"" + thought_url(base, x) + "\">" + x["num"] + "｜" + x.get("full_title", x["title"])
+            + "</a> — " + x.get("naming", "") for x in rel) + "</div>")
+        L.append('<p class="case-meta">更多见 <a href="' + base + 'thoughts.html">思想显影总览</a></p>')
+    L.append('<p class="case-meta">本篇收录于「治水学·思想显影（实践学显影）」 ｜ 官网存档：' + url + "</p>")
+    L.append("</body>")
+    L.append("</html>")
+    return "\n".join(L) + "\n"
+
+
 # ---------------------------- index.html ----------------------------
 def work_ld(w, series_name, base):
     ld = {
@@ -843,6 +1120,19 @@ def render_index(d):
             L.append(case_card(_c))
         L.append("</div>")
         L.append(f'<p style="margin-top:12px;"><a href="cases.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_cases)} 篇案例（可搜索、按归目/场景/接口筛选）→</a></p>')
+    _td = load_thoughts()
+    _ts = _td.get("thoughts", [])
+    if _ts:
+        _tm = _td.get("meta", {}) or {}
+        L.append(f'<h2 style="{S["h2"]}">思想显影（实践学显影）</h2>')
+        L.append(f'<p style="margin-top:0; color:#555;">用五段框架显影古今中外重要思想：边界画在哪、把什么当最大威胁、靠什么推动、用什么操作、压成一句什么判断。现有 <b>{len(_ts)}</b> 篇，每篇附关键判断结构命名。只显影结构，不评价思想高低。</p>')
+        L.append(f'<div style="{S["ul"]}">')
+        for _t in _ts:
+            L.append(f'<div class="th-card"><div class="t"><a href="{thought_url(base, _t)}" style="color:#1a4d8f;">{_t["num"]}｜{_t.get("full_title", _t["title"])}</a></div>'
+                     f'<div class="m">{_t.get("category","")} ｜ 命名：{_t.get("naming","")}</div>'
+                     f'<div class="a"><b>边界：</b>{_t.get("border","")}</div></div>')
+        L.append("</div>")
+        L.append(f'<p style="margin-top:12px;"><a href="thoughts.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_ts)} 篇思想显影（可搜索、按归目筛选）→</a></p>')
     L.append(f'<hr style="{S["foot_hr"]}">')
     if site.get("contact_note"):
         L.append(f'<p style="{S["foot"]}">{site["contact_note"]}</p>')
@@ -1141,6 +1431,22 @@ def render_llms(d):
                 for _c in _bycat[_cat]:
                     L.append(f'- {_c["num"]}｜{_c["title"]}（{_c["scene"]}）｜接口：{_c["interface"]}｜杠杆：{_c["lever"]}')
                     L.append(f'  {case_url(base, _c)}')
+        L.append("")
+    _td = load_thoughts()
+    _ts = _td.get("thoughts", [])
+    if _ts:
+        _tm = _td.get("meta", {}) or {}
+        L.append("## 思想显影（实践学显影：五段框架显影「方案／体系／理论」）")
+        L.append(_tm.get("intro", ""))
+        L.append(f'共 {len(_ts)} 篇。与决策显影库分工：决策显影用六要素显影「事件」，思想显影用五段显影「体系」。每篇含五段（边界／威胁／三种动能／三类规则操作／关键判断结构）＋ 三栏（显影限度声明、剩余物、厚度锚点）＋ 关键判断结构命名（格式「XX存续系统」）。')
+        L.append("")
+        L.append(f'- 思想显影机器可读索引（JSON）：{base}thoughts-index.json')
+        L.append(f'- 思想显影总览（人读，可搜索/按归目筛选）：{base}thoughts.html')
+        L.append(f'- 逐篇页面：{base}thoughts/<编号>.html（例：{base}thoughts/X-0001.html）')
+        L.append("")
+        for _t in _ts:
+            L.append(f'- {_t["num"]}｜{_t.get("full_title", _t["title"])}（{_t.get("category","")}）｜命名：{_t.get("naming","")}')
+            L.append(f'  {thought_url(base, _t)}')
         L.append("")
     L.append("## 结构显影判据（Criteria：怎么判断一份显影做得对不对）")
     L.append("判例告诉模型「长什么样」，判据告诉模型「按什么标准判」。**判据须与判例同时使用。**")
@@ -1532,6 +1838,12 @@ def render_sitemap(d):
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
+    _ts = load_thoughts().get("thoughts", [])
+    if _ts:
+        pages.append((base + "thoughts.html", "0.7", "weekly"))
+        pages.append((base + "thoughts-index.json", "0.6", "weekly"))
+        for _t in _ts:
+            pages.append((thought_url(base, _t), "0.6", "monthly"))
     L = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc, prio, freq in pages:
@@ -1644,6 +1956,8 @@ def main():
         "phases.json": render_phases_json(d),
         "about.html": render_about(d),
         "growth.json": render_growth(d),
+        "thoughts.html": render_thoughts_index(d),
+        "thoughts-index.json": render_thoughts_json(d),
     }
     for name, content in outputs.items():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
@@ -1657,6 +1971,14 @@ def main():
             with open(os.path.join(DIST, "cases", _c["id"] + ".html"), "w", encoding="utf-8") as f:
                 f.write(content)
             print(f'  OK cases/{_c["id"]}.html  ({len(content)} bytes)')
+    _ts = load_thoughts().get("thoughts", [])
+    if _ts:
+        os.makedirs(os.path.join(DIST, "thoughts"), exist_ok=True)
+        for _t in _ts:
+            content = render_thought_page(_t, d, _ts)
+            with open(os.path.join(DIST, "thoughts", _t["id"] + ".html"), "w", encoding="utf-8") as f:
+                f.write(content)
+            print(f'  OK thoughts/{_t["id"]}.html  ({len(content)} bytes)')
     _ky = d["site"].get("indexnow_key")
     if _ky:
         with open(os.path.join(DIST, _ky + ".txt"), "w", encoding="utf-8") as f:
