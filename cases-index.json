@@ -3,7 +3,7 @@
  "title": "治水学·决策显影库",
  "titleEn": "DST Decision Shadowing Case Library",
  "versionLabel": "v1.0",
- "date": "2026-10-27",
+ "date": "2026-10-28",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/cases.html",
  "maintainer": {
@@ -13,8 +13,8 @@
  "citeKey": "dst-cases-v1.0",
  "doi": "10.5281/zenodo.23664767",
  "doiVersion": "10.5281/zenodo.23664768",
- "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-27．Zenodo．https://doi.org/10.5281/zenodo.23664767．https://zhishuixue.com/cases-index.json",
- "count": 39,
+ "citedAs": "宁凯峰．治水学·决策显影库v1.0．2026-10-28．Zenodo．https://doi.org/10.5281/zenodo.23664767．https://zhishuixue.com/cases-index.json",
+ "count": 40,
  "fieldNotes": {
   "effect": "该结构要达成／已达成的效果（取自判例「预期·可核验目标」；个别案例取「修正·实际」）",
   "reusable_condition": "可复用条件（取自判例记录人备注「适用边界·适用于」）",
@@ -36,6 +36,7 @@
    "偷换承重",
    "关门困敌",
    "动力调控",
+   "反间离隙",
    "响应失效",
    "响应微隙",
    "响应钝化",
@@ -842,6 +843,28 @@
    "non_applicable": "“对手不多疑、或肯派小股试探、或有准确情报已知城空”的情形",
    "source": "《三十六计·第三十二计（败战计）》；《三国演义》第九十五回（文学虚构，史源见信源备注）",
    "url": "https://zhishuixue.com/cases/B-0032.html"
+  },
+  {
+   "id": "B-0033",
+   "num": "B-0033",
+   "title": "反间计",
+   "category": "B 历史判例",
+   "scene": "博弈决策（反间离隙／瓦解内外信任）",
+   "interface": "反间离隙（因敌之间而间之，借敌方既有猜忌，令其自毁长城）",
+   "lever": "敌方内部既有猜忌（君疑臣之旧隙）",
+   "date": "2026-10-28",
+   "concepts": [
+    {
+     "name": "结构判断",
+     "anchor": "structural-judgment"
+    }
+   ],
+   "abstract": "楚汉相争，项羽围刘邦于荥阳，割地求和不成。陈平辨出项羽\"意忌信谗\"且封赏吝啬、骨鲠之臣不过范增数人，遂用四万斤金纵反间：先散布钟离眛通敌谣言，再趁项羽使者来汉，故意先盛礼款待、又佯称\"以为是亚父使者\"改以粗食，使者回报后项羽大疑范增，范增怒而请辞，未至彭城疽发背死。反间计是让敌人自己拔掉自己的智囊。",
+   "effect": "项羽大疑范增，范增怒而请辞、未至彭城疽发背而死；楚军自失智囊，汉军趁隙从西门脱身。预期只到「离间君臣、松动包围」，不图当场击溃楚军。",
+   "reusable_condition": "对手是多疑之君（意忌信谗）、君臣之间本有旧隙可借（功高而赏薄），而己方正面打不过、粮道被断、只能从对方内部找出路的格局。",
+   "non_applicable": "君不疑臣、或范增能当面自证清白、或君臣之间本无隙可借的情形；此外反间只让人「疏远」被疑者，未必能真正「策反」——钟离眛等直到垓下兵败也未叛楚。",
+   "source": "《三十六计·第三十三计（败战计）》；《史记·陈丞相世家》《史记·项羽本纪》（陈平反间范增）",
+   "url": "https://zhishuixue.com/cases/B-0033.html"
   },
   {
    "id": "C-0001",

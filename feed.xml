@@ -5,13 +5,31 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-10-27T00:00:00Z</updated>
+  <updated>2026-10-28T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>X-0007｜易经——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0007.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0007.html</id>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <published>2026-10-28T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>存续不靠保持不变，靠顺应变易——识时位、守中正、见几微；穷则变，变则通，通则久</summary>
+  </entry>
+  <entry>
+    <title>B-0033｜反间计</title>
+    <link href="https://zhishuixue.com/cases/B-0033.html"/>
+    <id>https://zhishuixue.com/cases/B-0033.html</id>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <published>2026-10-28T00:00:00Z</published>
+    <category term="判例"/>
+    <summary>楚汉相争，项羽围刘邦于荥阳，割地求和不成。陈平辨出项羽"意忌信谗"且封赏吝啬、骨鲠之臣不过范增数人，遂用四万斤金纵反间：先散布钟离眛通敌谣言，再趁项羽使者来汉，故意先盛礼款待、又佯称"以为是亚父使者"改以粗食，使者回报后项羽大疑范增，范增怒而请辞，未至彭城疽发背死。反间计是让敌人自己拔掉自己的智囊。</summary>
+  </entry>
   <entry>
     <title>X-0001｜孙子兵法——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/X-0001.html"/>
@@ -353,23 +371,5 @@
     <published>2026-10-03T00:00:00Z</published>
     <category term="论文"/>
     <summary>本文提出并论证语法锁定——失配在结构层的制度化沉淀。失配到锁定之间不是时间量的延长，而是两次质性跃迁：第一次是系统丧失动态调整能力（失配沉淀为锁定模式），第二次是该状态在语法结构中制度化（锁定模式沉淀为语法锁定）。语法锁定的本质是动力-规则共生关系的断裂，其三种类型（疏浚锁定、方舟锁定、祭祀锁定）各断裂一条核心命题。本文为母本的语法锁定判定规则提供理论根据，并给出可证伪条件与诊断边界。</summary>
-  </entry>
-  <entry>
-    <title>B-0008｜暗渡陈仓</title>
-    <link href="https://zhishuixue.com/cases/B-0008.html"/>
-    <id>https://zhishuixue.com/cases/B-0008.html</id>
-    <updated>2026-10-03T00:00:00Z</updated>
-    <published>2026-10-03T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>面对正面栈道断绝、对方重兵把守的困境，决策者不硬修栈道、不坐守，而是用明修栈道把对方的注意力锁死，再从偏僻的陈仓道暗渡突袭，适用于对方有明确的、可被锁定的关注点、且存在对方忽视的暗路的场景。与声东击西的区别是：声东击西是调动对方移动，暗渡陈仓是锁定对方不动。</summary>
-  </entry>
-  <entry>
-    <title>B-0007｜无中生有</title>
-    <link href="https://zhishuixue.com/cases/B-0007.html"/>
-    <id>https://zhishuixue.com/cases/B-0007.html</id>
-    <updated>2026-10-02T00:00:00Z</updated>
-    <published>2026-10-02T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>面对箭矢耗尽、正面无法补充的绝境，决策者不硬拼、不硬守，而是先用假信号（草人）骗得真利（箭），再用假信号的反复磨钝对方的警觉，最后用真动作（敢死队）乘虚突袭，适用于对方有可被反复假信号磨钝的固定响应、且真假难辨的场景。</summary>
   </entry>
 </feed>
