@@ -1,0 +1,87 @@
+name: Build failure notice
+
+# 目的：当日志构建失败时，自动在本仓库开一条 Issue（并触发 GitHub 邮件通知）。
+# 这样不会出现「Actions 挂了、网站静默停在旧版、却没人知道」的情况。
+#
+# 触发方式一：监听 Build site from papers.yml 运行结束且失败
+# 触发方式二：手动 Run workflow，发一条测试 Issue 验证通道
+
+on:
+  workflow_run:
+    workflows: ["Build site from papers.yml"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  actions: read
+  contents: read
+
+jobs:
+  notify:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create issue on failure
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const isTest = context.eventName === 'workflow_dispatch';
+            let sha = '', branch = '', url = '', conclusion = 'test';
+            if (!isTest) {
+              const run = context.payload.workflow_run;
+              sha = run.head_sha || '';
+              branch = run.head_branch || '';
+              url = run.html_url || '';
+              conclusion = run.conclusion || '';
+            }
+            const short = sha ? sha.slice(0, 7) : 'test';
+
+            if (!isTest) {
+              // 去重：同一 commit 已有未关闭的失败通知就不再开新的
+              const q = 'repo:' + context.repo.owner + '/' + context.repo.repo +
+                        ' is:issue is:open in:title "' + short + '"';
+              const found = await github.rest.search.issuesAndPullRequests({ q });
+              if (found.data.total_count > 0) {
+                core.info('已存在同一提交的失败通知，跳过。');
+                return;
+              }
+            }
+
+            const title = isTest
+              ? '【测试】构建失败通知通道'
+              : '构建失败：' + branch + ' @ ' + short;
+
+            const body = isTest
+              ? [
+                  '这是一条**测试通知**，用于验证「构建失败自动开 Issue」通道是否通畅。',
+                  '',
+                  '若你能看到这条并收到 GitHub 邮件，说明以后的真实故障也会以同样方式通知你。',
+                  '',
+                  '本 Issue 可直接关闭。'
+                ].join('\n')
+              : [
+                  '**自动构建失败**：`' + conclusion + '`',
+                  '',
+                  '- 分支：`' + branch + '`',
+                  '- 提交：`' + sha + '`',
+                  '- 运行记录：' + url,
+                  '',
+                  '**这意味着什么**：网站很可能还停在上一版，线上的内容没有更新。',
+                  '',
+                  '**排查顺序**：',
+                  '1. 点开上面的运行记录，看是哪一步报错',
+                  '2. 常见原因：yml 缩进或引号写错、生成器报错、HF_TOKEN 失效、网络超时',
+                  '3. 修好后重新推送，或在 Actions 页面手动 Run workflow',
+                  '',
+                  '> 本 Issue 由 Actions 自动创建，可与对应修复一起关闭。'
+                ].join('\n');
+
+            const created = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: isTest ? ['test'] : ['build-failure']
+            });
+            core.info('已创建 Issue #' + created.data.number + ' → ' + created.data.html_url);
