@@ -5,6 +5,22 @@
  "name_en": "Dynamic Sustenance Theory (DST) — Structural Disclosure Service",
  "version": "1.0",
  "date": "2026-10-18",
+ "implementation_status": {
+  "state": "specification_only",
+  "since": "2026-10-29",
+  "summary": "本文件是接口契约（specification），不是已部署的在线服务。三个端点目前均未实现，访问会返回 404——这是已知状态，不是故障。",
+  "what_works": [
+   "契约本身完整可解析：输入/输出字段、硬约束、不适用情形、反降级规则均为明确定义",
+   "resources 中列出的静态资源全部可访问（criteria.json / terms.json / cases-index.json / phases.json / llms.txt / knowledge-pack.json）",
+   "任何调用方可按本契约自行实现端点，行为以本文件的输入输出定义为准"
+  ],
+  "what_does_not_work": [
+   "POST /api/reframe 返回 404（服务端未部署）",
+   "POST /api/diagnose 返回 404（服务端未部署）",
+   "POST /api/cases 返回 404（服务端未部署）"
+  ],
+  "why": "当前瓶颈是「被识别、被信任」而非「接口能力」。在没有真实调用者之前，部署端点的边际价值低于把契约写清楚。若未来有真实调用需求，优先考虑 MCP 形态。"
+ },
  "license": "CC BY 4.0",
  "maintainer": {
   "name": "宁凯峰",
@@ -162,6 +178,8 @@
   {
    "id": "reframe",
    "endpoint": "/api/reframe",
+   "status": "specification_only",
+   "status_note": "本端点尚未实现——此处定义的是契约，不是在线服务；调用会返回 404。",
    "layer": "认识论层",
    "purpose": "只重述问题：这是谁的系统、边界在哪、谁在承压。输出全部是问题，不是答案。",
    "why_first": "本层最不可能被误用为咨询——它的每句话都只重新描述，不推进结论。",
@@ -227,6 +245,8 @@
   {
    "id": "diagnose",
    "endpoint": "/api/diagnose",
+   "status": "specification_only",
+   "status_note": "本端点尚未实现——此处定义的是契约，不是在线服务；调用会返回 404。",
    "layer": "动力学层",
    "purpose": "反推六要素，识别缺失，输出问题结构（失配类型 / 锁定风险）。",
    "input": {
@@ -339,6 +359,8 @@
   {
    "id": "cases",
    "endpoint": "/api/cases",
+   "status": "specification_only",
+   "status_note": "本端点尚未实现——此处定义的是契约，不是在线服务；调用会返回 404。",
    "layer": "工具层",
    "purpose": "在判例库中检索结构相似的判例，供参照。这是全套服务里唯一出现「参考」字样的地方。",
    "why_last": "它最容易被误当成产品（「给我一个类似案例」），所以放在最下层，只做检索，不做推荐。",
@@ -408,7 +430,7 @@
   },
   "terms": {
    "url": "https://zhishuixue.com/terms.json",
-   "desc": "98 条术语本体：中英名 / 层级 / 上下位 / 归属 / 相关判例 / DOI"
+   "desc": "100 条术语本体：中英名 / 层级 / 上下位 / 归属 / 相关判例 / DOI"
   },
   "cases": {
    "url": "https://zhishuixue.com/cases-index.json",
@@ -433,7 +455,7 @@
   "JUDGEMENT_REQUESTED": "见 not_applicable.NA5",
   "BASELINE_BREACHED": "见 not_applicable.NA4"
  },
- "protocol_note": "本契约协议中立，可作为 MCP / OpenAI Function Calling / 任意 HTTP API 的通用定义。协议只是承载壳，核心是输入与输出。",
+ "protocol_note": "本契约协议中立，可作为 MCP / OpenAI Function Calling / 任意 HTTP API 的通用定义。协议只是承载壳，核心是输入与输出注意：本文件是规范（specification），不是已部署的服务——三个端点当前均未实现，具体状态见 implementation_status。",
  "cite": "宁凯峰．治水学·决策显影服务（DST Structural Disclosure Service）v1.0．2026．https://zhishuixue.com/service.json",
  "see_also": [
   "https://zhishuixue.com/criteria.json",
