@@ -20,7 +20,17 @@
 
 答不出这三问，后面的分析全部失去根据。
 
-## 五层结构（按可调用顺序）
+## 内容构成
+
+| 内容线 | 规模 | 尺度 |
+|---|---|---|
+| 论文与著作 | 23 篇 | 理论生产 |
+| 决策判例（六要素） | 41 篇 | 事件尺度 |
+| 思想显影（五段） | 8 篇 | 体系尺度 |
+| 术语 | 100 条 | 概念骨架 |
+| 治水历定位刻度 | 18 格 | 未发事件的坐标 |
+
+## 六层结构（按可调用顺序）
 
 | 层 | 文件 | 用途 |
 |---|---|---|
@@ -28,13 +38,20 @@
 | 判据层 | [`criteria.json`](criteria.json) | 按什么标准判：六要素逐项判据、换承载物测试、可传承性四问 |
 | 术语层 | [`terms.json`](terms.json) | 概念骨架：100 条，含层级 / 上下位 / 锚点 / 出处 DOI |
 | 刻度层 | [`phases.json`](phases.json) | 位置坐标：治水历 18 格，每格自动挂载判例 |
-| 案例层 | [`cases-index.json`](cases-index.json) | 38 篇判例的结构化字段（接口 / 杠杆 / 六要素） |
+| 案例层 | [`cases-index.json`](cases-index.json) | 41 篇判例的结构化字段（接口 / 杠杆 / 六要素） |
+| 思想层 | [`thoughts-index.json`](thoughts-index.json) | 8 篇思想显影的结构化字段（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断） |
 
 ## 给 AI 与开发者的入口
 
-**先读 [`llms.txt`](https://zhishuixue.com/llms.txt)** —— 它是整站的说明书，含引用规范与全部机器文件的索引。
+按「想读多深」选一档：
 
-> https://zhishuixue.com/llms.txt
+| 需求 | 读哪个 |
+|---|---|
+| 先理解整体 | [`llms.txt`](https://zhishuixue.com/llms.txt) —— 整站说明书，含引用规范与全部机器文件索引 |
+| 想一次读完 | [`llms-full.txt`](llms-full.txt) —— 全量纯文本：判据 + 41 篇判例 + 100 条术语 + 18 格治水历 + 8 篇思想显影 |
+| 想程序化调用 | [`knowledge-pack.json`](knowledge-pack.json) —— 结构化知识包，五部分分节，带 usage_boundary 拒答条款 |
+
+另有 [`feed.xml`](feed.xml)（Atom 订阅，论文 / 判例 / 思想显影按日期倒序）与 [`hf_dataset/`](hf_dataset)（Hugging Face 数据集镜像，三配置）。
 
 三条使用约束（已写入 `criteria.json` 的 `binding` 段）：
 
@@ -46,16 +63,18 @@
 
 - 理论母本：`10.5281/zenodo.20372186`
 - 结构显影的判据：`10.5281/zenodo.23486787`
+- 决策显影库（判例合辑 v1.0）：`10.5281/zenodo.23664767`
 - 机器可读引用条目：[`citations.bib`](citations.bib) / [`citations.txt`](citations.txt)
 - 整站引用格式：见 `llms.txt` 的「引用规范」一节
 - 项目引用元数据：[`CITATION.cff`](CITATION.cff)
 
 ## 仓库维护说明
 
-页面与机器可读文件**由 `papers.yml` 自动生成**，`papers.yml` 是唯一数据源。
+页面与机器可读文件**由数据文件自动生成**，数据文件是唯一源。
 
 - 新增论文：在 `papers.yml` 的 `works:` 下加一条
-- 新增判例：在 `cases.yml` 下加一条（`cases-index.json` 随之重建）
+- 新增判例：在 `cases.yml` 下加一条（`cases-index.json`、`cases/<编号>.html` 随之重建）
+- 新增思想显影：在 `thoughts.yml` 下加一条（`thoughts-index.json`、`thoughts/X-000X.html` 随之重建）
 - 提交后，GitHub Actions 会自动运行 `build.py` 并提交产物
 
 自动生成的 HTML / JSON / TXT 文件**请勿手动编辑**（下次构建会被覆盖）。
