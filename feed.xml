@@ -13,6 +13,15 @@
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
   <entry>
+    <title>思想显影库 · 结构显影合辑</title>
+    <link href="https://doi.org/10.5281/zenodo.23766352"/>
+    <id>https://doi.org/10.5281/zenodo.23766352</id>
+    <updated>2026-10-29T00:00:00Z</updated>
+    <published>2026-10-29T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>用同一套五段语法（边界／威胁／三种动能／三类规则操作／结构判断）对八个彼此不相干的思想体系做结构提取。不问一个思想说了什么、对不对、如何演变，而问它在「系统如何存续」上压成了一个什么判断。Zenodo v1.0 合辑定本收录 8 篇：孙子兵法（先胜存续系统）、逻辑学（形式存续系统）、辩证法（扬弃存续系统）、进化论（自然选择存续系统）、经典力学（力学定律存续系统）、相对论（相对性存续系统）、易经（变易存续系统）、谈谈方法（确定性存续系统）；归目四类：系统方案 1、思维工具 2、辩证方法 2、解释框架 3。网站与知识包随日更持续增补。每篇含五段全文、显影限度声明、对话脚注、剩余物与厚度锚点，另附常见问法。三条边界：判据须与样本同时使用；不提供量化阈值与对错评价；不替代原典阅读——显影是入口不是出口。附 27 页合辑 PDF、可编辑 DOCX、结构化索引 thoughts-index.json </summary>
+  </entry>
+  <entry>
     <title>X-0008｜谈谈方法——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/X-0008.html"/>
     <id>https://zhishuixue.com/thoughts/X-0008.html</id>
@@ -362,14 +371,5 @@
     <published>2026-10-06T00:00:00Z</published>
     <category term="判例"/>
     <summary>刘邦被困荥阳、粮尽，损失已不可避免。部将纪信主动假扮刘邦、乘黄屋车从东门“降”，把楚军注意力全部吸走，刘邦率数十骑从西门脱身，纪信被项羽烧死。精妙在损失落点的重定向——把必然的损失精准砸在可替代的替身（阴）上、保全不可替代的核心（阳）。与围魏救赵（疏浚·压力向）、借刀杀人（疏浚·出力向）同属疏浚三向，此为损失向。</summary>
-  </entry>
-  <entry>
-    <title>B-0010｜笑里藏刀</title>
-    <link href="https://zhishuixue.com/cases/B-0010.html"/>
-    <id>https://zhishuixue.com/cases/B-0010.html</id>
-    <updated>2026-10-05T00:00:00Z</updated>
-    <published>2026-10-05T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>郑武公欲伐胡，不硬攻，先嫁女结亲、再当众诛杀主张伐胡的大夫关其思，让胡君认定郑国把自己当亲兄弟、从此不备，最后袭胡灭之。精妙在用两个“善意证据”主动制造“亲善”共识、解除对方戒备，而非隐藏敌意；与瞒天过海（利用已有惯性）相对，这是祭祀（共识凝聚）的正向运用。</summary>
   </entry>
 </feed>

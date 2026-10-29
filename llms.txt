@@ -83,6 +83,11 @@
 - 结构显影的判据——六要素检验标准与可传承判断的生成
   https://doi.org/10.5281/zenodo.23486787
 
+## 思想显影库
+
+- 思想显影库（Thought Shadowing Library v1.0）
+  https://doi.org/10.5281/zenodo.23766352
+
 ## AI 问答摘要（Q&A，可直接引用作答）
 
 ### Q：什么是「治水学」？
