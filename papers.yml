@@ -346,6 +346,11 @@ sections:
     intro: "判例之外的作业层文本：把显影方法本身写成可检验的判据。判例告诉使用者「长什么样」，判据告诉使用者「按什么标准判」。"
     series_name: "决策显影库"
     lang: "zh-CN"
+  - id: thought-shadowing
+    heading: "思想显影库"
+    intro: "用同一套五段语法对思想体系做结构提取。显影不为评价思想高低，只为提取它在「系统如何存续」问题上的结构判断。"
+    series_name: "思想显影库"
+    lang: "zh-CN"
 
 works:
 
@@ -698,6 +703,24 @@ works:
     keywords: ["决策显影库", "决策分析", "结构判断", "三十六计", "治水学", "Dynamic Sustenance Theory", "decision analysis", "case library", "宁凯峰"]
     cite_title: "决策显影库 · 38 篇结构判例（Decision Shadowing Library v1.0）"
     bib_key: "ning2026cases"
+    bib_type: "misc"
+    bib_publisher: "Zenodo"
+  # ---------- 思想显影库 ----------
+  - id: "thought-shadowing-library"
+    section: "thought-shadowing"
+    type: "Dataset"
+    title: "思想显影库 · 结构显影合辑"
+    card_title: "思想显影库（Thought Shadowing Library v1.0）"
+    doi: "10.5281/zenodo.23766352"
+    doi_version: "10.5281/zenodo.23766353"
+    date: "2026-10-29"
+    lang: "zh-CN"
+    card_meta: "思想显影库 · 合辑 v1.0 · Zenodo, 2026"
+    abstract: "用同一套五段语法（边界／威胁／三种动能／三类规则操作／结构判断）对八个彼此不相干的思想体系做结构提取。不问一个思想说了什么、对不对、如何演变，而问它在「系统如何存续」上压成了一个什么判断。Zenodo v1.0 合辑定本收录 8 篇：孙子兵法（先胜存续系统）、逻辑学（形式存续系统）、辩证法（扬弃存续系统）、进化论（自然选择存续系统）、经典力学（力学定律存续系统）、相对论（相对性存续系统）、易经（变易存续系统）、谈谈方法（确定性存续系统）；归目四类：系统方案 1、思维工具 2、辩证方法 2、解释框架 3。网站与知识包随日更持续增补。每篇含五段全文、显影限度声明、对话脚注、剩余物与厚度锚点，另附常见问法。三条边界：判据须与样本同时使用；不提供量化阈值与对错评价；不替代原典阅读——显影是入口不是出口。附 27 页合辑 PDF、可编辑 DOCX、结构化索引 thoughts-index.json 与 README。"
+    keywords: ["思想显影", "实践学显影", "结构判断", "存续", "治水学", "Dynamic Sustenance Theory", "知识形态", "宁凯峰"]
+    cite_title: "思想显影库（Thought Shadowing Library v1.0）"
+    bib_title: "思想显影库（Thought Shadowing Library v1.0）"
+    bib_key: "ning2026thoughts"
     bib_type: "misc"
     bib_publisher: "Zenodo"
   - id: shadowing-criteria
