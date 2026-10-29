@@ -35,7 +35,7 @@
 
 | 层 | 文件 | 用途 |
 |---|---|---|
-| 认识论层 | [`service.json`](service.json) | 怎么调用：输入 / 输出 / pipeline / 拒答条款 |
+| 认识论层 | [`service.json`](service.json) | 接口契约：输入 / 输出 / pipeline / 拒答条款（**规范已定义，三个端点未实现**）|
 | 判据层 | [`criteria.json`](criteria.json) | 按什么标准判：六要素逐项判据、换承载物测试、可传承性四问 |
 | 术语层 | [`terms.json`](terms.json) | 概念骨架：100 条，含层级 / 上下位 / 锚点 / 出处 DOI |
 | 刻度层 | [`phases.json`](phases.json) | 位置坐标：治水历 18 格，每格自动挂载判例 |
