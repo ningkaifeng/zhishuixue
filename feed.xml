@@ -5,13 +5,31 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-10-28T00:00:00Z</updated>
+  <updated>2026-10-29T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>X-0008｜谈谈方法——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0008.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0008.html</id>
+    <updated>2026-10-29T00:00:00Z</updated>
+    <published>2026-10-29T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>思想的确定性靠方法产出、不靠权威赐予——怀疑一切可怀疑的，只留清楚明白，从“我思”支点由简入繁重建</summary>
+  </entry>
+  <entry>
+    <title>B-0034｜苦肉计</title>
+    <link href="https://zhishuixue.com/cases/B-0034.html"/>
+    <id>https://zhishuixue.com/cases/B-0034.html</id>
+    <updated>2026-10-29T00:00:00Z</updated>
+    <published>2026-10-29T00:00:00Z</published>
+    <category term="判例"/>
+    <summary>春秋吴国，阖闾杀吴王僚夺位，僚之子庆忌勇武无敌、逃亡卫国图谋复仇，阖闾无法正面除掉。要离献苦肉计：请阖闾断其右手、杀其妻子焚尸于市，制造"负罪出奔"的假象，投奔庆忌。庆忌见其真残、妻子真死，信其"与吴王有仇"，纳为心腹。三月后渡江，要离顺风以矛刺死庆忌。苦肉计是用真实牺牲换取信任，代价不可逆。</summary>
+  </entry>
   <entry>
     <title>X-0007｜易经——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/X-0007.html"/>
@@ -353,23 +371,5 @@
     <published>2026-10-05T00:00:00Z</published>
     <category term="判例"/>
     <summary>郑武公欲伐胡，不硬攻，先嫁女结亲、再当众诛杀主张伐胡的大夫关其思，让胡君认定郑国把自己当亲兄弟、从此不备，最后袭胡灭之。精妙在用两个“善意证据”主动制造“亲善”共识、解除对方戒备，而非隐藏敌意；与瞒天过海（利用已有惯性）相对，这是祭祀（共识凝聚）的正向运用。</summary>
-  </entry>
-  <entry>
-    <title>B-0009｜隔岸观火</title>
-    <link href="https://zhishuixue.com/cases/B-0009.html"/>
-    <id>https://zhishuixue.com/cases/B-0009.html</id>
-    <updated>2026-10-04T00:00:00Z</updated>
-    <published>2026-10-04T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>袁绍死后二子相争，曹操按兵不动、坐观内斗。精妙不在不动手，而在划清系统边界——看准火在“袁家子系统”里烧、自己不在其内，才敢隔岸；等二袁自耗殆尽，逐个击破。</summary>
-  </entry>
-  <entry>
-    <title>治水学论纲·第九篇：语法锁定——失配在结构层的制度化沉淀</title>
-    <link href="https://doi.org/10.5281/zenodo.23113642"/>
-    <id>https://doi.org/10.5281/zenodo.23113642</id>
-    <updated>2026-10-03T00:00:00Z</updated>
-    <published>2026-10-03T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>本文提出并论证语法锁定——失配在结构层的制度化沉淀。失配到锁定之间不是时间量的延长，而是两次质性跃迁：第一次是系统丧失动态调整能力（失配沉淀为锁定模式），第二次是该状态在语法结构中制度化（锁定模式沉淀为语法锁定）。语法锁定的本质是动力-规则共生关系的断裂，其三种类型（疏浚锁定、方舟锁定、祭祀锁定）各断裂一条核心命题。本文为母本的语法锁定判定规则提供理论根据，并给出可证伪条件与诊断边界。</summary>
   </entry>
 </feed>

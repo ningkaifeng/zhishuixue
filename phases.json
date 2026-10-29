@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 40,
-  "totalCases": 40
+  "mountedCases": 41,
+  "totalCases": 41
  },
  "unmounted": [],
  "howToUse": [
@@ -78,6 +78,11 @@
        "id": "B-0033",
        "title": "反间计",
        "url": "https://zhishuixue.com/cases/B-0033.html"
+      },
+      {
+       "id": "B-0034",
+       "title": "苦肉计",
+       "url": "https://zhishuixue.com/cases/B-0034.html"
       }
      ],
      "termAnchor": "structural-judgment",
