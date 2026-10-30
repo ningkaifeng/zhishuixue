@@ -1,0 +1,48 @@
+# ============================================================
+#  治水学 · 英文站（English gateway）
+#  ------------------------------------------------------------
+#  双子站解耦：
+#    papers.yml  = 唯一数据源（论文 / person / 术语），英文站复用
+#    en.yml      = 只存英文站"特有"的文案（About / 定位语 / 页面标题）
+#  改英文措辞 → 只动本文件；改论文/联系信息 → 仍走 papers.yml
+# ============================================================
+
+site:
+  title: "Dynamic Sustenance Theory (DST) · Ning Kaifeng"
+  description: "Dynamic Sustenance Theory (DST) — a structural grammar for how systems sustain themselves amid flux. Research site of Ning Kaifeng, independent researcher."
+  lang: "en"
+
+hero:
+  topic: "Dynamic Sustenance Theory (DST)"
+  name: "Ning Kaifeng"
+  byline: "Independent Researcher"
+  tagline: "Between philosophy and engineering lies a missing layer — the governance syntax of complex systems."
+
+about:
+  heading: "What is Dynamic Sustenance Theory (DST)?"
+  lead: 'DST is a structural grammar for governing complex adaptive systems. It asks not "what a system is" but "how a system sustains itself amid flux" — and turns that perspective into a diagnosable, intervenable grammar.'
+  core_claim: "Its ontological ground is the domain of sustenance: a system persists not by staying unchanged, but by maintaining structural continuity under flux."
+  core_mechanism: "Core mechanism — force-rule symbiosis: the dynamic layer (Three Waves) and the rule layer (Three Phases) co-adapt to keep a system alive. Key concepts include Ti-Xiang Correlation, Layered Asynchrony, and Syntax Lock-in — three structural invariants that together define where and how intervention can take hold."
+  gap: "Existing complex-systems theories explain how systems evolve. DST works on the other question: how a system sustains itself."
+
+publications:
+  heading: "Selected Publications (in English)"
+  note: "The treatise is written in Chinese; nine papers of the series are published so far. The English papers below are the entry point for international readers."
+  include_ids:
+    - article-en-4
+    - article-en-3
+    - article-en-2
+    - article-en-1
+
+contact:
+  heading: "Contact"
+  orcid_label: "ORCID"
+  email_label: "Email"
+  academia_label: "Academia.edu"
+  openalex_label: "OpenAlex"
+
+back:
+  label: "中文站 (Chinese)"
+
+footer:
+  license: "All content is released under CC BY 4.0. Attribution: Ning Kaifeng / Dynamic Sustenance Theory (DST)."

@@ -12,8 +12,8 @@
 site:
   base_url: "https://zhishuixue.com/"
   site_title: "治水学 Dynamic Sustenance Theory (DST) | 宁凯峰"
-  description: "独立研究者宁凯峰的学术主页。治水学（DST）是一套面向复杂适应系统的存续分析元理论，由38篇系列论文构成。核心框架包括三浪动力、三元规则、体相关系、语法锁定。"
-  og_description: "独立研究者宁凯峰的学术主页。治水学（DST）是一套面向复杂适应系统的存续分析元理论。"
+  description: "宁凯峰的学术主页。治水学研究系统如何在流变中维持自身存续——不问系统是什么、如何演化，而问系统靠什么在变化中不散。本站收录论纲各篇、决策判例、思想显影与全部机器可读接口。"
+  og_description: "宁凯峰的学术主页。治水学研究系统如何在流变中维持自身存续。"
   lang: "zh-CN"
   preview_image: "https://zhishuixue.com/preview.png"
   master_doi: "10.5281/zenodo.20372186"
@@ -244,7 +244,7 @@ phases:
 about:
   title: "关于治水学"
   title_en: "About Dynamic Sustenance Theory (DST)"
-  intro: "治水学（Dynamic Sustenance Theory, DST）是由独立研究者宁凯峰创立的一套面向复杂适应系统的存续分析元理论。它回答的不是“系统如何演化”，而是“系统如何在永恒流变中维持自身存续”——并以一套可诊断、可干预的语法，把这一视角变成可操作的工具。"
+  intro: "治水学（Dynamic Sustenance Theory, DST）研究系统如何在流变中维持自身存续。它不问“系统如何演化”，而问“系统靠什么在变化中不散”。这套工作从一部论纲长出来，已展开为三处：理论（论纲与第零卷）、判例（决策显影库）、结构显影（思想显影库）；另附术语母表与机器可读接口。诊断语法与判据同源，判据须与判例同时使用。"
   what:
     - "论文：治水学论纲系列（含第零卷认识论奠基，及第一至第九篇等），每篇一个 Zenodo DOI。"
     - "术语母表：100 条核心术语，含中英名、层级、上下位与归属关系；机器镜像为 terms.json。"
@@ -313,7 +313,7 @@ person:
   email_primary: "ning@zhishuixue.com"
   email_backup: "ningkaifeng.dst@gmail.com"
 
-positioning: "治水学是一套面向复杂适应系统的存续分析元理论。它回答的核心问题是：系统如何在永恒流变中，通过动力与规则的协同，实现自身的存续。"
+positioning: "治水学研究系统如何在永恒流变中维持自身存续——靠动力与规则的协同，在变化中持续接续自身，而不是保持不变。"
 
 sections:
   - id: volume-0
@@ -322,7 +322,7 @@ sections:
     series_name: "治水学论纲·第零卷"
     lang: "zh-CN"
   - id: main
-    heading: "治水学论纲（38篇系列论文）"
+    heading: "治水学论纲"
     intro: "以下为已发布篇目，各篇独立成文，共享同一套核心框架。第十至三十八篇陆续发布中。"
     series_name: "治水学论纲"
     lang: "zh-CN"

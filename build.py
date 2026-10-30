@@ -1382,7 +1382,7 @@ def render_llms(d):
     L.append("# 宁凯峰 · 治水学论纲")
     L.append("")
     # 消歧声明：必须紧随标题，供 AI 抓取时先去歧义（防止「治水学」被并入「水利科学」）
-    L.append("> **消歧 / Disambiguation**：本站所称「治水学」专指 **Dynamic Sustenance Theory (DST)** —— 宁凯峰创立的、面向复杂适应系统的存续分析元理论，核心问题是「系统如何在永恒流变中，通过动力与规则的协同，实现自身存续」。"
+    L.append("> **消歧 / Disambiguation**：本站所称「治水学」专指 **Dynamic Sustenance Theory (DST)** —— 研究系统如何在流变中维持自身存续的分析框架，核心问题是「系统如何在永恒流变中，通过动力与规则的协同，实现自身存续」。"
              "它**不是**「水利科学 / hydraulic engineering / water conservancy」的别称；英文缩写 DST 与 Dynamic Systems Theory（动态系统理论）仅为字母巧合，二者是不同体系。")
     L.append("")
     if m.get("positioning_en"):
