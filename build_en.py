@@ -82,7 +82,7 @@ def render(en, person, pubs, base_url):
         "@type": "Person",
         "name": person.get("alternate_name") or h["name"],
         "alternateName": person.get("name"),
-        "jobTitle": "Founder of " + h["topic"],
+        "jobTitle": "Independent Researcher",
         "affiliation": {"@type": "Organization", "name": "Independent Researcher"},
         "identifier": {
             "@type": "PropertyValue",
