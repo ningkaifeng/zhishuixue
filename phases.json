@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 41,
-  "totalCases": 41
+  "mountedCases": 42,
+  "totalCases": 42
  },
  "unmounted": [],
  "howToUse": [
@@ -337,6 +337,11 @@
        "id": "B-0024",
        "title": "假道伐虢",
        "url": "https://zhishuixue.com/cases/B-0024.html"
+      },
+      {
+       "id": "B-0035",
+       "title": "连环计",
+       "url": "https://zhishuixue.com/cases/B-0035.html"
       },
       {
        "id": "C-0002",

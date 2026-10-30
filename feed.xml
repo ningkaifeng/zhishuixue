@@ -5,13 +5,31 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-10-29T00:00:00Z</updated>
+  <updated>2026-10-30T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>X-0009｜君主论——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0009.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0009.html</id>
+    <updated>2026-10-30T00:00:00Z</updated>
+    <published>2026-10-30T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>国家存续靠实力与权变、不靠道德理想——既做狮子又做狐狸，自拥军队、不招仇恨，在命运泛滥前修堤；实效高于应然</summary>
+  </entry>
+  <entry>
+    <title>B-0035｜连环计</title>
+    <link href="https://zhishuixue.com/cases/B-0035.html"/>
+    <id>https://zhishuixue.com/cases/B-0035.html</id>
+    <updated>2026-10-30T00:00:00Z</updated>
+    <published>2026-10-30T00:00:00Z</published>
+    <category term="判例"/>
+    <summary>赤壁之战，曹操率大军南下，孙刘联军兵少不能力敌。周瑜黄盖用连环计：曹军北方士卒不习水战，曹操下令战船首尾相连以稳军心，正是"自累"；黄盖诈降，以数十艘装满薪草膏油的蒙冲斗舰，借东南风纵火，一船着火、全营连烧，烧尽北船。连环计是"一计累敌、一计攻敌"，让敌人自己捆住自己，再乘势而击。</summary>
+  </entry>
   <entry>
     <title>思想显影库 · 结构显影合辑</title>
     <link href="https://doi.org/10.5281/zenodo.23766352"/>
@@ -353,23 +371,5 @@
     <published>2026-10-07T00:00:00Z</published>
     <category term="判例"/>
     <summary>前秦苻坚号称百万大军压境，东晋谢玄仅八万兵隔淝水对峙。谢玄不正面决战，先看准微隙（苻坚骄狂、秦军厌战、大军一动就乱），再派人激苻坚“暂退一箭之地”，百万大军一退即乱，晋军乘乱追击、顺手收割辎重，把“挡住秦军”的主目标放大成“击溃秦军”。精妙在“顺手”——捕捉对方移动中露出的微隙，顺手取利，不因小失大；与趁火打劫（趁大乱取大利）相对，这是抓微隙、取微利的微缺口变体。</summary>
-  </entry>
-  <entry>
-    <title>大禹治水与存续域的知识形态——一种被遮蔽的认识论原型</title>
-    <link href="https://doi.org/10.5281/zenodo.23185396"/>
-    <id>https://doi.org/10.5281/zenodo.23185396</id>
-    <updated>2026-10-06T00:00:00Z</updated>
-    <published>2026-10-06T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>以四千年前大禹治水为样本，显影一种被长期遮蔽的认识论原型：知识的最小单位不是命题，而是结构判断。鲧与禹的分野不是方法优劣，而是问题域的分叉——鲧在存在域追问“洪水是什么”，禹在存续域追问“洪水如何流”。大禹的“疏”，是存续域知识形态的第一次系统显影。</summary>
-  </entry>
-  <entry>
-    <title>B-0011｜李代桃僵</title>
-    <link href="https://zhishuixue.com/cases/B-0011.html"/>
-    <id>https://zhishuixue.com/cases/B-0011.html</id>
-    <updated>2026-10-06T00:00:00Z</updated>
-    <published>2026-10-06T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>刘邦被困荥阳、粮尽，损失已不可避免。部将纪信主动假扮刘邦、乘黄屋车从东门“降”，把楚军注意力全部吸走，刘邦率数十骑从西门脱身，纪信被项羽烧死。精妙在损失落点的重定向——把必然的损失精准砸在可替代的替身（阴）上、保全不可替代的核心（阳）。与围魏救赵（疏浚·压力向）、借刀杀人（疏浚·出力向）同属疏浚三向，此为损失向。</summary>
   </entry>
 </feed>
