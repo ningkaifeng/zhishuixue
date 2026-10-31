@@ -85,7 +85,7 @@ pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）
   "category": "A 基层治理",
   "scene": "制度边界",
   "date": "2026-09-27",
-  "interface": "方舟（底线守护）",
+  "interface": "方舟·底线守护（划出不可退的边界，把风险挡在界外）",
   "lever": "划底线",
   "concepts": [
     "方舟"
