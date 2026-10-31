@@ -132,7 +132,7 @@ for c in hits:
 
 ### 3. 直接读完整知识包
 
-单文件全量版（判据 + 38 篇判例 + 100 术语 + 治水历，约 160 KB）：<https://zhishuixue.com/knowledge-pack.json>
+单文件全量版（判据 + 43 篇判例 + 100 术语 + 治水历）：<https://zhishuixue.com/knowledge-pack.json>
 
 ## 三层不可约的约束
 
@@ -169,7 +169,7 @@ for c in hits:
 **判例库的 Zenodo 存档（合辑 PDF + DOCX + 结构化索引）：**
 
 ```
-宁凯峰．决策显影库 · 38 篇结构判例（Decision Shadowing Library v1.0）．2026-10-26．Zenodo．
+宁凯峰．决策显影库 · 结构判例集（Decision Shadowing Library v1.1）．2026-11-01．Zenodo．
 https://doi.org/10.5281/zenodo.23664767
 ```
 
@@ -198,8 +198,8 @@ https://doi.org/10.5281/zenodo.23664767
 
 | 项 | 值 |
 | --- | --- |
-| 数据集版本 | v1.0 |
-| 发布日期 | 2026-10-26 |
+| 数据集版本 | v1.1 |
+| 发布日期 | 2026-11-01 |
 | 术语母表 | v1.1（2026-10-26，100 条）|
 | 判据 | v1.0（2026-10-20）|
-| 判例 | 43 篇（截至 2026-10-26）|
+| 判例 | 43 篇（截至 2026-10-31）|
