@@ -465,11 +465,16 @@ def render_terms_json(d):
 
 
 def _iface_cell(interface, phase_map):
-    """把索引库的接口串映射到刻度 id：特判『对方』语境的响应缺口。"""
-    t = (interface or "").split("（")[0].split("·")[0].strip()
+    """把索引库的接口串映射到刻度 id：先按「族·细分」全词匹配（精度最高），
+    再退回族名；最后特判『对方』语境的响应缺口（兼容旧格式）。"""
+    pm = phase_map or {}
+    s = (interface or "").split("（")[0].strip()
+    if s in pm:
+        return pm[s]
+    t = s.split("·")[0].strip()
     if t == "响应缺口" and "对方" in (interface or ""):
         return "P14"
-    return (phase_map or {}).get(t, "")
+    return pm.get(t, "")
 
 
 def render_phases_json(d):
