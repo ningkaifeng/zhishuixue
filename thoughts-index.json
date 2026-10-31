@@ -3,7 +3,8 @@
  "title": "治水学·思想显影（实践学显影）",
  "titleEn": "DST Thought Shadowing Library",
  "versionLabel": "v1.0",
- "date": "2026-10-31",
+ "date": "2026-10-29",
+ "latestThoughtDate": "2026-10-31",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/thoughts.html",
  "intro": "用五段框架显影「方案／体系／理论」：边界画在哪、把什么当最大威胁、靠什么推动、用什么操作、压成一句什么判断。与决策显影库（六要素·事件）互为两尺度投影。只显影结构，不评价思想高低。",
@@ -12,7 +13,7 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-thoughts-v1.0",
- "citedAs": "宁凯峰．治水学·思想显影（实践学显影）v1.0．2026-10-31．https://zhishuixue.com/thoughts-index.json",
+ "citedAs": "宁凯峰．治水学·思想显影（实践学显影）v1.0．2026-10-29．https://zhishuixue.com/thoughts-index.json",
  "fieldNotes": {
   "border": "五段追问1：边界画在哪（存续单位）",
   "flood": "五段追问2：把什么当最大威胁",
