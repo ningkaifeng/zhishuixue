@@ -20,6 +20,20 @@ except FileNotFoundError:
     _thd = {'meta': {}, 'thoughts': []}
 thoughts = _thd.get('thoughts', [])
 
+# ---- 判例库版本元信息（从 papers.yml 读，勿硬编码）----
+try:
+    _pd = yaml.safe_load(io.open('papers.yml', encoding='utf-8')) or {}
+except FileNotFoundError:
+    _pd = {}
+_CM = _pd.get('cases_meta', {}) or {}
+_WORK = next((w for w in (_pd.get('works') or []) if w.get('id') == 'shadowing-library'), {})
+CASE_VER = _CM.get('version_label', 'v1.0')
+CASE_REL = _CM.get('release_date', '')
+CASE_TITLE = _WORK.get('card_title') or ('决策显影库（Decision Shadowing Library %s）' % CASE_VER)
+CASE_LATEST = max((c.get('date', '') for c in cases), default='')
+CASE_COUNT = len(cases)
+TERM_COUNT = terms.get('count') or len(terms.get('terms', []))
+
 # ---------------- 1. dst-terms.jsonl ----------------
 METAPHOR = {
     '技术浪': 'Breakthrough Force',
@@ -289,7 +303,7 @@ R.append('```')
 R.append('')
 R.append('### 3. 直接读完整知识包')
 R.append('')
-R.append('单文件全量版（判据 + 38 篇判例 + 100 术语 + 治水历，约 160 KB）：<https://zhishuixue.com/knowledge-pack.json>')
+R.append('单文件全量版（判据 + %d 篇判例 + %d 术语 + 治水历）：<https://zhishuixue.com/knowledge-pack.json>' % (CASE_COUNT, TERM_COUNT))
 R.append('')
 R.append('## 三层不可约的约束')
 R.append('')
@@ -326,7 +340,7 @@ R.append('')
 R.append('**判例库的 Zenodo 存档（合辑 PDF + DOCX + 结构化索引）：**')
 R.append('')
 R.append('```')
-R.append('宁凯峰．决策显影库 · 38 篇结构判例（Decision Shadowing Library v1.0）．2026-10-26．Zenodo．')
+R.append('宁凯峰．%s．%s．Zenodo．' % (CASE_TITLE, CASE_REL))
 R.append('https://doi.org/10.5281/zenodo.23664767')
 R.append('```')
 R.append('')
@@ -355,11 +369,11 @@ R.append('## 版本')
 R.append('')
 R.append('| 项 | 值 |')
 R.append('| --- | --- |')
-R.append('| 数据集版本 | v1.0 |')
-R.append('| 发布日期 | 2026-10-26 |')
+R.append('| 数据集版本 | %s |' % CASE_VER)
+R.append('| 发布日期 | %s |' % CASE_REL)
 R.append('| 术语母表 | v1.1（2026-10-26，100 条）|')
 R.append('| 判据 | v1.0（2026-10-20）|')
-R.append('| 判例 | %d 篇（截至 2026-10-26）|' % len(cases))
+R.append('| 判例 | %d 篇（截至 %s）|' % (CASE_COUNT, CASE_LATEST))
 io.open(f'{OUT}/README.md', 'w', encoding='utf-8').write('\n'.join(R))
 
 print('生成目录:', OUT)
