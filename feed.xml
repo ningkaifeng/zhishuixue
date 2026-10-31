@@ -5,13 +5,31 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-10-30T00:00:00Z</updated>
+  <updated>2026-10-31T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>X-0010｜阴阳五行——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0010.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0010.html</id>
+    <updated>2026-10-31T00:00:00Z</updated>
+    <published>2026-10-31T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>万物存续靠关系平衡、不靠孤立自存——阴阳交感、五行生克、各归其类；失衡则病、平衡则安，一切调理都在调关系</summary>
+  </entry>
+  <entry>
+    <title>B-0036｜走为上</title>
+    <link href="https://zhishuixue.com/cases/B-0036.html"/>
+    <id>https://zhishuixue.com/cases/B-0036.html</id>
+    <updated>2026-10-31T00:00:00Z</updated>
+    <published>2026-10-31T00:00:00Z</published>
+    <category term="判例"/>
+    <summary>南宋开禧二年，毕再遇与金人对垒，金兵日益增多、宋军难与争锋。毕再遇判断「敌势全胜、不能战」，走为上：一夜拔营撤退，留旗帜于营、缚生羊悬于鼓上，羊挣扎击鼓不断，金人数日方觉是空营，追之已远，宋军全师而退。走为上的核心是「降则全败、和则半败、走则未败」——全军还在，才有转机。</summary>
+  </entry>
   <entry>
     <title>X-0009｜君主论——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/X-0009.html"/>
@@ -353,23 +371,5 @@
     <published>2026-10-09T00:00:00Z</published>
     <category term="判例"/>
     <summary>面对「旧版行政拦截失效、上位法告知与保密两条规则内部裂缝、感染者隐私保护反被用作隐瞒传播挡箭牌、一线医生告知与否两头受罚」的制度死结，地方立法者不放开隐私、也不继续依赖自觉，而以「特定对象最小披露＋机构代为告知＋公众不公开」的三段式接口，把公共卫生介入从灰色地带变成有边界的明确入口。</summary>
-  </entry>
-  <entry>
-    <title>B-0013｜打草惊蛇</title>
-    <link href="https://zhishuixue.com/cases/B-0013.html"/>
-    <id>https://zhishuixue.com/cases/B-0013.html</id>
-    <updated>2026-10-08T00:00:00Z</updated>
-    <published>2026-10-08T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>刘备为报关羽之仇率大军伐吴，连营数百里，陆逊兵力居下风。陆逊不全线强攻、不死守，而是先派一军攻蜀军一营、故意试探虚实，虽不利却因此摸清蜀军“依山傍林、草木茂密”的致命破绽（“吾已晓破之之术”），随即令士兵各持茅草火攻，火烧连营，大破刘备。精妙在“疑以叩实、察而后动”——用小规模试探把藏敌虚实叩出来、再对症下药；与瞒天过海（造假信号骗对方）相对，这是发试探信号读对方。</summary>
-  </entry>
-  <entry>
-    <title>B-0012｜顺手牵羊</title>
-    <link href="https://zhishuixue.com/cases/B-0012.html"/>
-    <id>https://zhishuixue.com/cases/B-0012.html</id>
-    <updated>2026-10-07T00:00:00Z</updated>
-    <published>2026-10-07T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>前秦苻坚号称百万大军压境，东晋谢玄仅八万兵隔淝水对峙。谢玄不正面决战，先看准微隙（苻坚骄狂、秦军厌战、大军一动就乱），再派人激苻坚“暂退一箭之地”，百万大军一退即乱，晋军乘乱追击、顺手收割辎重，把“挡住秦军”的主目标放大成“击溃秦军”。精妙在“顺手”——捕捉对方移动中露出的微隙，顺手取利，不因小失大；与趁火打劫（趁大乱取大利）相对，这是抓微隙、取微利的微缺口变体。</summary>
   </entry>
 </feed>

@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 42,
-  "totalCases": 42
+  "mountedCases": 43,
+  "totalCases": 43
  },
  "unmounted": [],
  "howToUse": [
@@ -342,6 +342,11 @@
        "id": "B-0035",
        "title": "连环计",
        "url": "https://zhishuixue.com/cases/B-0035.html"
+      },
+      {
+       "id": "B-0036",
+       "title": "走为上",
+       "url": "https://zhishuixue.com/cases/B-0036.html"
       },
       {
        "id": "C-0002",
