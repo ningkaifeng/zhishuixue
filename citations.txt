@@ -188,7 +188,7 @@
 }
 
 @misc{ning2026cases,
-  title={决策显影库 · 38 篇结构判例},
+  title={决策显影库 · 结构判例集},
   author={宁凯峰},
   year={2026},
   publisher={Zenodo},

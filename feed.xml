@@ -5,13 +5,22 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-10-31T00:00:00Z</updated>
+  <updated>2026-11-01T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>决策显影库 · 结构判例集</title>
+    <link href="https://doi.org/10.5281/zenodo.23664767"/>
+    <id>https://doi.org/10.5281/zenodo.23664767</id>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <published>2026-11-01T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>把治水学的显影方法用于真实历史、商业与治理决策，把每个决策还原成一套可检验的六要素结构（情境／信号／排除／行动／预期／修正）。Zenodo v1.1 合辑定本收录 43 篇：A 基层治理 4 篇、B 历史判例（三十六计系列，全 36 篇已完结）36 篇、C 企业管理 2 篇、E 宏观案例 1 篇。v1.1 相对 v1.0 新增 B-0032 空城计至 B-0036 走为上 5 篇；判例接口统一为「族·细分（通俗解释）」格式，并同步登记 41 条全词到治水历刻度的映射，案例挂载精度不变。每篇含六要素全文、接口与杠杆落点、信源备注与记录人备注。附 216 页合辑 PDF、可编辑 DOCX 与结构化索引 cases-index.json。只显影结构，不判对错。</summary>
+  </entry>
   <entry>
     <title>X-0010｜阴阳五行——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/X-0010.html"/>
@@ -164,15 +173,6 @@
     <published>2026-10-27T00:00:00Z</published>
     <category term="判例"/>
     <summary>蜀汉第一次北伐，街亭失守后诸葛亮孤守西城，兵少将寡而司马懿大军压境。诸葛亮辨出这局的承重件不是城墙，而是对手脑中“诸葛亮从不弄险”的既有判断，反用这条判断——大开城门、藏起旌旗、登楼焚香抚琴，把“城空”如实亮出来，令多疑的司马懿疑中生疑、以为有伏兵而退。此计零成本、零战力，赌注是全部家底，只可作权宜缓兵，不可作常策。</summary>
-  </entry>
-  <entry>
-    <title>决策显影库 · 38 篇结构判例</title>
-    <link href="https://doi.org/10.5281/zenodo.23664767"/>
-    <id>https://doi.org/10.5281/zenodo.23664767</id>
-    <updated>2026-10-26T00:00:00Z</updated>
-    <published>2026-10-26T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>把治水学的显影方法用于真实历史、商业与治理决策，把每个决策还原成一套可检验的六要素结构（情境／信号／排除／行动／预期／修正）。Zenodo v1.0 合辑定本收录 38 篇：A 基层治理 4 篇、B 历史判例（三十六计系列）31 篇、C 企业管理 2 篇、E 宏观案例 1 篇；网站与知识包随日更持续增补，当前 39 篇（B 类 32 篇）。每篇含六要素全文、接口与杠杆落点、信源备注与记录人备注。附 144 页合辑 PDF、可编辑 DOCX 与结构化索引 cases-index.json。只显影结构，不判对错。</summary>
   </entry>
   <entry>
     <title>B-0031｜美人计</title>
