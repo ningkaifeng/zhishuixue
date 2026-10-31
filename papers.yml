@@ -266,6 +266,8 @@ cases_meta:
   license: "CC BY 4.0"
   doi: "10.5281/zenodo.23664767"
   doi_version: "10.5281/zenodo.23664768"
+  # 版本发布日（固定，不随日更变化）；citedAs 引用串用此日期，避免同一 v1.0 出现多个引用日期
+  release_date: "2026-10-26"
 
 case_interfaces:
   # 显影库自有的衍生接口术语（按决议不纳入官方术语母表；单列，不算异常）

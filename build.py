@@ -356,7 +356,8 @@ def render_cases_json(d):
         "title": cm.get("title", "治水学·决策显影库"),
         "titleEn": cm.get("title_en", "DST Decision Shadowing Case Library"),
         "versionLabel": cm.get("version_label", "v1.0"),
-        "date": max(_dates) if _dates else "",
+        "date": cm.get("release_date") or (max(_dates) if _dates else ""),
+        "latestCaseDate": max(_dates) if _dates else "",
         "license": cm.get("license", "CC BY 4.0"),
         "source": base + "cases.html",
         "maintainer": {"name": d["person"]["name"],
@@ -365,7 +366,7 @@ def render_cases_json(d):
         "doi": cm.get("doi", ""),
         "doiVersion": cm.get("doi_version", ""),
         "citedAs": (f'{d["person"]["name"]}．{cm.get("title", "治水学·决策显影库")}'
-                    f'{cm.get("version_label", "v1.0")}．{max(_dates) if _dates else ""}．'
+                    f'{cm.get("version_label", "v1.0")}．{cm.get("release_date") or (max(_dates) if _dates else "")}．'
                     + (f'Zenodo．https://doi.org/{cm["doi"]}．' if cm.get("doi") else "")
                     + f'{base}cases-index.json'),
         "count": len(items),
@@ -784,7 +785,8 @@ def render_thoughts_json(d):
         "title": meta.get("title", "治水学·思想显影（实践学显影）"),
         "titleEn": meta.get("title_en", "DST Thought Shadowing Library"),
         "versionLabel": meta.get("version_label", "v1.0"),
-        "date": max(dates) if dates else "",
+        "date": meta.get("release_date") or (max(dates) if dates else ""),
+        "latestThoughtDate": max(dates) if dates else "",
         "license": meta.get("license", "CC BY 4.0"),
         "source": base + "thoughts.html",
         "intro": meta.get("intro", ""),
@@ -792,7 +794,7 @@ def render_thoughts_json(d):
                        "orcid": "https://orcid.org/" + d["person"]["orcid"]},
         "citeKey": "dst-thoughts-" + meta.get("version_label", "v1.0"),
         "citedAs": (f'{d["person"]["name"]}．{meta.get("title", "治水学·思想显影")}'
-                    f'{meta.get("version_label", "v1.0")}．{max(dates) if dates else ""}．{base}thoughts-index.json'),
+                    f'{meta.get("version_label", "v1.0")}．{meta.get("release_date") or (max(dates) if dates else "")}．{base}thoughts-index.json'),
         "fieldNotes": {
             "border": "五段追问1：边界画在哪（存续单位）",
             "flood": "五段追问2：把什么当最大威胁",
