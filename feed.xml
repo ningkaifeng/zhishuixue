@@ -22,6 +22,24 @@
     <summary>把治水学的显影方法用于真实历史、商业与治理决策，把每个决策还原成一套可检验的六要素结构（情境／信号／排除／行动／预期／修正）。Zenodo v1.1 合辑定本收录 43 篇：A 基层治理 4 篇、B 历史判例（三十六计系列，全 36 篇已完结）36 篇、C 企业管理 2 篇、E 宏观案例 1 篇。v1.1 相对 v1.0 新增 B-0032 空城计至 B-0036 走为上 5 篇；判例接口统一为「族·细分（通俗解释）」格式，并同步登记 41 条全词到治水历刻度的映射，案例挂载精度不变。每篇含六要素全文、接口与杠杆落点、信源备注与记录人备注。附 216 页合辑 PDF、可编辑 DOCX 与结构化索引 cases-index.json。只显影结构，不判对错。</summary>
   </entry>
   <entry>
+    <title>X-0012｜仁学本体论——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0012.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0012.html</id>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <published>2026-11-01T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>世界的本体不是实体、不是心、不是情，而是仁——关联、生生、一体；守住仁体的生生与一体，万物在感通中存续</summary>
+  </entry>
+  <entry>
+    <title>B-0037｜萧规曹随</title>
+    <link href="https://zhishuixue.com/cases/B-0037.html"/>
+    <id>https://zhishuixue.com/cases/B-0037.html</id>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <published>2026-11-01T00:00:00Z</published>
+    <category term="判例"/>
+    <summary>西汉初年，萧何任相国定下一整套制度后去世，曹参继任，面对「新官上任要不要改旧制」的节点，选择「举事无所变更，一遵萧何约束」：日夜饮酒挡下提意见的人，用「高帝与萧何定天下、法令既明」回应惠帝质疑，并选厚重长者、斥务名之吏。守旧制三年，「载其清净，民以宁一」，为文景之治铺路。核心是：系统刚稳定、还在恢复期时，「不改」就是最有效的作为。</summary>
+  </entry>
+  <entry>
     <title>X-0010｜阴阳五行——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/X-0010.html"/>
     <id>https://zhishuixue.com/thoughts/X-0010.html</id>
@@ -353,23 +371,5 @@
     <published>2026-10-11T00:00:00Z</published>
     <category term="判例"/>
     <summary>郑庄公面对亲弟共叔段在母亲武姜撑腰下的夺位图谋，不提前动手（逼则反兵），反而松手纵容，任其一步步坐实谋反罪名，待其起兵袭郑时一举讨伐、铲除后患。精妙在“疏浚·泄势向”——不硬堵，松手让对手的势自己泄到“自毙”的绝境；与围魏救赵（压力向）、借刀杀人（出力向）、李代桃僵（损失向）、调虎离山（位置向）并列为疏浚五向。</summary>
-  </entry>
-  <entry>
-    <title>B-0015｜调虎离山</title>
-    <link href="https://zhishuixue.com/cases/B-0015.html"/>
-    <id>https://zhishuixue.com/cases/B-0015.html</id>
-    <updated>2026-10-10T00:00:00Z</updated>
-    <published>2026-10-10T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>孙策欲取庐江，刘勋兵强且据守皖城坚城（虎＋山）。孙策不硬攻，而是顺着刘勋贪财自大的弱点，卑辞厚礼、假意示弱，诱其出兵远征上缭，把虎调离山；刘勋一离城，孙策即与周瑜奇袭皖城，并派孙贲、孙辅截断其退路，大败刘勋、夺取庐江。精妙在“疏浚·位置向”——把对手本人从其优势依托上引开，让强失去支点；与围魏救赵（压力向）、借刀杀人（出力向）、李代桃僵（损失向）并列为疏浚四向。</summary>
-  </entry>
-  <entry>
-    <title>B-0014｜借尸还魂</title>
-    <link href="https://zhishuixue.com/cases/B-0014.html"/>
-    <id>https://zhishuixue.com/cases/B-0014.html</id>
-    <updated>2026-10-09T00:00:00Z</updated>
-    <published>2026-10-09T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>陈胜、吴广是底层戍卒，大泽乡遇雨误期、进退皆死。陈胜不自号、不硬拼，而是借两个“死人”名号——被冤杀的公子扶苏、生死不明的楚将项燕，诈称其名起兵，再以“鱼腹丹书”“篝火狐鸣”造天意，天下云集响应。精妙在“借不能用者而用之”——自己没名分，就借“死了但名望还在”的旧名号（尸）装自己的新意图（魂）；本质是祭祀·共识嫁接，借旧共识凝聚新力量。</summary>
   </entry>
 </feed>

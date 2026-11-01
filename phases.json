@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 43,
-  "totalCases": 43
+  "mountedCases": 44,
+  "totalCases": 44
  },
  "unmounted": [],
  "howToUse": [
@@ -392,6 +392,11 @@
        "id": "B-0028",
        "title": "上屋抽梯",
        "url": "https://zhishuixue.com/cases/B-0028.html"
+      },
+      {
+       "id": "B-0037",
+       "title": "萧规曹随",
+       "url": "https://zhishuixue.com/cases/B-0037.html"
       }
      ],
      "termAnchor": "arking",
