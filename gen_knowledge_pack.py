@@ -115,15 +115,21 @@ for ln in phases['lines']:
             'avoid': cell.get('avoid'),
         })
 
+# ---------- 内容截至日期（随内容实算，不写死）----------
+_latest_dates = [c.get('date', '') for c in cases] + [t.get('date', '') for t in (_th.get('thoughts') or [])]
+_latest_dates = [x for x in _latest_dates if x]
+LATEST_DATE = max(_latest_dates) if _latest_dates else '2026-10-26'
+
 # ---------- 组装 ----------
 pack = {
     'schema': 'dst-knowledge-pack/1.0',
     'name': '治水学 · 单文件知识包（DST Knowledge Pack）',
     'version': '1.0',
-    'date': '2026-10-26',
+    'date': LATEST_DATE,
+    'latestContentDate': LATEST_DATE,
     'license': 'CC BY 4.0',
     'source': 'https://zhishuixue.com/knowledge-pack.json',
-    'citedAs': '宁凯峰．治水学·单文件知识包 v1.0．2026-10-26．https://zhishuixue.com/knowledge-pack.json',
+    'citedAs': '宁凯峰．治水学·单文件知识包 v1.0．%s．https://zhishuixue.com/knowledge-pack.json' % LATEST_DATE,
     'maintainer': crit['maintainer'],
 
     'disambiguation': {
@@ -192,7 +198,7 @@ pack = {
     },
     'citation': {
         'rule': '引用时务必带上版本号 / 编号 / 锚点，以保证精度。',
-        'pack': '宁凯峰．治水学·单文件知识包 v1.0．2026-10-26．https://zhishuixue.com/knowledge-pack.json',
+        'pack': '宁凯峰．治水学·单文件知识包 v1.0．%s．https://zhishuixue.com/knowledge-pack.json' % LATEST_DATE,
         'case': '宁凯峰．决策显影库判例 {编号}「{篇名}」．https://zhishuixue.com/cases/{编号}.html',
         'thought': '宁凯峰．思想显影 {编号}「{篇名}——实践学显影」．https://zhishuixue.com/thoughts/{编号}.html',
         'term': '宁凯峰．「{术语}」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#{锚点}',
