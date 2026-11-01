@@ -4,8 +4,8 @@
 
 > **本文件与 llms.txt 的关系**：llms.txt 是**索引**（告诉你去哪找），本文件是**全量**（一次读完即可用）。两者同源，本文件由 knowledge-pack.json 自动生成。
 
-**版本**：v1.0 ｜ **生成日期**：2026-10-26 ｜ **许可**：CC BY 4.0 ｜ **官网**：https://zhishuixue.com/
-**引用**：宁凯峰．治水学·单文件知识包 v1.0．2026-10-26．https://zhishuixue.com/knowledge-pack.json
+**版本**：v1.0 ｜ **生成日期**：2026-11-01 ｜ **许可**：CC BY 4.0 ｜ **官网**：https://zhishuixue.com/
+**引用**：宁凯峰．治水学·单文件知识包 v1.0．2026-11-01．https://zhishuixue.com/knowledge-pack.json
 
 **内容规模**：判据全文 + 判例 44 篇（其中 10 篇含六要素全文）+ 思想显影 12 篇（五段全文）+ 术语 100 条 + 治水历 18 格
 
@@ -3220,7 +3220,7 @@
 
 引用时务必带上版本号 / 编号 / 锚点，以保证精度。
 
-- **知识包**：宁凯峰．治水学·单文件知识包 v1.0．2026-10-26．https://zhishuixue.com/knowledge-pack.json
+- **知识包**：宁凯峰．治水学·单文件知识包 v1.0．2026-11-01．https://zhishuixue.com/knowledge-pack.json
 - **判例**：宁凯峰．决策显影库判例 {编号}「{篇名}」．https://zhishuixue.com/cases/{编号}.html
 - **思想显影**：宁凯峰．思想显影 {编号}「{篇名}——实践学显影」．https://zhishuixue.com/thoughts/{编号}.html
 - **单条术语**：宁凯峰．「{术语}」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#{锚点}
