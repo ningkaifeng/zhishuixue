@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 44,
-  "totalCases": 44
+  "mountedCases": 45,
+  "totalCases": 45
  },
  "unmounted": [],
  "howToUse": [
@@ -422,6 +422,11 @@
        "id": "B-0014",
        "title": "借尸还魂",
        "url": "https://zhishuixue.com/cases/B-0014.html"
+      },
+      {
+       "id": "B-0038",
+       "title": "约法三章",
+       "url": "https://zhishuixue.com/cases/B-0038.html"
       },
       {
        "id": "C-0001",
