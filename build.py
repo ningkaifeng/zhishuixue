@@ -1376,6 +1376,15 @@ def render_glossary_md(d):
 
 
 # ---------------------------- llms.txt ----------------------------
+def _kb_hint(filename, ceil=10):
+    """动态提示文件体积：文件存在才显示数字，取整到 ceil KB；不存在则不显示。"""
+    p = os.path.join(ROOT, filename)
+    if not os.path.exists(p):
+        return ""
+    kb = os.path.getsize(p) / 1024.0
+    return "，约 %d KB" % int(round(kb / ceil) * ceil)
+
+
 def render_llms(d):
     base = d["site"]["base_url"]
     p = d["person"]
@@ -1514,8 +1523,8 @@ def render_llms(d):
     L.append("## 单文件知识包（Knowledge Pack：一次读完即可用）")
     L.append("上面那些文件是分开的；如果只想用一次请求就把治水学装进上下文，读这一个文件即可。")
     L.append("")
-    L.append(f"- 全量纯文本（llms-full.txt，约 130 KB）：{base}llms-full.txt —— 判据 + 判例 + 术语 + 治水历，最省事的「一次读完」入口。")
-    L.append(f"- 知识包（JSON，约 160 KB / 6 万 token）：{base}knowledge-pack.json")
+    L.append(f"- 全量纯文本（llms-full.txt{_kb_hint('llms-full.txt')}）：{base}llms-full.txt —— 判据 + 判例 + 术语 + 治水历，最省事的「一次读完」入口。")
+    L.append(f"- 知识包（JSON{_kb_hint('knowledge-pack.json')}）：{base}knowledge-pack.json")
     L.append("- **含**：判据全文 + 全部判例的结构摘要（接口 / 杠杆 / 效果 / 适用条件 / 不适用条件）+ 10 篇判例的六要素全文（覆盖各接口族）+ 100 条术语 + 治水历 18 格 + 诊断书输出格式 + 引用规范。")
     L.append("- **为什么打包**：判据须与判例同时使用。只给判据不给判例，判据会退化成一套通用框架。这个文件把尺子和实物一次给全。")
     L.append("- **用法**：读完后按包内 `how_to_use` 的步骤执行；引用时用包内 `citation` 的口径。")
