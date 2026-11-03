@@ -13,7 +13,7 @@
  "citeKey": "dst-growth-v1.0",
  "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-03．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 24,
+  "papers": 25,
   "terms": 100,
   "cases": 46
  },
@@ -700,7 +700,13 @@
   },
   {
    "date": "2026-11-03",
-   "papers": [],
+   "papers": [
+    {
+     "id": "article-en-5",
+     "title": "From the Existence Domain to the Sustenance Domain: An Alternative View",
+     "doi": "10.5281/zenodo.23911374"
+    }
+   ],
    "cases": [
     {
      "id": "B-0039",
@@ -708,7 +714,7 @@
      "url": "https://zhishuixue.com/cases/B-0039.html"
     }
    ],
-   "nPapers": 0,
+   "nPapers": 1,
    "nCases": 1
   }
  ],

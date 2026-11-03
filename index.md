@@ -51,6 +51,7 @@
 - **Method, Not Stance: Structural Disclosure as an Operative Methodology for Human-AI Division of Labor** ｜ Zenodo, 2026 · 治水学论纲·英文扩展篇 No. 2 ｜ https://doi.org/10.5281/zenodo.22698811
 - **Why Law Always Lags AI: A Dynamic Sustenance Theory Analysis of AI Governance** ｜ Zenodo, 2026 · 治水学论纲·英文扩展篇 No. 3 ｜ https://doi.org/10.5281/zenodo.22884353
 - **A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework** ｜ Zenodo, 2026 · 治水学论纲·英文扩展篇 No. 4 ｜ https://doi.org/10.5281/zenodo.23328739
+- **From the Existence Domain to the Sustenance Domain: An Alternative View** ｜ Zenodo, 2026 · 治水学论纲·英文扩展篇 No. 5 ｜ https://doi.org/10.5281/zenodo.23911374
 
 ### 治水学·发生学卷
 
