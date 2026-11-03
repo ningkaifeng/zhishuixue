@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 45,
-  "totalCases": 45
+  "mountedCases": 46,
+  "totalCases": 46
  },
  "unmounted": [],
  "howToUse": [
@@ -135,6 +135,11 @@
        "id": "B-0032",
        "title": "空城计",
        "url": "https://zhishuixue.com/cases/B-0032.html"
+      },
+      {
+       "id": "B-0039",
+       "title": "指鹿为马",
+       "url": "https://zhishuixue.com/cases/B-0039.html"
       }
      ],
      "termAnchor": "breakthrough-force",
