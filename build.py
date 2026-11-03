@@ -1145,6 +1145,10 @@ def render_index(d):
     L.append(f'<p style="{S["contact"]}">备用邮箱：<a href="mailto:{p["email_backup"]}" style="{S["link"]}">{p["email_backup"]}</a></p>')
     if p.get("openalex"):
         L.append(f'<p style="{S["contact"]}">作品全集（OpenAlex）：<a href="{p["openalex"]}" style="{S["link"]}">{p["openalex"]}</a></p>')
+    if p.get("academia"):
+        L.append(f'<p style="{S["contact"]}">同行交流（Academia.edu）：<a href="{p["academia"]}" style="{S["link"]}">{p["academia"]}</a></p>')
+    if p.get("huggingface"):
+        L.append(f'<p style="{S["contact"]}">数据集（Hugging Face）：<a href="{p["huggingface"]}" style="{S["link"]}">{p["huggingface"]}</a></p>')
     L.append(f'<hr style="{S["hr"]}">')
     L.append(f'<div style="{S["pos"]}">')
     L.append(f'<p style="{S["pos_t"]}">一句话定位</p>')
