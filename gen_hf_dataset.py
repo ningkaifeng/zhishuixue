@@ -34,6 +34,41 @@ CASE_LATEST = max((c.get('date', '') for c in cases), default='')
 CASE_COUNT = len(cases)
 TERM_COUNT = terms.get('count') or len(terms.get('terms', []))
 
+# ---------------- 通用 helper：扁平 text 字段 + train/eval 划分 ----------------
+def _eval_split(i, total):
+    # 确定性 80/20：每 5 条第 5 条进 eval；总量 <5 全 train
+    if total < 5:
+        return 'train'
+    return 'eval' if (i % 5 == 4) else 'train'
+
+
+def _term_text(t):
+    name = t['name']
+    en = t.get('en', '')
+    label = '%s（%s）' % (name, en) if en else name
+    return '%s：%s' % (label, t.get('definition', ''))
+
+
+def _case_text(c, el):
+    parts = [c['title']]
+    if c.get('abstract'):
+        parts.append(c['abstract'])
+    for k, v in el.items():
+        if v:
+            parts.append('%s：%s' % (k, v))
+    return '。'.join(p.rstrip('。') for p in parts if p)
+
+
+def _thought_text(t):
+    parts = [t.get('full_title') or t.get('title', '')]
+    for label, key in (('边界', 'border'), ('最大威胁', 'flood'), ('三种动能', 'forces'),
+                       ('三类规则操作', 'operations'), ('结构判断', 'judgment')):
+        v = t.get(key)
+        if v:
+            parts.append('%s：%s' % (label, v))
+    return '。'.join(p.rstrip('。') for p in parts if p)
+
+
 # ---------------- 1. dst-terms.jsonl ----------------
 METAPHOR = {
     '技术浪': 'Breakthrough Force',
@@ -49,6 +84,7 @@ with io.open(f'{OUT}/dst-terms.jsonl', 'w', encoding='utf-8') as f:
             'broader': t.get('broader'), 'part_of': t.get('partOf'),
             'definition': t.get('definition', ''),
             'doi': t.get('doi', ''), 'url': t.get('url', ''),
+            'text': _term_text(t), 'split': 'train',
         }
         if t['name'] in METAPHOR:
             rec['metaphor_of'] = METAPHOR[t['name']]
@@ -57,7 +93,7 @@ with io.open(f'{OUT}/dst-terms.jsonl', 'w', encoding='utf-8') as f:
 
 # ---------------- 2. dst-cases.jsonl ----------------
 with io.open(f'{OUT}/dst-cases.jsonl', 'w', encoding='utf-8') as f:
-    for c in cases:
+    for _i, c in enumerate(cases):
         el = {x['k']: x['v'].strip() for x in c['elements']}
         rec = {
             'id': c['id'], 'title': c['title'],
@@ -73,12 +109,13 @@ with io.open(f'{OUT}/dst-cases.jsonl', 'w', encoding='utf-8') as f:
             'source_note': c.get('source_note', '').strip(),
             'recorder_note': c.get('recorder_note', '').strip(),
             'url': 'https://zhishuixue.com/cases/%s.html' % c['id'],
+            'text': _case_text(c, el), 'split': _eval_split(_i, len(cases)),
         }
         f.write(json.dumps(rec, ensure_ascii=False) + '\n')
 
 # ---------------- 2b. dst-thoughts.jsonl ----------------
 with io.open(f'{OUT}/dst-thoughts.jsonl', 'w', encoding='utf-8') as f:
-    for t in thoughts:
+    for _i, t in enumerate(thoughts):
         secs = {x['k']: x['v'].strip() for x in t.get('sections', [])}
         rec = {
             'id': t['id'], 'title': t['title'],
@@ -99,6 +136,7 @@ with io.open(f'{OUT}/dst-thoughts.jsonl', 'w', encoding='utf-8') as f:
             'faq': t.get('faq', []),
             'note': t.get('note', ''),
             'url': 'https://zhishuixue.com/thoughts/%s.html' % t['id'],
+            'text': _thought_text(t), 'split': _eval_split(_i, len(thoughts)),
         }
         f.write(json.dumps(rec, ensure_ascii=False) + '\n')
 
@@ -211,6 +249,9 @@ R.append('  - ontology')
 R.append('  - knowledge-graph')
 R.append('  - chinese')
 R.append('  - dynamic-sustenance-theory')
+R.append('  - llm-training')
+R.append('  - rag')
+R.append('  - fine-tuning')
 R.append('size_categories:')
 R.append('  - n<1K')
 R.append('configs:')
@@ -226,6 +267,16 @@ R.append('')
 R.append('# 治水学 · 决策显影库')
 R.append('')
 R.append('**Dynamic Sustenance Theory (DST) — Structural Disclosure Dataset**')
+R.append('')
+R.append('## Executive Summary')
+R.append('')
+R.append('**DST Structural Disclosure Dataset** is a structured corpus of **Dynamic Sustenance Theory (DST)** — a meta-theory for analyzing how complex adaptive systems maintain themselves under continuous change. It packages three machine-readable components: `dst-terms.jsonl` (a bilingual ontology of %d core concepts), `dst-cases.jsonl` (%d real decision cases annotated with a six-element structural framework — situation, signal, exclusion, action, expectation, revision), and `dst-thoughts.jsonl` (%d structural readings of major theoretical systems).' % (TERM_COUNT, CASE_COUNT, len(thoughts)))
+R.append('')
+R.append('**What it is for**: retrieval-augmented generation (RAG), domain-specific fine-tuning, and ontology / knowledge-graph research on AI governance and decision theory.')
+R.append('')
+R.append('**Who it is for**: AI-governance researchers, agent developers building decision-support tools, and scholars at the intersection of philosophy and NLP.')
+R.append('')
+R.append('Every record ships with a flattened `text` field (ready to feed into embedding or pretraining pipelines) and a `split` tag (`train` / `eval`) so it can be loaded and evaluated out of the box.')
 R.append('')
 R.append('一套面向复杂适应系统的**存续分析元理论**，及其用于真实决策的判例库。')
 R.append('')
@@ -277,6 +328,13 @@ R.append(json.dumps(slim_case, ensure_ascii=False, indent=2))
 R.append('```')
 R.append('')
 R.append('`elements` 字段含完整六要素：`情境` / `信号` / `排除` / `行动` / `预期` / `修正`。')
+R.append('')
+R.append('## 机器友好字段（text / split）')
+R.append('')
+R.append('每条记录额外带两个字段，方便直接喂给模型或检索管道：')
+R.append('')
+R.append('- `text`：把该条记录的标题 + 定义/摘要/六要素（或五段）拼成一段自然语言，可直接用于嵌入、预训练或 RAG。')
+R.append('- `split`：`train` / `eval` 的确定性划分（约 80/20，`eval` 可用于快速评测）。术语本体 `dst-terms.jsonl` 是词典，全部标为 `train`。')
 R.append('')
 R.append('## 怎么用')
 R.append('')
