@@ -718,6 +718,21 @@ works:
     bib_type: misc
     bib_publisher: Zenodo
 
+  - id: article-en-5
+    section: ai-gov
+    type: ScholarlyArticle
+    title: "From the Existence Domain to the Sustenance Domain: An Alternative View"
+    card_title: "From the Existence Domain to the Sustenance Domain: An Alternative View"
+    doi: "10.5281/zenodo.23911374"
+    date: "2026-11-03"
+    lang: "en"
+    card_meta: "Zenodo, 2026 · 治水学论纲·英文扩展篇 No. 5"
+    abstract: "The rise of artificial intelligence has brought a wave of epistemological discussion, yet one still-solid mainstream current remains within the \"existence domain,\" asking what knowledge is, how it is constructed, and how it is cognized. Taking three representative works as examples, this paper argues that this mainstream shares a common blind spot: they ask \"how knowledge is constructed,\" but no one asks \"how knowledge sustains itself.\" On this basis, the paper introduces the perspective of the \"sustenance domain\"—shifting the criterion of knowledge from \"true / useful\" to \"whether the system can sustain itself\"—and offers an operable prototype of that criterion. This paper is the English version of a Chinese preprint: 《从存在域到存续域：AI 时代认识论的一个视角》, DOI 10.5281/zenodo.23758139."
+    keywords: ["Existence Domain", "Sustenance Domain", "Structural Judgment", "Layered Asynchrony", "Epistemology of AI", "Dynamic Sustenance Theory", "宁凯峰"]
+    bib_key: ning2026en5
+    bib_type: misc
+    bib_publisher: Zenodo
+
   # ---------- 发生学卷 ----------
   - id: genesis-volume
     section: genesis
