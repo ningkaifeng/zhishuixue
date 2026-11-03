@@ -590,6 +590,24 @@ def render_cases_index(d):
             .replace("__NOSCRIPT__", noscript))
 
 
+FOLD_HOME = 5           # 主页各区块默认显示条数（超出折叠，点“展开”显示）
+
+
+def fold_button(n_total, unit='篇'):
+    rest = n_total - FOLD_HOME
+    return (f'<p style="margin-top:8px;"><button type="button" onclick="dstUnfold(this)" '
+            f'style="font:inherit;font-size:0.9em;color:#0066cc;background:#f2f6fb;'
+            f'border:1px solid #d5e2f0;border-radius:6px;padding:6px 12px;cursor:pointer;">'
+            f'展开其余 {rest} {unit}（共 {n_total} {unit}）▾</button></p>')
+
+
+FOLD_JS = ('<script>\n'
+           'function dstUnfold(btn){var p=btn.parentNode;var box=p?p.previousElementSibling:null;'
+           'if(box){var a=box.querySelectorAll(".fold-item");for(var i=0;i<a.length;i++){a[i].style.display="";}}'
+           'if(p){p.style.display="none";}}\n'
+           '</script>')
+
+
 def case_card(c):
     return (
         f'<details style="{S["card"]}">\n'
@@ -1163,11 +1181,16 @@ def render_index(d):
             intro = f'以下为已发布篇目，各篇独立成文，共享同一套核心框架。第{cn_num(_n + 1)}至第{cn_num(_total)}篇陆续发布中。'
         if intro:
             L.append(f'<p style="margin-top:0; color:#555;">{intro}</p>')
+        _sec_works = [w for w in d["works"] if w["section"] == sec["id"]]
         L.append(f'<div style="{S["ul"]}">')
-        for w in d["works"]:
-            if w["section"] == sec["id"]:
+        for _i, w in enumerate(_sec_works):
+            if _i < FOLD_HOME:
                 L.append(card_html(w))
+            else:
+                L.append(f'<div class="fold-item" style="display:none">{card_html(w)}</div>')
         L.append("</div>")
+        if len(_sec_works) > FOLD_HOME:
+            L.append(fold_button(len(_sec_works)))
     _cases = load_cases()
     if _cases:
         _feat = [c for c in _cases if c.get("featured")]
@@ -1176,9 +1199,14 @@ def render_index(d):
         L.append(f'<h2 style="{S["h2"]}">决策显影库（实践案例）</h2>')
         L.append(f'<p style="margin-top:0; color:#555;">把治水学工具用于真实的历史、商业与治理决策。现有 <b>{len(_cases)}</b> 篇判例；每篇标注所用「治水学接口」与「杠杆落点」。以下为{_label}：</p>')
         L.append(f'<div style="{S["ul"]}">')
-        for _c in _feat:
-            L.append(case_card(_c))
+        for _i, _c in enumerate(_feat):
+            if _i < FOLD_HOME:
+                L.append(case_card(_c))
+            else:
+                L.append(f'<div class="fold-item" style="display:none">{case_card(_c)}</div>')
         L.append("</div>")
+        if len(_feat) > FOLD_HOME:
+            L.append(fold_button(len(_feat)))
         L.append(f'<p style="margin-top:12px;"><a href="cases.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_cases)} 篇案例（可搜索、按归目/场景/接口筛选）→</a></p>')
     _td = load_thoughts()
     _ts = _td.get("thoughts", [])
@@ -1187,11 +1215,17 @@ def render_index(d):
         L.append(f'<h2 style="{S["h2"]}">思想显影（实践学显影）</h2>')
         L.append(f'<p style="margin-top:0; color:#555;">用五段框架显影古今中外重要思想：边界画在哪、把什么当最大威胁、靠什么推动、用什么操作、压成一句什么判断。现有 <b>{len(_ts)}</b> 篇，每篇附关键判断结构命名。只显影结构，不评价思想高低。</p>')
         L.append(f'<div style="{S["ul"]}">')
-        for _t in _ts:
-            L.append(f'<div class="th-card"><div class="t"><a href="{thought_url(base, _t)}" style="color:#1a4d8f;">{_t["num"]}｜{_t.get("full_title", _t["title"])}</a></div>'
-                     f'<div class="m">{_t.get("category","")} ｜ 命名：{_t.get("naming","")}</div>'
-                     f'<div class="a"><b>边界：</b>{_t.get("border","")}</div></div>')
+        for _i, _t in enumerate(_ts):
+            _tcard = (f'<div class="th-card"><div class="t"><a href="{thought_url(base, _t)}" style="color:#1a4d8f;">{_t["num"]}｜{_t.get("full_title", _t["title"])}</a></div>'
+                      f'<div class="m">{_t.get("category","")} ｜ 命名：{_t.get("naming","")}</div>'
+                      f'<div class="a"><b>边界：</b>{_t.get("border","")}</div></div>')
+            if _i < FOLD_HOME:
+                L.append(_tcard)
+            else:
+                L.append(f'<div class="fold-item" style="display:none">{_tcard}</div>')
         L.append("</div>")
+        if len(_ts) > FOLD_HOME:
+            L.append(fold_button(len(_ts)))
         L.append(f'<p style="margin-top:12px;"><a href="thoughts.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_ts)} 篇思想显影（可搜索、按归目筛选）→</a></p>')
     L.append(f'<hr style="{S["foot_hr"]}">')
     if site.get("contact_note"):
@@ -1200,6 +1234,7 @@ def render_index(d):
         L.append(f'<p style="{S["foot"]}">{site["offer_note"]}</p>')
     L.append(f'<p style="{S["foot"]}">{site["footer"]}</p>')
     L.append("</div>")
+    L.append(FOLD_JS)
     L.append("</body>")
     L.append("</html>")
     return "\n".join(L) + "\n"
