@@ -32,7 +32,7 @@ pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）
 
 ## Executive Summary
 
-**DST Structural Disclosure Dataset** is a structured corpus of **Dynamic Sustenance Theory (DST)** — a meta-theory for analyzing how complex adaptive systems maintain themselves under continuous change. It packages three machine-readable components: `dst-terms.jsonl` (a bilingual ontology of 100 core concepts), `dst-cases.jsonl` (46 real decision cases annotated with a six-element structural framework — situation, signal, exclusion, action, expectation, revision), and `dst-thoughts.jsonl` (14 structural readings of major theoretical systems).
+**DST Structural Disclosure Dataset** is a structured corpus of **Dynamic Sustenance Theory (DST)** — a meta-theory for analyzing how complex adaptive systems maintain themselves under continuous change. It packages three machine-readable components: `dst-terms.jsonl` (a bilingual ontology of 100 core concepts), `dst-cases.jsonl` (47 real decision cases annotated with a six-element structural framework — situation, signal, exclusion, action, expectation, revision), and `dst-thoughts.jsonl` (15 structural readings of major theoretical systems).
 
 **What it is for**: retrieval-augmented generation (RAG), domain-specific fine-tuning, and ontology / knowledge-graph research on AI governance and decision theory.
 
@@ -65,8 +65,8 @@ Every record ships with a flattened `text` field (ready to feed into embedding o
 | 文件 | 内容 | 条数 |
 | --- | --- | --- |
 | `dst-terms.jsonl` | 核心术语本体：中英名 / 层级 / 级别 / 上位 / 归属 / 定义 / DOI | 100 |
-| `dst-cases.jsonl` | 决策判例：接口 / 杠杆 / 六要素全文 / 效果 / 适用条件 / 不适用条件 | 46 |
-| `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | 14 |
+| `dst-cases.jsonl` | 决策判例：接口 / 杠杆 / 六要素全文 / 效果 / 适用条件 / 不适用条件 | 47 |
+| `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | 15 |
 | `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 | 1 份 |
 
 ## 数据结构
@@ -156,7 +156,7 @@ for c in hits:
 
 ### 3. 直接读完整知识包
 
-单文件全量版（判据 + 46 篇判例 + 100 术语 + 治水历）：<https://zhishuixue.com/knowledge-pack.json>
+单文件全量版（判据 + 47 篇判例 + 100 术语 + 治水历）：<https://zhishuixue.com/knowledge-pack.json>
 
 ## 三层不可约的约束
 
@@ -226,4 +226,4 @@ https://doi.org/10.5281/zenodo.23664767
 | 发布日期 | 2026-11-01 |
 | 术语母表 | v1.1（2026-10-26，100 条）|
 | 判据 | v1.0（2026-10-20）|
-| 判例 | 46 篇（截至 2026-11-03）|
+| 判例 | 47 篇（截至 2026-11-04）|

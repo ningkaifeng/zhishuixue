@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 46,
-  "totalCases": 46
+  "mountedCases": 47,
+  "totalCases": 47
  },
  "unmounted": [],
  "howToUse": [
@@ -83,6 +83,11 @@
        "id": "B-0034",
        "title": "苦肉计",
        "url": "https://zhishuixue.com/cases/B-0034.html"
+      },
+      {
+       "id": "B-0040",
+       "title": "纸上谈兵",
+       "url": "https://zhishuixue.com/cases/B-0040.html"
       }
      ],
      "termAnchor": "structural-judgment",
