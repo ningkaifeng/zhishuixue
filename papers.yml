@@ -405,6 +405,23 @@ sections:
 works:
 
   # ---------- 第零卷 ----------
+  - id: volume-0-meta-declaration
+    section: volume-0
+    type: ScholarlyArticle
+    title: "存在与存续：元分界宣言（Existence and Sustenance: A Meta-Demarcation Declaration）"
+    card_title: "存在与存续：元分界宣言"
+    doi: "10.5281/zenodo.23981177"
+    date: "2026-11-05"
+    lang: "zh-CN"
+    card_meta: "第零卷·认识论部分 · 中英双语 · Zenodo, 2026"
+    abstract: "本文提出「存在」与「存续」的元分界——两域是两条平行的提问方向，不是上下层级。一个命题落在哪一域，不看它出自哪门学科，只看它问什么：追问「X 是什么」落在存在域，追问「X 如何维持自身」落在存续域。存在域以真理符合为旨归，存续域以可传承性检验＋换承载物测试为旨归。划界让跨域命题不再混战，并给「方法论动态、本体论静态」的学科一个重定位。哲学归为存在域的学术形态，存续域由实践学展开。全文中英双语。"
+    jsonld_abstract: "This declaration proposes a meta-demarcation between the existence domain and the sustenance domain — two parallel directions of questioning, not a hierarchy. Which domain a proposition falls into depends not on its discipline but on what it asks: \"what is X\" belongs to the existence domain, \"how does X maintain itself\" to the sustenance domain. The two domains are measured by different criteria: truth-correspondence within the existence domain, and inheritability plus the carrier-substitution test within the sustenance domain. Philosophy returns as the academic form of the existence domain; the sustenance domain is unfolded by praxiology. Bilingual (Chinese / English)."
+    keywords: ["存在与存续", "元分界", "存在域", "存续域", "实践学", "治水学", "Dynamic Sustenance Theory", "meta-demarcation", "praxiology", "宁凯峰"]
+    cite_title: "存在与存续：元分界宣言（治水学论纲·第零卷·认识论部分）"
+    bib_key: ning2026metadecl
+    bib_type: misc
+    bib_publisher: Zenodo
+
   - id: volume-0-epistemology-proto
     section: volume-0
     type: ScholarlyArticle
