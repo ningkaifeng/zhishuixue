@@ -13,7 +13,7 @@
  "citeKey": "dst-growth-v1.0",
  "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-05．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 25,
+  "papers": 26,
   "terms": 100,
   "cases": 48
  },
@@ -732,7 +732,13 @@
   },
   {
    "date": "2026-11-05",
-   "papers": [],
+   "papers": [
+    {
+     "id": "volume-0-meta-declaration",
+     "title": "存在与存续：元分界宣言（Existence and Sustenance: A Meta-Demarcation Declaration）",
+     "doi": "10.5281/zenodo.23981177"
+    }
+   ],
    "cases": [
     {
      "id": "B-0041",
@@ -740,7 +746,7 @@
      "url": "https://zhishuixue.com/cases/B-0041.html"
     }
    ],
-   "nPapers": 0,
+   "nPapers": 1,
    "nCases": 1
   }
  ],
