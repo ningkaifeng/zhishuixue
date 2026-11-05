@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 47,
-  "totalCases": 47
+  "mountedCases": 48,
+  "totalCases": 48
  },
  "unmounted": [],
  "howToUse": [
@@ -437,6 +437,11 @@
        "id": "B-0038",
        "title": "约法三章",
        "url": "https://zhishuixue.com/cases/B-0038.html"
+      },
+      {
+       "id": "B-0041",
+       "title": "负荆请罪",
+       "url": "https://zhishuixue.com/cases/B-0041.html"
       },
       {
        "id": "C-0001",

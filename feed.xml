@@ -5,13 +5,31 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-11-04T00:00:00Z</updated>
+  <updated>2026-11-05T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>X-0016｜墨家——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0016.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0016.html</id>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <published>2026-11-05T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>系统存续的威胁有两个：内耗靠兼爱化解，浪费靠节用守住——一边把关爱扩张到天下，一边把资源紧缩到必要，扩张与紧缩双驱，系统才不被内耗和浪费拖垮｜双驱存续系统</summary>
+  </entry>
+  <entry>
+    <title>B-0041｜负荆请罪</title>
+    <link href="https://zhishuixue.com/cases/B-0041.html"/>
+    <id>https://zhishuixue.com/cases/B-0041.html</id>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <published>2026-11-05T00:00:00Z</published>
+    <category term="判例"/>
+    <summary>战国赵惠文王时，蔺相如位在廉颇之上，廉颇不服、扬言"我见相如，必辱之"。蔺相如称病避朝、引车避匿，并向舍人点明"强秦不敢加兵于赵，徒以吾两人在""两虎共斗，其势不俱生""先国家之急而后私仇"。廉颇闻之，肉袒负荆、托宾客上门谢罪，两人卒为刎颈之交。核心是：裂痕若只是排序之争，一方造台阶、一方以与伤害同等公开度的方式走台阶，就能从"两虎共斗"扳回"将相和"。</summary>
+  </entry>
   <entry>
     <title>X-0015｜法家——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/X-0015.html"/>
@@ -353,23 +371,5 @@
     <published>2026-10-19T00:00:00Z</published>
     <category term="判例"/>
     <summary>春秋时，晋献公欲吞并相邻的虢、虞两个小国，二者唇齿相依、互为犄角。大夫荀息献“假道伐虢”——用屈产良马、垂棘美璧贿赂贪财的虞公，借虞国通道伐虢，灭虢后回师顺手灭了虞国，一石二鸟。精妙在“借道渗透”——借中间人的路／名义作跳板，先打真目标，回头把借道者也一并吞掉（唇亡齿寒）。</summary>
-  </entry>
-  <entry>
-    <title>B-0023｜远交近攻</title>
-    <link href="https://zhishuixue.com/cases/B-0023.html"/>
-    <id>https://zhishuixue.com/cases/B-0023.html</id>
-    <updated>2026-10-18T00:00:00Z</updated>
-    <published>2026-10-18T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>战国末期，范雎向秦昭襄王献“远交近攻”——纠正穰侯魏冉“越韩魏而远攻齐”的路线，把六国按远近分层：先稳住远的齐楚燕（远交），集中力量蚕食近的韩魏（近攻），得寸则寸、得尺则尺，由近及远各个击破，最终一统天下。精妙在“边界划定”——把存续边界划到统一天下的全局未来，才有远近可分。</summary>
-  </entry>
-  <entry>
-    <title>B-0022｜关门捉贼</title>
-    <link href="https://zhishuixue.com/cases/B-0022.html"/>
-    <id>https://zhishuixue.com/cases/B-0022.html</id>
-    <updated>2026-10-17T00:00:00Z</updated>
-    <published>2026-10-17T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>长平之战，秦将白起面对赵括亲率的四十万大军，不硬拼、不追击，而是先佯败诱敌，等赵军离开坚固营垒、深入秦境，再派奇兵截断其退路、切断粮道，把四十万赵军围成“瓮中之鳖”，围困46天、粮绝，赵括突围被射杀，赵军全军覆没。精妙在“关门困敌”——不追不赶，先关门（断退路）、再捉贼（围歼），让敌人无路可逃、一网打尽。</summary>
   </entry>
 </feed>
