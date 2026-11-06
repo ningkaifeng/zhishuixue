@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-11-05",
+ "updated": "2026-11-06",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,15 +11,15 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-05．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-06．https://zhishuixue.com/growth.json",
  "totals": {
   "papers": 26,
   "terms": 100,
-  "cases": 48
+  "cases": 49
  },
  "byCategory": {
   "A 基层治理": 4,
-  "B 历史判例": 41,
+  "B 历史判例": 42,
   "C 企业管理": 2,
   "E 宏观案例": 1
  },
@@ -747,6 +747,19 @@
     }
    ],
    "nPapers": 1,
+   "nCases": 1
+  },
+  {
+   "date": "2026-11-06",
+   "papers": [],
+   "cases": [
+    {
+     "id": "B-0042",
+     "title": "卧薪尝胆",
+     "url": "https://zhishuixue.com/cases/B-0042.html"
+    }
+   ],
+   "nPapers": 0,
    "nCases": 1
   }
  ],

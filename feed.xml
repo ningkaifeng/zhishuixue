@@ -5,13 +5,31 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-11-05T00:00:00Z</updated>
+  <updated>2026-11-06T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>X-0017｜佛学——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0017.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0017.html</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <published>2026-11-06T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>众生因无明执着困于苦；般若照破（突破）/戒律规范（稳定）/涅槃指引（方向）三项均可指认，具备动力—规则协同｜解脱存续系统</summary>
+  </entry>
+  <entry>
+    <title>B-0042｜卧薪尝胆</title>
+    <link href="https://zhishuixue.com/cases/B-0042.html"/>
+    <id>https://zhishuixue.com/cases/B-0042.html</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <published>2026-11-06T00:00:00Z</published>
+    <category term="判例"/>
+    <summary>越王勾践夫椒之战大败、入吴为奴三年被放归后，面对复国灭吴这个十年以上周期的目标，识出最大的敌人不是吴国，而是自己会随时间、安逸而衰减的复仇意志。他把会稽之耻物化成一只苦胆挂在座旁，坐卧仰视、饮食尝之，每天自问「女忘会稽之耻邪」，身自耕作、夫人自织、食不加肉、衣不重采，用持续的生理痛觉把意志蓄住，二十年后灭吴。同结构的吴王夫差把同一装置外置——使人立于庭喊话，三年报越后装置随目标达成而废止，意志转向，终至自刎。一组对照：内化撑到第二十年，外置只撑住一次冲刺。</summary>
+  </entry>
   <entry>
     <title>存在与存续：元分界宣言（Existence and Sustenance: A Meta-Demarcation Declaration）</title>
     <link href="https://doi.org/10.5281/zenodo.23981177"/>
@@ -353,23 +371,5 @@
     <published>2026-10-21T00:00:00Z</published>
     <category term="判例"/>
     <summary>春秋时，吴王阖闾令孙武操练 180 名宫女以试兵法。宫女嬉笑不听号令，孙武三令五申无效后，斩了担任左右队长的吴王两名宠妃，杀一儆百；再操练，宫女进退整齐、令行禁止。精妙在“立威树纪”——惩戒一个最不能罚的典型，把“违令必惩”的预期传导给全体，用最小代价建立号令的权威。</summary>
-  </entry>
-  <entry>
-    <title>结构显影的判据——六要素检验标准与可传承判断的生成</title>
-    <link href="https://doi.org/10.5281/zenodo.23486787"/>
-    <id>https://doi.org/10.5281/zenodo.23486787</id>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <published>2026-10-20T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>判例集回答「结构长什么样」，本文回答「按什么标准判」。给出四层判据：第零步·承压位置检验，六要素逐项判据，结构自足性（换承载物测试），可传承性（四问）；并声明五项不提供——量化阈值、直接答案、替代承压主体的判断、对错评价、跨尺度统一阈值。核心主张：判据须与判例同时使用；单独使用判据所形成的判断，不属于结构显影。</summary>
-  </entry>
-  <entry>
-    <title>B-0025｜偷梁换柱</title>
-    <link href="https://zhishuixue.com/cases/B-0025.html"/>
-    <id>https://zhishuixue.com/cases/B-0025.html</id>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <published>2026-10-20T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>秦始皇沙丘病危，赵高扣压遗诏、拉李斯入伙、伪诏赐死扶苏与蒙恬，秘不发丧以保外观——先识出体系的承重件（合法性来源＋军方执行者），再用自己人替换，使秦帝国在支撑已被抽走、外观却毫无变化的情况下自行崩塌。</summary>
   </entry>
 </feed>

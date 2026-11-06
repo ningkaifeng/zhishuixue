@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 48,
-  "totalCases": 48
+  "mountedCases": 49,
+  "totalCases": 49
  },
  "unmounted": [],
  "howToUse": [
@@ -357,6 +357,11 @@
        "id": "B-0036",
        "title": "走为上",
        "url": "https://zhishuixue.com/cases/B-0036.html"
+      },
+      {
+       "id": "B-0042",
+       "title": "卧薪尝胆",
+       "url": "https://zhishuixue.com/cases/B-0042.html"
       },
       {
        "id": "C-0002",

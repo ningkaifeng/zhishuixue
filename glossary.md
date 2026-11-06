@@ -194,7 +194,7 @@
 - **编号**：DST-C-10
 - **DOI**：10.5281/zenodo.22842961
 - **一句话定义**：系统改变自身状态以应对洪水的能力层——即三浪。
-- **相关案例**：B-0023｜远交近攻（https://zhishuixue.com/cases/B-0023.html）
+- **相关案例**：B-0023｜远交近攻（https://zhishuixue.com/cases/B-0023.html）、B-0042｜卧薪尝胆（https://zhishuixue.com/cases/B-0042.html）
 
 ## 四、D · 规则层
 
