@@ -1036,6 +1036,281 @@ def render_thought_page(t, d, all_thoughts):
     return "\n".join(L) + "\n"
 
 
+
+# ---------------------------- 标本库（specimens） ----------------------------
+SPEC_FILE = "specimens.yml"
+
+
+def load_specimens():
+    path = os.path.join(ROOT, SPEC_FILE)
+    if not os.path.exists(path):
+        return {"meta": {}, "specimens": []}
+    with open(path, encoding="utf-8") as f:
+        return yaml.safe_load(f) or {"meta": {}, "specimens": []}
+
+
+def specimen_url(base, s):
+    return base + "specimens/" + s["id"] + ".html"
+
+
+def _sp_class(state):
+    if "崩溃" in state:
+        return "sp-s4"
+    if "锁定" in state and "中后" in state:
+        return "sp-s3"
+    if "锁定" in state:
+        return "sp-s2"
+    return "sp-s1"
+
+
+def _sp_desc(s):
+    return ("%s结构显影（T0 实时判断，%s）：%s T0 落点：%s。"
+            % (s.get("title", ""), s.get("t0_date", ""), s.get("summary", ""),
+               s.get("state", "")))
+
+
+SPEC_STYLE = """
+.sp-card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px 16px;margin-bottom:12px;}
+.sp-card .t{font-size:1.05em;font-weight:500;}
+.sp-card .t a{color:#1a4d8f;text-decoration:none;}
+.sp-card .m{font-size:0.82em;color:#888;margin:5px 0;}
+.sp-card .a{font-size:0.92em;color:#333;margin:6px 0;}
+.sp-badge{display:inline-block;font-size:0.78em;padding:2px 10px;border-radius:999px;margin-right:6px;border:1px solid #ddd;}
+.sp-s1{background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;}
+.sp-s2{background:#fff8e1;color:#8d6e00;border-color:#ffe082;}
+.sp-s3{background:#fff3e0;color:#a64b00;border-color:#ffcc80;}
+.sp-s4{background:#ffebee;color:#b71c1c;border-color:#ef9a9a;}
+.sp-t0{background:#f3e8fd;color:#5b2c8d;border-color:#d1b3f0;}
+.sp-warn{font-size:0.9em;color:#6a5200;background:#fff8e6;border-left:4px solid #d99a00;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0 22px;}
+.sp-fields{width:100%;border-collapse:collapse;font-size:0.9em;margin:8px 0 20px;}
+.sp-fields th,.sp-fields td{border:1px solid #e0e0e0;padding:8px 10px;text-align:left;vertical-align:top;}
+.sp-fields th{background:#f2f6fa;color:#1a4d8f;white-space:nowrap;width:30%;}
+.sp-sec h2{font-size:1.08em;color:#1a4d8f;border-left:4px solid #1a4d8f;padding-left:10px;margin:24px 0 10px;}
+.sp-sec h3{font-size:0.98em;color:#333;margin:16px 0 6px;font-weight:600;}
+.sp-sec p{margin:8px 0;}
+.sp-obs{width:100%;border-collapse:collapse;font-size:0.86em;margin:10px 0 20px;}
+.sp-obs th,.sp-obs td{border:1px solid #e0e0e0;padding:8px 10px;text-align:left;vertical-align:top;}
+.sp-obs th{background:#f2f6fa;color:#1a4d8f;}
+"""
+
+
+def _sp_health(items):
+    miss = [s["id"] for s in items
+            if not all([s.get("border"), s.get("state"), s.get("t0_date"),
+                        s.get("leverage"), s.get("judgment")])]
+    bad_date = [s["id"] for s in items if not (s.get("t0_date") or "").strip()]
+    few_obs = [s["id"] for s in items if len(s.get("obs") or []) < 4]
+    bad_state = [s["id"] for s in items
+                 if not any(k in (s.get("state") or "")
+                            for k in ("适应态", "危机重构", "锁定", "崩溃"))]
+    return {
+        "missingFields": miss,
+        "missingT0Date": bad_date,
+        "fewObservations": few_obs,
+        "stateNotInEnum": bad_state,
+        "notes": ("标本库体检：missingFields 检查边界/落点/日期/杠杆点/判断是否齐；"
+                  "missingT0Date 检查 T0 记录日；fewObservations 检查 T1 观测节点是否少于 4 个；"
+                  "stateNotInEnum 检查落点是否落在四态（适应态/危机重构窗口/锁定态/崩溃态）内。四项全空即健康。"),
+    }
+
+
+def render_specimens_json(d):
+    base = d["site"]["base_url"]
+    sd = load_specimens()
+    meta = sd.get("meta", {}) or {}
+    items = []
+    for s in sd.get("specimens", []):
+        items.append({
+            "id": s["id"], "num": s["num"], "title": s["title"],
+            "domain": s.get("domain", ""), "border": s.get("border", ""),
+            "t0Date": s.get("t0_date", ""), "state": s.get("state", ""),
+            "constraintMutability": s.get("dim_constraint", ""),
+            "stateGeneration": s.get("dim_generation", ""),
+            "channel": s.get("channel", ""), "leverage": s.get("leverage", ""),
+            "interventionDirection": s.get("direction", ""),
+            "summary": s.get("summary", ""), "judgment": s.get("judgment", ""),
+            "correctionIfWorse": s.get("correction_bad", ""),
+            "correctionIfBetter": s.get("correction_good", ""),
+            "observations": s.get("obs", []),
+            "t0Source": meta.get("repo", "") + "/blob/main/" + s.get("repo_path", ""),
+            "url": specimen_url(base, s),
+            "status": "T0-pending-verification",
+        })
+    dates = [x["t0Date"] for x in items if x.get("t0Date")]
+    header = {
+        "schema": "dst-specimens/1.0",
+        "title": meta.get("title", "治水学·复杂治理标本库"),
+        "titleEn": meta.get("title_en", "Complex Governance Specimen Library"),
+        "versionLabel": meta.get("version_label", "v0.1"),
+        "date": meta.get("release_date") or (max(dates) if dates else ""),
+        "license": meta.get("license", "CC BY 4.0"),
+        "source": base + "specimens.html",
+        "repo": meta.get("repo", ""),
+        "count": len(items),
+        "note": meta.get("note", ""),
+        "protocol": {
+            "T0": "结果未知时写定判断，一字不改（证据）",
+            "T1": "事件发生后追加回看，判断准/偏如实记录",
+            "T2": "事后复盘，校准方法",
+            "rule": "T0 一经提交不再修改，更正一律追加到 T1",
+        },
+        "fieldNotes": {
+            "state": "四态之一：适应态 / 危机重构窗口 / 锁定态 / 崩溃态；锁定态再分早期（约束尚可调→修复通道）与中后期（约束已固化→外部介入通道）",
+            "constraintMutability": "约束是否还可调：可调 / 固化",
+            "stateGeneration": "系统能否正常生成核心状态：可生成（强） / 可生成（弱，产出落不了地） / 断裂",
+            "leverage": "高频且少数主体单边可变的位置（判据是高流量+单边可变，不是最显眼处）",
+            "observations": "T1 观测节点：验证 T0（算准）与打破 T0（算偏，触发语法修正）的判据",
+            "status": "T0-pending-verification 表示事前判断尚未被事件检验；T1 回看后更新",
+        },
+        "health": _sp_health(sd.get("specimens", [])),
+        "specimens": items,
+    }
+    return json.dumps(header, ensure_ascii=False, indent=2) + "\n"
+
+
+def render_specimens_index(d):
+    base = d["site"]["base_url"]
+    sd = load_specimens()
+    meta = sd.get("meta", {}) or {}
+    items = sd.get("specimens", [])
+    url = base + "specimens.html"
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": url,
+        "name": meta.get("title", "治水学·复杂治理标本库"),
+        "description": meta.get("note", ""),
+        "url": url,
+        "author": {"@id": base + "#person"},
+        "inLanguage": "zh-CN",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "isPartOf": {"@type": "WebSite", "name": "治水学 DST", "url": base},
+        "hasPart": [{"@type": "ScholarlyArticle", "name": s["title"],
+                     "url": specimen_url(base, s), "datePublished": s.get("t0_date", "")}
+                    for s in items],
+    }
+    L = ["<!DOCTYPE html", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
+         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+         "<title>" + meta.get("title", "治水学·复杂治理标本库") + " | 治水学 DST</title>",
+         '<meta name="description" content="' + meta.get("note", "") + '">',
+         '<link rel="canonical" href="' + url + '">',
+         '<link rel="describedby" type="text/plain" href="' + base + 'llms.txt">',
+         '<script type="application/ld+json">', j(ld), "</script>",
+         "<style>", GLOSSARY_STYLE, CASE_STYLE, THOUGHT_STYLE, SPEC_STYLE, "</style>",
+         "</head>", "<body>",
+         '<p class="th-top"><a href="' + base + '">← 治水学主页</a> ｜ <a href="' + base + 'cases.html">决策显影库</a> ｜ <a href="' + base + 'thoughts.html">思想显影</a> ｜ <a href="' + base + 'glossary.html">核心术语表</a> ｜ <a href="' + base + 'about.html">关于</a></p>',
+         "<h1>" + meta.get("title", "复杂治理标本库") + "</h1>",
+         '<div class="sp-warn"><b>这个库和别处不一样的地方：</b>这里的判断都是<b>在结果发生之前写下的</b>，日期固定在提交里，事后不改。判断可能是错的——错也留着，因为能被验证，才有价值。每篇标本末尾都写了「什么情况下说明这个判断错了」。</div>',
+         '<p class="intro">' + meta.get("note", "") + "</p>",
+         '<p class="intro" style="font-size:0.88em;color:#888;">与另两条线的分工：决策显影库显影「事件」（过去、结局已知）；思想显影显影「体系」（跨时代）；标本显影「仍在运行的系统」（当下，结局未知，可被未来证伪）。共 <b>' + str(len(items)) + "</b> 份。</p>"]
+    for s in items:
+        L.append('<div class="sp-card">')
+        L.append('<div class="t"><a href="' + specimen_url(base, s) + '">' + s["num"] + "｜" + s["title"] + "</a></div>")
+        L.append('<div class="m"><span class="sp-badge sp-t0">T0 · ' + s.get("t0_date", "") + "</span>"
+                 '<span class="sp-badge ' + _sp_class(s.get("state", "")) + '">' + s.get("state", "") + "</span>"
+                 + s.get("domain", "") + " ｜ 杠杆点：" + s.get("leverage", "") + "</div>")
+        L.append('<div class="a">' + s.get("summary", "") + "</div></div>")
+    L.append('<p class="foot"><a href="' + base + 'specimens-index.json">机器可读索引 specimens-index.json</a>'
+             + (" ｜ <a href=\"" + meta.get("repo", "") + "\">GitHub 仓库（T0 原件与提交时间戳）</a>" if meta.get("repo") else "")
+             + "</p>")
+    L.append("</body></html>")
+    return "\n".join(L) + "\n"
+
+
+def render_specimen_page(s, d, all_items):
+    base = d["site"]["base_url"]
+    sd = load_specimens()
+    meta = sd.get("meta", {}) or {}
+    url = specimen_url(base, s)
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "@id": url,
+        "name": s["num"] + "｜" + s["title"],
+        "headline": s["num"] + "｜" + s["title"],
+        "author": {"@id": base + "#person"},
+        "identifier": s["id"],
+        "url": url,
+        "description": _sp_desc(s),
+        "abstract": s.get("judgment", ""),
+        "datePublished": s.get("t0_date", ""),
+        "inLanguage": "zh-CN",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "creativeWorkStatus": "T0-pending-verification",
+        "keywords": [s.get("domain", ""), s.get("state", ""), "结构显影", "T0 事前判断",
+                     "复杂系统诊断", "治水学"],
+        "isPartOf": {"@type": "CreativeWorkSeries", "name": meta.get("title", "复杂治理标本库"),
+                     "url": base + "specimens.html"},
+        "isBasedOn": meta.get("repo", "") + "/blob/main/" + s.get("repo_path", ""),
+    }
+    L = ["<!DOCTYPE html", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
+         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+         "<title>" + s["num"] + "｜" + s["title"] + " | 治水学 DST · 标本库</title>",
+         '<meta name="description" content="' + _sp_desc(s) + '">',
+         '<link rel="canonical" href="' + url + '">',
+         '<link rel="describedby" type="text/plain" href="' + base + 'llms.txt">',
+         '<script type="application/ld+json">', j(ld), "</script>",
+         "<style>", GLOSSARY_STYLE, CASE_STYLE, THOUGHT_STYLE, SPEC_STYLE, "</style>",
+         "</head>", "<body>",
+         '<p class="th-top"><a href="' + base + '">← 治水学主页</a> ｜ <a href="' + base + 'specimens.html">标本库总览</a> ｜ <a href="' + base + 'cases.html">决策显影库</a> ｜ <a href="' + base + 'thoughts.html">思想显影</a> ｜ <a href="' + base + 'about.html">关于</a></p>',
+         "<h1>" + s["num"] + "｜" + s["title"] + "</h1>",
+         '<p class="case-meta"><span class="sp-badge sp-t0">T0 事前判断</span>'
+         '<span class="sp-badge ' + _sp_class(s.get("state", "")) + '">' + s.get("state", "") + "</span>"
+         "领域：" + s.get("domain", "") + " ｜ 记录日期：" + s.get("t0_date", "")
+         + " ｜ 许可：" + s.get("license", "CC BY 4.0") + "</p>",
+         '<div class="sp-warn"><b>这是 ' + s.get("t0_date", "") + ' 写下的判断，结果当时未知。</b>'
+         "判断可能出错，而且照样留着不改——可被检验，是它唯一的价值。若出现下列「打破条件」，说明判断偏了，"
+         "我们会在 T1 回看里如实记录偏在哪里、方法改了什么。</div>"]
+    L.append("<h2>结构档案</h2>")
+    rows = [("编号", s["num"]), ("领域", s.get("domain", "")), ("分析边界", s.get("border", "")),
+            ("约束可调性", s.get("dim_constraint", "")), ("状态生成能力", s.get("dim_generation", "")),
+            ("T0 落点", s.get("state", "")), ("干预通道", s.get("channel", "")),
+            ("杠杆点", s.get("leverage", "")), ("干预方向", s.get("direction", "")),
+            ("T0 记录日", s.get("t0_date", ""))]
+    L.append('<table class="sp-fields"><tbody>')
+    for k, v in rows:
+        if v:
+            L.append("<tr><th>" + k + "</th><td>" + v + "</td></tr>")
+    L.append("</tbody></table>")
+    L.append("<h2>一句话结构判断</h2>")
+    L.append('<div class="th-limit" style="background:#eef4fb;border-left-color:#1a4d8f;color:#1a3a63;">'
+             + s.get("judgment", "") + "</div>")
+    L.append("<h2>未来修正条件（什么情况说明这判断错了）</h2>")
+    L.append('<table class="sp-fields"><tbody>')
+    L.append("<tr><th>若恶化</th><td>" + s.get("correction_bad", "") + "</td></tr>")
+    L.append("<tr><th>若好转</th><td>" + s.get("correction_good", "") + "</td></tr>")
+    L.append("</tbody></table>")
+    if s.get("obs"):
+        L.append("<h2>T1 观测节点</h2>")
+        L.append('<p class="case-meta">事件回来后逐条对照：左侧算准、右侧算偏，算偏即触发方法修正。</p>')
+        L.append('<table class="sp-obs"><thead><tr><th>#</th><th>观测节点</th><th>验证 T0（算准）</th><th>打破 T0（算偏）</th></tr></thead><tbody>')
+        for o in s["obs"]:
+            L.append("<tr><td>" + str(o.get("no", "")) + "</td><td>" + o.get("node", "")
+                     + "</td><td>" + o.get("verify", "") + "</td><td>" + o.get("break", "") + "</td></tr>")
+        L.append("</tbody></table>")
+    L.append("<h2>T0 原件全文</h2>")
+    L.append('<p class="case-meta">以下为 ' + s.get("t0_date", "") + " 记录的原文，一字未改。</p>")
+    for sec in s.get("sections", []):
+        L.append('<div class="sp-sec"><h2>' + sec["k"] + "</h2>")
+        for para in [x for x in sec["v"].split("\n") if x.strip()]:
+            L.append("<p>" + para + "</p>")
+        L.append("</div>")
+    if meta.get("repo"):
+        L.append('<p class="case-meta">原件与提交时间戳（不可篡改）：<a href="'
+                 + meta["repo"] + "/blob/main/" + s.get("repo_path", "") + '">GitHub · '
+                 + s.get("repo_path", "") + "</a></p>")
+    rel = [x for x in all_items if x["id"] != s["id"]][:3]
+    if rel:
+        L.append("<h2>同库其他标本</h2>")
+        L.append('<div class="th-box">' + "<br>".join(
+            '· <a href="' + specimen_url(base, x) + '">' + x["num"] + "｜" + x["title"]
+            + "</a> — " + x.get("state", "") for x in rel) + "</div>")
+    L.append('<p class="case-meta">收录于「' + meta.get("title", "复杂治理标本库")
+             + "」 ｜ 官网存档：" + url + "</p>")
+    L.append("</body></html>")
+    return "\n".join(L) + "\n"
+
+
 # ---------------------------- index.html ----------------------------
 def work_ld(w, series_name, base):
     ld = {
@@ -1227,6 +1502,29 @@ def render_index(d):
         if len(_ts) > FOLD_HOME:
             L.append(fold_button(len(_ts)))
         L.append(f'<p style="margin-top:12px;"><a href="thoughts.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_ts)} 篇思想显影（可搜索、按归目筛选）→</a></p>')
+    _sd = load_specimens()
+    _ss = _sd.get("specimens", [])
+    if _ss:
+        _sm = _sd.get("meta", {}) or {}
+        L.append(f'<h2 style="{S["h2"]}">复杂治理标本库（实时诊断 · 事前判断）</h2>')
+        L.append('<p style="margin-top:0; color:#555;">对一个仍在运行的真实系统做结构诊断，并在结果发生之前写下判断——日期固定在提交里，事后不改。现有 <b>'
+                 + str(len(_ss)) + '</b> 份，每份都写明「什么情况说明这个判断错了」。判断可能是错的，能被验证才有价值。</p>')
+        L.append(f'<div style="{S["ul"]}">')
+        for _i, _s in enumerate(_ss):
+            _scard = ('<div class="sp-card"><div class="t"><a href="' + specimen_url(base, _s)
+                      + '" style="color:#1a4d8f;">' + _s["num"] + "｜" + _s["title"] + "</a></div>"
+                      '<div class="m"><span class="sp-badge sp-t0">T0 · ' + _s.get("t0_date", "")
+                      + '</span><span class="sp-badge ' + _sp_class(_s.get("state", "")) + '">'
+                      + _s.get("state", "") + "</span>" + _s.get("domain", "") + "</div>"
+                      '<div class="a">' + _s.get("summary", "") + "</div></div>")
+            if _i < 3:
+                L.append(_scard)
+            else:
+                L.append(f'<div class="fold-item" style="display:none">{_scard}</div>')
+        L.append("</div>")
+        if len(_ss) > 3:
+            L.append(fold_button(len(_ss), unit='份'))
+        L.append(f'<p style="margin-top:12px;"><a href="specimens.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_ss)} 份标本（T0 判断 + 修正条件 + T1 观测节点）→</a></p>')
     L.append(f'<hr style="{S["foot_hr"]}">')
     if site.get("contact_note"):
         L.append(f'<p style="{S["foot"]}">{site["contact_note"]}</p>')
@@ -1551,6 +1849,25 @@ def render_llms(d):
         for _t in _ts:
             L.append(f'- {_t["num"]}｜{_t.get("full_title", _t["title"])}（{_t.get("category","")}）｜命名：{_t.get("naming","")}')
             L.append(f'  {thought_url(base, _t)}')
+        L.append("")
+    _sd = load_specimens()
+    _ss = _sd.get("specimens", [])
+    if _ss:
+        _sm = _sd.get("meta", {}) or {}
+        L.append("## 复杂治理标本库（实时诊断：对仍在运行的系统做 T0 事前判断）")
+        L.append(_sm.get("note", ""))
+        L.append(f'共 {len(_ss)} 份。与另两条线的分工：决策显影用六要素显影「事件」（过去、结局已知）；思想显影用五段显影「体系」（跨时代）；标本显影「仍在运行的系统」（当下、结局未知、可被证伪）——本库是唯一往前看并且可能被现实推翻的一条。每份标本含：分析边界、约束可调性 × 状态生成能力（→四态落点）、三种动能、三种操作、杠杆点与干预方向、双向修正条件（什么情况说明判断错了）、T1 观测节点（验证/打破 T0 的判据）。T0 一经提交不再修改，更正一律追加到 T1。')
+        L.append("")
+        L.append(f'- 标本库机器可读索引（JSON）：{base}specimens-index.json')
+        L.append(f'- 标本库总览（人读）：{base}specimens.html')
+        L.append(f'- 逐份页面：{base}specimens/<编号>.html（例：{base}specimens/S-0001.html）')
+        if _sm.get("repo"):
+            L.append(f'- T0 原件与提交时间戳（GitHub，不可篡改）：{_sm["repo"]}')
+        L.append("")
+        for _s in _ss:
+            L.append(f'- {_s["num"]}｜{_s["title"]}（{_s.get("domain","")}）｜T0 落点：{_s.get("state","")}｜记录日：{_s.get("t0_date","")}')
+            L.append(f'  判断：{_s.get("judgment","")}')
+            L.append(f'  {specimen_url(base, _s)}')
         L.append("")
     L.append("## 结构显影判据（Criteria：怎么判断一份显影做得对不对）")
     L.append("判例告诉模型「长什么样」，判据告诉模型「按什么标准判」。**判据须与判例同时使用。**")
@@ -1949,6 +2266,12 @@ def render_sitemap(d):
         pages.append((base + "thoughts-index.json", "0.6", "weekly"))
         for _t in _ts:
             pages.append((thought_url(base, _t), "0.6", "monthly"))
+    _ss = load_specimens().get("specimens", [])
+    if _ss:
+        pages.append((base + "specimens.html", "0.8", "weekly"))
+        pages.append((base + "specimens-index.json", "0.6", "weekly"))
+        for _s in _ss:
+            pages.append((specimen_url(base, _s), "0.7", "weekly"))
     L = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc, prio, freq in pages:
@@ -2063,6 +2386,8 @@ def main():
         "growth.json": render_growth(d),
         "thoughts.html": render_thoughts_index(d),
         "thoughts-index.json": render_thoughts_json(d),
+        "specimens.html": render_specimens_index(d),
+        "specimens-index.json": render_specimens_json(d),
     }
     for name, content in outputs.items():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
@@ -2084,6 +2409,14 @@ def main():
             with open(os.path.join(DIST, "thoughts", _t["id"] + ".html"), "w", encoding="utf-8") as f:
                 f.write(content)
             print(f'  OK thoughts/{_t["id"]}.html  ({len(content)} bytes)')
+    _ss = load_specimens().get("specimens", [])
+    if _ss:
+        os.makedirs(os.path.join(DIST, "specimens"), exist_ok=True)
+        for _s in _ss:
+            content = render_specimen_page(_s, d, _ss)
+            with open(os.path.join(DIST, "specimens", _s["id"] + ".html"), "w", encoding="utf-8") as f:
+                f.write(content)
+            print(f'  OK specimens/{_s["id"]}.html  ({len(content)} bytes)')
     _ky = d["site"].get("indexnow_key")
     if _ky:
         with open(os.path.join(DIST, _ky + ".txt"), "w", encoding="utf-8") as f:
