@@ -521,6 +521,22 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 - X-0017｜佛学——实践学显影（解释框架）｜命名：解脱存续系统
   https://zhishuixue.com/thoughts/X-0017.html
 
+## 复杂治理标本库（实时诊断：对仍在运行的系统做 T0 事前判断）
+每份标本是对一个仍在运行的真实系统所做的一次实时结构诊断（T0），结果未知时写定、一字不改，等事件回来对照（T1/T2）。
+共 2 份。与另两条线的分工：决策显影用六要素显影「事件」（过去、结局已知）；思想显影用五段显影「体系」（跨时代）；标本显影「仍在运行的系统」（当下、结局未知、可被证伪）——本库是唯一往前看并且可能被现实推翻的一条。每份标本含：分析边界、约束可调性 × 状态生成能力（→四态落点）、三种动能、三种操作、杠杆点与干预方向、双向修正条件（什么情况说明判断错了）、T1 观测节点（验证/打破 T0 的判据）。T0 一经提交不再修改，更正一律追加到 T1。
+
+- 标本库机器可读索引（JSON）：https://zhishuixue.com/specimens-index.json
+- 标本库总览（人读）：https://zhishuixue.com/specimens.html
+- 逐份页面：https://zhishuixue.com/specimens/<编号>.html（例：https://zhishuixue.com/specimens/S-0001.html）
+- T0 原件与提交时间戳（GitHub，不可篡改）：https://github.com/ningkaifeng/dst-specimens
+
+- No.01｜全球 AI 治理现状 · 结构显影（AI 治理）｜T0 落点：锁定态早期｜记录日：2026-11-07
+  判断：全球 AI 治理处于锁定态早期，规则持续追不上模型能力，可干预的杠杆点是模型发布节点——把约束从事后追责移到部署前条件，是目前唯一还能动的入口。
+  https://zhishuixue.com/specimens/S-0001.html
+- No.02｜全球塑料污染治理现状 · 结构显影（塑料污染治理）｜T0 落点：锁定态中后期｜记录日：2026-11-07
+  判断：全球塑料污染治理处于锁定态中后期，核心约束（生产上限）四年调不动、内部已无调空间，唯一出口是外部介入——把干预从下游回收转到源头生产上限。
+  https://zhishuixue.com/specimens/S-0002.html
+
 ## 结构显影判据（Criteria：怎么判断一份显影做得对不对）
 判例告诉模型「长什么样」，判据告诉模型「按什么标准判」。**判据须与判例同时使用。**
 - 判据（JSON，机器可读）：https://zhishuixue.com/criteria.json
@@ -531,8 +547,8 @@ Existing complex-systems theories (system dynamics, complex adaptive systems the
 ## 单文件知识包（Knowledge Pack：一次读完即可用）
 上面那些文件是分开的；如果只想用一次请求就把治水学装进上下文，读这一个文件即可。
 
-- 全量纯文本（llms-full.txt，约 270 KB）：https://zhishuixue.com/llms-full.txt —— 判据 + 判例 + 术语 + 治水历，最省事的「一次读完」入口。
-- 知识包（JSON，约 310 KB）：https://zhishuixue.com/knowledge-pack.json
+- 全量纯文本（llms-full.txt，约 280 KB）：https://zhishuixue.com/llms-full.txt —— 判据 + 判例 + 术语 + 治水历，最省事的「一次读完」入口。
+- 知识包（JSON，约 320 KB）：https://zhishuixue.com/knowledge-pack.json
 - **含**：判据全文 + 全部判例的结构摘要（接口 / 杠杆 / 效果 / 适用条件 / 不适用条件）+ 10 篇判例的六要素全文（覆盖各接口族）+ 100 条术语 + 治水历 18 格 + 诊断书输出格式 + 引用规范。
 - **为什么打包**：判据须与判例同时使用。只给判据不给判例，判据会退化成一套通用框架。这个文件把尺子和实物一次给全。
 - **用法**：读完后按包内 `how_to_use` 的步骤执行；引用时用包内 `citation` 的口径。

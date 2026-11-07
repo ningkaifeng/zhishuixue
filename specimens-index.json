@@ -1,0 +1,129 @@
+{
+  "schema": "dst-specimens/1.0",
+  "title": "治水学·复杂治理标本库",
+  "titleEn": "Complex Governance Specimen Library",
+  "versionLabel": "v0.1",
+  "date": "2026-11-07",
+  "license": "CC BY 4.0",
+  "source": "https://zhishuixue.com/specimens.html",
+  "repo": "https://github.com/ningkaifeng/dst-specimens",
+  "count": 2,
+  "note": "每份标本是对一个仍在运行的真实系统所做的一次实时结构诊断（T0），结果未知时写定、一字不改，等事件回来对照（T1/T2）。",
+  "protocol": {
+    "T0": "结果未知时写定判断，一字不改（证据）",
+    "T1": "事件发生后追加回看，判断准/偏如实记录",
+    "T2": "事后复盘，校准方法",
+    "rule": "T0 一经提交不再修改，更正一律追加到 T1"
+  },
+  "fieldNotes": {
+    "state": "四态之一：适应态 / 危机重构窗口 / 锁定态 / 崩溃态；锁定态再分早期（约束尚可调→修复通道）与中后期（约束已固化→外部介入通道）",
+    "constraintMutability": "约束是否还可调：可调 / 固化",
+    "stateGeneration": "系统能否正常生成核心状态：可生成（强） / 可生成（弱，产出落不了地） / 断裂",
+    "leverage": "高频且少数主体单边可变的位置（判据是高流量+单边可变，不是最显眼处）",
+    "observations": "T1 观测节点：验证 T0（算准）与打破 T0（算偏，触发语法修正）的判据",
+    "status": "T0-pending-verification 表示事前判断尚未被事件检验；T1 回看后更新"
+  },
+  "health": {
+    "missingFields": [],
+    "missingT0Date": [],
+    "fewObservations": [],
+    "stateNotInEnum": [],
+    "notes": "标本库体检：missingFields 检查边界/落点/日期/杠杆点/判断是否齐；missingT0Date 检查 T0 记录日；fewObservations 检查 T1 观测节点是否少于 4 个；stateNotInEnum 检查落点是否落在四态（适应态/危机重构窗口/锁定态/崩溃态）内。四项全空即健康。"
+  },
+  "specimens": [
+    {
+      "id": "S-0001",
+      "num": "No.01",
+      "title": "全球 AI 治理现状 · 结构显影",
+      "domain": "AI 治理",
+      "border": "全球 AI 治理（2024–2026）",
+      "t0Date": "2026-11-07",
+      "state": "锁定态早期",
+      "constraintMutability": "可调 → 固化过渡中",
+      "stateGeneration": "可生成（强）",
+      "channel": "修复通道（repair）",
+      "leverage": "模型发布许可",
+      "interventionDirection": "从「事后追责」转向「部署前条件」",
+      "summary": "三种动能节奏失配、方向协方差坍缩；约束尚在固化初期，锁定仍在早期，仍有修复窗口。",
+      "judgment": "全球 AI 治理处于锁定态早期，规则持续追不上模型能力，可干预的杠杆点是模型发布节点——把约束从事后追责移到部署前条件，是目前唯一还能动的入口。",
+      "correctionIfWorse": "规则产出全面停止 → collapse（固化+断裂）；若崩溃逼出约束被迫松动 → crisis-restructuring window（可调+断裂）。",
+      "correctionIfBetter": "EU AI Act 执行顺利、重大事故触发快速立法、约束从固化重新变可调 → adaptive（适应态）。",
+      "observations": [
+        {
+          "no": 1,
+          "node": "EU AI Act 核心条款 2027 落地前是否实质性修订",
+          "verify": "无实质修订，按原表推进或再推迟",
+          "break": "出现实质修订 → 约束其实仍在被主动调整，「固化过渡中」判偏"
+        },
+        {
+          "no": 2,
+          "node": "美国行政令到期后国会是否接棒立法",
+          "verify": "到期后无接棒，仍停自愿/行政层",
+          "break": "国会通过实质立法 → 从自愿转强制，维持动能在增强，「维持慢」判偏"
+        },
+        {
+          "no": 3,
+          "node": "下一个前沿模型发布时是否出现新的单边约束",
+          "verify": "发布节点仍无审批、单边可变",
+          "break": "发布节点被强制加审批 → 杠杆点从可调变被管，约束可调性其实「可调」"
+        },
+        {
+          "no": 4,
+          "node": "中美 AI 安全标准有无可验证互认协议",
+          "verify": "无任何互认，各自固化",
+          "break": "出现哪怕一个可验证互认 → 方向在收敛，「导向拉扯/协方差坍缩」判偏"
+        }
+      ],
+      "t0Source": "https://github.com/ningkaifeng/dst-specimens/blob/main/T0/No.01-AI治理-2026-11-07.md",
+      "url": "https://zhishuixue.com/specimens/S-0001.html",
+      "status": "T0-pending-verification"
+    },
+    {
+      "id": "S-0002",
+      "num": "No.02",
+      "title": "全球塑料污染治理现状 · 结构显影",
+      "domain": "塑料污染治理",
+      "border": "全球塑料污染治理（2022–2026）",
+      "t0Date": "2026-11-07",
+      "state": "锁定态中后期",
+      "constraintMutability": "固化（生产上限四年调不动）",
+      "stateGeneration": "可生成（弱，产出落不了地）",
+      "channel": "外部介入通道（external intervention）",
+      "leverage": "初级塑料聚合物生产上限",
+      "interventionDirection": "从「下游回收/清理」转向「源头生产上限」",
+      "summary": "公约谈判四年零产出、产量反升、回收率停滞；三个衰减算子同时发生，方向协方差坍缩。",
+      "judgment": "全球塑料污染治理处于锁定态中后期，核心约束（生产上限）四年调不动、内部已无调空间，唯一出口是外部介入——把干预从下游回收转到源头生产上限。",
+      "correctionIfWorse": "谈判彻底终止 → collapse（固化+断裂）；若崩溃逼出约束被迫松动 → crisis-restructuring window（可调+断裂）。",
+      "correctionIfBetter": "续谈达成含生产上限的公约、主要产油国签署、约束从已固化重新变可调 → adaptive（适应态）。",
+      "observations": [
+        {
+          "no": 1,
+          "node": "INC 后续哪轮能否在「产量上限」上出文字",
+          "verify": "上限仍是括号/无文字，继续卡壳",
+          "break": "上限出文字（哪怕弱化措辞）→ 源头改造约束在生成"
+        },
+        {
+          "no": 2,
+          "node": "沙特/产油国联盟有无松动迹象",
+          "verify": "立场无松动，继续抵制生产上限",
+          "break": "措辞松动（「坚决反对」→「有条件讨论」）→ 约束可调性其实可调"
+        },
+        {
+          "no": 3,
+          "node": "全球南方资金机制是否从「呼吁」变「有数字方案」",
+          "verify": "仍是呼吁、无数字",
+          "break": "出现有数字方案 → 共识凝聚在实质化"
+        },
+        {
+          "no": 4,
+          "node": "微塑料健康证据积累到何程度触发底线守护升级",
+          "verify": "证据累积但未触发升级",
+          "break": "证据触发升级（新强制限值、禁塑扩围）→ 底线守护在增强"
+        }
+      ],
+      "t0Source": "https://github.com/ningkaifeng/dst-specimens/blob/main/T0/No.02-塑料污染-2026-11-07.md",
+      "url": "https://zhishuixue.com/specimens/S-0002.html",
+      "status": "T0-pending-verification"
+    }
+  ]
+}
