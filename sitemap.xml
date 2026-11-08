@@ -97,6 +97,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://zhishuixue.com/dst-diagnosis.schema.json</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://zhishuixue.com/knowledge-pack.json</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
