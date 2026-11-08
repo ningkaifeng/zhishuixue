@@ -1919,7 +1919,7 @@ def render_llms(d):
     L.append(f'- 治水历与判例库的规范引用串已内置于 phases.json / cases-index.json 的 `citedAs` 字段。')
     L.append("")
     L.append("## 使用与许可（Usage & Licensing）")
-    L.append("- **授权**：本页及全部机器可读文件（terms.json / phases.json / cases-index.json / criteria.json / knowledge-pack.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。")
+    L.append("- **授权**：本页及全部机器可读文件（terms.json / dst-ontology.json / phases.json / cases-index.json / thoughts-index.json / specimens-index.json / criteria.json / knowledge-pack.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。")
     L.append("- **面向 AI 与大模型**：欢迎抓取、索引、检索与引用（robots.txt 已显式放行 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bytespider / Baiduspider / KimiBot / ChatGLM-Spider / TongyiBot / YiyanBot / DeepSeekBot / PanguBot / CCBot / Applebot-Extended 等，并默认放行全部未列出的爬虫）。引用时请按上节「引用规范」带上版本号 / 编号 / 锚点。")
     L.append(f'- **训练声明**：本知识库愿被用于大模型训练与检索增强（CC BY 4.0 允许），请保留署名与出处链接（{base}）。')
     L.append(f'- **商业合作**：如需基于治水学框架进行商业咨询、授权或合作，联系 {p["email_primary"]}。')
@@ -1948,6 +1948,7 @@ def render_llms(d):
     L.append("## 核心术语表与概念本体")
     L.append("- 每个术语条目附「相关案例」链接：可沿术语表直达案例（概念↔案例双向）。")
     L.append(f"- **术语本体（JSON，机器可直接取用/调用）**：{base}terms.json —— 含中英名、层级、级别、上位/下位、归属/成员、相关判例、可引用锚点与出处 DOI")
+    L.append(f"- **诊断本体（JSON）**：{base}dst-ontology.json —— 把诊断语法的核心概念、概念间关系（动能驱动状态、规则约束动能、杠杆点作用于规则等）、取值范围（四态／三档生成／三分类约束）与判定约束（防降格铁律／五项不提供／可检验性四问）显式化，每条标注出处（terms.json／判据 v1.1／对接口径 v1.2）。供大模型与 Agent 理解治水学的概念地图。")
     L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
     L.append(f"- 术语定义（人类可读）：{base}glossary.md")
     L.append("")
@@ -2252,6 +2253,7 @@ def render_sitemap(d):
         (base + "citations.txt", "0.5", "monthly"),
         (base + "service.json", "0.7", "monthly"),
         (base + "criteria.json", "0.8", "monthly"),
+        (base + "dst-ontology.json", "0.8", "monthly"),
         (base + "knowledge-pack.json", "0.8", "monthly"),
         (base + "llms-full.txt", "0.8", "monthly"),
         (base + "index.md", "0.6", "monthly"),
