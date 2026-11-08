@@ -14,30 +14,28 @@ nav:
   items:
     - label: "Theory"
       href: "#core"
-    - label: "Cases"
-      href: "https://zhishuixue.com/cases.html"
-    - label: "Machine Layer"
-      href: "#machine"
     - label: "Papers"
       href: "#papers"
+    - label: "Machine Layer"
+      href: "#machine"
     - label: "Contact"
       href: "#contact"
 
 hero:
   h1: "A structural grammar for governing complex systems in flux"
-  subhead: 'Dynamic Sustenance Theory (DST) asks not "what a system is" but "how it sustains itself" — and turns that question into diagnosable, intervenable syntax.'
+  subhead: 'Dynamic Sustenance Theory (DST) asks not "what a system is" but "how it sustains itself" — and turns that question into diagnosable, intervenable syntax. Applied to AI governance, climate, finance, and institutions.'
   ctas:
     - label: "Read the theory"
       href: "https://doi.org/10.5281/zenodo.23328739"
       primary: true
-    - label: "See cases"
-      href: "https://zhishuixue.com/cases.html"
+    - label: "See the method"
+      href: "#core"
       primary: false
     - label: "Machine layer →"
       href: "#machine"
       primary: false
   identity: "Ning Kaifeng · Independent Researcher · Dynamic Sustenance Theory"
-  trust: "Published on Zenodo & SSRN · ORCID 0009-0001-4414-6058 · CC BY 4.0"
+  trust: "9-paper series with DOIs · Zenodo & SSRN · ORCID 0009-0001-4414-6058 · CC BY 4.0"
 
 core_move:
   heading: "The core move"
