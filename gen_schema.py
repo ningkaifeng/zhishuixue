@@ -1,0 +1,279 @@
+#!/usr/bin/env python3
+"""生成 dst-diagnosis.schema.json —— 治水学诊断接口契约（v0.1）
+
+铁律：所有字段与取值都取自知识库库存，逐项标注出处：
+  S2 = 《复杂系统诊断的判据 v1.1》（五项判定的取值与判据）
+  S3 = 《标本库·领域对接口径 v1.2》（三动能/三操作/逻辑位置）
+  S4 = 标本 No.01 / No.02 正文（11 字段与规范层四问）
+  S5 = cases.yml 49 篇判例（六要素的实际字段）
+关键约束：五项判定（系统诊断）与六要素（事件显影）是两把尺，不可混用
+（依据：判据 v1.1 §七「诊断的尺不是判例的尺」）。
+"""
+import json, datetime, os
+
+NOW = datetime.datetime.now().strftime("%Y-%m-%d")
+OUT = "/sandbox/workspace/repo/dst-diagnosis.schema.json"
+
+S2 = "《复杂系统诊断的判据 v1.1》"
+S3 = "《标本库·领域对接口径 v1.2》"
+S4 = "标本 No.01/No.02 正文"
+S5 = "cases.yml（49 篇判例的六要素字段）"
+
+FOUR_STATES = ["adaptive", "crisis-restructuring", "locked-in", "collapse"]
+GEN_LEVELS = ["generating-strong", "generating-weak", "broken"]
+MUTABILITY = ["adjustable", "solidified", "broken"]
+
+system_input = {
+    "type": "object",
+    "title": "系统诊断 · 输入",
+    "description": ("给一个仍在运行的真实系统：先划边界，再提交可得的公开信息。" + S4),
+    "properties": {
+        "system": {"type": "string", "description": "系统名称，例如「全球 AI 治理」"},
+        "boundary": {"type": "string",
+                     "description": ("分析边界，须含时间窗。边界决定什么是系统内/系统外/压力源，也决定三种动能与三种操作的承载物；边界一移，整套显影全变。（" + S3 + " §〇）")},
+        "infoAvailable": {"type": "array", "items": {"type": "string"},
+                          "description": "事前可得的公开信息（法规文本、发布记录、统计数据等）"},
+        "infoUnavailable": {"type": "array", "items": {"type": "string"},
+                            "description": "事前不可得的信息（内部决策、真实让步空间等）——必须诚实标注，信息不足属「诊断条件未满足」，不是第五态"},
+        "observations": {"type": "array", "items": {"type": "string"},
+                         "description": "观察到的现象事实，供诊断使用"},
+        "asOf": {"type": "string", "description": "T0 判断时点（ISO 日期），用于事后核验"},
+    },
+    "required": ["system", "boundary"],
+}
+
+system_output = {
+    "type": "object",
+    "title": "系统诊断 · 输出（五项判定 + 干预四问）",
+    "description": ("产出结构，不产出结论：系统处于什么态、该往哪调、怎么验证。（" + S2 + " §一）"),
+    "properties": {
+        "boundary": {"type": "string", "description": "复述分析边界"},
+        "judgment": {"type": "string",
+                     "description": "一句话结构判断，须可独立引用、不依赖专名（换掉全部专名后仍成立）。"},
+        "stateDiagnosis": {
+            "type": "object",
+            "description": "第 2 步 · 状态诊断：约束可调性 × 状态生成能力 → 四态。（" + S2 + " §4.1）",
+            "properties": {
+                "constraintMutability": {"enum": MUTABILITY,
+                                         "description": "约束可调性：可调 / 固化 / 失效"},
+                "stateGeneration": {"enum": GEN_LEVELS,
+                                    "description": "状态生成能力三档：可生成（强）/ 可生成（弱，产出落不了地）/ 断裂。注意：这是「系统能否生成核心状态」，不是三动能之「生成（突破性动能）」的强弱。（" + S2 + " §4.1）"},
+                "state": {"enum": FOUR_STATES,
+                          "description": "四态：adaptive 适应态（可调+可生成）/ crisis-restructuring 危机重构窗口（可调+断裂）/ locked-in 锁定态（固化+可生成）/ collapse 崩溃态（固化+断裂）"},
+                "stage": {"enum": ["early", "mid-late"],
+                          "description": "仅 locked-in 时适用：早期＝约束尚可调（修复通道）；中后期＝约束已固化（外部介入通道）。由约束可调性深浅划，生成能力强弱作辅助标定。（" + S2 + " §4.1）"},
+            },
+            "required": ["constraintMutability", "stateGeneration", "state"],
+        },
+        "tempoMismatch": {
+            "type": "object",
+            "description": "第 3 步 · 节奏失配：三准则任一触发即报警，不加权。（" + S2 + " §4.2）",
+            "properties": {
+                "triggeredCriteria": {
+                    "type": "array",
+                    "items": {"enum": ["transmission-delay", "feedback-time-constant", "response-attenuation"]},
+                    "description": "触发的准则：传输延迟单调增长 / 反馈环时间常数比跨数量级 / 响应衰减（同干预边际效应递减）",
+                },
+                "note": {"type": "string", "description": "趋势描述（须用变化方向与速率差，不能用静态存量词）"},
+            },
+        },
+        "stressGap": {
+            "type": "object",
+            "description": "第 4 步 · 适应能力—压力差：判差距趋势而非压力绝对值。（" + S2 + " §4.3）",
+            "properties": {
+                "widening": {"type": "boolean", "description": "差距是否在扩大（压力接近速度是否快于适应能力增长）"},
+                "note": {"type": "string"},
+            },
+        },
+        "operations": {
+            "type": "object",
+            "description": "三种操作当前状态：三者缺一即说明显影漏了。（" + S3 + " §二 ）",
+            "properties": {
+                "sourceTransformation": {"type": "string", "description": "源头改造（疏浚）：改造压力源本身——当前状态"},
+                "boundarySafeguarding": {"type": "string", "description": "底线守护（方舟）：守住不可接受的边界——当前状态"},
+                "consensusCohesion": {"type": "string", "description": "共识凝聚（祭祀）：把各方拉到同一张桌子——当前状态"},
+            },
+        },
+        "leveragePoint": {
+            "type": "object",
+            "description": "第 5 步 · 杠杆点：给定位原则而非具体位置。（" + S2 + " §4.4）",
+            "properties": {
+                "location": {"type": "string", "description": "杠杆点位置（须满足：高流量 + 少数行动者单边可变；不是最显眼处）"},
+                "rationale": {"type": "string", "description": "为什么是这里（对照定位原则）"},
+            },
+        },
+        "constraintClassification": {"enum": MUTABILITY,
+                                     "description": "约束可变性三分类，决定干预通道。（" + S2 + " §4.5）"},
+        "interventionChannel": {"enum": ["repair", "external-intervention", "aftermath-management"],
+                                "description": "干预通道：可调→repair；固化→external intervention/reconfiguration；失效→aftermath management"},
+        "interventionFourQuestions": {
+            "type": "object",
+            "description": "干预四问，四问齐全才可回滚。（" + S4 + "；" + S2 + " §六）",
+            "properties": {
+                "whichConstraint": {"type": "string", "description": "① 调哪条约束"},
+                "direction": {"type": "string", "description": "② 方向与幅度"},
+                "verification": {"type": "string", "description": "③ 如何验证调对了"},
+                "rollback": {"type": "string", "description": "④ 如何回滚（含：设限后撤回受政治刚性约束、往往难退）"},
+            },
+            "required": ["whichConstraint", "direction", "verification", "rollback"],
+        },
+        "normativeLayer": {
+            "type": "object",
+            "description": ("规范层四问：任一约束必须同时回答四问，答不全就只是存在域的标语、不是存续域的约束。（" + S4 + "）"),
+            "properties": {
+                "authorization": {"type": "string", "description": "① 谁授权（国内法授权 / 国际协调 / 多边共识）"},
+                "liability": {"type": "string", "description": "② 谁赔（设条件者是否被问责、评估是否独立）"},
+                "exit": {"type": "string", "description": "③ 怎么退（条件错误时有无纠偏与救济通道）"},
+                "fallback": {"type": "string", "description": "④ 退不动时系统怎么续命（约束撤不回时靠什么兜底）"},
+            },
+        },
+        "refutation": {
+            "type": "object",
+            "description": "双向修正条件：什么情况说明这个判断错了。（" + S4 + "；" + S2 + " §六「T0 可证伪」）",
+            "properties": {
+                "ifWorse": {"type": "string", "description": "恶化方向：落点修正为什么态"},
+                "ifBetter": {"type": "string", "description": "好转方向：落点修正为什么态"},
+            },
+            "required": ["ifWorse", "ifBetter"],
+        },
+        "infoAvailability": {
+            "type": "object",
+            "description": "信息可得性诚实标注：不可得的明确标了，没拿事后信息假装事前可得。（" + S2 + " §六）",
+            "properties": {
+                "available": {"type": "array", "items": {"type": "string"}},
+                "unavailable": {"type": "array", "items": {"type": "string"}},
+            },
+        },
+        "validity": {
+            "type": "object",
+            "description": "可检验性四问，全为 true 才算立住。（" + S2 + " §六）",
+            "properties": {
+                "chainTraceable": {"type": "boolean", "description": "判定链可追溯（落点由两维度组合推出，不是拍脑袋）"},
+                "falsifiable": {"type": "boolean", "description": "T0 可证伪（留了双向修正条件）"},
+                "infoHonest": {"type": "boolean", "description": "信息可得性诚实"},
+                "fourQuestionsComplete": {"type": "boolean", "description": "干预四问齐全可回滚"},
+            },
+        },
+    },
+    "required": ["boundary", "judgment", "stateDiagnosis", "leveragePoint", "refutation"],
+}
+
+event_input = {
+    "type": "object",
+    "title": "事件显影 · 输入",
+    "description": ("给一个已发生的决策事件：情境、人物、约束、结果。" + S5),
+    "properties": {
+        "event": {"type": "string", "description": "事件名称"},
+        "scene": {"type": "string", "description": "场景归类（如：组织治理、基层治理、企业管理、宏观治理）"},
+        "actors": {"type": "array", "items": {"type": "string"}, "description": "承压者/决策者（须点名，并说明其「最怕失去什么」）"},
+        "sourceMaterial": {"type": "string", "description": "素材来源（史料/访谈/公开报道），用于核验"},
+        "asOf": {"type": "string", "description": "记录日期（ISO）"},
+    },
+    "required": ["event", "scene"],
+}
+
+event_output = {
+    "type": "object",
+    "title": "事件显影 · 输出（六要素）",
+    "description": ("六要素是事件尺的骨架：只显影结构，不评价对错。（" + S5 + "）"),
+    "properties": {
+        "situation": {"type": "string",
+                      "description": "情境：第一层·系统边界（这是哪个系统、边界在哪）/ 第二层·威胁识别（最大威胁是什么）/ 第三层·现状约束（此刻受什么限制）"},
+        "signal": {"type": "string",
+                   "description": "信号：当事人当时能观察到、且能据此判断的可见信息。须分主判据（裁决）与辅判据（提示），并写清「看到什么算成立」"},
+        "exclusion": {"type": "string",
+                      "description": "排除：哪些做法被排除、为什么排除（硬字段）。每条须带「何时不成立」，否则排除是假的"},
+        "action": {"type": "string",
+                   "description": "行动：当事人实际做了什么，须是【结构动作】（可被拍下来的具体动作），不是形容词"},
+        "expectation": {"type": "string",
+                        "description": "预期：分两层——【当时能判断的】（决定该不该做）与【事后才能验证的】（决定能不能成），防事后归因"},
+        "correction": {"type": "string",
+                       "description": "修正：硬边界——什么情况说明这个判断要改"},
+        "counterExample": {"type": "string",
+                           "description": "同结构对照（可选但推荐）：同结构、不同承载、不同结局的反例，防幸存者偏差；无则明写「未检索到，存在幸存者偏差风险」"},
+        "interface": {"type": "string",
+                      "description": "治水学接口，格式「族·细分（通俗解释）」：族取疏浚/方舟/祭祀/信号层/结构判断/响应失效各态/分层异步/动力调控/对象维"},
+        "lever": {"type": "string", "description": "杠杆落点：这个动作真正作用在哪个结构位置"},
+        "effect": {"type": "string", "description": "效果：结果如何（历史事件填史实结果）"},
+        "reusableCondition": {"type": "string", "description": "可复用条件：什么情况下这套结构可迁移"},
+        "nonApplicable": {"type": "string", "description": "不适用条件：什么情况下不成立"},
+    },
+    "required": ["situation", "signal", "exclusion", "action", "expectation", "correction"],
+}
+
+doc = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://zhishuixue.com/dst-diagnosis.schema.json",
+    "title": "治水学诊断接口契约",
+    "version": "v0.1",
+    "generatedAt": NOW,
+    "license": "CC BY 4.0",
+    "maintainer": "宁凯峰（独立研究者）· ORCID 0009-0001-4414-6058",
+    "description": ("把治水学的两把尺定义成可被 Agent 调用的输入/输出契约："
+                    "①系统诊断（五项判定，面向「仍在运行的真实系统」）；"
+                    "②事件显影（六要素，面向「已发生的决策事件」）。"
+                    "每一条字段与取值都取自知识库库存，并标注出处。"),
+    "x-separationRule": ("五项判定（系统诊断）与六要素（事件显影）是两把不同的尺，显影对象不同（系统/事件），"
+                         "不可互相误评、不可混用同一个输出结构。依据：" + S2 + " §七「诊断的尺不是判例的尺」。"),
+    "x-usageRules": [
+        "诊断产出结构，不产出结论——判断权在使用者，本契约只保证结构透明、可证伪、可迭代。（" + S2 + " §一）",
+        "不提供量化阈值／不提供直接答案／不替代承压主体判断／不提供对错评价／不提供跨尺度统一阈值。（" + S2 + " §八）",
+        "三种动能与三种操作是「逻辑位置」，不是技术/制度/思想这些承载物；填出并列板块即为误翻译。（" + S3 + " §三）",
+        "落点是动态张力曲线的当前位置标注，不是封死的静态标签。",
+    ],
+    "x-toolDefinitions": [
+        {
+            "name": "dst_system_diagnosis",
+            "description": ("对仍在运行的真实系统做结构诊断（治水学五项判定）：划边界 → 状态诊断（约束可调性×状态生成能力→四态）"
+                            "→ 节奏失配 → 压力差 → 杠杆点与干预四问。产出结构判断与双向证伪条件，不产出结论或建议。"
+                            "适用：治理系统、行业格局、组织机制等「结局尚未发生」的系统。"),
+            "input": {"$ref": "#/$defs/SystemDiagnosisInput"},
+            "output": {"$ref": "#/$defs/SystemDiagnosisOutput"},
+            "notes": "适用边界：必须是仍在运行、结局未知的系统；历史事件请用 dst_event_shadowing。",
+        },
+        {
+            "name": "dst_event_shadowing",
+            "description": ("对已发生的决策事件做结构显影（治水学六要素）：情境 → 信号 → 排除 → 行动 → 预期 → 修正，"
+                            "并标注治水学接口与杠杆落点。只显影结构、不评价对错。"
+                            "适用：历史判例、商业决策复盘、治理事件。"),
+            "input": {"$ref": "#/$defs/EventShadowingInput"},
+            "output": {"$ref": "#/$defs/EventShadowingOutput"},
+            "notes": "适用边界：结局已知的事件；仍在运行的系统请用 dst_system_diagnosis。",
+        },
+    ],
+    "$defs": {
+        "SystemDiagnosisInput": system_input,
+        "SystemDiagnosisOutput": system_output,
+        "EventShadowingInput": event_input,
+        "EventShadowingOutput": event_output,
+    },
+}
+
+
+def _seal(node):
+    """所有 object 封死 additionalProperties，防止两把尺的字段混进来"""
+    if isinstance(node, dict):
+        if node.get("type") == "object" and "additionalProperties" not in node:
+            node["additionalProperties"] = False
+        for v in node.values():
+            _seal(v)
+    elif isinstance(node, list):
+        for x in node:
+            _seal(x)
+
+
+_seal(doc["$defs"])
+
+doc["x-validationNote"] = ("本文件是「契约清单」，顶层不自带 type，不能直接用顶层校验实例。"
+                           "校验时请取 $defs 中的子 schema："
+                           '{"$schema": ..., "$ref": "#/$defs/SystemDiagnosisOutput", "$defs": <本文件 $defs>}。'
+                           "所有 object 均已封死 additionalProperties，混入另一把尺的字段会被拒绝（依据：判据 v1.1 §七）。")
+
+with open(OUT, "w", encoding="utf-8") as f:
+    json.dump(doc, f, ensure_ascii=False, indent=2)
+print("已写出", OUT, "(%d B)" % os.path.getsize(OUT))
+print("tools:", [t["name"] for t in doc["x-toolDefinitions"]])
+print("$defs:", list(doc["$defs"].keys()))
+print("SystemDiagnosisOutput 字段:", len(system_output["properties"]))
+print("EventShadowingOutput 字段:", len(event_output["properties"]))
+print("additionalProperties 封死节点数:", json.dumps(doc["$defs"]).count('"additionalProperties": false'))
