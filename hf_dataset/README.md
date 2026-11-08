@@ -23,6 +23,10 @@ configs:
   data_files: dst-cases.jsonl
 - config_name: thoughts
   data_files: dst-thoughts.jsonl
+- config_name: specimens
+  data_files: dst-specimens.jsonl
+- config_name: concepts
+  data_files: dst-concepts.jsonl
 pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）
 ---
 
@@ -67,6 +71,8 @@ Every record ships with a flattened `text` field (ready to feed into embedding o
 | `dst-terms.jsonl` | 核心术语本体：中英名 / 层级 / 级别 / 上位 / 归属 / 定义 / DOI | 100 |
 | `dst-cases.jsonl` | 决策判例：接口 / 杠杆 / 六要素全文 / 效果 / 适用条件 / 不适用条件 | 49 |
 | `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | 17 |
+| `dst-specimens.jsonl` | 复杂治理标本：T0 事前判断 / 四态落点 / 杠杆点 / 双向证伪条件 / T1 观测节点 | 2 |
+| `dst-concepts.jsonl` | 概念卡：定义 + 层级位置 + 真实判例实例 + 适用／不适用条件 + DOI | 100 |
 | `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 | 1 份 |
 
 ## 数据结构
@@ -123,6 +129,17 @@ Every record ships with a flattened `text` field (ready to feed into embedding o
 ```
 
 `elements` 字段含完整六要素：`情境` / `信号` / `排除` / `行动` / `预期` / `修正`。
+
+### dst-specimens.jsonl（标本：T0 事前判断）
+
+每条是对一个**仍在运行的真实系统**所做的一次结构诊断，判断写于结果发生之前（T0），一字不改。
+关键字段：`state`（四态）、`constraint_mutability`、`state_generation`、`leverage_point`、`refutation_if_worse`／`refutation_if_better`（双向证伪条件）、`observations_t1`（未来验证节点）、`status`（`T0-pending-verification` = 尚未被事件检验）。
+
+> 这批数据与其余三份不同：前四份是「已经发生过的事」，标本是「还没发生、可以被现实推翻的判断」。
+
+### dst-concepts.jsonl（概念卡）
+
+术语本体（`dst-terms.jsonl`）只给定义；概念卡把**定义、层级位置、真实判例实例、适用／不适用条件**绑在一起，但**实例字段只在对该概念有真实判例时才填**，没有就留空、不虚构（当前 9 个概念有实例）。
 
 ## 机器友好字段（text / split）
 

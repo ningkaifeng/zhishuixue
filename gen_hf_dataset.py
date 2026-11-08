@@ -140,6 +140,100 @@ with io.open(f'{OUT}/dst-thoughts.jsonl', 'w', encoding='utf-8') as f:
         }
         f.write(json.dumps(rec, ensure_ascii=False) + '\n')
 
+
+# ---------------- 2c. dst-specimens.jsonl ----------------
+try:
+    _spd = yaml.safe_load(io.open('specimens.yml', encoding='utf-8')) or {}
+except FileNotFoundError:
+    _spd = {'meta': {}, 'specimens': []}
+specimens = _spd.get('specimens', [])
+_smeta = _spd.get('meta', {}) or {}
+
+
+def _spec_text(s_):
+    parts = [s_.get('title', '')]
+    if s_.get('summary'):
+        parts.append(s_['summary'])
+    if s_.get('judgment'):
+        parts.append(s_['judgment'])
+    return '。'.join(p.rstrip('。') for p in parts if p)
+
+
+with io.open(f'{OUT}/dst-specimens.jsonl', 'w', encoding='utf-8') as f:
+    for _i, s_ in enumerate(specimens):
+        secs = {x['k']: x['v'].strip() for x in s_.get('sections', [])}
+        rec = {
+            'id': s_['id'], 'num': s_.get('num', ''), 'title': s_.get('title', ''),
+            'domain': s_.get('domain', ''),
+            'boundary': s_.get('border', ''),
+            't0_date': s_.get('t0_date', ''),
+            'state': s_.get('state', ''),
+            'constraint_mutability': s_.get('dim_constraint', ''),
+            'state_generation': s_.get('dim_generation', ''),
+            'intervention_channel': s_.get('channel', ''),
+            'leverage_point': s_.get('leverage', ''),
+            'intervention_direction': s_.get('direction', ''),
+            'summary': s_.get('summary', ''),
+            'judgment': s_.get('judgment', ''),
+            'refutation_if_worse': s_.get('correction_bad', ''),
+            'refutation_if_better': s_.get('correction_good', ''),
+            'observations_t1': s_.get('obs', []),
+            'sections': secs,
+            'status': 'T0-pending-verification',
+            'url': 'https://zhishuixue.com/specimens/%s.html' % s_['id'],
+            't0_source': (_smeta.get('repo', '') + '/blob/main/' + s_.get('repo_path', '')),
+            'text': _spec_text(s_), 'split': _eval_split(_i, len(specimens)),
+        }
+        f.write(json.dumps(rec, ensure_ascii=False) + '\n')
+
+# ---------------- 2d. dst-concepts.jsonl（概念卡） ----------------
+_case_by_id = {c['id']: c for c in cases}
+
+
+def _concept_text(t_, exs_):
+    parts = ['%s（%s）：%s' % (t_['name'], t_.get('en', '') or '', t_.get('definition', ''))]
+    if exs_:
+        e = exs_[0]
+        parts.append('实例：%s——%s' % (e['case_title'], e.get('effect') or e.get('interface')))
+        if e.get('non_applicable'):
+            parts.append('不适用：%s' % e['non_applicable'])
+    return '。'.join(p.rstrip('。') for p in parts if p)
+
+
+with io.open(f'{OUT}/dst-concepts.jsonl', 'w', encoding='utf-8') as f:
+    for t_ in terms['terms']:
+        exs = []
+        for ref in (t_.get('cases') or [])[:3]:
+            c = _case_by_id.get(ref.get('id'))
+            if not c:
+                continue
+            el = {x['k']: x['v'].strip() for x in c['elements']}
+            exs.append({
+                'case_id': c['id'], 'case_title': c['title'],
+                'interface': c.get('interface', ''),
+                'lever': c.get('lever', ''),
+                'action_excerpt': (el.get('行动', '') or '')[:300],
+                'effect': c.get('effect', ''),
+                'reusable_condition': c.get('reusable_condition', ''),
+                'non_applicable': c.get('non_applicable', ''),
+                'url': 'https://zhishuixue.com/cases/%s.html' % c['id'],
+            })
+        rec = {
+            'id': t_['id'], 'concept': t_['name'], 'concept_en': t_.get('en', ''),
+            'layer': t_.get('layer', ''), 'layer_name': t_.get('layerName', ''),
+            'tier': t_.get('tier', ''),
+            'broader': t_.get('broader'), 'part_of': t_.get('partOf'),
+            'hyponyms': t_.get('hyponyms') or [],
+            'definition': t_.get('definition', ''),
+            'examples': exs, 'example_count': len(exs),
+            'reusable_condition': (exs[0]['reusable_condition'] if exs else ''),
+            'non_applicable': (exs[0]['non_applicable'] if exs else ''),
+            'doi': t_.get('doi', ''), 'url': t_.get('url', ''),
+            'cite_as': t_.get('citedAs', ''),
+            'text': _concept_text(t_, exs), 'split': 'train',
+        }
+        f.write(json.dumps(rec, ensure_ascii=False) + '\n')
+
 # ---------------- 3. dst-criteria.md ----------------
 L = []
 L.append('# 治水学·结构显影判据（DST Structural Shadowing Criteria）v1.0\n')
@@ -261,6 +355,10 @@ R.append('- config_name: cases')
 R.append('  data_files: dst-cases.jsonl')
 R.append('- config_name: thoughts')
 R.append('  data_files: dst-thoughts.jsonl')
+R.append('- config_name: specimens')
+R.append('  data_files: dst-specimens.jsonl')
+R.append('- config_name: concepts')
+R.append('  data_files: dst-concepts.jsonl')
 R.append('pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）')
 R.append('---')
 R.append('')
@@ -305,6 +403,8 @@ R.append('| --- | --- | --- |')
 R.append('| `dst-terms.jsonl` | 核心术语本体：中英名 / 层级 / 级别 / 上位 / 归属 / 定义 / DOI | %d |' % len(terms['terms']))
 R.append('| `dst-cases.jsonl` | 决策判例：接口 / 杠杆 / 六要素全文 / 效果 / 适用条件 / 不适用条件 | %d |' % len(cases))
 R.append('| `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | %d |' % len(thoughts))
+R.append('| `dst-specimens.jsonl` | 复杂治理标本：T0 事前判断 / 四态落点 / 杠杆点 / 双向证伪条件 / T1 观测节点 | %d |' % len(specimens))
+R.append('| `dst-concepts.jsonl` | 概念卡：定义 + 层级位置 + 真实判例实例 + 适用／不适用条件 + DOI | %d |' % len(terms['terms']))
 R.append('| `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 | 1 份 |')
 R.append('')
 R.append('## 数据结构')
@@ -328,6 +428,21 @@ R.append(json.dumps(slim_case, ensure_ascii=False, indent=2))
 R.append('```')
 R.append('')
 R.append('`elements` 字段含完整六要素：`情境` / `信号` / `排除` / `行动` / `预期` / `修正`。')
+R.append('')
+R.append('### dst-specimens.jsonl（标本：T0 事前判断）')
+R.append('')
+R.append('每条是对一个**仍在运行的真实系统**所做的一次结构诊断，判断写于结果发生之前（T0），一字不改。')
+R.append('关键字段：`state`（四态）、`constraint_mutability`、`state_generation`、`leverage_point`、'
+         '`refutation_if_worse`／`refutation_if_better`（双向证伪条件）、`observations_t1`（未来验证节点）、'
+         '`status`（`T0-pending-verification` = 尚未被事件检验）。')
+R.append('')
+R.append('> 这批数据与其余三份不同：前四份是「已经发生过的事」，标本是「还没发生、可以被现实推翻的判断」。')
+R.append('')
+R.append('### dst-concepts.jsonl（概念卡）')
+R.append('')
+R.append('术语本体（`dst-terms.jsonl`）只给定义；概念卡把**定义、层级位置、真实判例实例、适用／不适用条件**绑在一起，'
+         '但**实例字段只在对该概念有真实判例时才填**，没有就留空、不虚构（当前 %d 个概念有实例）。' %
+         sum(1 for t in terms['terms'] if t.get('cases')))
 R.append('')
 R.append('## 机器友好字段（text / split）')
 R.append('')
