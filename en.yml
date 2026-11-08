@@ -1,48 +1,129 @@
-# ============================================================
-#  治水学 · 英文站（English gateway）
-#  ------------------------------------------------------------
-#  双子站解耦：
-#    papers.yml  = 唯一数据源（论文 / person / 术语），英文站复用
-#    en.yml      = 只存英文站"特有"的文案（About / 定位语 / 页面标题）
-#  改英文措辞 → 只动本文件；改论文/联系信息 → 仍走 papers.yml
-# ============================================================
+# 英文站文案（English gateway）—— 首屏秩序重做版 v2.0
+# 设计原则：一页门牌，不给档案馆；首屏只回答「这是什么、为什么看、从哪进」。
+# 事实口径：英文扩展篇 5 篇（en-1~en-5）；中文论纲系列 9 篇；全部作品 26 项。
 
 site:
   title: "Dynamic Sustenance Theory (DST) · Ning Kaifeng"
-  description: "Dynamic Sustenance Theory (DST) — a structural grammar for how systems sustain themselves amid flux. Research site of Ning Kaifeng, independent researcher."
-  lang: "en"
+  description: "DST is a structural grammar for governing complex systems in flux — it asks not what a system is, but how it sustains itself, and turns that into diagnosable, intervenable syntax."
+  lang: en
+
+nav:
+  brand: "Dynamic Sustenance Theory (DST)"
+  lang_switch_label: "中文"
+  # 每个词对应一个锚点或直达页，不嵌套下拉
+  items:
+    - label: "Theory"
+      href: "#core"
+    - label: "Cases"
+      href: "https://zhishuixue.com/cases.html"
+    - label: "Machine Layer"
+      href: "#machine"
+    - label: "Papers"
+      href: "#papers"
+    - label: "Contact"
+      href: "#contact"
 
 hero:
-  topic: "Dynamic Sustenance Theory (DST)"
-  name: "Ning Kaifeng"
-  byline: "Independent Researcher"
-  tagline: "Between philosophy and engineering lies a missing layer — the governance syntax of complex systems."
+  h1: "A structural grammar for governing complex systems in flux"
+  subhead: 'Dynamic Sustenance Theory (DST) asks not "what a system is" but "how it sustains itself" — and turns that question into diagnosable, intervenable syntax.'
+  ctas:
+    - label: "Read the theory"
+      href: "https://doi.org/10.5281/zenodo.23328739"
+      primary: true
+    - label: "See cases"
+      href: "https://zhishuixue.com/cases.html"
+      primary: false
+    - label: "Machine layer →"
+      href: "#machine"
+      primary: false
+  identity: "Ning Kaifeng · Independent Researcher · Dynamic Sustenance Theory"
+  trust: "Published on Zenodo & SSRN · ORCID 0009-0001-4414-6058 · CC BY 4.0"
 
-about:
-  heading: "What is Dynamic Sustenance Theory (DST)?"
-  lead: 'DST is a structural grammar for governing complex adaptive systems. It asks not "what a system is" but "how a system sustains itself amid flux" — and turns that perspective into a diagnosable, intervenable grammar.'
-  core_claim: "Its ontological ground is the domain of sustenance: a system persists not by staying unchanged, but by maintaining structural continuity under flux."
-  core_mechanism: "Core mechanism — force-rule symbiosis: the dynamic layer (Three Waves) and the rule layer (Three Phases) co-adapt to keep a system alive. Key concepts include Ti-Xiang Correlation, Layered Asynchrony, and Syntax Lock-in — three structural invariants that together define where and how intervention can take hold."
-  gap: "Existing complex-systems theories explain how systems evolve. DST works on the other question: how a system sustains itself."
+core_move:
+  heading: "The core move"
+  intro:
+    - "Most governance asks whether a system complies with rules. That question assumes the rules are the right ones, and that stability is the goal."
+    - "DST starts one step earlier: it asks where the pressure is, and which constraint can still move."
+    - "The result is not a verdict but a structure — what state the system is in, and where intervention can actually take hold."
+  table:
+    left_label: "Static governance asks"
+    right_label: "DST asks"
+    rows:
+      - ["What is the rule?", "Where is the pressure?"]
+      - ["Who is accountable?", "Which constraint can still move?"]
+      - ["Is the system compliant?", "Is the system still adjustable?"]
+  closer: "Existing complexity theory explains how systems evolve. DST works on the other question: how a system keeps itself alive."
+
+invariants:
+  heading: "Three structural invariants"
+  note: "Not a framework of layers or boxes — three relationships that hold in any system that sustains itself."
+  items:
+    - name: "Force-Rule Coordination"
+      desc: "The dynamic layer and the rule layer adapt to each other. Neither alone sustains a system."
+    - name: "Layered Asynchrony"
+      desc: "The force layer and the rule layer are structurally out of sync. The response gap is permanent, not a temporary failure to be fixed."
+    - name: "Syntax Lock-in"
+      desc: "When the rule structure freezes, the system loses the ability to re-weight rules as the dynamics shift. Even if a shock breaks it temporarily, the system returns to the locked state."
+  closer: "A general structural grammar for diagnosing where and how intervention can take hold."
 
 publications:
-  heading: "Selected Publications (in English)"
-  note: "The treatise is written in Chinese; nine papers of the series are published so far. The English papers below are the entry point for international readers."
-  include_ids:
-    - article-en-4
-    - article-en-3
-    - article-en-2
-    - article-en-1
+  heading: "Selected papers"
+  note: "Five English papers in the DST extension series. The treatise itself is written in Chinese (nine volumes); these papers translate its core moves for an international readership."
+  # 首屏精选 3 篇（按国际读者最易消化排序）
+  featured:
+    - id: "article-en-1"
+      blurb: "The ontological entry point — why governance must be dynamic rather than static."
+    - id: "article-en-3"
+      blurb: "The most direct application of layered asynchrony: why law structurally lags technology."
+    - id: "article-en-4"
+      blurb: "The methodological overview — the grammar itself."
+  # 其余篇目（折叠为一行清单）
+  others:
+    - "article-en-2"
+    - "article-en-5"
+
+machine:
+  heading: "Structural grammar, ready for models"
+  note: "A non-human-reader entrance. Everything below is structured, citable and machine-loadable — not prose about the theory, but the theory as data."
+  items:
+    - label: "Ontology"
+      value: "dst-ontology.json"
+      href: "https://zhishuixue.com/dst-ontology.json"
+      desc: "18 concepts, 10 relations, value domains and decision constraints — each with its source."
+    - label: "Diagnosis contract"
+      value: "dst-diagnosis.schema.json"
+      href: "https://zhishuixue.com/dst-diagnosis.schema.json"
+      desc: "JSON Schema defining two callable tools: system diagnosis (five judgements) and event shadowing (six elements)."
+    - label: "Case library"
+      value: "cases-index.json"
+      href: "https://zhishuixue.com/cases-index.json"
+      desc: "49 annotated decision cases with interface, leverage point and six-element structure."
+    - label: "Specimen library"
+      value: "specimens-index.json"
+      href: "https://zhishuixue.com/specimens-index.json"
+      desc: "T0 judgments written before the outcome was known, each with falsification conditions."
+    - label: "Training corpus"
+      value: "Hugging Face · zhishuixue/dst-decision-disclosure"
+      href: "https://huggingface.co/datasets/zhishuixue/dst-decision-disclosure"
+      desc: "Five configurations: terms, cases, thoughts, specimens, concepts (JSONL)."
+    - label: "License"
+      value: "CC BY 4.0"
+      href: "https://creativecommons.org/licenses/by/4.0/"
+      desc: "Free to copy, redistribute, adapt and use commercially, with attribution."
+
+footprint:
+  heading: "Scholarly footprint"
+  lines:
+    - "ORCID 0009-0001-4414-6058"
+    - "9 papers in the DST treatise series · Zenodo DOIs"
+    - "5 English extension papers · Zenodo & SSRN"
+    - "OpenAlex · Academia.edu"
+    - "Commentary on AI governance — under review"
 
 contact:
   heading: "Contact"
-  orcid_label: "ORCID"
-  email_label: "Email"
-  academia_label: "Academia.edu"
-  openalex_label: "OpenAlex"
-
-back:
-  label: "中文站 (Chinese)"
+  email: "ning@zhishuixue.com"
+  note: "For collaboration, translation, and institutional publishing."
 
 footer:
   license: "All content is released under CC BY 4.0. Attribution: Ning Kaifeng / Dynamic Sustenance Theory (DST)."
