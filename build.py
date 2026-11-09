@@ -732,6 +732,10 @@ THOUGHT_STYLE = """
 .th-lead{font-size:1.02em;color:#333;margin:14px 0 20px;}
 .th-name{display:inline-block;font-size:0.95em;background:#eef4fb;border:1px solid #b9d4f2;color:#1a4d8f;padding:5px 14px;border-radius:999px;margin:6px 0 18px;font-weight:500;}
 .th-sec h2{font-size:1.08em;color:#1a4d8f;border-left:4px solid #1a4d8f;padding-left:10px;margin:24px 0 10px;}
+.sec-tag{background:#f7fafc;border-left:3px solid #9fb6c9;padding:9px 14px;margin:9px 0;font-size:0.95em;line-height:1.75;border-radius:0 6px 6px 0;color:#2b3648;}
+.sec-tag b{color:#1f4e5f;font-weight:600;}
+.sec-tag.risk{background:#fdf6ec;border-left-color:#d99a00;}
+.sec-op{font-weight:600;color:#1a4d8f;margin:16px 0 4px;font-size:0.98em;}
 .th-sec p{margin:8px 0;}
 .th-box{font-size:0.92em;color:#444;background:#f6f6f6;padding:12px 16px;border-radius:8px;margin:8px 0 20px;}
 .th-fields{width:100%;border-collapse:collapse;font-size:0.9em;margin:8px 0 20px;}
@@ -937,6 +941,43 @@ fill();render();
     return "\n".join(L) + "\n"
 
 
+_SEC_TAGS = ("定义权检查", "已发生事实反证", "现象层", "致因层", "缺它",
+             "策略", "承重件", "断的条件", "代价", "配置")
+_SEC_ICON = {"定义权检查": "🔑", "已发生事实反证": "⚖️", "现象层": "▸", "致因层": "▸",
+             "缺它": "⚠", "策略": "→", "承重件": "◆", "断的条件": "✕", "代价": "⚖", "配置": "⇒"}
+_SEC_RISK = ("断的条件", "代价", "缺它", "已发生事实反证")
+
+
+_TAG_RE = re.compile(r"(定义权检查|已发生事实反证|现象层|致因层|缺它|策略|承重件|断的条件|代价|配置)[：:]")
+_SEC_ICON = {"定义权检查": "🔑", "已发生事实反证": "⚖️", "现象层": "▸", "致因层": "▸",
+             "缺它": "⚠", "策略": "→", "承重件": "◆", "断的条件": "✕", "代价": "⚖", "配置": "⇒"}
+_SEC_RISK = ("断的条件", "代价", "缺它", "已发生事实反证")
+
+
+def _fmt_para(para):
+    """段落内按「策略／承重件／断的条件／代价」等标签切块；无标签则普通段落。"""
+    p = para.strip()
+    if p.startswith("• ") and "：" in p:
+        name, rest = p[2:].split("：", 1)
+        if len(name) <= 12:
+            return '<div class="sec-op">' + name + '</div>' + _fmt_para(rest)
+    ms = list(_TAG_RE.finditer(p))
+    if not ms:
+        return "<p>" + p + "</p>"
+    out = []
+    if ms[0].start() > 0:
+        head = p[:ms[0].start()].strip()
+        if head:
+            out.append("<p>" + head + "</p>")
+    for i, m in enumerate(ms):
+        tag = m.group(1)
+        end = ms[i + 1].start() if i + 1 < len(ms) else len(p)
+        rest = p[m.end():end].strip()
+        cls = "sec-tag risk" if tag in _SEC_RISK else "sec-tag"
+        out.append('<div class="%s"><b>%s %s</b>　%s</div>' % (cls, _SEC_ICON.get(tag, ""), tag, rest))
+    return "\n".join(out)
+
+
 def _th_desc(t):
     """description 三段式：类型 + 边界/判断 + 命名（让搜索者一眼知道这是什么内容）"""
     _j = (t.get("judgment") or "").split("｜")[0].strip()
@@ -995,7 +1036,7 @@ def render_thought_page(t, d, all_thoughts):
     for sec in t.get("sections", []):
         L.append('<div class="th-sec"><h2>' + sec["k"] + "</h2>")
         for para in [x for x in sec["v"].split("\n") if x.strip()]:
-            L.append("<p>" + para + "</p>")
+            L.append(_fmt_para(para))
         L.append("</div>")
     if t.get("vision"):
         L.append("<h2>视野边界（它看得见什么，看不见什么）</h2>")
