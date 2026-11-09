@@ -1047,17 +1047,8 @@ def render_thought_page(t, d, all_thoughts):
     if t.get("anchors"):
         L.append("<h2>厚度锚点（指向原典的路标）</h2>")
         L.append('<div class="th-box">' + "<br>".join("· " + (a.get("k", "") + ("：" if a.get("k") else "") + a["v"]) for a in t["anchors"]) + "</div>")
-    L.append("<h2>结构档案（索引字段）</h2>")
-    rows = [("编号", t["num"]), ("篇名", t.get("full_title", "")), ("归目", t.get("category", "")),
-            ("边界（追问1）", t.get("border", "")), ("洪水（追问2）", t.get("flood", "")),
-            ("三种动能（追问3）", t.get("forces", "")), ("三类规则操作（追问4）", t.get("operations", "")),
-            ("关键判断结构（追问5）", t.get("judgment", "")), ("命名", t.get("naming", "")),
-            ("备注", t.get("note", ""))]
-    L.append('<table class="th-fields"><tbody>')
-    for k, v in rows:
-        if v:
-            L.append("<tr><th>" + k + "</th><td>" + v + "</td></tr>")
-    L.append("</tbody></table>")
+    # 索引字段（边界/洪水/三动能/三操作/判断/备注）属内部检索层，不进读者页
+
     if t.get("faq"):
         faq_ld = {
             "@context": "https://schema.org",
