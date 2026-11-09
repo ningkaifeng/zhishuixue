@@ -18,7 +18,7 @@ try:
     _thd = yaml.safe_load(io.open('thoughts.yml', encoding='utf-8')) or {}
 except FileNotFoundError:
     _thd = {'meta': {}, 'thoughts': []}
-thoughts = _thd.get('thoughts', [])
+thoughts = [x for x in _thd.get('thoughts', []) if not x.get('deprecated')]
 
 # ---- 判例库版本元信息（从 papers.yml 读，勿硬编码）----
 try:

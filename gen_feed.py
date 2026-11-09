@@ -43,7 +43,7 @@ try:
     _th = yaml.safe_load(io.open('thoughts.yml', encoding='utf-8')) or {}
 except FileNotFoundError:
     _th = {}
-for t in (_th.get('thoughts') or []):
+for t in [x for x in (_th.get('thoughts') or []) if not x.get('deprecated')]:
     date = t.get('date') or ''
     if not date:
         continue

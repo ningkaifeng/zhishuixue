@@ -116,7 +116,7 @@ for ln in phases['lines']:
         })
 
 # ---------- 内容截至日期（随内容实算，不写死）----------
-_latest_dates = [c.get('date', '') for c in cases] + [t.get('date', '') for t in (_th.get('thoughts') or [])]
+_latest_dates = [c.get('date', '') for c in cases] + [t.get('date', '') for t in (_th.get('thoughts') or []) if not t.get('deprecated')]
 _latest_dates = [x for x in _latest_dates if x]
 LATEST_DATE = max(_latest_dates) if _latest_dates else '2026-10-26'
 
@@ -208,7 +208,7 @@ pack = {
 
 # ---------- 思想显影 block ----------
 th_block = []
-for _t in (_th.get('thoughts') or []):
+for _t in [x for x in (_th.get('thoughts') or []) if not x.get('deprecated')]:
     th_block.append({
         'id': _t['id'], 'num': _t['num'], 'title': _t['title'],
         'full_title': _t.get('full_title', ''),

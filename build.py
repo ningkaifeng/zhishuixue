@@ -757,6 +757,11 @@ def thought_url(base, t):
     return base + "thoughts/" + t["id"] + ".html"
 
 
+def active_thoughts(td):
+    """当前有效版本（deprecated 为已作废的 v1，只保留页面，不进列表/机器层）"""
+    return [t for t in (td.get("thoughts") or []) if not t.get("deprecated")]
+
+
 def _thought_health(items):
     bad_name = [t["id"] for t in items if not (t.get("naming") or "").endswith("存续系统")]
     bad_cat = [t["id"] for t in items if t.get("category") not in THOUGHTS_CATS]
@@ -780,7 +785,7 @@ def render_thoughts_json(d):
     td = load_thoughts()
     meta = td.get("meta", {}) or {}
     items = []
-    for t in td.get("thoughts", []):
+    for t in active_thoughts(td):
         items.append({
             "id": t["id"], "num": t["num"], "title": t["title"],
             "fullTitle": t.get("full_title", ""),
@@ -831,7 +836,8 @@ def render_thoughts_json(d):
             "anchors": "厚度锚点：指向原典的路标（关键词／关键文本／核心争议／历史案例）",
         },
         "count": len(items),
-        "health": _thought_health(td.get("thoughts", [])),
+        "health": _thought_health(active_thoughts(td)),
+        "deprecatedCount": len(td.get("thoughts", [])) - len(items),
         "thoughts": items,
     }
     return json.dumps(header, ensure_ascii=False, indent=1) + "\n"
@@ -841,7 +847,7 @@ def render_thoughts_index(d):
     base = d["site"]["base_url"]
     td = load_thoughts()
     meta = td.get("meta", {}) or {}
-    items = td.get("thoughts", [])
+    items = active_thoughts(td)
     url = base + "thoughts.html"
     ld = {
         "@context": "https://schema.org",
@@ -971,6 +977,15 @@ def render_thought_page(t, d, all_thoughts):
          "<h1>" + t["num"] + "｜" + t.get("full_title", t["title"]) + "</h1>",
          '<p class="case-meta">归目：' + (t.get("category", "") or "") + " ｜ 记录日期："
          + (t.get("date", "") or "") + " ｜ 许可：" + (t.get("license", "CC BY 4.0") or "") + "</p>",
+    ]
+    if t.get("deprecated"):
+        L.append('<div style="background:#fff7ed;border-left:4px solid #d97706;padding:14px 18px;'
+                 'margin:18px 0;font-size:14px;line-height:1.75;color:#7c2d12;">'
+                 '<b>⚠️ 本版已作废（v1）</b><br>'
+                 '作者判定本篇在结构方法上存在系统性问题，已由 v2 体系重写取代。此处保留原文，'
+                 '仅作改写过程的记录，<b>不作为当前观点引用</b>。新版自 N-0001 起重写，'
+                 '见 <a href="' + base + 'thoughts.html" style="color:#1a4d8f;">思想显影总览</a>。</div>')
+    L += [
          '<div class="th-name">关键判断结构命名：' + (t.get("naming", "") or "") + "</div>",
          '<div class="th-limit"><b>显影限度：</b>' + (t.get("limit", "") or "") + "</div>"]
     if t.get("dialogue"):
@@ -982,6 +997,9 @@ def render_thought_page(t, d, all_thoughts):
         for para in [x for x in sec["v"].split("\n") if x.strip()]:
             L.append("<p>" + para + "</p>")
         L.append("</div>")
+    if t.get("vision"):
+        L.append("<h2>视野边界（它看得见什么，看不见什么）</h2>")
+        L.append('<div class="th-box">' + "<br>".join("· " + x for x in t["vision"]) + "</div>")
     if t.get("remainder"):
         L.append("<h2>剩余物（这套语法没接住什么）</h2>")
         L.append('<div class="th-box">' + "<br>".join("· " + x for x in t["remainder"]) + "</div>")
@@ -1484,7 +1502,7 @@ def render_index(d):
             L.append(fold_button(len(_feat)))
         L.append(f'<p style="margin-top:12px;"><a href="cases.html" style="color:#0066cc;text-decoration:none;font-weight:500;">查看全部 {len(_cases)} 篇案例（可搜索、按归目/场景/接口筛选）→</a></p>')
     _td = load_thoughts()
-    _ts = _td.get("thoughts", [])
+    _ts = active_thoughts(_td)
     if _ts:
         _tm = _td.get("meta", {}) or {}
         L.append(f'<h2 style="{S["h2"]}">思想显影（实践学显影）</h2>')
@@ -1835,7 +1853,7 @@ def render_llms(d):
                     L.append(f'  {case_url(base, _c)}')
         L.append("")
     _td = load_thoughts()
-    _ts = _td.get("thoughts", [])
+    _ts = active_thoughts(_td)
     if _ts:
         _tm = _td.get("meta", {}) or {}
         L.append("## 思想显影（实践学显影：五段框架显影「方案／体系／理论」）")
@@ -1844,7 +1862,7 @@ def render_llms(d):
         L.append("")
         L.append(f'- 思想显影机器可读索引（JSON）：{base}thoughts-index.json')
         L.append(f'- 思想显影总览（人读，可搜索/按归目筛选）：{base}thoughts.html')
-        L.append(f'- 逐篇页面：{base}thoughts/<编号>.html（例：{base}thoughts/X-0001.html）')
+        L.append(f'- 逐篇页面：{base}thoughts/<编号>.html（例：{base}thoughts/N-0001.html）')
         L.append("")
         for _t in _ts:
             L.append(f'- {_t["num"]}｜{_t.get("full_title", _t["title"])}（{_t.get("category","")}）｜命名：{_t.get("naming","")}')
@@ -2264,7 +2282,7 @@ def render_sitemap(d):
     ]
     for _c in _cs:
         pages.append((case_url(base, _c), "0.6", "monthly"))
-    _ts = load_thoughts().get("thoughts", [])
+    _ts = active_thoughts(load_thoughts())
     if _ts:
         pages.append((base + "thoughts.html", "0.7", "weekly"))
         pages.append((base + "thoughts-index.json", "0.6", "weekly"))
@@ -2409,7 +2427,7 @@ def main():
     if _ts:
         os.makedirs(os.path.join(DIST, "thoughts"), exist_ok=True)
         for _t in _ts:
-            content = render_thought_page(_t, d, _ts)
+            content = render_thought_page(_t, d, [x for x in _ts if not x.get("deprecated")])
             with open(os.path.join(DIST, "thoughts", _t["id"] + ".html"), "w", encoding="utf-8") as f:
                 f.write(content)
             print(f'  OK thoughts/{_t["id"]}.html  ({len(content)} bytes)')
