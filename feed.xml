@@ -5,13 +5,22 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-11-06T00:00:00Z</updated>
+  <updated>2026-11-09T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>X-0018｜尼采——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/X-0018.html"/>
+    <id>https://zhishuixue.com/thoughts/X-0018.html</id>
+    <updated>2026-11-09T00:00:00Z</updated>
+    <published>2026-11-09T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>生命靠自身的上升强度存续，不靠外部保证——上帝/道德/来世都不是承重件；旧价值塌了不是找新支柱，而是自己造价值并承受得住；三动能与两操作可指认、共识凝聚偏弱，判为动力—规则部分协同｜上升存续系统</summary>
+  </entry>
   <entry>
     <title>X-0017｜佛学——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/X-0017.html"/>
@@ -362,14 +371,5 @@
     <published>2026-10-22T00:00:00Z</published>
     <category term="判例"/>
     <summary>三国时，曹爽夺司马懿兵权后，司马懿装病不朝，装成病入膏肓、神志不清，骗过曹爽派来试探的李胜；曹爽放松警惕后，司马懿趁其陪皇帝外出扫墓、京城防备空虚之机发动政变，诛曹爽、独揽大权。精妙在“藏锋”——伪装无害、静不露机，把真实意图与实力藏起来，等对手放松、时机一到，后发制人。</summary>
-  </entry>
-  <entry>
-    <title>B-0026｜指桑骂槐</title>
-    <link href="https://zhishuixue.com/cases/B-0026.html"/>
-    <id>https://zhishuixue.com/cases/B-0026.html</id>
-    <updated>2026-10-21T00:00:00Z</updated>
-    <published>2026-10-21T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>春秋时，吴王阖闾令孙武操练 180 名宫女以试兵法。宫女嬉笑不听号令，孙武三令五申无效后，斩了担任左右队长的吴王两名宠妃，杀一儆百；再操练，宫女进退整齐、令行禁止。精妙在“立威树纪”——惩戒一个最不能罚的典型，把“违令必惩”的预期传导给全体，用最小代价建立号令的权威。</summary>
   </entry>
 </feed>
