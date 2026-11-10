@@ -108,7 +108,8 @@ for name, ctype in FILES:
     with open(path, "rb") as fh:
         content = fh.read()
     url = f"{bucket}/{quote(name)}"
-    r = call("PUT", url, headers={**H_AUTH, "Content-Type": ctype}, data=content)
+    # Zenodo bucket 只接受 application/octet-stream
+    r = call("PUT", url, headers={**H_AUTH, "Content-Type": "application/octet-stream"}, data=content)
     if r.status_code >= 400:
         dump(r, f"上传 {name}")
     else:
