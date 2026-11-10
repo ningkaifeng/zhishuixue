@@ -705,8 +705,9 @@ def render_case_page(c, d):
     if c.get("recorder_note"):
         L.append("<h2>记录人备注</h2>")
         L.append('<div class="case-note">' + link_concepts(c["recorder_note"].strip(), d, base).replace("\n", "<br>") + "</div>")
-    if c.get("planet_url"):
-        L.append(f'<p class="case-meta">知识星球原文：<a href="{c["planet_url"]}">{c["planet_url"]}</a></p>')
+    _pu = (c.get("planet_url") or "").strip()
+    if _pu.startswith("http"):
+        L.append(f'<p class="case-meta">知识星球原文：<a href="{_pu}">{_pu}</a></p>')
     _rel = _related_cases(c, d)
     if _rel:
         _items = []
@@ -2442,6 +2443,14 @@ def main():
         "thoughts-index.json": render_thoughts_json(d),
         "specimens.html": render_specimens_index(d),
         "specimens-index.json": render_specimens_json(d),
+        "phases.html": ('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">'
+                        '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+                        '<title>治水历（已并入概念图谱） | 治水学 DST</title>'
+                        '<meta name="robots" content="noindex,follow">'
+                        f'<link rel="canonical" href="{d["site"]["base_url"]}graph.html">'
+                        f'<meta http-equiv="refresh" content="0; url={d["site"]["base_url"]}graph.html">'
+                        "</head><body><p>该页面已并入 "
+                        f'<a href="{d["site"]["base_url"]}graph.html">概念图谱</a>。</p></body></html>'),
     }
     for name, content in outputs.items():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
@@ -2450,6 +2459,12 @@ def main():
     _cases = load_cases()
     if _cases:
         os.makedirs(os.path.join(DIST, "cases"), exist_ok=True)
+        with open(os.path.join(DIST, "cases", "index.html"), "w", encoding="utf-8") as f:
+            f.write('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">'
+                    '<meta name="robots" content="noindex,follow">'
+                    f'<meta http-equiv="refresh" content="0; url={d["site"]["base_url"]}cases.html">'
+                    "</head><body><p>判例总览："
+                    f'<a href="{d["site"]["base_url"]}cases.html">cases.html</a></p></body></html>')
         for _c in _cases:
             content = render_case_page(_c, d)
             with open(os.path.join(DIST, "cases", _c["id"] + ".html"), "w", encoding="utf-8") as f:
