@@ -2,16 +2,18 @@
 # -*- coding: utf-8 -*-
 """在 GitHub Actions 里发布思想显影库 v2.0 到 Zenodo。
 
-流程：复用/新建 draft → 删旧文件 → 传新文件 → 改元数据 → publish。
-用 legacy deposit API（/api/deposit/depositions/...）。
+流程：复用/新建 draft → 删旧文件 → bucket PUT 上传新文件 → 改元数据 → publish。
+文件上传用 bucket 直传（Zenodo 官方推荐，不依赖 multipart /files 端点），
+bucket 地址来自 draft 的 links.bucket。
 """
 import json, os, sys, time
+from urllib.parse import quote
 import requests
 
 TOKEN = os.environ["ZENODO_TOKEN"]
 API = "https://zenodo.org/api/deposit/depositions"
 H_JSON = {"Authorization": "Bearer " + TOKEN, "Content-Type": "application/json"}
-H_AUTH = {"Authorization": "Bearer " + TOKEN}  # 文件上传不带 Content-Type
+H_AUTH = {"Authorization": "Bearer " + TOKEN}
 V1_REC = "23766353"
 CONCEPT = "23766352"
 CONCEPT_DOI = "10.5281/zenodo.23766352"
@@ -40,11 +42,11 @@ DESC = (
 
 
 def call(method, url, headers=None, **kw):
-    h = headers or H_JSON
+    h = headers or H_AUTH
     last = None
     for i in range(5):
         try:
-            r = requests.request(method, url, headers=h, timeout=120, **kw)
+            r = requests.request(method, url, headers=h, timeout=180, **kw)
             if r.status_code < 500:
                 return r
             last = r
@@ -55,8 +57,16 @@ def call(method, url, headers=None, **kw):
     sys.exit(2)
 
 
+def dump(r, label):
+    print(f"   [{label}] {r.status_code} {r.reason}")
+    try:
+        print("   body:", r.text[:800])
+    except Exception:
+        print("   body:", r.content[:800])
+
+
 print("① 定位/创建 draft…")
-r = call("GET", API + "?size=100", headers=H_AUTH)
+r = call("GET", API + "?size=200", headers=H_AUTH)
 deps = r.json()
 orphan = [d for d in deps
           if str(d.get("conceptrecid")) == CONCEPT and d.get("state") == "unsubmitted"]
@@ -69,7 +79,10 @@ else:
     print("   新建 draft id:", did)
 
 r = call("GET", f"{API}/{did}", headers=H_AUTH)
-old_files = r.json().get("files", [])
+draft = r.json()
+bucket = draft["links"]["bucket"]
+old_files = draft.get("files", [])
+print("   bucket:", bucket)
 print("   草稿内旧文件:", len(old_files), "个")
 
 print("② 删除旧文件…")
@@ -77,16 +90,19 @@ for f in old_files:
     call("DELETE", f"{API}/{did}/files/{f['id']}", headers=H_AUTH)
     print("   删", f.get("filename"))
 
-print("③ 上传新文件…")
+print("③ bucket PUT 上传新文件…")
 for name, ctype in FILES:
     path = os.path.join(HERE, name)
     if not os.path.exists(path):
         print("   ✗ 缺失", name); sys.exit(2)
     with open(path, "rb") as fh:
-        r = call("POST", f"{API}/{did}/files", headers=H_AUTH,
-                 data={"name": name},
-                 files={"file": (name, fh)})
-    print("   传", name, r.status_code, r.text[:120] if r.status_code >= 400 else "")
+        content = fh.read()
+    url = f"{bucket}/{quote(name)}"
+    r = call("PUT", url, headers={**H_AUTH, "Content-Type": ctype}, data=content)
+    if r.status_code >= 400:
+        dump(r, f"上传 {name}")
+    else:
+        print(f"   传 {name} {r.status_code}")
 
 print("④ 更新元数据…")
 payload = {
@@ -117,15 +133,17 @@ payload = {
         ],
     }
 }
-r = call("PUT", f"{API}/{did}", data=json.dumps(payload))
+r = call("PUT", f"{API}/{did}", data=json.dumps(payload), headers=H_JSON)
 if r.status_code >= 400:
-    print("   ✗ 元数据失败", r.status_code, r.text[:600]); sys.exit(2)
+    dump(r, "元数据")
+    sys.exit(2)
 print("   元数据 OK")
 
 print("⑤ 发布…")
 r = call("POST", f"{API}/{did}/actions/publish")
 if r.status_code != 202:
-    print("   ✗ 发布失败", r.status_code, r.text[:600]); sys.exit(2)
+    dump(r, "发布")
+    sys.exit(2)
 rec = r.json()
 print("✅ 发布成功")
 print("   version DOI:", rec.get("doi"))
