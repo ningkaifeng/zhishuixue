@@ -2,16 +2,18 @@
 # -*- coding: utf-8 -*-
 """在 GitHub Actions 里发布思想显影库 v2.0 到 Zenodo。
 
-流程：newversion → 删旧文件 → 传新文件 → 改元数据 → publish。
-用 legacy deposit API（/api/deposit/depositions/...），因为新版 /api/records 会丢字段。
+流程：复用/新建 draft → 删旧文件 → 传新文件 → 改元数据 → publish。
+用 legacy deposit API（/api/deposit/depositions/...）。
 """
 import json, os, sys, time
 import requests
 
 TOKEN = os.environ["ZENODO_TOKEN"]
 API = "https://zenodo.org/api/deposit/depositions"
-H = {"Authorization": "Bearer " + TOKEN, "Content-Type": "application/json"}
-V1_REC = "23766353"          # v1.0 版本记录 ID
+H_JSON = {"Authorization": "Bearer " + TOKEN, "Content-Type": "application/json"}
+H_AUTH = {"Authorization": "Bearer " + TOKEN}  # 文件上传不带 Content-Type
+V1_REC = "23766353"
+CONCEPT = "23766352"
 CONCEPT_DOI = "10.5281/zenodo.23766352"
 SITE = "https://zhishuixue.com/"
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -37,11 +39,12 @@ DESC = (
 )
 
 
-def call(method, url, **kw):
+def call(method, url, headers=None, **kw):
+    h = headers or H_JSON
     last = None
     for i in range(5):
         try:
-            r = requests.request(method, url, headers=H, timeout=120, **kw)
+            r = requests.request(method, url, headers=h, timeout=120, **kw)
             if r.status_code < 500:
                 return r
             last = r
@@ -52,22 +55,27 @@ def call(method, url, **kw):
     sys.exit(2)
 
 
-print("① 创建新版本（newversion）…")
-r = call("POST", f"{API}/{V1_REC}/actions/newversion")
-draft = r.json()
-did = draft["id"]
-print("   draft id:", did)
+print("① 定位/创建 draft…")
+r = call("GET", API + "?size=100", headers=H_AUTH)
+deps = r.json()
+orphan = [d for d in deps
+          if str(d.get("conceptrecid")) == CONCEPT and d.get("state") == "unsubmitted"]
+if orphan:
+    did = orphan[0]["id"]
+    print("   复用已有草稿 draft id:", did)
+else:
+    r = call("POST", f"{API}/{V1_REC}/actions/newversion")
+    did = r.json()["id"]
+    print("   新建 draft id:", did)
 
-# 现有元数据与旧文件
-r = call("GET", f"{API}/{did}")
-meta = r.json()
-old_files = meta.get("files", [])
-print("   继承旧文件:", len(old_files), "个")
+r = call("GET", f"{API}/{did}", headers=H_AUTH)
+old_files = r.json().get("files", [])
+print("   草稿内旧文件:", len(old_files), "个")
 
 print("② 删除旧文件…")
 for f in old_files:
-    r = call("DELETE", f"{API}/{did}/files/{f['id']}")
-    print("   删", f.get("filename"), r.status_code)
+    call("DELETE", f"{API}/{did}/files/{f['id']}", headers=H_AUTH)
+    print("   删", f.get("filename"))
 
 print("③ 上传新文件…")
 for name, ctype in FILES:
@@ -75,10 +83,10 @@ for name, ctype in FILES:
     if not os.path.exists(path):
         print("   ✗ 缺失", name); sys.exit(2)
     with open(path, "rb") as fh:
-        r = call("POST", f"{API}/{did}/files",
+        r = call("POST", f"{API}/{did}/files", headers=H_AUTH,
                  data={"name": name},
-                 files={"file": (name, fh, ctype)})
-    print("   传", name, r.status_code)
+                 files={"file": (name, fh)})
+    print("   传", name, r.status_code, r.text[:120] if r.status_code >= 400 else "")
 
 print("④ 更新元数据…")
 payload = {
@@ -100,34 +108,27 @@ payload = {
             "five-part frame", "存续", "governance syntax",
         ],
         "related_identifiers": [
-            {"relation": "isNewVersionOf", "identifier": CONCEPT_DOI,
-             "resource_type": "dataset"},
-            {"relation": "references", "identifier": "10.5281/zenodo.20372186",
-             "resource_type": "publication-preprint"},
-            {"relation": "references", "identifier": "10.5281/zenodo.23056450",
-             "resource_type": "publication-preprint"},
-            {"relation": "references", "identifier": "10.5281/zenodo.23609363",
-             "resource_type": "publication-preprint"},
-            {"relation": "references", "identifier": "10.5281/zenodo.23664767",
-             "resource_type": "dataset"},
-            {"relation": "isSupplementTo", "identifier": SITE,
-             "resource_type": "other"},
+            {"relation": "isNewVersionOf", "identifier": CONCEPT_DOI, "resource_type": "dataset"},
+            {"relation": "references", "identifier": "10.5281/zenodo.20372186", "resource_type": "publication-preprint"},
+            {"relation": "references", "identifier": "10.5281/zenodo.23056450", "resource_type": "publication-preprint"},
+            {"relation": "references", "identifier": "10.5281/zenodo.23609363", "resource_type": "publication-preprint"},
+            {"relation": "references", "identifier": "10.5281/zenodo.23664767", "resource_type": "dataset"},
+            {"relation": "isSupplementTo", "identifier": SITE, "resource_type": "other"},
         ],
     }
 }
 r = call("PUT", f"{API}/{did}", data=json.dumps(payload))
 if r.status_code >= 400:
-    print("   ✗ 元数据失败", r.status_code, r.text[:500]); sys.exit(2)
+    print("   ✗ 元数据失败", r.status_code, r.text[:600]); sys.exit(2)
 print("   元数据 OK")
 
 print("⑤ 发布…")
 r = call("POST", f"{API}/{did}/actions/publish")
 if r.status_code != 202:
-    print("   ✗ 发布失败", r.status_code, r.text[:500]); sys.exit(2)
+    print("   ✗ 发布失败", r.status_code, r.text[:600]); sys.exit(2)
 rec = r.json()
-doi = rec["metadata"].get("prereserve_doi", {}).get("doi") or rec.get("doi")
 print("✅ 发布成功")
 print("   version DOI:", rec.get("doi"))
 print("   concept DOI:", rec.get("conceptdoi"))
-print("   record:", rec.get("id"))
-print("   links.record:", rec["links"].get("record_html"))
+print("   record id:", rec.get("id"))
+print("   record_html:", rec["links"].get("record_html"))
