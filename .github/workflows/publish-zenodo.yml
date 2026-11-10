@@ -1,0 +1,22 @@
+name: Publish Zenodo
+
+on:
+  push:
+    paths:
+      - 'zenodo-release/**'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install requests
+        run: pip install --quiet requests
+      - name: Publish to Zenodo
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: python3 zenodo-release/publish.py
