@@ -66,10 +66,20 @@ def dump(r, label):
 
 
 print("① 定位/创建 draft…")
-r = call("GET", API + "?size=200", headers=H_AUTH)
-deps = r.json()
+r = call("GET", API, headers=H_AUTH)
+data = r.json()
+if isinstance(data, dict):
+    # InvenioRDM 分页格式：{"hits": {"hits": [...], "total": N}}
+    hits = data.get("hits")
+    deps = hits.get("hits", []) if isinstance(hits, dict) else []
+    if not deps:
+        print("   !! 列表返回异常:", json.dumps(data, ensure_ascii=False)[:600])
+else:
+    deps = data
+print("   deps 类型:", type(data).__name__, "| 条数:", len(deps) if isinstance(deps, list) else "?")
 orphan = [d for d in deps
-          if str(d.get("conceptrecid")) == CONCEPT and d.get("state") == "unsubmitted"]
+          if isinstance(d, dict)
+          and str(d.get("conceptrecid")) == CONCEPT and d.get("state") == "unsubmitted"]
 if orphan:
     did = orphan[0]["id"]
     print("   复用已有草稿 draft id:", did)
