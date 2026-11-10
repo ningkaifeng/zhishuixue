@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-11-06",
+ "updated": "2026-11-10",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,7 +11,7 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-06．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-10．https://zhishuixue.com/growth.json",
  "totals": {
   "papers": 26,
   "terms": 100,
@@ -623,13 +623,7 @@
   },
   {
    "date": "2026-10-29",
-   "papers": [
-    {
-     "id": "thought-shadowing-library",
-     "title": "思想显影库 · 结构显影合辑",
-     "doi": "10.5281/zenodo.23766352"
-    }
-   ],
+   "papers": [],
    "cases": [
     {
      "id": "B-0034",
@@ -637,7 +631,7 @@
      "url": "https://zhishuixue.com/cases/B-0034.html"
     }
    ],
-   "nPapers": 1,
+   "nPapers": 0,
    "nCases": 1
   },
   {
@@ -761,6 +755,19 @@
    ],
    "nPapers": 0,
    "nCases": 1
+  },
+  {
+   "date": "2026-11-10",
+   "papers": [
+    {
+     "id": "thought-shadowing-library",
+     "title": "思想显影库 · 结构显影合辑",
+     "doi": "10.5281/zenodo.23766352"
+    }
+   ],
+   "cases": [],
+   "nPapers": 1,
+   "nCases": 0
   }
  ],
  "note": "本文件由 build.py 自动生成：从 papers.yml（论文）与 cases.yml（判例）的日期字段汇总，反映“知识库如何逐日长大”，供 AI 与检索判断其时效与规模。"
