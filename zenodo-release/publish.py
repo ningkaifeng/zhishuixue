@@ -14,15 +14,15 @@ TOKEN = os.environ["ZENODO_TOKEN"]
 API = "https://zenodo.org/api/deposit/depositions"
 H_JSON = {"Authorization": "Bearer " + TOKEN, "Content-Type": "application/json"}
 H_AUTH = {"Authorization": "Bearer " + TOKEN}
-V1_REC = "23766353"
+V1_REC = "24099834"
 CONCEPT = "23766352"
 CONCEPT_DOI = "10.5281/zenodo.23766352"
 SITE = "https://zhishuixue.com/"
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 FILES = [
-    ("Thought-Shadowing-Library-v2.0.pdf", "application/pdf"),
-    ("Thought-Shadowing-Library-v2.0.docx",
+    ("Thought-Shadowing-Library-v3.0.pdf", "application/pdf"),
+    ("Thought-Shadowing-Library-v3.0.docx",
      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"),
     ("thoughts-index.json", "application/json"),
     ("README.md", "text/markdown"),
@@ -30,14 +30,16 @@ FILES = [
 
 DESC = (
     "思想显影库（Thought Shadowing Library）是用「五段框架」对方案、体系与理论做结构提取的连续样本集。"
-    "v2.0 收录四篇重写后的显影：尼采（上升存续系统）、孙子兵法（先胜存续系统）、商君书（一孔存续系统）、"
-    "道德经（损存续系统）。每篇以五段框架显影其背后的结构判断——边界画在哪、把什么当最大威胁、靠什么推动、"
-    "用什么操作、压成一句什么判断，并附视野边界、剩余物与厚度锚点。本库不评价思想高低，只还原不同边界预设下的结构差异；"
-    "显影是入口而非出口。v1.0（X-0001 至 X-0018）已作废并重写，原文保留于官网逐篇页作为改写记录。\n\n"
+    "v3.0 是对 N 系列五篇的再次全面重写，并新增论语一篇：尼采（上升存续系统）、孙子兵法（先胜存续系统）、"
+    "商君书（一孔存续系统）、道德经（损存续系统）、论语（正名存续系统）。每篇以五段框架显影其背后的结构判断——"
+    "边界画在哪、把什么当最大威胁、靠什么推动、用什么操作、压成一句什么判断，并附视野边界、剩余物与厚度锚点。"
+    "本库不评价思想高低，只还原不同边界预设下的结构差异；显影是入口而非出口。"
+    "v1.0（X-0001 至 X-0018）已作废并重写，原文保留于官网逐篇页作为改写记录。\n\n"
     "The Thought Shadowing Library is a running series of structural shadowings: each entry extracts, via a five-part frame, "
-    "the structural judgment behind an intellectual system, program, or theory. v2.0 collects four rewritten shadowings — "
-    "Nietzsche, Sunzi, Shang Yang, and Laozi. This library does not rank ideas; it restores the structural differences beneath "
-    "different boundary presuppositions. v1.0 has been deprecated and rewritten; the originals remain on the website as a record."
+    "the structural judgment behind an intellectual system, program, or theory. v3.0 is a full rewrite of all five entries "
+    "in the N series — Nietzsche, Sunzi, Shang Yang, Laozi, and the Analects (Lunyu). This library does not rank ideas; "
+    "it restores the structural differences beneath different boundary presuppositions. v1.0 has been deprecated and "
+    "rewritten; the originals remain on the website as a record."
 )
 
 
@@ -120,8 +122,8 @@ payload = {
     "metadata": {
         "title": "思想显影库(Thought Shadowing Library v2.0)",
         "description": DESC,
-        "version": "2.0",
-        "publication_date": "2026-11-10",
+        "version": "3.0",
+        "publication_date": "2026-11-11",
         "upload_type": "dataset",
         "language": "zho",
         "license": "cc-by-4.0",
