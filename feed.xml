@@ -5,13 +5,58 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-11-10T00:00:00Z</updated>
+  <updated>2026-11-11T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>N-0001｜尼采——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0001.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0001.html</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <published>2026-11-11T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>生命力不保存，只周转——它得一次次重新挣出来；停下挣的那一刻，剩下的只是还能撑多久｜上升存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0002｜孙子兵法——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0002.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0002.html</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <published>2026-11-11T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>胜负在开打之前就已经算定；阵上做的那些，只是让对方把已经写下的结果认下来｜先胜存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0003｜商君书——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0003.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0003.html</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <published>2026-11-11T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>国力的存续不看民手里有多少，看全国的力量能不能收进一个出口｜一孔存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0004｜道德经——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0004.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0004.html</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <published>2026-11-11T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>系统能不能久，不看它添了多少，看它有没有强作；强作的地方先坏，不争的地方自全｜损存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0005｜论语——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0005.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0005.html</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <published>2026-11-11T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>秩序能不能立住，看名分是否名副其实、人心里是否有那一层肯；只靠刑罚撑着的秩序，名一乱就散｜正名存续系统</summary>
+  </entry>
   <entry>
     <title>思想显影库 · 结构显影合辑</title>
     <link href="https://doi.org/10.5281/zenodo.23766352"/>
@@ -20,42 +65,6 @@
     <published>2026-11-10T00:00:00Z</published>
     <category term="论文"/>
     <summary>用同一套五段语法（边界／威胁／三种动能／三类规则操作／结构判断）对彼此不相干的思想体系做结构提取。不问一个思想说了什么、对不对、如何演变，而问它在「系统如何存续」上压成了一个什么判断。v2.0 为重写后的新体系（编号改用 N 系列），相比 v1.0 在方法上实质升级：段内补「定义权检查」「已发生事实反证」，段区分「现象层／致因层（必须是动作）」，每项操作拆出「策略／承重件／断的条件／代价」，段后新增「视野边界」。本版收录 4 篇：尼采（上升存续系统）、孙子兵法（先胜存续系统）、商君书（一孔存续系统）、道德经（损存续系统）；归目：系统方案 3、解释框架 1。v1.0（X-0001 至 X-0018）已作废重写，原文保留于官网逐篇页作为改写记录。网站与知识包随日更持续增补。每篇含五段全文、显影限度声明、对话脚注、视野边界、剩余物与厚度锚点。三条边界：不评价思想高低；不提供量化阈值与对错评价；不</summary>
-  </entry>
-  <entry>
-    <title>N-0001｜尼采——实践学显影</title>
-    <link href="https://zhishuixue.com/thoughts/N-0001.html"/>
-    <id>https://zhishuixue.com/thoughts/N-0001.html</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <published>2026-11-10T00:00:00Z</published>
-    <category term="思想显影"/>
-    <summary>生命靠自身的上升强度存续，不靠外部保证；旧价值塌了不是找新支柱，而是自己造价值并承受得住｜上升存续系统</summary>
-  </entry>
-  <entry>
-    <title>N-0002｜孙子兵法——实践学显影</title>
-    <link href="https://zhishuixue.com/thoughts/N-0002.html"/>
-    <id>https://zhishuixue.com/thoughts/N-0002.html</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <published>2026-11-10T00:00:00Z</published>
-    <category term="思想显影"/>
-    <summary>先为不可胜，以待敌之可胜；不可胜在己，可胜在敌｜先胜存续系统</summary>
-  </entry>
-  <entry>
-    <title>N-0003｜商君书——实践学显影</title>
-    <link href="https://zhishuixue.com/thoughts/N-0003.html"/>
-    <id>https://zhishuixue.com/thoughts/N-0003.html</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <published>2026-11-10T00:00:00Z</published>
-    <category term="思想显影"/>
-    <summary>国强不靠民富、不靠德厚，靠利出一孔加最硬的信用；能极快造出强兵足食，代价是把纠错能力一起堵死｜一孔存续系统</summary>
-  </entry>
-  <entry>
-    <title>N-0004｜道德经——实践学显影</title>
-    <link href="https://zhishuixue.com/thoughts/N-0004.html"/>
-    <id>https://zhishuixue.com/thoughts/N-0004.html</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <published>2026-11-10T00:00:00Z</published>
-    <category term="思想显影"/>
-    <summary>存续靠减法不靠加法；守住不干预则和存，一动手则和散｜损存续系统</summary>
   </entry>
   <entry>
     <title>B-0042｜卧薪尝胆</title>
@@ -362,14 +371,5 @@
     <published>2026-10-11T00:00:00Z</published>
     <category term="判例"/>
     <summary>郑庄公面对亲弟共叔段在母亲武姜撑腰下的夺位图谋，不提前动手（逼则反兵），反而松手纵容，任其一步步坐实谋反罪名，待其起兵袭郑时一举讨伐、铲除后患。精妙在“疏浚·泄势向”——不硬堵，松手让对手的势自己泄到“自毙”的绝境；与围魏救赵（压力向）、借刀杀人（出力向）、李代桃僵（损失向）、调虎离山（位置向）并列为疏浚五向。</summary>
-  </entry>
-  <entry>
-    <title>B-0015｜调虎离山</title>
-    <link href="https://zhishuixue.com/cases/B-0015.html"/>
-    <id>https://zhishuixue.com/cases/B-0015.html</id>
-    <updated>2026-10-10T00:00:00Z</updated>
-    <published>2026-10-10T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>孙策欲取庐江，刘勋兵强且据守皖城坚城（虎＋山）。孙策不硬攻，而是顺着刘勋贪财自大的弱点，卑辞厚礼、假意示弱，诱其出兵远征上缭，把虎调离山；刘勋一离城，孙策即与周瑜奇袭皖城，并派孙贲、孙辅截断其退路，大败刘勋、夺取庐江。精妙在“疏浚·位置向”——把对手本人从其优势依托上引开，让强失去支点；与围魏救赵（压力向）、借刀杀人（出力向）、李代桃僵（损失向）并列为疏浚四向。</summary>
   </entry>
 </feed>
