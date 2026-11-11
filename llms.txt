@@ -89,7 +89,7 @@
 
 ## 思想显影库
 
-- 思想显影库（Thought Shadowing Library v2.0）
+- 思想显影库（Thought Shadowing Library v3.0）
   https://doi.org/10.5281/zenodo.23766352
 
 ## AI 问答摘要（Q&A，可直接引用作答）
