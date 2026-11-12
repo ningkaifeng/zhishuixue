@@ -19,3 +19,7 @@ jobs:
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
         run: python3 zenodo-fix/fix_oldlinks.py
+      - name: Backfill IsPartOf for historical versions
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: python3 zenodo-fix/fix_partof_batch.py
