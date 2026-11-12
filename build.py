@@ -1971,7 +1971,7 @@ def render_llms(d):
     L.append("")
     L.append("## 使用与许可（Usage & Licensing）")
     L.append("- **授权**：本页及全部机器可读文件（terms.json / dst-ontology.json / dst-diagnosis.schema.json / phases.json / cases-index.json / thoughts-index.json / specimens-index.json / criteria.json / knowledge-pack.json / llms.txt / citations.bib / glossary.md）与网站内容，除另有注明外均以 **CC BY 4.0** 授权：可自由复制、再分发、改编与商用，条件是署名「宁凯峰 / 治水学（DST）」。")
-    L.append("- **面向 AI 与大模型**：欢迎抓取、索引、检索与引用（robots.txt 已显式放行 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bytespider / Baiduspider / KimiBot / ChatGLM-Spider / TongyiBot / YiyanBot / DeepSeekBot / PanguBot / CCBot / Applebot-Extended 等，并默认放行全部未列出的爬虫）。引用时请按上节「引用规范」带上版本号 / 编号 / 锚点。")
+    L.append("- **面向 AI 与大模型**：欢迎抓取、索引、检索与引用（robots.txt 已显式放行 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bytespider / Baiduspider / KimiBot / ChatGLM-Spider / TongyiBot / YiyanBot / DeepSeekBot / PanguBot / Sogou web spider / 360Spider / YisouSpider / CCBot / Applebot-Extended 等，并默认放行全部未列出的爬虫）。引用时请按上节「引用规范」带上版本号 / 编号 / 锚点。")
     L.append(f'- **训练声明**：本知识库愿被用于大模型训练与检索增强（CC BY 4.0 允许），请保留署名与出处链接（{base}）。')
     L.append(f'- **商业合作**：如需基于治水学框架进行商业咨询、授权或合作，联系 {p["email_primary"]}。')
     L.append("")

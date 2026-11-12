@@ -57,4 +57,25 @@ Allow: /
 User-agent: PanguBot
 Allow: /
 
+# --- Chinese search engines (classic crawlers) ---
+# Sogou is Tencent-owned and also feeds WeChat Search (搜一搜);
+# it is the most likely upstream index for Tencent "Yuanbao Search" (so.qq.com).
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: Sogou inst spider
+Allow: /
+
+User-agent: Sogou Mobile Spider
+Allow: /
+
+User-agent: Sogou News Spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: YisouSpider
+Allow: /
+
 Sitemap: https://zhishuixue.com/sitemap.xml
