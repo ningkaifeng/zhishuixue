@@ -36,7 +36,7 @@ pretty_name: 治水学 · 决策显影库（DST Structural Disclosure Dataset）
 
 ## Executive Summary
 
-**DST Structural Disclosure Dataset** is a structured corpus of **Dynamic Sustenance Theory (DST)** — a meta-theory for analyzing how complex adaptive systems maintain themselves under continuous change. It packages three machine-readable components: `dst-terms.jsonl` (a bilingual ontology of 100 core concepts), `dst-cases.jsonl` (49 real decision cases annotated with a six-element structural framework — situation, signal, exclusion, action, expectation, revision), and `dst-thoughts.jsonl` (8 structural readings of major theoretical systems).
+**DST Structural Disclosure Dataset** is a structured corpus of **Dynamic Sustenance Theory (DST)** — a meta-theory for analyzing how complex adaptive systems maintain themselves under continuous change. It packages three machine-readable components: `dst-terms.jsonl` (a bilingual ontology of 100 core concepts), `dst-cases.jsonl` (49 real decision cases annotated with a six-element structural framework — situation, signal, exclusion, action, expectation, revision), and `dst-thoughts.jsonl` (10 structural readings of major theoretical systems).
 
 **What it is for**: retrieval-augmented generation (RAG), domain-specific fine-tuning, and ontology / knowledge-graph research on AI governance and decision theory.
 
@@ -70,7 +70,7 @@ Every record ships with a flattened `text` field (ready to feed into embedding o
 | --- | --- | --- |
 | `dst-terms.jsonl` | 核心术语本体：中英名 / 层级 / 级别 / 上位 / 归属 / 定义 / DOI | 100 |
 | `dst-cases.jsonl` | 决策判例：接口 / 杠杆 / 六要素全文 / 效果 / 适用条件 / 不适用条件 | 49 |
-| `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | 8 |
+| `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | 10 |
 | `dst-specimens.jsonl` | 复杂治理标本：T0 事前判断 / 四态落点 / 杠杆点 / 双向证伪条件 / T1 观测节点 | 2 |
 | `dst-concepts.jsonl` | 概念卡：定义 + 层级位置 + 真实判例实例 + 适用／不适用条件 + DOI | 100 |
 | `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 | 1 份 |
