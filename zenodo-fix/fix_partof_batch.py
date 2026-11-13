@@ -21,6 +21,9 @@ CANDIDATES = [
     23758139,
 ]
 
+# 特批：这些即使是最新版本也修改（2026-11-13 实测：仅改 metadata 不升版本号，26 条已验证）
+FORCE = {23758139}
+
 H = {"Authorization": f"Bearer {TOKEN}"}
 TIMEOUT = 60
 
@@ -103,9 +106,11 @@ def process(dep_id):
     print(f"    标题={title}")
     print(f"    latest={lid}  当前={dep_id}  → {'★最新版本' if is_last else '历史版本'}")
 
-    if is_last:
+    if is_last and dep_id not in FORCE:
         print("    >>> 跳过（最新版本，编辑会升版本号）")
         return {"id": dep_id, "status": "skipped_latest", "title": title}
+    if is_last and dep_id in FORCE:
+        print("    >>> 最新版本，但在 FORCE 名单内，继续（只改 metadata）")
 
     # 进入编辑
     r = call("POST", f"{API}/{dep_id}/actions/edit", data=json.dumps({}))
