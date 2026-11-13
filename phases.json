@@ -24,8 +24,8 @@
  ],
  "counts": {
   "cells": 18,
-  "mountedCases": 49,
-  "totalCases": 49
+  "mountedCases": 50,
+  "totalCases": 50
  },
  "unmounted": [],
  "howToUse": [
@@ -412,6 +412,11 @@
        "id": "B-0037",
        "title": "萧规曹随",
        "url": "https://zhishuixue.com/cases/B-0037.html"
+      },
+      {
+       "id": "C-0003",
+       "title": "英伟达换帅",
+       "url": "https://zhishuixue.com/cases/C-0003.html"
       }
      ],
      "termAnchor": "arking",

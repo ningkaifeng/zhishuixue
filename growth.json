@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-11-10",
+ "updated": "2026-11-13",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,16 +11,16 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-10．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-13．https://zhishuixue.com/growth.json",
  "totals": {
   "papers": 26,
   "terms": 100,
-  "cases": 49
+  "cases": 50
  },
  "byCategory": {
   "A 基层治理": 4,
   "B 历史判例": 42,
-  "C 企业管理": 2,
+  "C 企业管理": 3,
   "E 宏观案例": 1
  },
  "byDate": [
@@ -768,6 +768,19 @@
    "cases": [],
    "nPapers": 1,
    "nCases": 0
+  },
+  {
+   "date": "2026-11-13",
+   "papers": [],
+   "cases": [
+    {
+     "id": "C-0003",
+     "title": "英伟达换帅",
+     "url": "https://zhishuixue.com/cases/C-0003.html"
+    }
+   ],
+   "nPapers": 0,
+   "nCases": 1
   }
  ],
  "note": "本文件由 build.py 自动生成：从 papers.yml（论文）与 cases.yml（判例）的日期字段汇总，反映“知识库如何逐日长大”，供 AI 与检索判断其时效与规模。"
