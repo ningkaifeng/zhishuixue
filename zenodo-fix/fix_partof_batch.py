@@ -18,10 +18,7 @@ OLD = "ningkaifeng.github.io"
 
 # 19 条仅概要缺 IsPartOf + 7 条两处都无 = 26 条候选（版本记录）
 CANDIDATES = [
-    21753086, 21897465, 22008333, 22009627, 22067164, 22122291, 22176425,
-    22242409, 22301915, 22304515, 22659486, 22699999, 23185396, 23609363,
-    23613865, 23664768, 23766353, 23848814, 23911374,
-    20278692, 20372186, 22225452, 23981177, 24099286, 24099834, 24124184,
+    23758139,
 ]
 
 H = {"Authorization": f"Bearer {TOKEN}"}
@@ -67,12 +64,27 @@ def brief(r):
         return f"HTTP {r.status_code} | {r.text[:150]}"
 
 
-def latest_id_of(rec):
-    """从 links.latest 解析最新版本 id"""
+def latest_id_of(rec, dep_id=None):
+    """判断是否为最新版本：先看 links.latest，失败则读 records API 的 relations.version[0].is_last"""
     links = rec.get("links") or {}
-    u = links.get("latest") or ""
-    m = re.search(r"/depositions/(\d+)$", u) or re.search(r"/records/(\d+)$", u)
-    return int(m.group(1)) if m else None
+    u = links.get("latest") or links.get("latest_html") or ""
+    m = re.search(r"/(?:depositions|records)/(\d+)/?$", u)
+    if m:
+        return int(m.group(1))
+    # fallback：records API
+    if dep_id:
+        try:
+            rr = requests.get(f"https://zenodo.org/api/records/{dep_id}",
+                              headers={"Accept": "application/json"}, timeout=40)
+            if rr.status_code == 200:
+                ver = (((rr.json().get("metadata") or {}).get("relations") or {}).get("version") or [])
+                if ver and isinstance(ver, list):
+                    if ver[0].get("is_last") is True:
+                        return dep_id          # 是最新版本
+                    return -1                  # 明确是历史版本
+        except Exception as e:
+            print("    [latest fallback err]", type(e).__name__)
+    return None
 
 
 def process(dep_id):
@@ -83,8 +95,10 @@ def process(dep_id):
         return {"id": dep_id, "status": "get_failed", "detail": brief(r)}
 
     rec = r.json()
-    lid = latest_id_of(rec)
+    lid = latest_id_of(rec, dep_id)
     is_last = (lid == dep_id)
+    if lid is None:
+        print('    [!] 无法判定是否最新版本，按历史版本处理（metadata-only 修改不升版本号）')
     title = ((rec.get("metadata") or {}).get("title") or "")[:36]
     print(f"    标题={title}")
     print(f"    latest={lid}  当前={dep_id}  → {'★最新版本' if is_last else '历史版本'}")
