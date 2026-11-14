@@ -2318,25 +2318,28 @@ def render_sitemap(d):
         (base + "feed.xml", "0.7", "daily"),
     ]
     for _c in _cs:
-        pages.append((case_url(base, _c), "0.6", "monthly"))
+        pages.append((case_url(base, _c), "0.6", "monthly", _c.get("date")))
     _ts = active_thoughts(load_thoughts())
     if _ts:
         pages.append((base + "thoughts.html", "0.7", "weekly"))
         pages.append((base + "thoughts-index.json", "0.6", "weekly"))
         for _t in _ts:
-            pages.append((thought_url(base, _t), "0.6", "monthly"))
+            pages.append((thought_url(base, _t), "0.6", "monthly", _t.get("date")))
     _ss = load_specimens().get("specimens", [])
     if _ss:
         pages.append((base + "specimens.html", "0.8", "weekly"))
         pages.append((base + "specimens-index.json", "0.6", "weekly"))
         for _s in _ss:
-            pages.append((specimen_url(base, _s), "0.7", "weekly"))
+            pages.append((specimen_url(base, _s), "0.7", "weekly", _s.get("date") or _s.get("t0_date")))
     L = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for loc, prio, freq in pages:
+    for item in pages:
+        loc, prio, freq = item[0], item[1], item[2]
+        own = item[3] if len(item) > 3 else None
+        lm = own or lastmod
         L.append("  <url>")
         L.append(f"    <loc>{loc}</loc>")
-        L.append(f"    <lastmod>{lastmod}</lastmod>")
+        L.append(f"    <lastmod>{lm}</lastmod>")
         L.append(f"    <changefreq>{freq}</changefreq>")
         L.append(f"    <priority>{prio}</priority>")
         L.append("  </url>")

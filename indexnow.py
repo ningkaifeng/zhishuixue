@@ -35,9 +35,23 @@ def main():
     if not os.path.exists(sm):
         print("缺少 sitemap.xml，跳过")
         return
-    locs = [u.strip() for u in re.findall(r"<loc>(.*?)</loc>", open(sm, encoding="utf-8").read()) if u.strip()]
+    # 只提交「当日有变更」的 URL —— IndexNow 是增量通知协议，
+    # 每天把全站重推一遍会被引擎视为噪音，反而降低可信度（2026-11-14 改）。
+    import datetime
+    xml = open(sm, encoding="utf-8").read()
+    today = datetime.date.today().isoformat()
+    locs = []
+    for blk in re.findall(r"<url>(.*?)</url>", xml, re.S):
+        m_loc = re.search(r"<loc>(.*?)</loc>", blk)
+        m_lm = re.search(r"<lastmod>(.*?)</lastmod>", blk)
+        if not m_loc:
+            continue
+        lm = (m_lm.group(1).strip() if m_lm else "")
+        if lm >= today:           # 字符串比较对 ISO 日期成立
+            locs.append(m_loc.group(1).strip())
+    print(f"IndexNow：今日（{today}）有变更的 URL {len(locs)} 个")
     if not locs:
-        print("sitemap 无 URL，跳过")
+        print("  今日无变更，跳过提交（不制造噪音）")
         return
 
     body = json.dumps({
