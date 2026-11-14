@@ -1,0 +1,25 @@
+name: Zenodo link fix
+
+on:
+  push:
+    paths:
+      - 'zenodo-linkfix/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Run Zenodo link fix
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: python zenodo-linkfix/fix.py
