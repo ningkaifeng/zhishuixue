@@ -1677,7 +1677,9 @@ def render_glossary_html(d):
     L.append("<head>")
     L.append('<meta charset="UTF-8">')
     L.append("<title>治水学核心术语表 | Dynamic Sustenance Theory</title>")
-    L.append('<meta name="description" content="治水学（DST）核心术语的标准化定义，由独立研究者宁凯峰维护。">')
+    L.append('<meta name="description" content="治水学（Dynamic Sustenance Theory）核心术语的标准化定义与层级表，共 100 条，按 A–L 十层、核心／支柱／延伸三级组织，附上下位关系、所属论文 DOI 与概念对照，由独立研究者宁凯峰维护。">')
+    L.append(f'<link rel="canonical" href="{gurl}">')
+    L.append('<meta name="robots" content="index,follow">')
     L.append(f'<link rel="describedby" type="text/plain" href="{base}llms.txt">')
     L.append('<script type="application/ld+json">')
     L.append(json.dumps(ld, ensure_ascii=False, indent=2))
@@ -2050,7 +2052,9 @@ def render_graph(d):
           "url": gurl, "isPartOf": base + "glossary.html", "hasDefinedTerm": graph}
     L = ["<!DOCTYPE html>", '<html lang="zh-CN">', "<head>", '<meta charset="UTF-8">',
          "<title>治水学概念图谱 | DST Concept Graph</title>",
-         '<meta name="description" content="治水学概念的层级、级别与上位关系图谱。">',
+         '<meta name="description" content="治水学 100 个概念按 A–L 层级、核心／支柱／延伸级别与上位关系构成的概念图谱，可逐层展开查看每个概念的上位、下位与所属论文出处。">',
+         f'<link rel="canonical" href="{gurl}">',
+         '<meta name="robots" content="index,follow">',
          f'<link rel="describedby" type="text/plain" href="{base}llms.txt">',
          '<script type="application/ld+json">', json.dumps(ld, ensure_ascii=False, indent=2),
          "</script>", "<style>", GLOSSARY_STYLE,
