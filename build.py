@@ -1432,6 +1432,7 @@ def render_index(d):
         "sameAs": [u for u in [
             "https://orcid.org/" + p["orcid"],
             p.get("academia", ""),
+            p.get("scholar", ""),
             p.get("openalex", ""),
             p.get("github", ""),
             p.get("huggingface", ""),
@@ -1487,6 +1488,8 @@ def render_index(d):
     L.append(f'<p style="{S["contact"]}">ORCID：<a href="https://orcid.org/{p["orcid"]}" style="{S["link"]}">{p["orcid"]}</a></p>')
     L.append(f'<p style="{S["contact"]}">机构邮箱：<a href="mailto:{p["email_primary"]}" style="{S["link"]}">{p["email_primary"]}</a></p>')
     L.append(f'<p style="{S["contact"]}">备用邮箱：<a href="mailto:{p["email_backup"]}" style="{S["link"]}">{p["email_backup"]}</a></p>')
+    if p.get("scholar"):
+        L.append(f'<p style="{S["contact"]}">学术档案（Google Scholar）：<a href="{p["scholar"]}" style="{S["link"]}">{p["scholar"]}</a></p>')
     if p.get("openalex"):
         L.append(f'<p style="{S["contact"]}">作品全集（OpenAlex）：<a href="{p["openalex"]}" style="{S["link"]}">{p["openalex"]}</a></p>')
     if p.get("academia"):
@@ -1803,6 +1806,8 @@ def render_llms(d):
     L.append(f"- 英文站（English gateway）：{base}en/")
     L.append(f'- ORCID：https://orcid.org/{p["orcid"]}')
     L.append(f'- Academia.edu：{p["academia"]}')
+    if p.get("scholar"):
+        L.append(f'- Google Scholar（学术档案）：{p["scholar"]}')
     if p.get("openalex"):
         L.append(f'- OpenAlex（作品全集）：{p["openalex"]}')
     if p.get("huggingface"):
@@ -2180,7 +2185,7 @@ def render_about(d):
             "alternateName": p["alternate_name"],
             "identifier": "https://orcid.org/" + p["orcid"],
             "sameAs": [u for u in ["https://orcid.org/" + p["orcid"],
-                                   p.get("academia", ""), p.get("openalex", ""),
+                                   p.get("academia", ""), p.get("scholar", ""), p.get("openalex", ""),
                                    p.get("github", ""), p.get("huggingface", "")] if u],
         },
     }
@@ -2212,6 +2217,8 @@ def render_about(d):
     L.append(f'<li>姓名：{p["name"]}（{p["alternate_name"]}）</li>')
     L.append(f'<li>主页：<a href="{base}">{base}</a></li>')
     L.append(f'<li>ORCID：<a href="https://orcid.org/{p["orcid"]}">https://orcid.org/{p["orcid"]}</a></li>')
+    if p.get("scholar"):
+        L.append(f'<li>学术档案（Google Scholar）：<a href="{p["scholar"]}">{p["scholar"]}</a></li>')
     if p.get("openalex"):
         L.append(f'<li>作品全集（OpenAlex）：<a href="{p["openalex"]}">{p["openalex"]}</a></li>')
     if p.get("academia"):
