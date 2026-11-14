@@ -12,7 +12,8 @@
 - 主页：https://zhishuixue.com/
 - 英文站（English gateway）：https://zhishuixue.com/en/
 - ORCID：https://orcid.org/0009-0001-4414-6058
-- Academia.edu：https://independentresearcher.academia.edu/KaifengNing
+- Academia.edu：https://independent.academia.edu/KaifengNing
+- Google Scholar（学术档案）：https://scholar.google.com/citations?hl=zh-CN&user=40D7O5MAAAAJ
 - OpenAlex（作品全集）：https://openalex.org/authors/A5133368411
 - Hugging Face（数据集镜像）：https://huggingface.co/datasets/zhishuixue/dst-decision-disclosure
 

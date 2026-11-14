@@ -92,7 +92,7 @@
 - 姓名：宁凯峰（Ning Kaifeng）
 - ORCID：https://orcid.org/0009-0001-4414-6058
 - OpenAlex（作品全集）：https://openalex.org/authors/A5133368411
-- Academia.edu：https://independentresearcher.academia.edu/KaifengNing
+- Academia.edu：https://independent.academia.edu/KaifengNing
 - GitHub：https://github.com/ningkaifeng/zhishuixue
 - Hugging Face（数据集镜像）：https://huggingface.co/datasets/zhishuixue/dst-decision-disclosure
 - 机构邮箱：ning@zhishuixue.com
