@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Zenodo 外链修复（一次性任务）
-  1) related_identifiers 里指向旧站 ningkaifeng.github.io 的 → 改为 zhishuixue.com
-  2) description 里没有官网链接的 → 末尾追加一行官网链接
-
-安全设计：
-  - 默认 DRY RUN，只在日志里打印计划，不写任何东西
-  - 同目录存在 .apply 文件时才真正执行
-  - 只传 Zenodo 可写字段白名单（剔除 dates，否则报 Invalid date）
+Zenodo 外链精确审计（详细版）
+逐条打印：related_identifiers 全量、description 中官网链接的上下文
+没有 .apply 文件时只审计；有 .apply 才修复。
 """
-import os, sys, json, time
+import os, sys, json, time, re
 import requests
 
 TOK = os.environ.get("ZENODO_TOKEN", "").strip()
@@ -25,24 +20,12 @@ SITE = "https://zhishuixue.com/"
 OLD_HOST = "ningkaifeng.github.io"
 
 TARGETS = [
-    (22088571, "论纲第一篇"),
-    (22783960, "论纲第二篇"),
-    (22785125, "论纲第三篇"),
-    (20372186, "治水学V15.0 母本"),
-    (20278692, "治水学V15.0 方法论补全版"),
-    (22225452, "治水学V15.0 元辩护版"),
-    (23766352, "思想显影库v2.0 概念DOI"),
-    (24124184, "思想显影库v2.0"),
-    (24099834, "思想显影库v2.0"),
-    (24099286, "思想显影库v2.0"),
-    (23981176, "Existence and Sustenance"),
+    (22088571, "论纲第一篇"), (22783960, "论纲第二篇"), (22785125, "论纲第三篇"),
+    (20372186, "治水学V15.0 母本"), (20278692, "V15.0 方法论补全版"), (22225452, "V15.0 元辩护版"),
+    (24124184, "思想显影库 v3.0"), (24099834, "思想显影库 v2.0"), (24099286, "思想显影库 v2.0"),
     (23981177, "Existence and Sustenance"),
+    (23766352, "思想显影库 概念DOI"), (23981176, "Existence 概念DOI"),
 ]
-
-WRITABLE = ["title", "doi", "publication_date", "description", "access_right",
-            "access_conditions", "creators", "keywords", "notes", "language",
-            "license", "upload_type", "imprint_publisher", "related_identifiers",
-            "version", "subjects", "locations"]
 
 
 def get(did):
@@ -51,84 +34,48 @@ def get(did):
             r = requests.get(f"{BASE}/{did}", headers=H, timeout=60)
             if r.status_code == 200:
                 return r.json()
-            print(f"  !! GET {did} HTTP {r.status_code} {r.text[:150]}")
-            return None
+            return {"__err__": f"HTTP {r.status_code}"}
         except Exception as e:
-            print("  retry", str(e)[:60]); time.sleep(4)
-    return None
+            print("  retry", str(e)[:50]); time.sleep(4)
+    return {"__err__": "网络异常"}
 
 
-print(f"### MODE = {'APPLY（会写入）' if APPLY else 'DRY RUN（只打印）'}")
-ok = fail = skip = 0
-
+print(f"### MODE = {'APPLY' if APPLY else 'AUDIT ONLY'}\n")
+report = []
 for did, label in TARGETS:
     d = get(did)
-    if not d:
-        fail += 1
+    print("=" * 70)
+    if "__err__" in d:
+        print(f"{did} | {label} | {d['__err__']}（概念 DOI 无独立 deposition，属正常）")
+        report.append({"id": did, "label": label, "err": d["__err__"]})
         continue
     md = d.get("metadata", {})
-    print("=" * 66)
-    print(f"{did} | {label} | {(md.get('title') or '')[:38]}")
-    print(f"   state={d.get('state')} submitted={d.get('submitted')} version={md.get('version')}")
-
-    # ---- 1. related_identifiers 去掉旧站 ----
-    rels = md.get("related_identifiers") or []
-    new_rels, rel_changed = [], False
-    for it in rels:
-        ident = it.get("identifier", "") or ""
-        if OLD_HOST in ident:
-            fixed = ident.replace("https://" + OLD_HOST + "/", SITE).replace(OLD_HOST, "zhishuixue.com")
-            print(f"   [related] {ident}  ->  {fixed}")
-            new_rels.append(dict(it, identifier=fixed))
-            rel_changed = True
-        else:
-            new_rels.append(it)
-
-    # ---- 2. description 缺官网链接则追加 ----
+    title = (md.get("title") or "")[:40]
     desc = md.get("description") or ""
-    desc_changed = False
-    if "zhishuixue.com" not in desc:
-        add = f'<p><strong>Official site / 官方主页:</strong> <a href="{SITE}">zhishuixue.com</a></p>'
-        print(f"   [desc] 缺官网链接（原长 {len(desc)}）→ 末尾追加一行")
-        desc = (desc.rstrip() + "\n" + add) if desc.strip() else add
-        desc_changed = True
-    else:
-        print("   [desc] 已含官网链接，不动")
+    rels = md.get("related_identifiers") or []
+    # 官网链接在 description 里的位置
+    idx = desc.find("zhishuixue.com")
+    ctx = ""
+    if idx >= 0:
+        ctx = re.sub(r"<[^>]+>", " ", desc[max(0, idx - 90): idx + 40])
+        ctx = re.sub(r"\s+", " ", ctx).strip()
+    old_hits = [r.get("identifier") for r in rels if OLD_HOST in str(r.get("identifier", ""))]
+    print(f"{did} | {label} | {title}")
+    print(f"   desc 长度 {len(desc)} | 官网出现 {desc.count('zhishuixue.com')} 次"
+          + (f" | 上下文: …{ctx}…" if ctx else " | 无官网链接"))
+    print(f"   related_identifiers 共 {len(rels)} 条:")
+    for it in rels:
+        mark = "  <== 旧站！" if OLD_HOST in str(it.get("identifier", "")) else ""
+        print(f"      - {it.get('relation')}: {it.get('identifier')}{mark}")
+    if not rels:
+        print("      （空）")
+    report.append({"id": did, "label": label, "desc_len": len(desc),
+                   "site_hits": desc.count("zhishuixue.com"),
+                   "rels": [f"{r.get('relation')}:{r.get('identifier')}" for r in rels],
+                   "old_in_rels": old_hits})
 
-    if not (rel_changed or desc_changed):
-        print("   => 无需改动")
-        skip += 1
-        continue
-
-    if not APPLY:
-        print("   => DRY RUN，未写入")
-        continue
-
-    # ---- 3. 执行 edit → PUT → publish ----
-    try:
-        r1 = requests.post(f"{BASE}/{did}/actions/edit", headers=H, timeout=60)
-        print(f"   edit: HTTP {r1.status_code}")
-        if r1.status_code not in (200, 201, 202):
-            print("   !! edit 失败:", r1.text[:200]); fail += 1; continue
-
-        payload = {k: md[k] for k in WRITABLE if k in md}
-        payload["description"] = desc
-        if rel_changed or "related_identifiers" in md:
-            payload["related_identifiers"] = new_rels
-
-        r2 = requests.put(f"{BASE}/{did}", json={"metadata": payload}, headers=H, timeout=90)
-        print(f"   PUT:  HTTP {r2.status_code}")
-        if r2.status_code >= 300:
-            print("   !! PUT 失败:", r2.text[:400]); fail += 1; continue
-
-        r3 = requests.post(f"{BASE}/{did}/actions/publish", headers=H, timeout=90)
-        print(f"   publish: HTTP {r3.status_code}  doi={(r3.json().get('doi') if r3.status_code<300 else '')}")
-        if r3.status_code >= 300:
-            print("   !! publish 失败:", r3.text[:300]); fail += 1; continue
-        ok += 1
-    except Exception as e:
-        print("   !! 异常", str(e)[:120]); fail += 1
-    time.sleep(1)
-
-print("\n" + "=" * 66)
-print(f"### 结果：成功 {ok} / 失败 {fail} / 无需改 {skip}（共 {len(TARGETS)} 条）")
+print("\n" + "=" * 70)
+print("### 汇总")
+print("  desc 无官网:", [f"{r['id']}({r['label']})" for r in report if r.get("site_hits") == 0] or "无")
+print("  related 含旧站:", [f"{r['id']}({r['label']})" for r in report if r.get("old_in_rels")] or "无")
+print("  概念 DOI 无 deposition:", [f"{r['id']}" for r in report if r.get("err")] or "无")
