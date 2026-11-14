@@ -5,13 +5,67 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-11-13T00:00:00Z</updated>
+  <updated>2026-11-14T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>N-0015｜易经——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0015.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0015.html</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <published>2026-11-14T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>没有绝对的好坏，只有当下的位置｜变易存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0016｜阴阳五行——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0016.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0016.html</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <published>2026-11-14T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>整体能不能撑住，不在零件好不好，在它们之间还转不转得动｜平衡存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0017｜墨子——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0017.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0017.html</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <published>2026-11-14T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>不靠血缘，不靠恩义，靠一笔算得平的账——可这笔账自己算不平，得有人替它记着｜交利存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0018｜龙树《中论》——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0018.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0018.html</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <published>2026-11-14T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>正因为没有哪一样东西能自己立住，一切才成立｜中道存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0019｜理想国——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0019.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0019.html</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <published>2026-11-14T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>不看它某一次做了什么，看它里面各部分有没有各在其位｜正义存续系统</summary>
+  </entry>
+  <entry>
+    <title>N-0020｜纯粹理性批判——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0020.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0020.html</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <published>2026-11-14T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>知识不是想得通，是能落到东西上｜界限存续系统</summary>
+  </entry>
   <entry>
     <title>N-0013｜相对论——实践学显影</title>
     <link href="https://zhishuixue.com/thoughts/N-0013.html"/>
@@ -317,59 +371,5 @@
     <published>2026-10-24T00:00:00Z</published>
     <category term="论文"/>
     <summary>本书提出一个被既有文明研究普遍忽视的分析维度——“载体”：治水智慧赖以生成、存储、传播与激活的具体条件（地理、政权、制度、技术、语言、人群）。文明中断的深层机制，不是某项制度的失败，而是智慧与载体的关系出了问题：智慧过于绑定特定载体，载体一消亡，智慧便无处安身。本书从治水学母本中提取“载体独立性”的定义与三级判据（载体依附／载体跨越／载体独立），以中华文明五千年为样本逐层解码——大禹之“疏”、郡县制与文字统一、科举制、漕运与河督、中医与二十四节气、都江堰、大一统理念，并以罗马水道为反例。全书四部：概念、历史、解剖、收束。与《治水文明与自主知识体系建设》互为姊妹篇：前者回答“如何建设自主的知识体系”，本书回答“知识为何能在文明更替中存续”。</summary>
-  </entry>
-  <entry>
-    <title>B-0029｜树上开花</title>
-    <link href="https://zhishuixue.com/cases/B-0029.html"/>
-    <id>https://zhishuixue.com/cases/B-0029.html</id>
-    <updated>2026-10-24T00:00:00Z</updated>
-    <published>2026-10-24T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>东汉虞诩赴任武都，遭数千羌军拦截而兵少，先扬言“上书请兵”诱羌人分兵，再日夜兼行、令吏士各作两灶日增倍之，用“增灶”制造援军已到的假象，羌人误判汉军兵力而不敢追击，虞诩得以安全通过；与孙膑“减灶示弱”相反，此为“增灶示强”的虚张声势。</summary>
-  </entry>
-  <entry>
-    <title>B-0028｜上屋抽梯</title>
-    <link href="https://zhishuixue.com/cases/B-0028.html"/>
-    <id>https://zhishuixue.com/cases/B-0028.html</id>
-    <updated>2026-10-23T00:00:00Z</updated>
-    <published>2026-10-23T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>战国齐魏之战，孙膑针对庞涓“悍勇而轻齐”的认知，用“减灶”逐日减少军灶数目（十万→五万→三万），制造齐军大量逃亡的假象诱庞涓轻敌冒进；庞涓弃步军率轻锐追击，夜至马陵道，孙膑伏万弩断其退路，庞涓自刎、太子申被俘，魏国自此衰落。</summary>
-  </entry>
-  <entry>
-    <title>B-0027｜假痴不癫</title>
-    <link href="https://zhishuixue.com/cases/B-0027.html"/>
-    <id>https://zhishuixue.com/cases/B-0027.html</id>
-    <updated>2026-10-22T00:00:00Z</updated>
-    <published>2026-10-22T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>三国时，曹爽夺司马懿兵权后，司马懿装病不朝，装成病入膏肓、神志不清，骗过曹爽派来试探的李胜；曹爽放松警惕后，司马懿趁其陪皇帝外出扫墓、京城防备空虚之机发动政变，诛曹爽、独揽大权。精妙在“藏锋”——伪装无害、静不露机，把真实意图与实力藏起来，等对手放松、时机一到，后发制人。</summary>
-  </entry>
-  <entry>
-    <title>B-0026｜指桑骂槐</title>
-    <link href="https://zhishuixue.com/cases/B-0026.html"/>
-    <id>https://zhishuixue.com/cases/B-0026.html</id>
-    <updated>2026-10-21T00:00:00Z</updated>
-    <published>2026-10-21T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>春秋时，吴王阖闾令孙武操练 180 名宫女以试兵法。宫女嬉笑不听号令，孙武三令五申无效后，斩了担任左右队长的吴王两名宠妃，杀一儆百；再操练，宫女进退整齐、令行禁止。精妙在“立威树纪”——惩戒一个最不能罚的典型，把“违令必惩”的预期传导给全体，用最小代价建立号令的权威。</summary>
-  </entry>
-  <entry>
-    <title>结构显影的判据——六要素检验标准与可传承判断的生成</title>
-    <link href="https://doi.org/10.5281/zenodo.23486787"/>
-    <id>https://doi.org/10.5281/zenodo.23486787</id>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <published>2026-10-20T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>判例集回答「结构长什么样」，本文回答「按什么标准判」。给出四层判据：第零步·承压位置检验，六要素逐项判据，结构自足性（换承载物测试），可传承性（四问）；并声明五项不提供——量化阈值、直接答案、替代承压主体的判断、对错评价、跨尺度统一阈值。核心主张：判据须与判例同时使用；单独使用判据所形成的判断，不属于结构显影。</summary>
-  </entry>
-  <entry>
-    <title>B-0025｜偷梁换柱</title>
-    <link href="https://zhishuixue.com/cases/B-0025.html"/>
-    <id>https://zhishuixue.com/cases/B-0025.html</id>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <published>2026-10-20T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>秦始皇沙丘病危，赵高扣压遗诏、拉李斯入伙、伪诏赐死扶苏与蒙恬，秘不发丧以保外观——先识出体系的承重件（合法性来源＋军方执行者），再用自己人替换，使秦帝国在支撑已被抽走、外观却毫无变化的情况下自行崩塌。</summary>
   </entry>
 </feed>
