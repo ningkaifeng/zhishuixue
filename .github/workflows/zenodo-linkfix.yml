@@ -23,3 +23,8 @@ jobs:
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
         run: python zenodo-linkfix/fix.py
+
+      - name: Add HF relation to thoughts library v4.0
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: python zenodo-linkfix/add_hf.py
