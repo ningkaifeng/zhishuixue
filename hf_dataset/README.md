@@ -225,6 +225,7 @@ https://doi.org/10.5281/zenodo.23664767
 
 - **作者**：宁凯峰（Ning Kaifeng），独立研究者
 - **ORCID**：<https://orcid.org/0009-0001-4414-6058>
+- **Google Scholar**：<https://scholar.google.com/citations?hl=zh-CN&user=40D7O5MAAAAJ>
 - **官网**：<https://zhishuixue.com/>
 - **GitHub**：<https://github.com/ningkaifeng/zhishuixue>
 - **OpenAlex**：<https://openalex.org/authors/A5133368411>

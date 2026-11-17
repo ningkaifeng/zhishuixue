@@ -2,7 +2,9 @@
 
 **一套面向复杂适应系统的存续分析元理论。** 它回答的核心问题是：系统如何在永恒流变中，通过动力与规则的协同，实现自身的存续。
 
-官网 → **https://zhishuixue.com/**
+官网 → **https://zhishuixue.com/** ｜ 数据集（Hugging Face）→ **https://huggingface.co/datasets/zhishuixue/dst-decision-disclosure**
+
+学术档案 → **https://scholar.google.com/citations?hl=zh-CN&user=40D7O5MAAAAJ**
 
 ---
 
@@ -24,10 +26,10 @@
 
 | 内容线 | 规模 | 尺度 |
 |---|---|---|
-| 论文与著作 | 22 篇 | 理论生产 |
+| 论文与著作 | 26 篇 | 理论生产 |
 | 数据集 | 2 个（决策显影库 · 思想显影库）| 合辑定本，Zenodo |
-| 决策判例（六要素） | 41 篇 | 事件尺度 |
-| 思想显影（五段） | 8 篇 | 体系尺度 |
+| 决策判例（六要素） | 50 篇 | 事件尺度 |
+| 思想显影（五段） | 20 篇 | 体系尺度 |
 | 术语 | 100 条 | 概念骨架 |
 | 治水历定位刻度 | 18 格 | 未发事件的坐标 |
 
@@ -39,8 +41,8 @@
 | 判据层 | [`criteria.json`](criteria.json) | 按什么标准判：六要素逐项判据、换承载物测试、可传承性四问 |
 | 术语层 | [`terms.json`](terms.json) | 概念骨架：100 条，含层级 / 上下位 / 锚点 / 出处 DOI |
 | 刻度层 | [`phases.json`](phases.json) | 位置坐标：治水历 18 格，每格自动挂载判例 |
-| 案例层 | [`cases-index.json`](cases-index.json) | 41 篇判例的结构化字段（接口 / 杠杆 / 六要素） |
-| 思想层 | [`thoughts-index.json`](thoughts-index.json) | 8 篇思想显影的结构化字段（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断） |
+| 案例层 | [`cases-index.json`](cases-index.json) | 50 篇判例的结构化字段（接口 / 杠杆 / 六要素） |
+| 思想层 | [`thoughts-index.json`](thoughts-index.json) | 20 篇思想显影的结构化字段（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断） |
 
 ## 给 AI 与开发者的入口
 
@@ -49,10 +51,10 @@
 | 需求 | 读哪个 |
 |---|---|
 | 先理解整体 | [`llms.txt`](https://zhishuixue.com/llms.txt) —— 整站说明书，含引用规范与全部机器文件索引 |
-| 想一次读完 | [`llms-full.txt`](llms-full.txt) —— 全量纯文本：判据 + 41 篇判例 + 100 条术语 + 18 格治水历 + 8 篇思想显影 |
+| 想一次读完 | [`llms-full.txt`](llms-full.txt) —— 全量纯文本：判据 + 50 篇判例 + 100 条术语 + 18 格治水历 + 20 篇思想显影 |
 | 想程序化调用 | [`knowledge-pack.json`](knowledge-pack.json) —— 结构化知识包，五部分分节，带 usage_boundary 拒答条款 |
 
-另有 [`feed.xml`](feed.xml)（Atom 订阅，论文 / 判例 / 思想显影按日期倒序）与 [`hf_dataset/`](hf_dataset)（Hugging Face 数据集镜像，三配置）。
+另有 [`feed.xml`](feed.xml)（Atom 订阅，论文 / 判例 / 思想显影按日期倒序）与 [`hf_dataset/`](hf_dataset)（Hugging Face 数据集镜像，六配置）。
 
 三条使用约束（已写入 `criteria.json` 的 `binding` 段）：
 
@@ -65,7 +67,8 @@
 - 理论母本：`10.5281/zenodo.20372186`
 - 结构显影的判据：`10.5281/zenodo.23486787`
 - 决策显影库（判例合辑 v1.0）：`10.5281/zenodo.23664767`
-- 思想显影库（结构显影合辑 v1.0）：`10.5281/zenodo.23766352`
+- 思想显影库（结构显影合辑，最新 v4.0）：`10.5281/zenodo.23766352`
+- 训练与检索数据集（镜像）：<https://huggingface.co/datasets/zhishuixue/dst-decision-disclosure>
 - 机器可读引用条目：[`citations.bib`](citations.bib) / [`citations.txt`](citations.txt)
 - 整站引用格式：见 `llms.txt` 的「引用规范」一节
 - 项目引用元数据：[`CITATION.cff`](CITATION.cff)
@@ -90,4 +93,6 @@
 ## 联系
 
 - ORCID: https://orcid.org/0009-0001-4414-6058
+- Google Scholar: https://scholar.google.com/citations?hl=zh-CN&user=40D7O5MAAAAJ
+- Hugging Face 数据集: https://huggingface.co/datasets/zhishuixue/dst-decision-disclosure
 - 邮箱: ning@zhishuixue.com
