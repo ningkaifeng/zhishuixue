@@ -957,3 +957,5 @@ terms:
   - {anchor: burden-bearing-position, cat: "I · 方法论层", code: "DST-K-02", name: "承压位置", en: "Burden-Bearing Position", desc: "必须为错误后果负责的结构性位置，该位置的判断不可委托给 AI。", level: "I", tier: "支柱", broader: "结构", part_of: "", doi: "10.5281/zenodo.22698811"}
 
 # rebuild-trigger-2
+
+# rebuild-trigger-20261118
