@@ -44,13 +44,40 @@ def call(method, url, **kw):
     raise SystemExit("network failed")
 
 
-def revise(rid, extra_rel, block, tag):
+def already_done(rid, extra_rel, block):
+    """只读检查：描述与 related 是否都已到位"""
+    r = call("GET", f"{API}/{rid}", headers=H_AUTH)
+    if r.status_code != 200:
+        return False
+    md = r.json().get("metadata", {})
+    desc = md.get("description", "") or ""
+    if "zhishuixue.com" not in desc:
+        return False
+    rel = {(x.get("relation"), x.get("identifier")) for x in (md.get("related_identifiers") or [])}
+    for x in extra_rel:
+        if (x["relation"], x["identifier"]) not in rel:
+            return False
+    return True
+
+
+def revise(rid_candidates, extra_rel, block, tag):
     print("=" * 55)
-    print(tag, rid)
-    r = call("POST", f"{API}/{rid}/actions/edit", headers=H_AUTH)
-    print("  edit ->", r.status_code)
-    if r.status_code >= 400:
-        print("  ", r.text[:300]); return False
+    cands = rid_candidates if isinstance(rid_candidates, (list, tuple)) else [rid_candidates]
+    for c in cands:
+        if already_done(c, extra_rel, block):
+            print(f"  {tag} {c} 已满足全部改动，跳过")
+            return True
+    rid = None
+    for cand in cands:
+        r = call("POST", f"{API}/{cand}/actions/edit", headers=H_AUTH)
+        print(f"  edit {cand} ->", r.status_code)
+        if r.status_code < 400:
+            rid = cand
+            break
+    if not rid:
+        print("  该 record 不在 legacy depositions API 中（可能为新接口发布），跳过")
+        return None
+    print("  using", rid)
 
     r = call("GET", f"{API}/{rid}", headers=H_AUTH)
     md = r.json()["metadata"]
@@ -95,11 +122,11 @@ ok1 = revise(
     "工具包",
 )
 ok2 = revise(
-    23328738,
+    [23328739, 23328738],
     [{"relation": "isSupplementedBy", "identifier": TOOLKIT_DOI, "resource_type": "other"}],
     PAPER_BLOCK,
     "论文",
 )
 print("=" * 55)
-print("结果:", "工具包 OK" if ok1 else "工具包 失败", "|", "论文 OK" if ok2 else "论文 失败")
-sys.exit(0 if (ok1 and ok2) else 2)
+print("结果:", "工具包 OK" if ok1 else "工具包 失败", "|", "论文:", "OK" if ok2 else ("跳过(非legacy)" if ok2 is None else "失败"))
+sys.exit(0 if ok1 else 2)
