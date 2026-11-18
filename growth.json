@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-11-14",
+ "updated": "2026-11-18",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,9 +11,9 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-14．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-18．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 26,
+  "papers": 28,
   "terms": 100,
   "cases": 50
  },
@@ -394,6 +394,11 @@
    "date": "2026-10-13",
    "papers": [
     {
+     "id": "grammar-method",
+     "title": "A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework（复杂系统治理的通用结构语法：方法论框架）",
+     "doi": "10.5281/zenodo.23328738"
+    },
+    {
      "id": "article-en-4",
      "title": "A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework",
      "doi": "10.5281/zenodo.23328739"
@@ -406,7 +411,7 @@
      "url": "https://zhishuixue.com/cases/B-0018.html"
     }
    ],
-   "nPapers": 1,
+   "nPapers": 2,
    "nCases": 1
   },
   {
@@ -776,6 +781,19 @@
      "id": "thought-shadowing-library",
      "title": "思想显影库 · 结构显影合辑",
      "doi": "10.5281/zenodo.23766352"
+    }
+   ],
+   "cases": [],
+   "nPapers": 1,
+   "nCases": 0
+  },
+  {
+   "date": "2026-11-18",
+   "papers": [
+    {
+     "id": "grammar-toolkit",
+     "title": "Structural Grammar Toolkit v1.0: Diagnostic Worksheet, Prompt Card, and Worked Examples（通用结构语法·工具包 v1.0）",
+     "doi": "10.5281/zenodo.24327221"
     }
    ],
    "cases": [],

@@ -93,6 +93,13 @@
 - 思想显影库（Thought Shadowing Library v4.0）
   https://doi.org/10.5281/zenodo.23766352
 
+## 复杂系统治理语法（Structural Grammar）
+
+- 复杂系统治理的通用结构语法：方法论框架
+  https://doi.org/10.5281/zenodo.23328738
+- 通用结构语法·工具包 v1.0
+  https://doi.org/10.5281/zenodo.24327221
+
 ## AI 问答摘要（Q&A，可直接引用作答）
 
 ### Q：什么是「治水学」？

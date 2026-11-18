@@ -67,6 +67,11 @@
 
 - **思想显影库 · 结构显影合辑** ｜ 思想显影库 · 合辑 v4.0 · 20 篇 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.23766352
 
+### 复杂系统治理语法（Structural Grammar）
+
+- **A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework（复杂系统治理的通用结构语法：方法论框架）** ｜ 方法论论文 · 中英双版 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.23328738
+- **Structural Grammar Toolkit v1.0: Diagnostic Worksheet, Prompt Card, and Worked Examples（通用结构语法·工具包 v1.0）** ｜ 配套工具包 · 中英双语 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.24327221
+
 ## 决策显影库（判例）
 
 把治水学工具用于真实历史、商业与治理决策的实践判例，每篇标注所用治水学接口与杠杆落点。
