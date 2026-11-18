@@ -13,7 +13,7 @@
  "citeKey": "dst-growth-v1.0",
  "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-18．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 28,
+  "papers": 27,
   "terms": 100,
   "cases": 50
  },
@@ -397,11 +397,6 @@
      "id": "grammar-method",
      "title": "A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework（复杂系统治理的通用结构语法：方法论框架）",
      "doi": "10.5281/zenodo.23328738"
-    },
-    {
-     "id": "article-en-4",
-     "title": "A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework",
-     "doi": "10.5281/zenodo.23328739"
     }
    ],
    "cases": [
@@ -411,7 +406,7 @@
      "url": "https://zhishuixue.com/cases/B-0018.html"
     }
    ],
-   "nPapers": 2,
+   "nPapers": 1,
    "nCases": 1
   },
   {
