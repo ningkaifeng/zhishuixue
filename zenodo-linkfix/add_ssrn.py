@@ -17,7 +17,9 @@ if not TOK:
 
 H = {"Authorization": f"Bearer {TOK}"}
 BASE = "https://zenodo.org/api/deposit/depositions"
-DID = 23328738
+# concept DOI 23328738 在 depositions API 下返回 404（无独立 deposition），
+# 实际可操作的是版本记录 23328739
+DID = 23328739
 SSRN = "10.2139/ssrn.7601778"
 TOOLKIT = "10.5281/zenodo.24327221"
 
