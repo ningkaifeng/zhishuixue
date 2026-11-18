@@ -421,7 +421,7 @@ works:
     doi: "10.5281/zenodo.23328738"
     date: "2026-10-13"
     lang: "en"
-    card_meta: "方法论论文 · 中英双版 · Zenodo, 2026"
+    card_meta: "方法论论文 · 中英双版 · Zenodo, 2026 · 原治水学论纲·英文扩展篇 No. 4"
     abstract: "复杂系统治理长期存在一重错位：面对的是「系统如何在流变中维持自身」的问题，用的却是「系统是什么」的认识论与「描述系统」的方法论。本文提出通用结构语法，使问题域、认识论与方法论三者同构：以边界为起点，以五项判定（状态诊断、节奏失配、适应能力—压力差、杠杆点定位、约束可变性）构成诊断链，以干预四问（调哪条约束、朝什么方向多大、如何验证、如何回滚）作为输出格式，并以四级验证阶梯（逻辑自洽、单领域走查、跨领域翻译、压力测试）界定其可检验性。语法只负责结构与过程的形状，颗粒度（数值与阈值）由领域提供——这是它能跨领域迁移而不失精确的原因。"
     jsonld_abstract: "This paper identifies a structural misalignment in the governance of complex systems: the problem is how a system maintains itself under flux, yet the epistemology used is one of what the system is, and the methodology one of describing it. It proposes a general structural grammar that aligns the three: a boundary as starting point, five judgments forming a diagnostic chain (state diagnosis, tempo-mismatch, adaptive capacity–stress gap, leverage-point localization, constraint mutability), four intervention questions as the output format, and a four-level validation ladder (logical coherence, single-domain walk-through, cross-domain translation, stress test) defining testability. The grammar supplies the shape of relations and processes; granularity — numbers and thresholds — is supplied by the domain."
     keywords: ["复杂系统治理", "通用结构语法", "存续", "结构判断", "三重错位", "治水学", "structural grammar", "governance of complex systems", "sustenance", "Dynamic Sustenance Theory", "宁凯峰"]
@@ -762,21 +762,6 @@ works:
     abstract: "Drawing on Dynamic Sustenance Theory (DST v15.0), this paper develops the concept of Layered Asynchrony to diagnose why law always lags AI. The dynamic layer advances cumulatively on a month-to-quarter scale and cannot be paused; the rules layer proceeds through procedural cycles on a year-to-decade scale."
     keywords: ["AI Governance", "Layered Asynchrony", "Response Gap", "Tolerance Window", "Dynamic Sustenance Theory", "EU AI Act", "Regulatory Lag", "宁凯峰"]
     bib_key: ning2026en3
-    bib_type: misc
-    bib_publisher: Zenodo
-
-  - id: article-en-4
-    section: ai-gov
-    type: ScholarlyArticle
-    title: "A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework"
-    card_title: "A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework"
-    doi: "10.5281/zenodo.23328739"
-    date: "2026-10-13"
-    lang: "en"
-    card_meta: "Zenodo, 2026 · 治水学论纲·英文扩展篇 No. 4"
-    abstract: "Complexity science has produced powerful descriptive tools, yet it still lacks a shared structural language for intervention—a gap that lies not in method but in the problem domain. This paper argues that the proper question for the study of complex systems is not \"what a system is\" but \"how a system sustains itself amid flux,\" and that governance is where this question becomes operational. AI governance, climate governance, financial stability, and urban emergency response repeatedly encounter the same kind of predicament—multi-agent self-adaptation, cross-level temporal asynchrony, and constraint structures that lose their adjustability under pressure—yet there is no common structural language for comparing and transferring lessons among them. This paper argues that the root of this predicament lies not in specific methods but in a triple misalignment among problem domain, epistemology, and methodology. The paper offers an operationalization of this alignment—a general structural grammar—comprising five basic constituents, a logical walkthrough from diagnosis to action (using platform governance as a simplified scenario), differential criteria against existing frameworks, and a four-rung validation ladder."
-    keywords: ["governance of complex systems", "general structural grammar", "sustenance", "structural judgment", "triple misalignment", "宁凯峰"]
-    bib_key: ning2026en4
     bib_type: misc
     bib_publisher: Zenodo
 
