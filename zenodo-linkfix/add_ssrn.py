@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-把 SSRN 英文版论文与 Zenodo 记录打通（机器可读关联 + 描述正文提示）。
+把 SSRN 关联从 isAlternateIdentifier 改为 isIdenticalTo（DataCite 标准类型），
+看 Zenodo 是否会把它转发到 DataCite。
 
-目标记录：23328738 = A General Structural Grammar（concept DOI）
-关联对象：10.2139/ssrn.7601778 = SSRN 英文版（Crossref 注册，与 DataCite 互不相认）
+目标记录：23328739（A General Structural Grammar 的版本记录；
+         概念 DOI 23328738 在 depositions API 下 404）
 
-幂等：已含 ssrn 则跳过。metadata-only：不换文件、不升版本。
+幂等：已是 isIdenticalTo 则跳过。metadata-only：不换文件、不升版本。
 """
 import os, sys, time
 import requests
@@ -17,11 +18,8 @@ if not TOK:
 
 H = {"Authorization": f"Bearer {TOK}"}
 BASE = "https://zenodo.org/api/deposit/depositions"
-# concept DOI 23328738 在 depositions API 下返回 404（无独立 deposition），
-# 实际可操作的是版本记录 23328739
 DID = 23328739
 SSRN = "10.2139/ssrn.7601778"
-TOOLKIT = "10.5281/zenodo.24327221"
 
 WRITABLE = ["title", "doi", "publication_date", "description", "access_right",
             "access_conditions", "creators", "keywords", "notes", "language",
@@ -32,25 +30,32 @@ for i in range(3):
     r = requests.get(f"{BASE}/{DID}", headers=H, timeout=60)
     if r.status_code == 200:
         break
-    print("retry GET", r.status_code); time.sleep(5)
+    print("retry GET", r.status_code, r.text[:120]); time.sleep(5)
 else:
     sys.exit("GET 失败")
 
-d = r.json(); md = d.get("metadata", {})
-desc = md.get("description") or ""
+md = r.json().get("metadata", {})
 rels = md.get("related_identifiers") or []
-print("记录:", md.get("title"))
-print("描述长度:", len(desc), "| related:", len(rels))
+print("现有 related_identifiers:")
+for it in rels:
+    print(f"   {it.get('relation')}: {it.get('identifier')}")
 
-if "ssrn.7601778" in desc.lower() or any("ssrn" in str(x.get("identifier", "")).lower() for x in rels):
-    print("\n== 已存在 SSRN 关联，无需改动 ==")
+if any(it.get("relation") == "isIdenticalTo" and "ssrn" in str(it.get("identifier", "")).lower() for it in rels):
+    print("\n== 已是 isIdenticalTo，无需改动 ==")
     sys.exit(0)
 
-new_desc = desc.rstrip() + (
-    "\nSSRN 版 / SSRN version: https://doi.org/" + SSRN +
-    "\n配套工具包 / Companion toolkit: https://doi.org/" + TOOLKIT
-)
-new_rels = rels + [{"relation": "isAlternateIdentifier", "identifier": SSRN}]
+new_rels, changed = [], False
+for it in rels:
+    ident = str(it.get("identifier", ""))
+    if "ssrn" in ident.lower():
+        print(f"\n改造: {it.get('relation')} -> isIdenticalTo （{ident}）")
+        new_rels.append({"relation": "isIdenticalTo", "identifier": ident})
+        changed = True
+    else:
+        new_rels.append(it)
+if not changed:
+    print(f"\n未找到 SSRN 条目，追加 isIdenticalTo: {SSRN}")
+    new_rels.append({"relation": "isIdenticalTo", "identifier": SSRN})
 
 r1 = requests.post(f"{BASE}/{DID}/actions/edit", headers=H, timeout=60)
 print("edit:", r1.status_code)
@@ -58,7 +63,6 @@ if r1.status_code not in (200, 201, 202):
     print(r1.text[:300]); sys.exit(1)
 
 payload = {k: md[k] for k in WRITABLE if k in md}
-payload["description"] = new_desc
 payload["related_identifiers"] = new_rels
 if "version" in md:
     payload["version"] = md["version"]
@@ -71,10 +75,8 @@ if r2.status_code >= 300:
 r3 = requests.post(f"{BASE}/{DID}/actions/publish", headers=H, timeout=90)
 print("publish:", r3.status_code)
 if r3.status_code < 300:
-    j = r3.json()
-    print("✅ 完成 | doi =", j.get("doi"))
-    print("related_identifiers:")
-    for it in j.get("metadata", {}).get("related_identifiers", []):
+    print("✅ 完成 | doi =", r3.json().get("doi"))
+    for it in r3.json().get("metadata", {}).get("related_identifiers", []):
         print(f"   {it.get('relation')}: {it.get('identifier')}")
 else:
     print(r3.text[:400])
