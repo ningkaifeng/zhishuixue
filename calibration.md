@@ -1,6 +1,7 @@
 # 治水学自我校准说明 · 要点（v1.0 摘要）
 
 > 全文：《治水学自我校准说明 v1.0》（2026-11-19，治水学理论库）。
+> 正式发布版（可引用）：Zenodo，概念 DOI [10.5281/zenodo.24357738](https://doi.org/10.5281/zenodo.24357738) ｜ 版本 DOI [10.5281/zenodo.24357739](https://doi.org/10.5281/zenodo.24357739)。
 > 本页是面向站点读者的**要点页**，权威以全文为准。机器可读版见 [`criteria.json`](https://zhishuixue.com/criteria.json) 的 `calibration` 与 `failure_boundaries` 两段。
 
 ## 一句话定位（2026-11-19 起）

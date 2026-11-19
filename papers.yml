@@ -409,6 +409,11 @@ sections:
     intro: "把方法论变成可以上手的东西：一篇方法论论文，加一套配套工具——可填的工作表、判定提示卡、三份填好的样例。工具包不增加新的理论主张，只把论文的判定过程变成可以照着走一遍的路径。"
     series_name: "复杂系统治理语法"
     lang: "zh-CN"
+  - id: calibration
+    heading: "体系校准与效力说明"
+    intro: "体系的自我说明：这套语法自己什么时候算失效，以及哪些说法已被收窄。原文不改，读法改——校准不推翻内容论证，只把每句话归回它应在的层级。"
+    series_name: "体系校准与效力说明"
+    lang: "zh-CN"
 
 works:
 
@@ -850,6 +855,25 @@ works:
     bib_title: "结构显影的判据——六要素检验标准与可传承判断的生成（决策显影库·作业层）"
     bib_key: ning2026criteria
     bib_type: misc
+    bib_publisher: Zenodo
+
+  # ---------- 体系校准 ----------
+  - id: self-calibration
+    section: calibration
+    type: Report
+    title: "治水学自我校准说明（Self-Calibration Statement of Dynamic Sustenance Theory, v1.0）"
+    card_title: "治水学自我校准说明 v1.0"
+    doi: "10.5281/zenodo.24357738"
+    doi_version: "10.5281/zenodo.24357739"
+    date: "2026-11-19"
+    lang: "zh-CN"
+    card_meta: "规范声明 · Zenodo, 2026 · 收窄四项层级表述，给出失效边界三判据"
+    abstract: "治水学的文本中长期并存两种语气：限定的（工作假设、不声称解决存在论难题）与抬高的（元理论、元问题、存在论事实、第一哲学问题）。两者各自成立，但相邻而存、可随时切换——被质疑「凭什么」时引前者，被质疑「不过又一个框架」时引后者；这种可切换性即「可撤退性缺失」。本文档不推翻任何内容，只把每句话归回它该在的层级：取代的是层级判定，不取代内容论证。四项层级表述自发布之日起终止使用——以「元理论」作为治水学的已完成身份、以「元问题」作「第一哲学问题」、以「存在论事实」描述「存续优先」、以「可证伪条件」承诺「每个核心命题都可被证伪」；三浪不可还原、三元穷尽、动力-规则共生、尺度不可平移、载体独立性、文明四维、体相耦合、分层异步、语法锁定、术语表与全部判例一律保留。并给出「这套语法自己什么时候算失效」的三条判据：F1 模式断裂（系统层）、F2 功能损害累积（后果层）、F3 语法失效（工具层），每条含观测项、判定规则、落档与最小示例，附默认阈值。阅读规则：原文记录思想，补丁规定读法。"
+    keywords: ["治水学", "自我校准", "失效边界", "可证伪性", "元理论", "层级降格", "存续", "Dynamic Sustenance Theory", "calibration", "宁凯峰"]
+    cite_title: "治水学自我校准说明（Self-Calibration Statement of Dynamic Sustenance Theory, v1.0）"
+    bib_title: "治水学自我校准说明"
+    bib_key: ning2026calibration
+    bib_type: techreport
     bib_publisher: Zenodo
 
 # ============================================================

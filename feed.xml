@@ -5,22 +5,13 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-11-18T00:00:00Z</updated>
+  <updated>2026-11-14T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
-  <entry>
-    <title>Structural Grammar Toolkit v1.0: Diagnostic Worksheet, Prompt Card, and Worked Examples（通用结构语法·工具包 v1.0）</title>
-    <link href="https://doi.org/10.5281/zenodo.24327221"/>
-    <id>https://doi.org/10.5281/zenodo.24327221</id>
-    <updated>2026-11-18T00:00:00Z</updated>
-    <published>2026-11-18T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>论文回答「为什么需要这套语法」，工具包回答「怎么跑一遍」。四件：总览（论文各节对应哪件工具、三种使用者三条路径）、诊断工作表 v2.0（可填表单，含前置三项检验、五项判定、干预四问、自查四问、四级验证阶梯）、判定提示卡（每个判定三句问法加一个最常见错误）、三份填好的样例（全球 AI 治理、全球塑料污染治理、AI 基础设施资本开支，各附「为什么这么填」的批注）。工具包不增加任何理论主张。与论文有一处差异：论文 §3.1 给四态，工具包用五态（新增「讳锁」），属颗粒度差异而非版本冲突——同一网格，其中一格拆成两档。</summary>
-  </entry>
   <entry>
     <title>思想显影库 · 结构显影合辑</title>
     <link href="https://doi.org/10.5281/zenodo.23766352"/>
@@ -371,5 +362,14 @@
     <published>2026-10-24T00:00:00Z</published>
     <category term="论文"/>
     <summary>我们默认知识就是命题：最小单位是命题，为真的标准是符合实在，增长方式是提出、检验、修正。但人类在治水、农耕、中医、治国这类“如何继续下去”的问题上，一直在使用另一种知识——最小单位不是命题，而是对结构的判断；判据不是“对不对”，而是“能不能继续下去”。本文不另起一套说法，而是把治水学已有的“存在域／存续域”之分，换成更日常、更容易被跨学科读者接住的“命题式／结构式”，并通过符号系统与艺术形式两层并置，检验这个分叉在更大范围里是否仍站得住。</summary>
+  </entry>
+  <entry>
+    <title>治水文明与载体独立性</title>
+    <link href="https://doi.org/10.5281/zenodo.23613865"/>
+    <id>https://doi.org/10.5281/zenodo.23613865</id>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <published>2026-10-24T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>本书提出一个被既有文明研究普遍忽视的分析维度——“载体”：治水智慧赖以生成、存储、传播与激活的具体条件（地理、政权、制度、技术、语言、人群）。文明中断的深层机制，不是某项制度的失败，而是智慧与载体的关系出了问题：智慧过于绑定特定载体，载体一消亡，智慧便无处安身。本书从治水学母本中提取“载体独立性”的定义与三级判据（载体依附／载体跨越／载体独立），以中华文明五千年为样本逐层解码——大禹之“疏”、郡县制与文字统一、科举制、漕运与河督、中医与二十四节气、都江堰、大一统理念，并以罗马水道为反例。全书四部：概念、历史、解剖、收束。与《治水文明与自主知识体系建设》互为姊妹篇：前者回答“如何建设自主的知识体系”，本书回答“知识为何能在文明更替中存续”。</summary>
   </entry>
 </feed>
