@@ -238,6 +238,9 @@ with io.open(f'{OUT}/dst-concepts.jsonl', 'w', encoding='utf-8') as f:
 L = []
 L.append('# 治水学·结构显影判据（DST Structural Shadowing Criteria）v1.0\n')
 L.append('> 《治水学·结构显影判据 v1.0》（2026-10-20）人读版。机器可读版：https://zhishuixue.com/criteria.json\n')
+L.append('> ')
+L.append('> **2026-11-19 增补**：文末新增「失效边界」与「校准说明」两节，随 criteria.json v1.1 发布。')
+L.append('> 判据本体未改，改变的是**这套语法自己什么时候算失效**——之前只有「怎么判一份显影对不对」，没有「何时该说这套语法不灵了」。\n')
 L.append('\n## 定位\n')
 L.append(crit['purpose'] + '\n')
 L.append('\n## 绑定关系（最重要的一条）\n')
@@ -324,6 +327,30 @@ L.append('\n## 使用顺序\n')
 for x in crit['usage']:
     L.append(x)
 
+_fb = crit.get('failure_boundaries') or {}
+if _fb.get('criteria'):
+    L.append('\n## 失效边界（这套语法何时失效，%d 条判据）\n' % len(_fb['criteria']))
+    L.append('> %s\n' % _fb.get('note', ''))
+    for _x in _fb['criteria']:
+        L.append('### %s · %s\n' % (_x.get('id', ''), _x.get('name', '')))
+        L.append('- **依据**：%s' % _x.get('basis', ''))
+        L.append('- **观测什么**：%s' % '；'.join(_x.get('observe', [])))
+        L.append('- **怎么判**：%s' % _x.get('judge', ''))
+        L.append('- **落档**：%s' % _x.get('verdict', ''))
+        L.append('- **最小示例**：%s\n' % _x.get('example', ''))
+    L.append('- **默认阈值**：观测周期＝个人按月、组织·企业按季、国家·文明按年；N（未回摆周期）＝3；F2 同类损害重复＝2 次；F3 触发样本＝3 例。默认值立即生效、不标「待核」，可由修订程序调整。\n')
+
+_cal = crit.get('calibration') or {}
+if _cal:
+    L.append('\n## 校准说明（2026-11-19 起生效）\n')
+    L.append('**定位**：%s\n' % _cal.get('positioning', ''))
+    L.append('**已撤回的说法**：\n')
+    for _x in _cal.get('withdrawn', []):
+        L.append('- ' + _x)
+    L.append('\n**阅读规则**：%s\n' % _cal.get('reading_rule', ''))
+    L.append('**不在取代范围**：%s\n' % _cal.get('not_covered', ''))
+    L.append('要点页：https://zhishuixue.com/calibration.md\n')
+
 L.append('\n---\n')
 L.append('引用：%s\n' % crit['citedAs'])
 io.open(f'{OUT}/dst-criteria.md', 'w', encoding='utf-8').write('\n'.join(L))
@@ -405,7 +432,7 @@ R.append('| `dst-cases.jsonl` | 决策判例：接口 / 杠杆 / 六要素全文
 R.append('| `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | %d |' % len(thoughts))
 R.append('| `dst-specimens.jsonl` | 复杂治理标本：T0 事前判断 / 四态落点 / 杠杆点 / 双向证伪条件 / T1 观测节点 | %d |' % len(specimens))
 R.append('| `dst-concepts.jsonl` | 概念卡：定义 + 层级位置 + 真实判例实例 + 适用／不适用条件 + DOI | %d |' % len(terms['terms']))
-R.append('| `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 | 1 份 |')
+R.append('| `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 / **失效边界三判据 / 校准说明** | 1 份 |')
 R.append('')
 R.append('## 数据结构')
 R.append('')
@@ -455,7 +482,7 @@ R.append('## 怎么用')
 R.append('')
 R.append('### 1. 只用判据（不推荐）')
 R.append('')
-R.append('读 `dst-criteria.md` 就知道「一份结构显影做得对不对」按什么标准判。')
+R.append('读 `dst-criteria.md` 就知道「一份结构显影做得对不对」按什么标准判，以及**这套语法自己什么时候算失效**（F1 模式断裂 / F2 功能损害累积 / F3 语法失效）。')
 R.append('')
 R.append('> ⚠️ **但单独使用判据、不参照具体判例所形成的判断，不属于治水学结构显影。** 判据是尺子，判例是被量过的实物。只给尺子不给实物，使用者会拿尺子去量任何东西，包括不该量的东西——那时它退化为一套通用框架，不再是治水学。')
 R.append('')

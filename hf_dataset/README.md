@@ -73,7 +73,7 @@ Every record ships with a flattened `text` field (ready to feed into embedding o
 | `dst-thoughts.jsonl` | 思想显影：五段框架（边界 / 威胁 / 三种动能 / 三类规则操作 / 关键判断）+ 命名 + 剩余物 + 厚度锚点 | 20 |
 | `dst-specimens.jsonl` | 复杂治理标本：T0 事前判断 / 四态落点 / 杠杆点 / 双向证伪条件 / T1 观测节点 | 2 |
 | `dst-concepts.jsonl` | 概念卡：定义 + 层级位置 + 真实判例实例 + 适用／不适用条件 + DOI | 100 |
-| `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 | 1 份 |
+| `dst-criteria.md` | 结构显影判据：第零步承压检验 / 六要素逐项判据 / 换承载物测试 / 可传承四问 / 质检清单 / **失效边界三判据 / 校准说明** | 1 份 |
 
 ## 数据结构
 
@@ -152,7 +152,7 @@ Every record ships with a flattened `text` field (ready to feed into embedding o
 
 ### 1. 只用判据（不推荐）
 
-读 `dst-criteria.md` 就知道「一份结构显影做得对不对」按什么标准判。
+读 `dst-criteria.md` 就知道「一份结构显影做得对不对」按什么标准判，以及**这套语法自己什么时候算失效**（F1 模式断裂 / F2 功能损害累积 / F3 语法失效）。
 
 > ⚠️ **但单独使用判据、不参照具体判例所形成的判断，不属于治水学结构显影。** 判据是尺子，判例是被量过的实物。只给尺子不给实物，使用者会拿尺子去量任何东西，包括不该量的东西——那时它退化为一套通用框架，不再是治水学。
 
