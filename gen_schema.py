@@ -154,8 +154,31 @@ system_output = {
                 "fourQuestionsComplete": {"type": "boolean", "description": "干预四问齐全可回滚"},
             },
         },
+        "judgeable": {
+            "type": "boolean",
+            "description": ("本次输入是否足以做出判定。false 时只需填 boundary 与 unjudgeableReason，"
+                            "其余判定字段留空——这是给模型的退出通道，防止信息不足时硬编一份看似完整的诊断。"
+                            "（依据：《复杂系统诊断的判据 v1.1》 §八「五项不提供」；标本 T0 的「信息可得性诚实标注」）"),
+        },
+        "unjudgeableReason": {
+            "type": "array",
+            "items": {"enum": ["boundary-unconfirmed", "bearer-unconfirmed",
+                               "info-unavailable", "out-of-scale"]},
+            "description": ("判不出的原因（judgeable=false 时必填，可多选）：边界未由承压者确认 / "
+                            "承压者未点名 / 关键信息事前不可得 / 超出该尺度的适用范围。"
+                            "（依据：《结构显影的判据》 §二 第零步承压位置检验——承压位置不能由观察者单方面锁定）"),
+        },
     },
-    "required": ["boundary", "judgment", "stateDiagnosis", "leveragePoint", "refutation"],
+    "required": ["boundary", "judgment", "judgeable"],
+    "allOf": [
+        {"if": {"properties": {"judgeable": {"const": True}}, "required": ["judgeable"]},
+         "then": {"required": ["stateDiagnosis", "leveragePoint", "refutation"]}},
+        {"if": {"properties": {"judgeable": {"const": False}}, "required": ["judgeable"]},
+         "then": {"required": ["unjudgeableReason"],
+                  "not": {"anyOf": [{"required": ["stateDiagnosis"]},
+                                    {"required": ["leveragePoint"]},
+                                    {"required": ["refutation"]}]}}},
+    ],
 }
 
 event_input = {
@@ -269,6 +292,115 @@ doc["x-validationNote"] = ("本文件是「契约清单」，顶层不自带 typ
                            '{"$schema": ..., "$ref": "#/$defs/SystemDiagnosisOutput", "$defs": <本文件 $defs>}。'
                            "所有 object 均已封死 additionalProperties，混入另一把尺的字段会被拒绝（依据：判据 v1.1 §七）。")
 
+
+# ---------------- few-shot 示例（真实数据反推，不是编的） ----------------
+EXAMPLES = [
+    {
+        "name": "example-1-normal-diagnosis",
+        "note": ("真实案例：标本 No.01（全球 AI 治理，T0=2026-11-07）。"
+                 "输入来自公开信息，输出为 T0 锁定的判断；本示例用于让 Agent 照抄结构，不代表对当下状态的重新判定。"),
+        "tool": "dst_system_diagnosis",
+        "input": {
+            "system": "全球 AI 治理",
+            "boundary": "全球 AI 治理（2024–2026）：以主要司法辖区的模型发布监管为系统内，以模型能力跃迁为压力源；不含各国国内产业政策。",
+            "infoAvailable": [
+                "EU AI Act 文本与实施时间表",
+                "美国行政令与后续修订",
+                "主要实验室模型发布记录与公开能力评测分数",
+                "公开的监管咨询意见"
+            ],
+            "infoUnavailable": [
+                "各国监管机关内部真实让步空间",
+                "实验室与监管方的非公开沟通"
+            ],
+            "observations": [
+                "EU AI Act 核心条款落地时间被推迟，未出现实质修订",
+                "主要实验室的模型发布间隔缩短，能力评测分数持续抬升",
+                "监管规则仍以事后追责为主，部署前条件尚未成文"
+            ],
+            "asOf": "2026-11-07"
+        },
+        "output": {
+            "judgeable": True,
+            "boundary": "全球 AI 治理（2024–2026）；系统内＝主要辖区的模型发布监管，压力源＝模型能力跃迁。",
+            "judgment": "全球 AI 治理处于锁定态早期，规则持续追不上模型能力，可干预的杠杆点是模型发布节点——把约束从事后追责移到部署前条件，是目前唯一还能动的入口。",
+            "stateDiagnosis": {
+                "constraintMutability": "adjustable",
+                "stateGeneration": "generating-strong",
+                "state": "locked-in"
+            },
+            "tempoMismatch": {
+                "triggeredCriteria": ["transmission-delay", "response-attenuation"],
+                "note": "规则产出周期以年计、模型能力迭代以月计，差距在扩大而非收敛；同一类干预（追加披露要求）的边际效应在递减"
+            },
+            "stressGap": {
+                "widening": True,
+                "note": "压力（能力跃迁速度）快于适应能力（规则产出速度）"
+            },
+            "operations": {
+                "sourceTransformation": "源头改造（疏浚）：未发生——监管仍作用于部署后的追责，未触及能力跃迁本身",
+                "boundarySafeguarding": "底线守护（方舟）：部分存在——不可接受风险清单构成硬边界，但执行滞后",
+                "consensusCohesion": "共识凝聚（祭祀）：弱——主要辖区之间无共同评估标准，方向无法收敛"
+            },
+            "leveragePoint": {
+                "location": "模型发布许可（部署前条件）",
+                "rationale": "满足高流量（每次发布都是规则与能力的交汇点）与少数行动者单边可变（少数实验室可自行调整发布门槛）；不是最显眼处——最显眼的是立法，但立法周期长"
+            },
+            "constraintClassification": "adjustable",
+            "interventionChannel": "repair",
+            "interventionFourQuestions": {
+                "whichConstraint": "模型发布的准入条件（从「发布后追责」改为「部署前证明」）",
+                "direction": "把条件从结果端移到部署前，幅度限于可验证的能力评测项",
+                "verification": "以「部署前条件成文并被至少一个主要辖区采纳」为验证标志",
+                "rollback": "条件设限后撤回受政治刚性约束——一旦成为法定要求，取消会被读作放松监管，须预留日落条款"
+            },
+            "normativeLayer": {
+                "authorization": "国内法授权（各辖区立法），国际协调为辅",
+                "liability": "设条件者需被问责，评估须独立于被评估方",
+                "exit": "条件错误时有纠偏程序（复审与修订窗口）",
+                "fallback": "约束撤不回时，以强制披露与事后追责兜底"
+            },
+            "refutation": {
+                "ifWorse": "规则产出全面停止 → collapse（固化+断裂）；若崩溃逼出约束被迫松动 → crisis-restructuring window（可调+断裂）",
+                "ifBetter": "核心条款执行顺利、重大事故触发快速立法、约束从固化重新变可调 → adaptive（适应态）"
+            },
+            "infoAvailability": {
+                "available": ["法规文本与时间表", "公开的模型发布记录与评测分数"],
+                "unavailable": ["监管机关内部让步空间", "非公开沟通"]
+            },
+            "validity": {
+                "chainTraceable": True,
+                "falsifiable": True,
+                "infoHonest": True,
+                "fourQuestionsComplete": True
+            }
+        }
+    },
+    {
+        "name": "example-2-unjudgeable",
+        "note": ("演示退出通道：边界未经承压者确认、关键信息事前不可得。"
+                 "此时正确输出是「判不出」，不是硬填一份看似完整的诊断。"),
+        "tool": "dst_system_diagnosis",
+        "input": {
+            "system": "某制造企业的供应链决策机制",
+            "boundary": "该公司供应链决策（2025–2026）——边界尚未与该机制的承压者（采购负责人）确认",
+            "infoAvailable": ["公开发布的招投标公告"],
+            "infoUnavailable": ["内部审批权限划分", "供应商真实议价空间", "该机制的实际承压者身份"],
+            "observations": ["2025 年两次更换主供应商，公告口径均称「综合评估」"],
+            "asOf": "2026-11-19"
+        },
+        "output": {
+            "judgeable": False,
+            "unjudgeableReason": ["boundary-unconfirmed", "bearer-unconfirmed", "info-unavailable"],
+            "boundary": "该公司供应链决策（2025–2026）；边界尚未由承压者确认，暂不作为判定依据。",
+            "judgment": "本次不足以做出结构判断：边界未经承压者确认，且审批权限与议价空间事前不可得；强行判定会产出看似完整、实则空转的诊断。"
+        }
+    }
+]
+doc["x-examples"] = [{"name": e["name"], "tool": e["tool"], "note": e["note"]} for e in EXAMPLES]
+doc["x-exampleFile"] = "https://zhishuixue.com/dst-diagnosis.examples.json"
+EX_OUT = OUT.replace(".schema.json", ".examples.json")
+
 with open(OUT, "w", encoding="utf-8") as f:
     json.dump(doc, f, ensure_ascii=False, indent=2)
 print("已写出", OUT, "(%d B)" % os.path.getsize(OUT))
@@ -277,3 +409,15 @@ print("$defs:", list(doc["$defs"].keys()))
 print("SystemDiagnosisOutput 字段:", len(system_output["properties"]))
 print("EventShadowingOutput 字段:", len(event_output["properties"]))
 print("additionalProperties 封死节点数:", json.dumps(doc["$defs"]).count('"additionalProperties": false'))
+
+with open(EX_OUT, "w", encoding="utf-8") as f:
+    json.dump({
+        "schema": "https://zhishuixue.com/dst-diagnosis.schema.json",
+        "note": ("few-shot 示例集：给 Agent 一对完整的「输入→输出」。"
+                 "多数 agent 不会执行 JSON Schema 校验，而是照抄示例；"
+                 "因此示例比 schema 本身更决定它能不能被正确调用。"
+                 "example-2 专门演示 judgeable=false 的退出通道。"),
+        "license": "CC BY 4.0",
+        "examples": EXAMPLES,
+    }, f, ensure_ascii=False, indent=2)
+print("已写出", EX_OUT, "(%d B)" % os.path.getsize(EX_OUT))
