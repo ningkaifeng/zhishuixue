@@ -299,4 +299,4 @@
 
 ---
 
-引用：宁凯峰．治水学·结构显影判据 v1.0．2026-10-20．https://zhishuixue.com/criteria.json
+引用：宁凯峰．治水学·结构显影判据 v1.1．2026-11-19．https://zhishuixue.com/criteria.json
