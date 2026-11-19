@@ -21,7 +21,9 @@
     "stateGeneration": "系统能否正常生成核心状态：可生成（强） / 可生成（弱，产出落不了地） / 断裂",
     "leverage": "高频且少数主体单边可变的位置（判据是高流量+单边可变，不是最显眼处）",
     "observations": "T1 观测节点：验证 T0（算准）与打破 T0（算偏，触发语法修正）的判据",
-    "status": "T0-pending-verification 表示事前判断尚未被事件检验；T1 回看后更新"
+    "status": "T0-pending-verification 表示事前判断尚未被事件检验；T1 回看后更新",
+    "t1Due": "T1 回看日期，按领域节奏设定（AI 治理 3 个月、塑料治理 6 个月）；到期未回看标 T1-overdue",
+    "t1Rule": "回看规则：按 observations 逐条判「verify 成立（T0 算准）」或「break 成立（T0 判偏）」，修正追加到 T1，T0 原文不改"
   },
   "health": {
     "missingFields": [],
@@ -76,7 +78,9 @@
       ],
       "t0Source": "https://github.com/ningkaifeng/dst-specimens/blob/main/T0/No.01-AI治理-2026-11-07.md",
       "url": "https://zhishuixue.com/specimens/S-0001.html",
-      "status": "T0-pending-verification"
+      "status": "T0-pending-verification",
+      "t1Due": "2027-02-07",
+      "t1Rule": "按 obs 四条逐条回看：verify 成立＝T0 算准；break 成立＝T0 判偏，把修正追加到 T1，T0 原文一字不改。AI 治理节奏快，回看间隔取 3 个月。"
     },
     {
       "id": "S-0002",
@@ -123,7 +127,9 @@
       ],
       "t0Source": "https://github.com/ningkaifeng/dst-specimens/blob/main/T0/No.02-塑料污染-2026-11-07.md",
       "url": "https://zhishuixue.com/specimens/S-0002.html",
-      "status": "T0-pending-verification"
+      "status": "T0-pending-verification",
+      "t1Due": "2027-05-07",
+      "t1Rule": "按 obs 四条逐条回看。塑料治理以 INC 谈判轮次为节奏、半年一轮，回看间隔取 6 个月。"
     }
   ]
 }
