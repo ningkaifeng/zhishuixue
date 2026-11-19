@@ -6,6 +6,8 @@ meta:
   license: CC BY 4.0
   repo: https://github.com/ningkaifeng/dst-specimens
   note: 每份标本是对一个仍在运行的真实系统所做的一次实时结构诊断（T0），结果未知时写定、一字不改，等事件回来对照（T1/T2）。
+  t1_policy: "T1 回看日期按领域节奏设定（AI 治理 3 个月、塑料治理 6 个月）。到期未回看即在标本页与索引上标 T1-overdue——回看拖延本身也是记录的一部分，不掩盖。"
+
 specimens:
 - id: S-0001
   num: No.01
@@ -42,6 +44,8 @@ specimens:
     break: 出现哪怕一个可验证互认 → 方向在收敛，「导向拉扯/协方差坍缩」判偏
   title: 全球 AI 治理现状 · 结构显影
   t0_date: '2026-11-07'
+  t1_due: "2027-02-07"
+  t1_rule: "按 obs 四条逐条回看：verify 成立＝T0 算准；break 成立＝T0 判偏，把修正追加到 T1，T0 原文一字不改。AI 治理节奏快，回看间隔取 3 个月。"
   license: CC BY 4.0
   sections:
   - k: 边界
@@ -155,6 +159,8 @@ specimens:
     break: 证据触发升级（新强制限值、禁塑扩围）→ 底线守护在增强
   title: 全球塑料污染治理现状 · 结构显影
   t0_date: '2026-11-07'
+  t1_due: "2027-05-07"
+  t1_rule: "按 obs 四条逐条回看。塑料治理以 INC 谈判轮次为节奏、半年一轮，回看间隔取 6 个月。"
   license: CC BY 4.0
   sections:
   - k: 边界

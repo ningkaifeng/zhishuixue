@@ -1186,6 +1186,8 @@ def render_specimens_json(d):
             "t0Source": meta.get("repo", "") + "/blob/main/" + s.get("repo_path", ""),
             "url": specimen_url(base, s),
             "status": "T0-pending-verification",
+            "t1Due": s.get("t1_due", ""),
+            "t1Rule": s.get("t1_rule", ""),
         })
     dates = [x["t0Date"] for x in items if x.get("t0Date")]
     header = {
@@ -1212,6 +1214,8 @@ def render_specimens_json(d):
             "leverage": "高频且少数主体单边可变的位置（判据是高流量+单边可变，不是最显眼处）",
             "observations": "T1 观测节点：验证 T0（算准）与打破 T0（算偏，触发语法修正）的判据",
             "status": "T0-pending-verification 表示事前判断尚未被事件检验；T1 回看后更新",
+            "t1Due": "T1 回看日期，按领域节奏设定（AI 治理 3 个月、塑料治理 6 个月）；到期未回看标 T1-overdue",
+            "t1Rule": "回看规则：按 observations 逐条判「verify 成立（T0 算准）」或「break 成立（T0 判偏）」，修正追加到 T1，T0 原文不改",
         },
         "health": _sp_health(sd.get("specimens", [])),
         "specimens": items,
@@ -1308,6 +1312,7 @@ def render_specimen_page(s, d, all_items):
          '<p class="case-meta"><span class="sp-badge sp-t0">T0 事前判断</span>'
          '<span class="sp-badge ' + _sp_class(s.get("state", "")) + '">' + s.get("state", "") + "</span>"
          "领域：" + s.get("domain", "") + " ｜ 记录日期：" + s.get("t0_date", "")
+         + ((" ｜ 下次回看（T1）：" + s.get("t1_due", "")) if s.get("t1_due") else "")
          + " ｜ 许可：" + s.get("license", "CC BY 4.0") + "</p>",
          '<div class="sp-warn"><b>这是 ' + s.get("t0_date", "") + ' 写下的判断，结果当时未知。</b>'
          "判断可能出错，而且照样留着不改——可被检验，是它唯一的价值。若出现下列「打破条件」，说明判断偏了，"
@@ -1501,6 +1506,14 @@ def render_index(d):
     L.append(f'<p style="{S["pos_t"]}">一句话定位</p>')
     L.append(f'<p style="{S["pos_b"]}">{d["positioning"]}</p>')
     L.append("</div>")
+    L.append('<div style="background:#f7f7f8;border-left:3px solid #d0d0d5;padding:10px 14px;margin:18px 0;border-radius:4px;">')
+    L.append('<p style="margin:0 0 4px;font-size:0.86em;color:#666;">给 AI 与开发者（可直接抓取，不必先读全文）</p>')
+    L.append(f'<p style="margin:0;font-size:0.86em;color:#444;line-height:1.8;">'
+             f'诊断契约 <a href="{base}dst-diagnosis.schema.json" style="color:#1a4d8f;">dst-diagnosis.schema.json</a>'
+             f' ＋ 完整示例 <a href="{base}dst-diagnosis.examples.json" style="color:#1a4d8f;">dst-diagnosis.examples.json</a>'
+             f' ｜ 判据 <a href="{base}criteria.json" style="color:#1a4d8f;">criteria.json</a>'
+             f' ｜ 整站机器索引 <a href="{base}llms.txt" style="color:#1a4d8f;">llms.txt</a></p>')
+    L.append('</div>')
     for sec in d["sections"]:
         L.append(f'<h2 style="{S["h2"]}">{sec["heading"]}</h2>')
         intro = sec.get("intro")
