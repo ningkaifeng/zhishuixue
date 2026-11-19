@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'zenodo-release/**'
+    paths-ignore:
+      - 'zenodo-release/calibration/**'
   workflow_dispatch:
 
 jobs:
