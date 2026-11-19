@@ -35,23 +35,6 @@ FILES = [
     "DST-Self-Calibration-Statement-v1.0.docx",
 ]
 
-META = {
-    "title": TITLE,
-    "description": DESC,
-    "version": "1.0",
-    "publication_date": "2026-11-19",
-    "upload_type": "publication",
-    "publication_type": "report",
-    "language": "zho",
-    "license": "cc-by-4.0",
-    "creators": [{
-        "name": "Ning, Kaifeng",
-        "affiliation": "Independent Researcher",
-        "orcid": "0009-0001-4414-6058",
-    }],
-    "keywords": KEYWORDS,
-    "related_identifiers": RELATED,
-}
 
 DESC = """本文档是治水学（Dynamic Sustenance Theory, DST）的自我校准说明，发布日 2026-11-19，校准对象为治水学母本 v15.0（含 v15.2 增补）与《治水学论纲》系列已发布文本（第 0 卷及第一至三十九篇）。
 
@@ -82,6 +65,24 @@ RELATED = [
     {"relation": "isSupplementTo", "identifier": "https://zhishuixue.com/calibration.md",
      "resource_type": "other"},                         # 站点要点页
 ]
+
+META = {
+    "title": TITLE,
+    "description": DESC,
+    "version": "1.0",
+    "publication_date": "2026-11-19",
+    "upload_type": "publication",
+    "publication_type": "report",
+    "language": "zho",
+    "license": "cc-by-4.0",
+    "creators": [{
+        "name": "Ning, Kaifeng",
+        "affiliation": "Independent Researcher",
+        "orcid": "0009-0001-4414-6058",
+    }],
+    "keywords": KEYWORDS,
+    "related_identifiers": RELATED,
+}
 
 
 def call(method, url, **kw):
