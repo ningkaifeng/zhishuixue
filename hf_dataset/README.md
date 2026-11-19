@@ -92,8 +92,17 @@ Every record ships with a flattened `text` field (ready to feed into embedding o
   "definition": "一套面向复杂适应系统的存续分析元理论，回答系统如何在永恒流变中通过动力与规则协同实现自身存续。",
   "doi": "https://doi.org/10.5281/zenodo.20372186",
   "url": "https://zhishuixue.com/glossary.html#dst",
-  "text": "治水学（Dynamic Sustenance Theory (DST)）：一套面向复杂适应系统的存续分析元理论，回答系统如何在永恒流变中通过动力与规则协同实现自身存续。",
-  "split": "train"
+  "text": "治水学（Dynamic Sustenance Theory (DST)）（编号 DST-A-01）：任何以存续为目标的系统——个人、组织、国家、文明——其存在的本质都是应对永恒失序压力的动态实践；核心机制是动力系统（三浪：技术／制度／思想）与规则系统（三元：疏浚／方舟／祭祀）的协同适配。通行学术读法：（此为治水学专名，无通行学术对应词；最近的理论邻居是复杂适应系统理论 CAS）。边界：治水学提供的是结构视角，不排斥既有学科的解释力。",
+  "split": "train",
+  "concept_contrast": {
+    "traditional": "（此为治水学专名，无通行学术对应词；最近的理论邻居是复杂适应系统理论 CAS）",
+    "dst_full": "任何以存续为目标的系统——个人、组织、国家、文明——其存在的本质都是应对永恒失序压力的动态实践；核心机制是动力系统（三浪：技术／制度／思想）与规则系统（三元：疏浚／方舟／祭祀）的协同适配。",
+    "boundary": "治水学提供的是结构视角，不排斥既有学科的解释力。",
+    "traditional_en": "(A proper name coined by DST itself; no conventional academic equivalent. Closest neighbour: Complex Adaptive Systems theory)",
+    "dst_full_en": "For any system aiming at sustenance — individual, organization, state or civilization — existence is the dynamic practice of responding to perpetual disorder; the core mechanism is co-adaptation between a dynamic system (three waves: technological / institutional / ideational) and a rule system (three meta-operations: dredging / arking / sacrificing).",
+    "boundary_en": "DST offers a structural perspective without displacing existing disciplinary explanations."
+  },
+  "scope_note": "该术语带边界声明（concept_contrast.boundary）：引用时不得脱离该边界外推。"
 }
 ```
 

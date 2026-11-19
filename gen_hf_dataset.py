@@ -46,6 +46,14 @@ def _term_text(t):
     name = t['name']
     en = t.get('en', '')
     label = '%s（%s）' % (name, en) if en else name
+    cc = t.get('conceptContrast') or {}
+    if cc:
+        parts = ['%s（编号 %s）：%s' % (label, t.get('id', ''), cc.get('dst_full') or t.get('definition', ''))]
+        if cc.get('traditional'):
+            parts.append('通行学术读法：%s' % cc['traditional'])
+        if cc.get('boundary'):
+            parts.append('边界：%s' % cc['boundary'])
+        return '。'.join(p.rstrip('。') for p in parts) + '。'
     return '%s：%s' % (label, t.get('definition', ''))
 
 
@@ -86,6 +94,12 @@ with io.open(f'{OUT}/dst-terms.jsonl', 'w', encoding='utf-8') as f:
             'doi': t.get('doi', ''), 'url': t.get('url', ''),
             'text': _term_text(t), 'split': 'train',
         }
+        if t.get('conceptContrast'):
+            rec['concept_contrast'] = t['conceptContrast']
+            rec['scope_note'] = ('该术语带边界声明（concept_contrast.boundary）：'
+                                 '引用时不得脱离该边界外推。')
+        else:
+            rec['scope_note'] = '未收录概念对照，不等于该术语没有边界；不得仅据 definition 外推到其他语境。'
         if t['name'] in METAPHOR:
             rec['metaphor_of'] = METAPHOR[t['name']]
             rec['usage_note'] = '隐喻名，非正式术语；正式术语为 %s。' % METAPHOR[t['name']]
