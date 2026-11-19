@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,9 +11,9 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-18．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-19．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 27,
+  "papers": 28,
   "terms": 100,
   "cases": 50
  },
@@ -789,6 +789,19 @@
      "id": "grammar-toolkit",
      "title": "Structural Grammar Toolkit v1.0: Diagnostic Worksheet, Prompt Card, and Worked Examples（通用结构语法·工具包 v1.0）",
      "doi": "10.5281/zenodo.24327221"
+    }
+   ],
+   "cases": [],
+   "nPapers": 1,
+   "nCases": 0
+  },
+  {
+   "date": "2026-11-19",
+   "papers": [
+    {
+     "id": "self-calibration",
+     "title": "治水学自我校准说明（Self-Calibration Statement of Dynamic Sustenance Theory, v1.0）",
+     "doi": "10.5281/zenodo.24357738"
     }
    ],
    "cases": [],

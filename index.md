@@ -71,6 +71,10 @@
 - **A General Structural Grammar for the Governance of Complex Systems: A Methodological Framework（复杂系统治理的通用结构语法：方法论框架）** ｜ 方法论论文 · 中英双版 · Zenodo, 2026 · 原治水学论纲·英文扩展篇 No. 4 ｜ https://doi.org/10.5281/zenodo.23328738
 - **Structural Grammar Toolkit v1.0: Diagnostic Worksheet, Prompt Card, and Worked Examples（通用结构语法·工具包 v1.0）** ｜ 配套工具包 · 中英双语 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.24327221
 
+### 体系校准与效力说明
+
+- **治水学自我校准说明（Self-Calibration Statement of Dynamic Sustenance Theory, v1.0）** ｜ 规范声明 · Zenodo, 2026 · 收窄四项层级表述，给出失效边界三判据 ｜ https://doi.org/10.5281/zenodo.24357738
+
 ## 决策显影库（判例）
 
 把治水学工具用于真实历史、商业与治理决策的实践判例，每篇标注所用治水学接口与杠杆落点。
