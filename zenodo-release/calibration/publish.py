@@ -35,6 +35,24 @@ FILES = [
     "DST-Self-Calibration-Statement-v1.0.docx",
 ]
 
+META = {
+    "title": TITLE,
+    "description": DESC,
+    "version": "1.0",
+    "publication_date": "2026-11-19",
+    "upload_type": "publication",
+    "publication_type": "report",
+    "language": "zho",
+    "license": "cc-by-4.0",
+    "creators": [{
+        "name": "Ning, Kaifeng",
+        "affiliation": "Independent Researcher",
+        "orcid": "0009-0001-4414-6058",
+    }],
+    "keywords": KEYWORDS,
+    "related_identifiers": RELATED,
+}
+
 DESC = """本文档是治水学（Dynamic Sustenance Theory, DST）的自我校准说明，发布日 2026-11-19，校准对象为治水学母本 v15.0（含 v15.2 增补）与《治水学论纲》系列已发布文本（第 0 卷及第一至三十九篇）。
 
 【要解决的问题】治水学的文本中长期并存两种语气：一种是限定的（"工作假设""不声称解决存在论难题""不是形而上学体系"），一种是抬高的（"元理论""元问题""存在论事实""第一哲学问题"）。两种表述各自都成立，问题出在它们相邻而存、可以随时切换——被质疑"凭什么"时引前者，被质疑"不过又一个框架"时引后者。这种可切换性，在学术上叫"可撤退性缺失"。
@@ -96,57 +114,111 @@ else:
     print("   查重接口返回", r.status_code, "（继续）")
 
 print("② 新建 deposition…")
-r = call("POST", API, headers=H_AUTH)
-if r.status_code not in (200, 201):
-    print(r.status_code, r.text[:400])
-    sys.exit(2)
-dep = r.json()
-did = dep["id"]
-bucket = dep["links"]["bucket"]
-print("   draft id:", did)
 
-print("③ bucket PUT 上传文件…")
-for name in FILES:
-    path = os.path.join(HERE, name)
-    if not os.path.exists(path):
-        sys.exit("缺失文件: " + name)
-    with open(path, "rb") as fh:
-        content = fh.read()
-    r = call("PUT", f"{bucket}/{quote(name)}", headers=BIN, data=content)
-    print(f"   {name} → {r.status_code} ({len(content)} B)")
-    if r.status_code >= 400:
-        print(r.text[:400])
-        sys.exit(2)
+
+def try_legacy(body_meta):
+    """旧版 depositions API：POST 建 draft。返回 (did, bucket) 或 None。"""
+    body = json.dumps({"metadata": body_meta}, ensure_ascii=False) if body_meta else json.dumps({})
+    for node in (API, API + "/"):
+        r = requests.post(node, headers=H_JSON, data=body, timeout=120)
+        print(f"   POST {node} → {r.status_code}")
+        if r.status_code in (200, 201):
+            d = r.json()
+            return d["id"], d["links"]["bucket"]
+        if r.status_code >= 400:
+            print("   body:", r.text[:300])
+    return None
+
+
+def try_new_api(body_meta):
+    """新版 InvenioRDM records API（legacy 失败时兜底）。"""
+    url = "https://zenodo.org/api/records"
+    body = json.dumps({
+        "access": {"files": "public", "record": "public"},
+        "files": {"enabled": True},
+        "metadata": {
+            "title": body_meta["title"],
+            "description": body_meta["description"],
+            "publication_date": body_meta["publication_date"],
+            "resource_type": {"id": "publication-report"},
+            "creators": [{"person_or_org": {"type": "personal", "name": "Ning, Kaifeng",
+                                            "identifiers": [{"scheme": "orcid", "identifier": "0009-0001-4414-6058"}]},
+                          "affiliations": [{"name": "Independent Researcher"}]}],
+            "publisher": "Zenodo",
+            "subjects": [{"subject": k} for k in body_meta["keywords"]],
+            "rights": [{"id": "cc-by-4.0"}],
+            "languages": [{"id": "zho"}],
+            "version": body_meta["version"],
+        },
+    }, ensure_ascii=False)
+    r = requests.post(url, headers=H_JSON, data=body, timeout=120)
+    print(f"   POST {url} → {r.status_code}")
+    if r.status_code not in (200, 201):
+        print("   body:", r.text[:400])
+        return None
+    return r.json()
+
+
+did, bucket, newapi = None, None, None
+
+res = try_legacy(META)
+if res:
+    did, bucket = res
+    print("   draft id:", did)
+
+if did is None:
+    print("   旧版 API 失败，尝试新版 /api/records …")
+    newapi = try_new_api(META)
+    if newapi:
+        did = newapi["id"]
+        print("   draft id:", did, "(新版 API)")
+
+if did is None:
+    sys.exit("② 失败：两条 API 都无法创建 draft")
+
+print("③ 上传文件…")
+if bucket:
+    for name in FILES:
+        path = os.path.join(HERE, name)
+        if not os.path.exists(path):
+            sys.exit("缺失文件: " + name)
+        with open(path, "rb") as fh:
+            content = fh.read()
+        r = call("PUT", f"{bucket}/{quote(name)}", headers=BIN, data=content)
+        print(f"   {name} → {r.status_code} ({len(content)} B)")
+        if r.status_code >= 400:
+            print(r.text[:400])
+            sys.exit(2)
+else:
+    # InvenioRDM：PUT 建文件对象 → POST commit
+    base_files = f"https://zenodo.org/api/records/{did}/draft/files"
+    for name in FILES:
+        path = os.path.join(HERE, name)
+        with open(path, "rb") as fh:
+            content = fh.read()
+        r = call("PUT", f"{base_files}/{quote(name)}", headers=BIN, data=content)
+        print(f"   PUT {name} → {r.status_code}")
+        r = call("POST", f"{base_files}/{quote(name)}/commit", headers=H_JSON, data="{}")
+        print(f"   commit {name} → {r.status_code}")
+    r = call("GET", f"https://zenodo.org/api/records/{did}/draft", headers=H_AUTH)
+    print("   draft 内文件:", len(r.json().get("files", {}).get("entries", {})))
 
 print("④ 更新元数据…")
-payload = {
-    "metadata": {
-        "title": TITLE,
-        "description": DESC,
-        "version": "1.0",
-        "publication_date": "2026-11-19",
-        "upload_type": "publication",
-        "publication_type": "report",
-        "language": "zho",
-        "license": "cc-by-4.0",
-        "creators": [{
-            "name": "Ning, Kaifeng",
-            "affiliation": "Independent Researcher",
-            "orcid": "0009-0001-4414-6058",
-        }],
-        "keywords": KEYWORDS,
-        "related_identifiers": RELATED,
-    }
-}
-r = call("PUT", f"{API}/{did}", data=json.dumps(payload), headers=H_JSON)
-if r.status_code >= 400:
-    print(r.status_code, r.text[:600])
-    sys.exit(2)
-print("   元数据 OK")
+if bucket:
+    payload = {"metadata": META}
+    r = call("PUT", f"{API}/{did}", data=json.dumps(payload, ensure_ascii=False), headers=H_JSON)
+    if r.status_code >= 400:
+        print(r.status_code, r.text[:600])
+        sys.exit(2)
+    print("   元数据 OK")
+else:
+    print("   新版 API 已在创建时带元数据，跳过")
 
 print("⑤ 发布…")
-r = call("POST", f"{API}/{did}/actions/publish")
-if r.status_code != 202:
+pub_url = (f"https://zenodo.org/api/records/{did}/draft/actions/publish" if not bucket
+           else f"{API}/{did}/actions/publish")
+r = call("POST", pub_url, headers=H_JSON, data="{}")
+if r.status_code not in (200, 202):
     print(r.status_code, r.text[:400])
     sys.exit(2)
 rec = r.json()
