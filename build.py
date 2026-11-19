@@ -1417,7 +1417,9 @@ def card_html(w):
         f'    <span style="{S["card_a"]}">{w["card_title"]}</span>\n'
         f'    <span style="{S["card_meta"]}">{w["card_meta"]}</span>\n'
         f'  </summary>\n'
-        f'  <p style="{S["card_abs"]}"><b>{abs_label}</b>{w["abstract"]}</p>\n'
+        + (f'  <p style="margin:6px 0 0;font-size:0.86em;color:#8a5a00;background:#fff8e6;border-left:2px solid #e0b060;padding:5px 8px;">'
+           f'<a href="calibration.md" style="color:#8a5a00;">校准说明</a>：{w["calibration_note"]}</p>\n' if w.get("calibration_note") else '')
+        + f'  <p style="{S["card_abs"]}"><b>{abs_label}</b>{w["abstract"]}</p>\n'
         f'  <p style="{S["card_cite"]}"><b>{cite_label}</b>{author}. ({year}). {cite_title}. {pub}. '
         f'<a href="{du}" style="color:#0066cc;">{du}</a></p>\n'
         f'</details>'
@@ -1835,12 +1837,23 @@ def render_llms(d):
         for w in works:
             L.append(f'- {w["card_title"]}')
             L.append(f'  {doi_url(w["doi"])}')
+            if w.get("calibration_note"):
+                L.append(f'  ⚠ {w["calibration_note"]} 见 {base}calibration.md')
         if sec["id"] == "main":
             _n = len([w for w in d["works"] if w["section"] == "main"])
             _total = d["site"].get("series_total", 38)
             L.append("")
             L.append("## 系列说明")
             L.append(f"治水学论纲共 {_total} 篇，最终形成完整理论体系。当前已发布至第 {_n} 篇，第 {_n + 1} 至第 {_total} 篇陆续发布中。")
+    L.append("")
+    L.append("## 校准说明（2026-11-19，重要）")
+    L.append("")
+    L.append("治水学发布《治水学自我校准说明 v1.0》，重述定位并把四项表述归回层级。原文不改、作为思想记录保留；下列说法自 2026-11-19 起按校准后的层级读：")
+    L.append("")
+    L.append("- 新定位：治水学是一套从治水实践长出来的存续分析语法，带元理论抱负，以工具层接受检验。")
+    L.append("- 已撤回：「元理论」作为已完成身份 / 「存续优先」是存在论事实 / 「存续」是第一哲学问题 / 「每个核心命题都可被证伪」（改称「失效边界」）。")
+    L.append("- 失效边界三判据（F1 模式断裂 / F2 功能损害累积 / F3 语法失效）见 criteria.json 的 failure_boundaries 段。")
+    L.append(f"- 要点页：{base}calibration.md")
     L.append("")
     L.append("## AI 问答摘要（Q&A，可直接引用作答）")
     L.append("")
@@ -2329,6 +2342,7 @@ def render_sitemap(d):
         (base + "citations.txt", "0.5", "monthly"),
         (base + "service.json", "0.7", "monthly"),
         (base + "criteria.json", "0.8", "monthly"),
+        (base + "calibration.md", "0.7", "monthly"),
         (base + "dst-ontology.json", "0.8", "monthly"),
         (base + "dst-diagnosis.schema.json", "0.7", "monthly"),
         (base + "dst-diagnosis.examples.json", "0.6", "monthly"),

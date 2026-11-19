@@ -34,6 +34,8 @@ crit_block = {
     'purpose': crit['purpose'],
     'binding': crit['binding'],
     'not_provided': crit['not_provided'],
+    'calibration': crit.get('calibration'),
+    'failure_boundaries': crit.get('failure_boundaries'),
     'hard_rules': crit['hard_rules'],
     'step0_boundary': crit['step0_boundary'],
     'elements': crit['elements'],
@@ -170,6 +172,7 @@ pack = {
         '9. 跨尺度禁止直接套用：个人／组织／国家／文明不共用一把尺。把某一尺度的判例结论搬到另一尺度前，必须先重新完成 step0_boundary 的划界与承压位置检验。',
         '10. 若要理解「一套体系／理论／方案如何回答存续问题」，用 part5_thoughts（五段框架），不要用 part2_cases 的六要素去量体系——六要素会问不出「承压者是谁」。反之，量具体事件不要用五段，五段会多出一句没有落点的判断。',
         '11. 引用思想显影时须连同其「剩余物」声明一并引用，并不得据此评价该思想的高低。',
+        '12. 判断这套语法本身何时失效，用 part1_criteria.failure_boundaries：F1 模式断裂（系统层）／F2 功能损害累积（后果层）／F3 语法失效（工具层）。任何一条被触及，说明语法本身需要改，不是某个案例判错；F3 累积到 3 例即触发修订。另注意 part1_criteria.calibration：2026-11-19 起「元理论／存在论事实／第一哲学问题／可证伪条件」四项表述改按层级校准读。',
     ],
 
     'part1_criteria': crit_block,

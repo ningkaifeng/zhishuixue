@@ -190,6 +190,41 @@ for x in c['usage']:
     A(x)
 A('')
 
+_fb = c.get('failure_boundaries') or {}
+if _fb.get('criteria'):
+    A('### 3.13 失效边界（这套语法何时失效，%d 条判据）' % len(_fb['criteria']))
+    A('')
+    A(_fb.get('note', ''))
+    A('')
+    for _x in _fb['criteria']:
+        A('#### %s · %s' % (_x.get('id', ''), _x.get('name', '')))
+        A('')
+        A('- **依据**：%s' % _x.get('basis', ''))
+        A('- **观测什么**：%s' % '；'.join(_x.get('observe', [])))
+        A('- **怎么判**：%s' % _x.get('judge', ''))
+        A('- **落档**：%s' % _x.get('verdict', ''))
+        A('- **最小示例**：%s' % _x.get('example', ''))
+        A('')
+    A('- **默认阈值**：观测周期＝个人按月经组织·企业按季、国家·文明按年；N（未回摆周期）＝3；F2 同类损害重复＝2 次；F3 触发样本＝3 例。默认值立即生效、不标「待核」，可由修订程序调整。')
+    A('')
+
+_cal = c.get('calibration') or {}
+if _cal:
+    A('### 3.14 校准说明（2026-11-19 起生效）')
+    A('')
+    A('**定位**：' + _cal.get('positioning', ''))
+    A('')
+    A('**已撤回的说法**：')
+    for _x in _cal.get('withdrawn', []):
+        A('- ' + _x)
+    A('')
+    A('**阅读规则**：' + _cal.get('reading_rule', ''))
+    A('')
+    A('**不在取代范围**：' + _cal.get('not_covered', ''))
+    A('')
+    A('要点页：https://zhishuixue.com/calibration.md')
+    A('')
+
 # ---- 四、判例 ----
 A('## 四、判例（%d 篇）' % d['part2_cases']['count'])
 A('')
