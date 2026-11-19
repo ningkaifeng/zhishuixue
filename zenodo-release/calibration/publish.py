@@ -109,6 +109,27 @@ if r.status_code == 200:
             print("   ⚠ 已存在记录，跳过发布")
             print("   DOI:", h.get("doi"))
             print("   record:", h.get("links", {}).get("html") or h.get("id"))
+            rid = h.get("id")
+            rv = call("GET", f"{API}/{rid}", headers=H_AUTH)
+            if rv.status_code == 200:
+                rec = rv.json()
+                mdv = rec.get("metadata", {})
+                print("   [核验] state:", rec.get("state"), "| submitted:", rec.get("submitted"))
+                print("   [核验] title:", mdv.get("title"))
+                print("   [核验] pub_date:", mdv.get("publication_date"),
+                      "| version:", mdv.get("version"))
+                print("   [核验] type:", mdv.get("upload_type"), "/", mdv.get("publication_type"))
+                print("   [核验] license:", mdv.get("license"))
+                print("   [核验] keywords:", len(mdv.get("keywords") or []))
+                fl = rec.get("files") or []
+                print("   [核验] 文件数:", len(fl))
+                for f in fl:
+                    print("      -", f.get("filename"), f.get("filesize"), "B")
+                print("   [核验] related:",
+                      [(x.get("relation"), x.get("identifier")) for x in (mdv.get("related_identifiers") or [])])
+                print("   [核验] description 长度:", len(mdv.get("description") or ""))
+            else:
+                print("   [核验] 读取失败", rv.status_code)
             sys.exit(0)
     print("   未发现已发布同名记录（草稿不计）")
 else:
