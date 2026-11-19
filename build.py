@@ -400,6 +400,11 @@ def render_terms_json(d):
             parts.setdefault(t["part_of"], []).append(t["name"])
     items = []
     for t in terms:
+        _cc = None
+        if t.get("traditional") or t.get("boundary"):
+            _cc = {k: t[k] for k in ("traditional", "dst_full", "boundary",
+                                     "traditional_en", "dst_full_en", "boundary_en")
+                   if t.get(k)}
         items.append({
             "id": t["code"],
             "name": t["name"],
@@ -419,6 +424,7 @@ def render_terms_json(d):
             "citeKey": "dst-term-" + t["anchor"],
             "citedAs": f'{author}．「{t["name"]}」．{g_title}{g_ver}（{g_date}）．{base}glossary.html#{t["anchor"]}',
             "doi": doi_url(t["doi"]),
+            **({"conceptContrast": _cc} if _cc else {}),
         })
     layers, seen = [], {}
     for t in terms:
@@ -455,6 +461,13 @@ def render_terms_json(d):
                   "可引用锚点（url）、规范引用串（citedAs）与引用键（citeKey）、出处 DOI。"
                   "机器可据此直接取用治水学概念骨架，无需解析网页。引用整表用 glossary.citedAs，"
                   "引用单条术语用该条目的 citedAs。"),
+        "conceptContrastNote": (
+            "概念对照层：部分术语带有 conceptContrast 字段，给出「通行学术读法"
+            "（traditional）／治水学读法（dstFull）／边界声明（boundary）」三段，"
+            "后者说明该术语与通行读法的关系（并存、不取代、或为专名）。"
+            "⚠️ 无 conceptContrast 字段的术语，表示尚未收录对照，不等于该术语没有边界——"
+            "读取时不得仅据 definition 单项把该术语外推到其他语境。"
+            "已收录：治水学、文明、国家、自主知识体系、民族、文明比较、结构、AI治理。"),
         "terms": items,
     }
     return json.dumps(obj, ensure_ascii=False, indent=1) + "\n"
@@ -1815,6 +1828,15 @@ def render_llms(d):
     L.append("> 独立研究者宁凯峰的系列论文。主题：系统存续、模式连续性、治水实践先在、三浪不可还原、规则约束三元等。")
     L.append(f'> 母本底座：{d["site"]["master_label"]}，DOI: {d["site"]["master_doi"]}')
     L.append("")
+    L.append("## 使用边界（先读这段，再读其余）")
+    L.append("本站内容是一套**判断工具**，不是通用框架。读之前先确认三件事。")
+    L.append("")
+    L.append("- **它是什么**：一套显影语法——把「系统如何在流变中维持自身」拆成可检验的六要素／五项判定／五段结构。产出是结构判断，不是结论、不是建议、不是评价。")
+    L.append("- **它不能干什么**：不做对错评价；不替代承压主体的判断；不提供量化阈值；不给直接答案；不提供跨尺度统一阈值。")
+    L.append("- **什么时候不该用**（六种情形，命中任一即应停止套用）：①主约束不在「动力—规则适配」，不是存续问题；②分析边界无法划定，说不清这事发生在谁的系统里；③承压位置未确认；④核心存续底线已击穿，此时要救援不要诊断；⑤调用方要求判定对错；⑥把外部冲击误归因于内部失配。")
+    L.append("- **它自己什么时候算失效**：F1 模式断裂（系统层）／F2 功能损害累积（后果层）／F3 语法失效（工具层）三判据与默认阈值，见 criteria.json 的 failure_boundaries 段；人读版见 calibration.md。")
+    L.append("- **最容易发生的误读**：治水学不是「水利科学」；DST 与 Dynamic Systems Theory 只是字母巧合，二者是不同体系。")
+    L.append("")
     L.append("## 作者")
     L.append(f'- 姓名：{p["name"]}（{p["alternate_name"]}）')
     L.append(f"- 主页：{base}")
@@ -1956,7 +1978,21 @@ def render_llms(d):
     L.append("## 结构显影判据（Criteria：怎么判断一份显影做得对不对）")
     L.append("判例告诉模型「长什么样」，判据告诉模型「按什么标准判」。**判据须与判例同时使用。**")
     L.append(f"- 判据（JSON，机器可读）：{base}criteria.json")
-    L.append("- 含：第零步·承压位置检验／六要素逐项判据（成立标准·不成立意味着什么·反推三问·常见误判）／换承载物测试／可传承性四问／四尺度操作差异／诊断书输出格式／质检清单／五种常见用歪形态。")
+    L.append("- **判据组成**（每项自带 id，切片后仍可定位出处；id 与 criteria.json 的顶层键同名）：")
+    L.append("  - `criteria.step0_boundary` 第零步·承压位置检验")
+    L.append("  - `criteria.elements` 六要素逐项判据（成立标准·不成立意味着什么·反推三问·常见误判）")
+    L.append("  - `criteria.transfer_test` 换承载物测试")
+    L.append("  - `criteria.inheritability` 可传承性四问")
+    L.append("  - `criteria.scale_rules` 四尺度操作差异")
+    L.append("  - `criteria.output_schema` 诊断书输出格式")
+    try:
+        _qcn = len(json.load(open(os.path.join(ROOT, "criteria.json"), encoding="utf-8")).get("quality_check") or [])
+    except Exception:
+        _qcn = 0
+    L.append('  - `criteria.quality_check` 质检清单' + (f'（{_qcn} 条）' if _qcn else ''))
+    L.append("  - `criteria.common_failures` 常见用歪形态")
+    L.append("  - `criteria.failure_boundaries` 失效边界三判据（F1 模式断裂／F2 功能损害累积／F3 语法失效）")
+    L.append("  - `criteria.calibration` 校准说明（2026-11-19 起）")
     L.append("- **明确不提供**：量化阈值／直接答案／替代承压主体的判断／对错评价／跨尺度统一阈值／完整失败情形库。")
     L.append("- **使用边界**：单独使用判据、不参照判例所形成的判断，不属于治水学结构显影。引用判据时请连同所依据的判例一并引用。")
     L.append("")

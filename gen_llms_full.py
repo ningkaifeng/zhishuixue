@@ -64,7 +64,7 @@ A('## 三、结构显影判据（怎么判一份显影做得对不对）')
 A('')
 A(c['purpose'])
 A('')
-A('### 3.1 绑定关系（最重要的一条）')
+A('### 3.1 绑定关系（最重要的一条）〔criteria.binding〕')
 A('')
 A('> **%s**' % c['binding']['rule'])
 A('')
@@ -72,19 +72,19 @@ A(c['binding']['why'])
 A('')
 A(c['binding']['statement'])
 A('')
-A('### 3.2 明确不提供（%d 条）' % len(c['not_provided']))
+A('### 3.2 明确不提供（%d 条）〔criteria.not_provided〕' % len(c['not_provided']))
 A('')
 for x in c['not_provided']:
     A('- ' + x)
 A('')
-A('### 3.3 硬规则（%d 条）' % len(c['hard_rules']))
+A('### 3.3 硬规则（%d 条）〔criteria.hard_rules〕' % len(c['hard_rules']))
 A('')
 for r in c['hard_rules']:
     A('- **%s %s**：%s' % (r['id'], r['rule'], r['detail']))
 A('')
 
 s0 = c['step0_boundary']
-A('### 3.4 第零步·承压位置检验（先于一切）')
+A('### 3.4 第零步·承压位置检验（先于一切）〔criteria.step0_boundary〕')
 A('')
 A('**追问**：')
 for q in s0['question']:
@@ -101,7 +101,7 @@ for x in s0['common_mistakes']:
     A('- ' + x)
 A('')
 
-A('### 3.5 六要素逐项判据')
+A('### 3.5 六要素逐项判据〔criteria.elements〕')
 A('')
 for e in c['elements']:
     A('#### %d. %s' % (e['order'], e['name']))
@@ -129,7 +129,7 @@ for e in c['elements']:
         A('')
 
 tt = c['transfer_test']
-A('### 3.6 %s' % tt['name'])
+A('### 3.6 %s〔criteria.transfer_test〕' % tt['name'])
 A('')
 A('**规则**：%s' % tt['rule'])
 A('')
@@ -141,7 +141,7 @@ A('**不通过意味着什么**：%s' % tt['fail_means'])
 A('')
 
 inh = c['inheritability']
-A('### 3.7 %s' % inh['name'])
+A('### 3.7 %s〔criteria.inheritability〕' % inh['name'])
 A('')
 A('**核心追问**：%s' % inh['question'])
 A('')
@@ -153,7 +153,7 @@ for k, v in inh['outcomes'].items():
     A('- **%s**：%s' % (k, v))
 A('')
 
-A('### 3.8 四尺度操作差异')
+A('### 3.8 四尺度操作差异〔criteria.scale_rules〕')
 A('')
 A('**总规则**：%s' % c['scale_rules']['rule'])
 A('')
@@ -162,7 +162,7 @@ for k in ('个人', '组织', '国家', '文明'):
         A('- **%s**：%s' % (k, c['scale_rules'][k]))
 A('')
 
-A('### 3.9 诊断书输出格式')
+A('### 3.9 诊断书输出格式〔criteria.output_schema〕')
 A('')
 A('**%s**' % c['output_schema']['name'])
 A('')
@@ -170,13 +170,13 @@ for x in c['output_schema']['fields']:
     A('- ' + x)
 A('')
 
-A('### 3.10 质检清单（%d 条）' % len(c['quality_check']))
+A('### 3.10 质检清单（%d 条）〔criteria.quality_check〕' % len(c['quality_check']))
 A('')
 for i, x in enumerate(c['quality_check'], 1):
     A('%d. %s' % (i, x))
 A('')
 
-A('### 3.11 常见用歪形态（%d 种）' % len(c['common_failures']['list']))
+A('### 3.11 常见用歪形态（%d 种）〔criteria.common_failures〕' % len(c['common_failures']['list']))
 A('')
 A(c['common_failures']['note'])
 A('')
@@ -184,7 +184,7 @@ for x in c['common_failures']['list']:
     A('- **%s %s**：%s' % (x['id'], x['name'], x['desc']))
 A('')
 
-A('### 3.12 使用顺序')
+A('### 3.12 使用顺序〔criteria.usage〕')
 A('')
 for x in c['usage']:
     A(x)
@@ -192,7 +192,7 @@ A('')
 
 _fb = c.get('failure_boundaries') or {}
 if _fb.get('criteria'):
-    A('### 3.13 失效边界（这套语法何时失效，%d 条判据）' % len(_fb['criteria']))
+    A('### 3.13 失效边界（这套语法何时失效，%d 条判据）〔criteria.failure_boundaries〕' % len(_fb['criteria']))
     A('')
     A(_fb.get('note', ''))
     A('')
@@ -210,7 +210,7 @@ if _fb.get('criteria'):
 
 _cal = c.get('calibration') or {}
 if _cal:
-    A('### 3.14 校准说明（2026-11-19 起生效）')
+    A('### 3.14 校准说明（2026-11-19 起生效）〔criteria.calibration〕')
     A('')
     A('**定位**：' + _cal.get('positioning', ''))
     A('')
