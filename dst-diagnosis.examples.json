@@ -122,6 +122,98 @@
         "boundary": "该公司供应链决策（2025–2026）；边界尚未由承压者确认，暂不作为判定依据。",
         "judgment": "本次不足以做出结构判断：边界未经承压者确认，且审批权限与议价空间事前不可得；强行判定会产出看似完整、实则空转的诊断。"
       }
+    },
+    {
+      "name": "example-3-evasive-lock-in",
+      "note": "真实案例：工具包样例 No.03（AI 基础设施资本开支，2026 Q3 末）——「讳锁 evasive-lock-in」就是从这一例跑出来的形态。本示例用于让 Agent 分辨：「所有人都说该改、但没人先动」不是固化。固化等外部介入，讳锁必须先把代价摆到桌面（disclosure-first）。",
+      "tool": "dst_system_diagnosis",
+      "input": {
+        "system": "AI 基础设施资本开支",
+        "boundary": "美国五大超大规模厂商 + neocloud 的 AI 资本开支与融资安排（2026 Q3 末）；系统内＝资本开支决策与融资结构，压力源＝算力需求增速快于自有现金流（造血）。",
+        "infoAvailable": [
+          "财报 capex 指引与季度经营现金流",
+          "折旧政策与会计估计披露",
+          "评级机构报告与杠杆率口径",
+          "公开的债务与 SPV 发行文件"
+        ],
+        "infoUnavailable": [
+          "SPV 真实杠杆（表外，不直接可见）",
+          "「GPU 经济寿命约 3 年」并非行业共识，属独立估计",
+          "收入／capex 口径存在争议（资本化范围不同）"
+        ],
+        "observations": [
+          "资本开支增速反超经营现金流，缺口转向表外融资",
+          "GPU 折旧年限仍按 5–6 年，独立估计的经济寿命约 3 年",
+          "杠杆率与评级门槛逼近触发线",
+          "公开场合都在说「折旧该改」，但无一家先动"
+        ],
+        "asOf": "2026-09-30"
+      },
+      "output": {
+        "judgeable": true,
+        "boundary": "美国五大超大规模厂商 + neocloud 的 AI 资本开支与融资安排（2026 Q3 末）；系统内＝capex 决策与融资结构，压力源＝算力需求增速快于自有现金流。",
+        "judgment": "AI 基础设施资本开支处于讳锁态：折旧假设形式上可改（CFO 与审计师即可定），但一改立刻在利润表与杠杆率上暴露损失，于是所有人都在说该改、没人先动——出路不是直接调，而是先强制披露代价。",
+        "stateDiagnosis": {
+          "constraintMutability": "evasive",
+          "stateGeneration": "generating-strong",
+          "state": "evasive-lock-in"
+        },
+        "tempoMismatch": {
+          "triggeredCriteria": [
+            "feedback-time-constant"
+          ],
+          "note": "方向与前两例相反：债务与融资工具期限以年计，GPU 经济寿命约 3 年——是资本工具的期限追不上资产贬值速度，而非规则追不上技术。同一个「节奏失配」，两例方向互为镜像。"
+        },
+        "stressGap": {
+          "widening": true,
+          "note": "压力侧（资本需求增速）斜率高于能力侧（自有现金流），缺口在 Q3 反超并转向表外"
+        },
+        "operations": {
+          "sourceTransformation": "源头改造（疏浚）：未发生——没有任何一方动 capex 节奏本身",
+          "boundarySafeguarding": "底线守护（方舟）：名义存在（四条底线：折旧／杠杆率／评级门槛／监管资本），实际全部逼近触发线",
+          "consensusCohesion": "共识凝聚（祭祀）：看似强、实则分裂——口头共识是「该改」，行为共识是「谁先改谁先暴露」"
+        },
+        "leveragePoint": {
+          "location": "GPU 折旧年限（5–6 年 vs 独立估计经济寿命约 3 年）",
+          "rationale": "四条底线里唯一三条同时成立的一条：①每季度都要用一次（高频经过）；②CFO 与审计师极少数人即可单边决定（不需要多方同意）；③是约束不是状态——利润与杠杆率是它的结果。不是最显眼处：最显眼的是算力与模型能力。"
+        },
+        "constraintClassification": "evasive",
+        "interventionChannel": "disclosure-first",
+        "interventionFourQuestions": {
+          "whichConstraint": "GPU 折旧年限（从 5–6 年向约 3 年靠）",
+          "direction": "不一次性改，先强制披露「若按 3 年折旧，利润与杠杆是多少」，调整幅度由披露结果决定",
+          "verification": "披露后市场定价是否出现非线性跳变——跳变说明此前定价建立在错误假设上",
+          "rollback": "设线性过渡期；若融资成本上升过猛，暂停并补流动性安排"
+        },
+        "normativeLayer": {
+          "authorization": "由会计与披露准则层面授权（CFO 与审计师即可变更会计估计），不需立法",
+          "liability": "假设的签署方承担陈述责任；但失真后果主要由承压者承受",
+          "exit": "承压者（电费用户、零售信贷、养老金）无退出通道——这是判为讳锁而非可调的关键",
+          "fallback": "若披露触发融资成本骤升，以流动性安排与过渡期兜底；最终承担者仍是纳税人"
+        },
+        "refutation": {
+          "ifWorse": "违约／评级下调／赎回受限／SPV 回表 任一生效 → 讳锁出现破口（向 broken 方向恶化）",
+          "ifBetter": "强制披露落地且定价出现非线性跳变 → 盖子被掀开，讳锁解除，转入 crisis-restructuring 或 repair"
+        },
+        "infoAvailability": {
+          "available": [
+            "capex 指引与经营现金流",
+            "折旧政策披露",
+            "评级与杠杆率口径"
+          ],
+          "unavailable": [
+            "SPV 真实杠杆",
+            "「经济寿命 3 年」的行业共识",
+            "口径一致性"
+          ]
+        },
+        "validity": {
+          "chainTraceable": true,
+          "falsifiable": true,
+          "infoHonest": true,
+          "fourQuestionsComplete": true
+        }
+      }
     }
   ]
 }

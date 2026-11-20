@@ -97,6 +97,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://zhishuixue.com/worksheet.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://zhishuixue.com/dst-ontology.json</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>

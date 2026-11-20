@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>通用结构语法 · 诊断工作表（网页版 v2.0）| 治水学 DST</title>
+<meta name="description" content="《复杂系统治理的通用结构语法》诊断工作表的网页版：点开即填，八步走完，可导出符合 dst-diagnosis.schema.json v1.2 的 JSON。零安装。">
+<meta name="author" content="宁凯峰 Ning Kaifeng">
+<link rel="describedby" type="text/plain" href="llms.txt">
+<link rel="canonical" href="https://zhishuixue.com/worksheet.html">
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:0 16px 64px;font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:#1a1a1a;background:#fff;max-width:780px;margin:0 auto}
+h1{font-size:1.5em;margin:28px 0 6px;line-height:1.35}
+h2{font-size:1.12em;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid #e6e6e6}
+h3{font-size:1em;margin:20px 0 8px;color:#333}
+p.sub{color:#666;font-size:.9em;margin:0 0 4px}
+p.meta{color:#888;font-size:.82em;margin:0 0 20px}
+fieldset{border:1px solid #e6e6e6;border-radius:6px;padding:14px 16px 18px;margin:0 0 18px;background:#fdfdfd}
+legend{font-weight:600;padding:0 6px;font-size:.95em}
+label{display:block;margin:0 0 4px;font-size:.9em;color:#333}
+label.inline{display:inline-flex;align-items:center;gap:6px;margin:2px 14px 6px 0;font-size:.9em}
+input[type=text],textarea,select{width:100%;padding:8px 10px;border:1px solid #d5d5d5;border-radius:4px;font:inherit;font-size:.92em;background:#fff}
+textarea{resize:vertical;min-height:56px;line-height:1.55}
+input[type=checkbox],input[type=radio]{width:auto;margin-right:2px}
+.q{color:#7a7a7a;font-size:.84em;margin:0 0 7px;padding-left:2px}
+.q b{color:#555;font-weight:600}
+.err{color:#9c4a1a;background:#fdf7f1;border-left:3px solid #e0a878;padding:6px 10px;font-size:.82em;margin:8px 0 10px;border-radius:0 3px 3px 0}
+.hint{color:#8a8a8a;font-size:.8em;margin:6px 0 0}
+button{font:inherit;font-size:.9em;padding:8px 16px;border:1px solid #c9c9c9;background:#fff;border-radius:5px;cursor:pointer;margin:0 8px 8px 0}
+button:hover{background:#f4f4f4}
+button.primary{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+button.primary:hover{background:#333}
+#promptBox{min-height:240px;background:#fafafa;font-size:.85em;line-height:1.6}
+.derived{background:#eef5ee;border:1px solid #cfe3cf;border-radius:4px;padding:8px 12px;font-size:.9em;margin:8px 0}
+.derived b{color:#2d5a2d}
+#out{width:100%;min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78em;background:#fafafa}
+.toolbar{margin:0 0 16px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>div{flex:1 1 160px}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e6e6e6;color:#888;font-size:.8em}
+a{color:#1a5fb4;text-decoration:none}
+a:hover{text-decoration:underline}
+@media(max-width:520px){body{padding:0 12px 48px}h1{font-size:1.3em}}
+</style>
+</head>
+<body>
+
+<h1>通用结构语法 · 诊断工作表</h1>
+<p class="sub">A General Structural Grammar · Diagnostic Worksheet v2.0（网页版）</p>
+<p class="meta">宁凯峰 Ning Kaifeng · ORCID 0009-0001-4414-6058 ·
+导出格式对应 <a href="dst-diagnosis.schema.json">dst-diagnosis.schema.json v1.2</a> ·
+配套工具包 DOI <a href="https://doi.org/10.5281/zenodo.24327221">10.5281/zenodo.24327221</a></p>
+
+<h2>① 把这段粘给任何 AI</h2>
+<p class="q">不想自己填，就复制下面整段，把「待诊断的系统」换成你的对象，粘给任意大模型。它做的和这张表是同一件事。</p>
+<textarea id="promptBox" readonly></textarea>
+<button class="primary" onclick="copyPrompt()">复制这段</button>
+<span id="copyMsg" class="hint"></span>
+
+<h2>② 或者自己填（八步）</h2>
+<div class="toolbar">
+  <button onclick="loadExample(0)">载入示例：全球 AI 治理</button>
+  <button onclick="loadExample(2)">载入示例：AI 资本开支（讳锁）</button>
+  <button onclick="clearAll()">清空</button>
+  <span id="saveMsg" class="hint"></span>
+</div>
+
+<fieldset>
+  <legend>基本信息</legend>
+  <div class="row">
+    <div><label for="sys">系统 / System</label><input type="text" id="sys" placeholder="例：全球 AI 治理"></div>
+    <div><label for="analyst">诊断者 / Analyst</label><input type="text" id="analyst" placeholder="姓名"></div>
+  </div>
+  <div class="row" style="margin-top:10px">
+    <div><label for="date">日期 / Date</label><input type="text" id="date" placeholder="2026-11-20"></div>
+    <div><label for="asOf">信息截止 / asOf</label><input type="text" id="asOf" placeholder="2026-09-30"></div>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend>前置 0 · 能不能用这套语法</legend>
+  <p class="q">三项全「是」才继续。任一「否」，先回到划边界——边界不对，后面全错。</p>
+  <label class="inline"><input type="checkbox" id="p1">0.1 这个系统在流变中维持自身（不是一次已完成的事件）</label>
+  <label class="inline"><input type="checkbox" id="p2">0.2 边界内能识别出一组动力—规则关系（三种动能 × 三种操作都存在）</label>
+  <label class="inline"><input type="checkbox" id="p3">0.3 从系统外部观察，且能说清谁在承受后果、谁无法退出</label>
+  <label for="unit" style="margin-top:12px">0.4 存续单位（一句话；不得由诊断者替系统定义）</label>
+  <p class="q">这个系统靠什么在压力下维持运转？</p>
+  <textarea id="unit" placeholder="一句话，且这句话须来自系统内部承压主体的确认"></textarea>
+  <label class="inline" style="margin-top:8px"><input type="checkbox" id="pConfirm">这句话来自系统内部承压主体的确认，不是「我想诊断它的某方面」</label>
+  <label for="boundary" style="margin-top:12px">分析边界（系统内 / 压力源）</label>
+  <textarea id="boundary" placeholder="例：全球 AI 治理（2024–2026）；系统内＝主要辖区的模型发布监管，压力源＝模型能力跃迁。"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>① 状态诊断</legend>
+  <p class="q"><b>A · 约束可调性</b>：这条约束，现在还改得动吗？</p>
+  <label class="inline"><input type="radio" name="mut" value="adjustable">可调 —— 能改，而且改得起</label>
+  <label class="inline"><input type="radio" name="mut" value="evasive">讳锁 —— 形式能改，一改就把损失摆到台面上</label>
+  <label class="inline"><input type="radio" name="mut" value="solidified">已固化 —— 改不动</label>
+  <div class="err">✗ 常错：把「所有人都说该改、但没人先动」直接写成「已固化」。两者药方相反——固化的出路是外部介入，讳锁的出路是先把代价摆到桌面上。</div>
+
+  <p class="q" style="margin-top:14px"><b>B · 状态生成能力</b>：以「产出能不能成活」为准，不是「有没有在动」。</p>
+  <label class="inline"><input type="radio" name="gen" value="strong">可生成（强）—— 产出能成活，规则真的生效</label>
+  <label class="inline"><input type="radio" name="gen" value="weak">可生成（弱）—— 还在动，但产出落不了地</label>
+  <label class="inline"><input type="radio" name="gen" value="broken">断裂 —— 动作停止</label>
+
+  <div class="derived" id="stateDerived">落点：<b>未判定</b>（选完 A 与 B 自动推出）</div>
+  <label for="stateOverride" style="margin-top:8px">落点覆盖（可选）</label>
+  <select id="stateOverride">
+    <option value="">跟随网格推导</option>
+    <option value="adaptive">适应态 adaptive</option>
+    <option value="crisis-restructuring">危机重构窗口 crisis-restructuring</option>
+    <option value="evasive-lock-in">讳锁态 evasive-lock-in</option>
+    <option value="locked-in">锁定态 locked-in</option>
+    <option value="collapse">崩溃态 collapse</option>
+  </select>
+  <p class="hint">注：讳锁与「断裂」不组合——产出一旦断裂，「瞒得住」这个前提就不成立。落点是动态曲线的当前位置，不是封死的标签。<br>
+  注：网格是理想型。处于过渡带时应手选并说明——例如「约束可调但正在向固化漂移」，网格会推成适应态，而实际落在适应态边界上的锁定态早期。这里允许覆盖。</p>
+</fieldset>
+
+<fieldset>
+  <legend>② 节奏失配</legend>
+  <p class="q">三准则独立预警，任一成立即为「存在」，不加权、不打分。三条看的都是趋势，不是单点状态。</p>
+  <label class="inline"><input type="checkbox" id="tm1">2.1 传输延迟单调增长（干预发出到响应，一轮比一轮慢）</label>
+  <label class="inline"><input type="checkbox" id="tm2">2.2 反馈环时间常数比跨数量级（状态生成环 vs 治理干预环）</label>
+  <label class="inline"><input type="checkbox" id="tm3">2.3 响应衰减（同样的干预，边际效应越来越小）</label>
+  <div class="err">✗ 常错：把「技术快、制度慢」直接当结论写下来。那是承载物层面的例子，不是定义；定义是三条趋势。</div>
+  <label for="tmNote" style="margin-top:8px">说明（写清是哪条、差多少）</label>
+  <textarea id="tmNote"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>③ 适应能力—压力差</legend>
+  <p class="q">判斜率，不判绝对值。预警信号是「压力侧跑得比能力侧快」，不是「压力很大」。</p>
+  <div class="row">
+    <div><label for="stressTrend">压力趋势</label>
+      <select id="stressTrend"><option value="">—</option><option value="rising">上升</option><option value="stable">持平</option><option value="falling">下降</option></select></div>
+    <div><label for="capTrend">能力趋势</label>
+      <select id="capTrend"><option value="">—</option><option value="rising">上升</option><option value="stable">持平</option><option value="falling">下降</option></select></div>
+    <div><label for="gap">差距</label>
+      <select id="gap"><option value="">—</option><option value="widening">扩大</option><option value="stable">持平</option><option value="narrowing">收窄</option></select></div>
+  </div>
+  <div class="err">✗ 常错：写「压力很大，所以危险」。这是把绝对值当趋势，问错了量。压力大但能力也大，差距可能在收窄。</div>
+  <label for="gapNote">说明</label><textarea id="gapNote"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>④ 杠杆点定位</legend>
+  <p class="q">给定位原则，不给具体位置。具体位置由领域提供。</p>
+  <label for="levCand">候选位置</label><input type="text" id="levCand" placeholder="一个可以拧的开关，不是最显眼的地方">
+  <label class="inline" style="margin-top:10px"><input type="checkbox" id="lv1">4.1 高频经过（绝大多数流量都会过这里）</label>
+  <label class="inline"><input type="checkbox" id="lv2">4.2 少数行动者单边可变（不需要多方同意就能动）</label>
+  <label class="inline"><input type="checkbox" id="lv3">4.3 是约束，不是状态（状态是果，约束是因）</label>
+  <p class="hint">三条全勾才是杠杆点。只满足「显眼」不算。</p>
+  <div class="err">✗ 常错：把最显眼的地方当杠杆点。显眼 ≠ 高频 ≠ 单边可变，三条要同时满足。</div>
+  <label for="levNote">为什么是这里</label><textarea id="levNote"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>⑤ 约束可变性 → 干预通道</legend>
+  <p class="q">针对 ④ 那个位置上的那条约束。「能改」与「敢改」是两件事——判据看的是「实际动用一次是否可行」，不是「纸面上有没有开关」。</p>
+  <label class="inline"><input type="radio" name="cls" value="adjustable">可调 → repair（修复通道）</label>
+  <label class="inline"><input type="radio" name="cls" value="evasive">讳锁 → disclosure-first（先披露，后调整）</label>
+  <label class="inline"><input type="radio" name="cls" value="solidified">固化 → external-intervention（外部介入）</label>
+  <label class="inline"><input type="radio" name="cls" value="broken">破裂 → aftermath-management（事后管理）</label>
+  <div class="derived" id="chDerived">干预通道：<b>未判定</b></div>
+  <p class="q" style="margin-top:10px">讳锁三步同查：①形式——纸面上有没有这个开关？②代价——真按一次，损失会不会被外面看见？③行为——现在还有人在提这件事吗（无人再提＝已固化）？</p>
+  <p class="hint">若 ⑤ 与 ①A 不一致，说明诊断期间约束发生了变化——两处都要记下来。</p>
+</fieldset>
+
+<fieldset>
+  <legend>一句话结构判断</legend>
+  <p class="q">须可独立引用：换掉全部专名后仍成立。模型压缩时会砍掉 90%，这一句是最可能被保留的那 10%。</p>
+  <textarea id="judgment" placeholder="例：某系统处于讳锁态——约束形式可改，一改就暴露损失，于是无人先动；出路不是直接调，而是先强制披露代价。"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>三种操作当前状态</legend>
+  <p class="q">三者缺一即说明显影漏了。写「有／无／强／弱」加一句为什么。</p>
+  <label for="opSource">源头改造（疏浚）</label><textarea id="opSource"></textarea>
+  <label for="opBoundary" style="margin-top:8px">底线守护（方舟）</label><textarea id="opBoundary"></textarea>
+  <label for="opConsensus" style="margin-top:8px">共识凝聚（祭祀）</label><textarea id="opConsensus"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>⑥ 输出：干预四问</legend>
+  <p class="q">四问答不全，这条约束还不能立——那只是一个标语，不是一个约束。</p>
+  <label for="q1">① 调哪条约束？（指出最关键的那一条，不是列一堆）</label><textarea id="q1"></textarea>
+  <label for="q2" style="margin-top:8px">② 朝什么方向、多大？（方向错了，力度越大越糟）</label><textarea id="q2"></textarea>
+  <label for="q3" style="margin-top:8px">③ 怎么知道调对了？（给出可观测的验证信号）</label><textarea id="q3"></textarea>
+  <label for="q4" style="margin-top:8px">④ 错了怎么回滚？（退不出来的约束，是给自己上刑）</label><textarea id="q4"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>双向可证伪条件（T0 的兑付条款）</legend>
+  <p class="q">好坏两个方向都要留。只设恶化不设好转，判断就成了单行道。</p>
+  <label for="refWorse">若恶化（出现 X → 改判为 Y）</label><textarea id="refWorse"></textarea>
+  <label for="refBetter" style="margin-top:8px">若好转（出现 Z → 可转为 W）</label><textarea id="refBetter"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>⑦ 自查：可检验性四问</legend>
+  <label class="inline"><input type="checkbox" id="v1">7.1 判定链可追溯（落点由两维度组合推出，不是拍脑袋）</label>
+  <label class="inline"><input type="checkbox" id="v2">7.2 T0 可证伪（留了「若出现 X，则改判为 Y」，且好坏两个方向都留）</label>
+  <label class="inline"><input type="checkbox" id="v3">7.3 信息可得性诚实（不可得的标了，没拿事后信息假装事前可得）</label>
+  <label class="inline"><input type="checkbox" id="v4">7.4 干预四问可回滚（四问齐全）</label>
+</fieldset>
+
+<fieldset>
+  <legend>信息可得性</legend>
+  <label for="infoA">可得的（每行一条）</label><textarea id="infoA"></textarea>
+  <label for="infoU" style="margin-top:8px">不可得的（每行一条，必须诚实写）</label><textarea id="infoU"></textarea>
+  <label for="obs" style="margin-top:8px">观察到的现象（每行一条）</label><textarea id="obs"></textarea>
+</fieldset>
+
+<fieldset>
+  <legend>⑧ 验证：四级阶梯</legend>
+  <label class="inline"><input type="checkbox" id="l1">一级 逻辑自洽（判定链没有断点）</label>
+  <label class="inline"><input type="checkbox" id="l2">二级 单领域走查（在真实系统上跑通，产出可读）</label>
+  <label class="inline"><input type="checkbox" id="l3">三级 跨领域翻译（换个完全不同的领域，专名全删仍讲得通）</label>
+  <label class="inline"><input type="checkbox" id="l4">四级 压力测试（找一个这套语法会判错的系统，说明它错在哪）</label>
+  <p class="hint">验证不靠「成功应用了几个领域」，靠这四级。</p>
+</fieldset>
+
+<h2>③ 导出</h2>
+<div class="toolbar">
+  <button class="primary" onclick="doExport('json')">导出 JSON（合 schema）</button>
+  <button onclick="doExport('md')">导出 Markdown</button>
+  <button onclick="doExport('cite')">生成引用串</button>
+  <button onclick="copyOut()">复制结果</button>
+  <span id="outMsg" class="hint"></span>
+</div>
+<textarea id="out" readonly placeholder="点上面的按钮，结果出现在这里。JSON 可直接提交给任何按 dst-diagnosis.schema.json 实现的接口。"></textarea>
+
+<footer>
+三条红线：① 不替系统定义存续单位；② 不给具体位置，只给定位原则；③ 不评对错，只判结构。<br>
+五项不提供：量化阈值 · 直接答案 · 替代承压主体判断 · 对错评价 · 跨尺度统一阈值。<br>
+本页只是填写界面，不新增任何理论主张。内容以《通用结构语法·诊断工作表 v2.0》为准 ·
+<a href="calibration.md">体系校准说明</a> · <a href="criteria.json">criteria.json</a> · <a href="index.html">返回主页</a>
+</footer>
+
+<script>
+/* ---------- prompt ---------- */
+var PROMPT = [
+"你现在用「通用结构语法」（治水学·五项判定）诊断一个仍在运行的真实系统。",
+"",
+"第一步 划边界：写清系统内是什么、压力源是什么。边界内必须能同时识别出三种动能（突破/稳定/导向）与三种操作（源头改造/底线守护/共识凝聚）；识别不全说明边界划错了。",
+"存续单位必须由系统内承受后果、无法退出的人确认，你不能替他定义。",
+"",
+"第二步 五项判定，按顺序：",
+"1 状态诊断：约束可调性（可调/讳锁/已固化）× 状态生成能力（强/弱/断裂）→ 落点（适应/危机重构窗口/讳锁/锁定/崩溃）。",
+"  讳锁＝形式可改、一改就暴露损失、于是无人先动。不是固化。固化等外部介入，讳锁要先掀盖子。",
+"2 节奏失配：传输延迟是否单调增长／两个反馈环时间常数是否跨数量级／响应是否衰减。任一成立即存在，不打分。",
+"3 适应能力—压力差：判斜率，不判绝对值。压力大但能力也在长，不算危险。",
+"4 杠杆点定位：高频经过＋少数行动者单边可变＋是约束不是状态，三条同时满足才算。最显眼处通常不是。",
+"5 约束可变性：可调→repair／讳锁→disclosure-first／固化→external-intervention／破裂→aftermath-management。",
+"",
+"第三步 输出干预四问：①调哪条约束 ②朝什么方向、多大 ③怎么知道调对了（可观测信号）④错了怎么回滚。四问答不全，这条约束还不成立。",
+"",
+"第四步 写双向可证伪条件：若出现 X → 改判为 Y；若出现 Z → 可转为 W。好坏两个方向都要留。",
+"",
+"禁止：不给量化阈值；不替承压者定义存续单位；不评对错（只判结构）；不跨尺度套用；信息不足时明确说「判不出」并说明缺什么，不要硬编。",
+"",
+"输出格式：边界｜一句话结构判断（可独立引用、换掉专名仍成立）｜五项判定逐条（含依据）｜干预四问｜双向证伪条件｜不确定处单列。",
+"",
+"待诊断的系统：__________（把这里换成你的对象，并附上你能拿到的公开信息）"
+].join("\n");
+document.getElementById("promptBox").value = PROMPT;
+
+/* ---------- 示例 ---------- */
+var EX = [
+ {sys:"全球 AI 治理", analyst:"", date:"2026-11-07", asOf:"2026-11-07", stateOverride:"locked-in",
+  p1:1,p2:1,p3:1, unit:"规则能否追上模型能力——由被算法影响却无处申诉的人承受后果",
+  pConfirm:1, boundary:"全球 AI 治理（2024–2026）；系统内＝主要辖区的模型发布监管，压力源＝模型能力跃迁。",
+  mut:"adjustable", gen:"strong", tm1:1,tm2:0,tm3:1,
+  tmNote:"规则产出周期以年计、模型能力迭代以月计；同类干预（追加披露要求）边际效应递减",
+  stressTrend:"rising",capTrend:"rising",gap:"widening", gapNote:"压力（能力跃迁速度）快于适应能力（规则产出速度）",
+  levCand:"模型发布许可（部署前条件）", lv1:1,lv2:1,lv3:1,
+  levNote:"每次发布都是规则与能力的交汇点；少数实验室可自行调整发布门槛。不是最显眼处——最显眼的是立法，但立法周期长",
+  cls:"adjustable",
+  judgment:"全球 AI 治理处于锁定态早期，规则持续追不上模型能力，可干预的杠杆点是模型发布节点——把约束从事后追责移到部署前条件，是目前唯一还能动的入口。",
+  opSource:"源头改造（疏浚）：未发生——监管仍作用于部署后追责，未触及能力跃迁本身",
+  opBoundary:"底线守护（方舟）：部分存在——不可接受风险清单构成硬边界，但执行滞后",
+  opConsensus:"共识凝聚（祭祀）：弱——主要辖区之间无共同评估标准，方向无法收敛",
+  q1:"模型发布的准入条件（从「发布后追责」改为「部署前证明」）",
+  q2:"把条件从结果端移到部署前，幅度限于可验证的能力评测项",
+  q3:"以「部署前条件成文并被至少一个主要辖区采纳」为验证标志",
+  q4:"设日落条款——一旦成为法定要求，撤回会被读作放松监管",
+  refWorse:"规则产出全面停止 → collapse（固化+断裂）；若崩溃逼出约束被迫松动 → crisis-restructuring",
+  refBetter:"核心条款执行顺利、重大事故触发快速立法、约束重新变可调 → adaptive",
+  v1:1,v2:1,v3:1,v4:1,
+  infoA:"EU AI Act 文本与时间表\n美国行政令与后续修订\n主要实验室模型发布记录与评测分数",
+  infoU:"各国监管机关内部真实让步空间\n实验室与监管方非公开沟通",
+  obs:"EU AI Act 核心条款落地时间被推迟，未出现实质修订\n模型发布间隔缩短，能力分数持续抬升\n监管仍以事后追责为主，部署前条件尚未成文",
+  l1:1,l2:1,l3:0,l4:0},
+
+ {sys:"AI 基础设施资本开支", analyst:"", date:"2026-11-20", asOf:"2026-09-30", stateOverride:"",
+  p1:1,p2:1,p3:1, unit:"算力资本开支能否被自有现金流接住——由电费用户、零售信贷、养老金承受后果",
+  pConfirm:1, boundary:"美国五大超大规模厂商 + neocloud 的 AI 资本开支与融资安排（2026 Q3 末）；系统内＝capex 决策与融资结构，压力源＝算力需求增速快于自有现金流。",
+  mut:"evasive", gen:"strong", tm1:0,tm2:1,tm3:0,
+  tmNote:"方向与前例相反：债务与融资工具期限以年计，GPU 经济寿命约 3 年——是资本工具的期限追不上资产贬值速度",
+  stressTrend:"rising",capTrend:"rising",gap:"widening", gapNote:"压力侧（资本需求）斜率高于能力侧（自有现金流），缺口 Q3 反超并转向表外",
+  levCand:"GPU 折旧年限（5–6 年 vs 独立估计经济寿命约 3 年）", lv1:1,lv2:1,lv3:1,
+  levNote:"四条底线里唯一三条同时成立：每季度都用一次；CFO 与审计师极少数人可单边决定；是约束不是状态——利润与杠杆率是它的结果",
+  cls:"evasive",
+  judgment:"AI 基础设施资本开支处于讳锁态：折旧假设形式上可改，但一改立刻在利润表与杠杆率上暴露损失，于是所有人都在说该改、没人先动——出路不是直接调，而是先强制披露代价。",
+  opSource:"源头改造（疏浚）：未发生——没有任何一方动 capex 节奏本身",
+  opBoundary:"底线守护（方舟）：名义存在（折旧/杠杆率/评级门槛/监管资本四条线），实际全部逼近触发线",
+  opConsensus:"共识凝聚（祭祀）：看似强、实则分裂——口头共识「该改」，行为共识「谁先改谁先暴露」",
+  q1:"GPU 折旧年限（从 5–6 年向约 3 年靠）",
+  q2:"不一次性改，先强制披露「若按 3 年折旧，利润与杠杆是多少」，幅度由披露结果决定",
+  q3:"披露后市场定价是否出现非线性跳变——跳变说明此前定价建立在错误假设上",
+  q4:"设线性过渡期；若融资成本上升过猛，暂停并补流动性安排",
+  refWorse:"违约／评级下调／赎回受限／SPV 回表 任一生效 → 讳锁出现破口（向 broken 恶化）",
+  refBetter:"强制披露落地且定价出现非线性跳变 → 盖子被掀开，讳锁解除，转入 crisis-restructuring 或 repair",
+  v1:1,v2:1,v3:1,v4:1,
+  infoA:"财报 capex 指引与季度经营现金流\n折旧政策与会计估计披露\n评级机构报告与杠杆率口径",
+  infoU:"SPV 真实杠杆（表外）\n「经济寿命 3 年」并非行业共识\n收入／capex 口径存在争议",
+  obs:"资本开支增速反超经营现金流，缺口转向表外融资\nGPU 折旧年限仍按 5–6 年\n杠杆率与评级门槛逼近触发线\n公开场合都说「折旧该改」，无一家先动",
+  l1:1,l2:1,l3:1,l4:0}
+];
+
+var FIELDS = ["sys","analyst","date","asOf","unit","boundary","stateOverride","tmNote","stressTrend","capTrend","gap",
+  "gapNote","levCand","levNote","judgment","opSource","opBoundary","opConsensus","q1","q2","q3","q4",
+  "refWorse","refBetter","infoA","infoU","obs"];
+var CHECKS = ["p1","p2","p3","pConfirm","tm1","tm2","tm3","lv1","lv2","lv3","v1","v2","v3","v4","l1","l2","l3","l4"];
+
+function val(id){var e=document.getElementById(id);return e?e.value.trim():""}
+function chk(id){var e=document.getElementById(id);return !!(e&&e.checked)}
+function radio(name){var e=document.querySelector('input[name="'+name+'"]:checked');return e?e.value:""}
+
+var STATE_MAP = {
+  "adjustable|strong":"adaptive","adjustable|weak":"adaptive","adjustable|broken":"crisis-restructuring",
+  "evasive|strong":"evasive-lock-in","evasive|weak":"evasive-lock-in","evasive|broken":"",
+  "solidified|strong":"locked-in","solidified|weak":"locked-in","solidified|broken":"collapse"
+};
+var STATE_LABEL = {"adaptive":"适应态 adaptive","crisis-restructuring":"危机重构窗口 crisis-restructuring",
+  "evasive-lock-in":"讳锁态 evasive-lock-in","locked-in":"锁定态 locked-in","collapse":"崩溃态 collapse"};
+var CH_MAP = {"adjustable":"repair","evasive":"disclosure-first","solidified":"external-intervention","broken":"aftermath-management"};
+
+function refresh(){
+  var m=radio("mut"), g=radio("gen"), s=STATE_MAP[(m||"")+"|"+(g||"")];
+  var el=document.getElementById("stateDerived");
+  if(!m||!g){el.innerHTML="落点：<b>未判定</b>（选完 A 与 B 自动推出）"}
+  else if(s===""){el.innerHTML='<b style="color:#9c4a1a">讳锁与「断裂」不组合</b>——产出一旦断裂，「瞒得住」的前提就不成立，应改判 collapse 或 crisis-restructuring。'}
+  else {
+    var ov=val("stateOverride");
+    el.innerHTML = ov ? ("落点：<b>"+STATE_LABEL[ov]+"</b>　<span style='color:#888;font-size:.85em'>(网格推为 "+STATE_LABEL[s]+"，已按手选覆盖)</span>")
+                      : ("落点：<b>"+STATE_LABEL[s]+"</b>");
+  }
+  var c=radio("cls");
+  document.getElementById("chDerived").innerHTML="干预通道：<b>"+(c?CH_MAP[c]:"未判定")+"</b>";
+  save();
+}
+function save(){
+  try{
+    var o={};
+    FIELDS.forEach(function(f){o[f]=val(f)});
+    CHECKS.forEach(function(c){o[c]=chk(c)});
+    o.mut=radio("mut");o.gen=radio("gen");o.cls=radio("cls");
+    localStorage.setItem("dst_worksheet_v2", JSON.stringify(o));
+    document.getElementById("saveMsg").textContent="已自动保存";
+  }catch(e){}
+}
+function restore(){
+  try{
+    var raw=localStorage.getItem("dst_worksheet_v2"); if(!raw) return;
+    var o=JSON.parse(raw);
+    FIELDS.forEach(function(f){var e=document.getElementById(f);if(e&&o[f]!=null)e.value=o[f]});
+    CHECKS.forEach(function(c){var e=document.getElementById(c);if(e&&o[c])e.checked=true});
+    ["mut","gen","cls"].forEach(function(n){ if(o[n]){var r=document.querySelector('input[name="'+n+'"][value="'+o[n]+'"]'); if(r)r.checked=true} });
+  }catch(e){}
+}
+function fill(ex){
+  FIELDS.forEach(function(f){var e=document.getElementById(f);if(e)e.value=(ex[f]==null?"":ex[f])});
+  CHECKS.forEach(function(c){var e=document.getElementById(c);if(e)e.checked=!!ex[c]});
+  ["mut","gen","cls"].forEach(function(n){
+    document.querySelectorAll('input[name="'+n+'"]').forEach(function(r){r.checked=(r.value===ex[n])});
+  });
+  refresh();
+}
+function loadExample(i){ fill(EX[i]); document.getElementById("saveMsg").textContent="已载入示例"; }
+function clearAll(){
+  FIELDS.forEach(function(f){var e=document.getElementById(f);if(e)e.value=""});
+  CHECKS.forEach(function(c){var e=document.getElementById(c);if(e)e.checked=false});
+  document.querySelectorAll('input[type=radio]').forEach(function(r){r.checked=false});
+  refresh(); document.getElementById("out").value="";
+}
+
+/* ---------- 导出 ---------- */
+function buildJSON(){
+  var m=radio("mut"), g=radio("gen"), c=radio("cls");
+  var gmap={"strong":"generating-strong","weak":"generating-weak","broken":"broken"};
+  var st=val("stateOverride") || STATE_MAP[(m||"")+"|"+(g||"")];
+  var tm=[]; if(chk("tm1"))tm.push("transmission-delay"); if(chk("tm2"))tm.push("feedback-time-constant"); if(chk("tm3"))tm.push("response-attenuation");
+  var lines=function(v){return v?v.split("\n").map(function(x){return x.trim()}).filter(Boolean):[]};
+  var input={system:val("sys"),boundary:val("boundary"),infoAvailable:lines(val("infoA")),
+             infoUnavailable:lines(val("infoU")),observations:lines(val("obs")),asOf:val("asOf")};
+  var output={judgeable:true,boundary:val("boundary"),judgment:val("judgment")};
+  if(m&&g&&st){output.stateDiagnosis={constraintMutability:m,stateGeneration:gmap[g]||g,state:st}}
+  if(tm.length||val("tmNote")){output.tempoMismatch={triggeredCriteria:tm,note:val("tmNote")}}
+  if(val("gap")){output.stressGap={widening:(val("gap")==="widening"),note:val("gapNote")}}
+  if(val("opSource")||val("opBoundary")||val("opConsensus")){
+    output.operations={sourceTransformation:val("opSource"),boundarySafeguarding:val("opBoundary"),consensusCohesion:val("opConsensus")}}
+  if(val("levCand")){output.leveragePoint={location:val("levCand"),rationale:val("levNote")}}
+  if(c){output.constraintClassification=c;output.interventionChannel=CH_MAP[c]}
+  if(val("q1")||val("q2")||val("q3")||val("q4")){
+    output.interventionFourQuestions={whichConstraint:val("q1"),direction:val("q2"),verification:val("q3"),rollback:val("q4")}}
+  if(val("refWorse")||val("refBetter")){output.refutation={ifWorse:val("refWorse"),ifBetter:val("refBetter")}}
+  if(val("infoA")||val("infoU")){output.infoAvailability={available:lines(val("infoA")),unavailable:lines(val("infoU"))}}
+  output.validity={chainTraceable:chk("v1"),falsifiable:chk("v2"),infoHonest:chk("v3"),fourQuestionsComplete:chk("v4")};
+  var ladder=["逻辑自洽","单领域走查","跨领域翻译","压力测试"], passed=[];
+  ["l1","l2","l3","l4"].forEach(function(id,i){if(chk(id))passed.push(ladder[i])});
+  return {schema:"dst-diagnosis/1.2", worksheet:"v2.0", tool:"dst_system_diagnosis",
+          input:input, output:output, validationLadder:passed,
+          analyst:val("analyst"), date:val("date"),
+          note:"由 worksheet.html 生成；字段对应 dst-diagnosis.schema.json v1.2。"};
+}
+function buildMD(){
+  var d=buildJSON(), o=d.output, L=[];
+  L.push("# 结构诊断·工作表（"+ (val("sys")||"未命名系统") +"）");
+  L.push("");
+  L.push("- 诊断者："+(val("analyst")||"—")+"　日期："+(val("date")||"—")+"　信息截止："+(val("asOf")||"—"));
+  L.push("");
+  L.push("## 边界");L.push(val("boundary")||"—");
+  L.push("");L.push("## 一句话结构判断");L.push(val("judgment")||"—");
+  L.push("");L.push("## ① 状态诊断");
+  L.push("- 约束可调性："+(radio("mut")||"—")+"　状态生成能力："+(radio("gen")||"—"));
+  if(o.stateDiagnosis) L.push("- 落点："+o.stateDiagnosis.state);
+  L.push("");L.push("## ② 节奏失配");
+  L.push(((o.tempoMismatch&&o.tempoMismatch.triggeredCriteria.length)?o.tempoMismatch.triggeredCriteria.join(" / "):"未触发"));
+  if(val("tmNote"))L.push("说明："+val("tmNote"));
+  L.push("");L.push("## ③ 适应能力—压力差");
+  L.push("- 压力趋势："+(val("stressTrend")||"—")+"　能力趋势："+(val("capTrend")||"—")+"　差距："+(val("gap")||"—"));
+  if(val("gapNote"))L.push("说明："+val("gapNote"));
+  L.push("");L.push("## ④ 杠杆点");
+  L.push("- 位置："+(val("levCand")||"—"));
+  if(val("levNote"))L.push("- 理由："+val("levNote"));
+  L.push("");L.push("## ⑤ 约束可变性与通道");
+  L.push("- 约束可变性："+(radio("cls")||"—")+"　通道："+(o.interventionChannel||"—"));
+  L.push("");L.push("## 三种操作");
+  L.push("- 源头改造："+(val("opSource")||"—"));
+  L.push("- 底线守护："+(val("opBoundary")||"—"));
+  L.push("- 共识凝聚："+(val("opConsensus")||"—"));
+  L.push("");L.push("## ⑥ 干预四问");
+  L.push("1. 调哪条："+(val("q1")||"—"));
+  L.push("2. 方向幅度："+(val("q2")||"—"));
+  L.push("3. 验证信号："+(val("q3")||"—"));
+  L.push("4. 回滚条件："+(val("q4")||"—"));
+  L.push("");L.push("## 双向证伪条件");
+  L.push("- 若恶化："+(val("refWorse")||"—"));
+  L.push("- 若好转："+(val("refBetter")||"—"));
+  L.push("");L.push("## 自查四问");
+  L.push("- 判定链可追溯："+(chk("v1")?"✓":"✗")+"　T0 可证伪："+(chk("v2")?"✓":"✗")+"　信息诚实："+(chk("v3")?"✓":"✗")+"　四问可回滚："+(chk("v4")?"✓":"✗"));
+  return L.join("\n");
+}
+function preflight(){
+  var miss=[];
+  if(!val("boundary")) miss.push("分析边界（前置 0）");
+  if(!radio("mut")||!radio("gen")) miss.push("① 状态诊断：A 与 B 都要选");
+  if(!val("levCand")) miss.push("④ 杠杆点候选位置");
+  if(!val("judgment")) miss.push("一句话结构判断");
+  if(!val("refWorse")||!val("refBetter")) miss.push("双向证伪条件（两格都要填）");
+  return miss;
+}
+function doExport(kind){
+  var t="";
+  if(kind==="json"){
+    var miss=preflight();
+    if(miss.length){
+      document.getElementById("out").value="这份 JSON 会被 dst-diagnosis.schema.json 拒绝，还差 "+miss.length+" 项：\n\n- "+miss.join("\n- ")+"\n\n（schema 规定 judgeable=true 时，stateDiagnosis / leveragePoint / refutation 三项必须齐。）";
+      document.getElementById("outMsg").textContent="缺项，未导出";
+      return;
+    }
+  }
+  if(kind==="json") t=JSON.stringify(buildJSON(),null,2);
+  else if(kind==="md") t=buildMD();
+  else{
+    var s=val("sys")||"（系统名）", j=val("judgment")||"（一句话判断）";
+    t="宁凯峰．结构诊断："+s+"．"+(new Date().toISOString().slice(0,10))+"．按《通用结构语法·诊断工作表 v2.0》填．https://doi.org/10.5281/zenodo.24327221\n\n"+j;
+  }
+  document.getElementById("out").value=t;
+  document.getElementById("outMsg").textContent="已生成";
+}
+function copyPrompt(){
+  var t=document.getElementById("promptBox"); t.select();
+  try{navigator.clipboard.writeText(t.value);document.getElementById("copyMsg").textContent="已复制"}
+  catch(e){document.execCommand("copy");document.getElementById("copyMsg").textContent="已复制"}
+}
+function copyOut(){
+  var t=document.getElementById("out"); if(!t.value)return; t.select();
+  try{navigator.clipboard.writeText(t.value);document.getElementById("outMsg").textContent="已复制"}
+  catch(e){document.execCommand("copy");document.getElementById("outMsg").textContent="已复制"}
+}
+
+document.querySelectorAll("input,textarea,select").forEach(function(e){
+  e.addEventListener("input",refresh); e.addEventListener("change",refresh);
+});
+restore(); refresh();
+document.getElementById("date").value = document.getElementById("date").value || new Date().toISOString().slice(0,10);
+</script>
+</body>
+</html>

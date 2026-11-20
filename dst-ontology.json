@@ -3,7 +3,7 @@
   "title": "治水学诊断本体",
   "titleEn": "DST Diagnosis Ontology",
   "version": "v0.1",
-  "generatedAt": "2026-11-08",
+  "generatedAt": "2026-11-20",
   "license": "CC BY 4.0",
   "maintainer": "宁凯峰（独立研究者）· ORCID 0009-0001-4414-6058",
   "source": "https://zhishuixue.com/ontology.json",
@@ -156,7 +156,7 @@
       "id": "intervention-channel",
       "name": "干预通道",
       "en": "Intervention Channel",
-      "definition": "由约束可变性三分类决定的干预通道：Adjustable→repair；Solidified→external intervention／reconfiguration；Broken→aftermath management。",
+      "definition": "由约束可变性四分类决定的干预通道：Adjustable→repair；Evasive→disclosure-first（先把代价摆到台面，再谈改不改）；Solidified→external intervention／reconfiguration；Broken→aftermath management。《通用结构语法·诊断工作表 v2.0》",
       "source": "《复杂系统诊断的判据 v1.1》 §4.5"
     },
     {
@@ -223,7 +223,7 @@
       "subject": "constraint-mutability",
       "predicate": "mapsTo",
       "object": "intervention-channel",
-      "description": "约束可变性三分类决定干预通道：Adjustable→repair；Solidified→external intervention；Broken→aftermath management。",
+      "description": "约束可变性四分类决定干预通道：Adjustable→repair；Evasive→disclosure-first；Solidified→external intervention；Broken→aftermath management。",
       "source": "《复杂系统诊断的判据 v1.1》 §4.5"
     },
     {
@@ -290,6 +290,12 @@
           "condition": "约束可调 + 断裂"
         },
         {
+          "value": "evasive-lock-in",
+          "label": "讳锁态",
+          "en": "Evasive lock-in",
+          "condition": "讳锁 + 可生成（约束形式可改，动用即暴露损失，于是无人先动；出路是 disclosure-first）"
+        },
+        {
           "value": "locked-in",
           "label": "锁定态",
           "en": "Locked-in",
@@ -327,14 +333,20 @@
     },
     {
       "id": "constraint-mutability",
-      "name": "约束可变性（三分类）",
-      "source": "《复杂系统诊断的判据 v1.1》 §4.5",
+      "name": "约束可变性（四分类）",
+      "source": "《复杂系统诊断的判据 v1.1》 §4.5；《通用结构语法·诊断工作表 v2.0》",
       "values": [
         {
           "value": "adjustable",
           "label": "可调",
           "en": "Adjustable",
           "condition": "有弹性可调整 → repair"
+        },
+        {
+          "value": "evasive",
+          "label": "讳锁",
+          "en": "Evasive",
+          "condition": "形式可改，一改就把损失摆上台面，于是无人先动 → disclosure-first（讳锁 ≠ 固化，药方相反）"
         },
         {
           "value": "solidified",

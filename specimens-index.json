@@ -16,7 +16,7 @@
     "rule": "T0 一经提交不再修改，更正一律追加到 T1"
   },
   "fieldNotes": {
-    "state": "四态之一：适应态 / 危机重构窗口 / 锁定态 / 崩溃态；锁定态再分早期（约束尚可调→修复通道）与中后期（约束已固化→外部介入通道）",
+    "state": "五态之一：适应态 / 危机重构窗口 / 讳锁态 / 锁定态 / 崩溃态；锁定态与讳锁态再分早期（约束尚可调→修复通道，讳锁则为 disclosure-first）与中后期（约束已固化→外部介入通道）",
     "constraintMutability": "约束是否还可调：可调 / 固化",
     "stateGeneration": "系统能否正常生成核心状态：可生成（强） / 可生成（弱，产出落不了地） / 断裂",
     "leverage": "高频且少数主体单边可变的位置（判据是高流量+单边可变，不是最显眼处）",
@@ -30,7 +30,7 @@
     "missingT0Date": [],
     "fewObservations": [],
     "stateNotInEnum": [],
-    "notes": "标本库体检：missingFields 检查边界/落点/日期/杠杆点/判断是否齐；missingT0Date 检查 T0 记录日；fewObservations 检查 T1 观测节点是否少于 4 个；stateNotInEnum 检查落点是否落在四态（适应态/危机重构窗口/锁定态/崩溃态）内。四项全空即健康。"
+    "notes": "标本库体检：missingFields 检查边界/落点/日期/杠杆点/判断是否齐；missingT0Date 检查 T0 记录日；fewObservations 检查 T1 观测节点是否少于 4 个；stateNotInEnum 检查落点是否落在五态（适应态/危机重构窗口/讳锁态/锁定态/崩溃态）内。四项全空即健康。"
   },
   "specimens": [
     {

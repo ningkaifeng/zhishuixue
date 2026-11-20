@@ -15,6 +15,7 @@ BASE = "https://zhishuixue.com"
 S1 = "terms.json（术语母表，100 条）"
 S2 = "《复杂系统诊断的判据 v1.1》"
 S3 = "《标本库·领域对接口径 v1.2》"
+S6 = "《通用结构语法·诊断工作表 v2.0》"
 
 sources = [
     {"id": "terms", "name": "terms.json", "full": S1,
@@ -78,7 +79,7 @@ entities = [
      "definition": "哪里调整最能恢复维持能力。给定位原则而非具体位置：优先高流量且少数行动者单边可变的约束；次寻环间接口；避免针对状态本身（状态是果、约束是因）。",
      "source": S2 + " §4.4"},
     {"id": "intervention-channel", "name": "干预通道", "en": "Intervention Channel",
-     "definition": "由约束可变性三分类决定的干预通道：Adjustable→repair；Solidified→external intervention／reconfiguration；Broken→aftermath management。",
+     "definition": ("由约束可变性四分类决定的干预通道：Adjustable→repair；Evasive→disclosure-first（先把代价摆到台面，再谈改不改）；Solidified→external intervention／reconfiguration；Broken→aftermath management。" + S6),
      "source": S2 + " §4.5"},
     {"id": "layered-asynchrony", "name": "分层异步", "en": "Layered Asynchrony",
      "definition": "动力层与规则层之间结构性的非同步耦合：传导时间差恒大于零且不可消除，使动态适配无法完全闭合。",
@@ -108,7 +109,7 @@ relations = [
      "source": S2 + " §4.4"},
     {"id": "r-channel", "subject": "constraint-mutability", "predicate": "mapsTo",
      "object": "intervention-channel",
-     "description": "约束可变性三分类决定干预通道：Adjustable→repair；Solidified→external intervention；Broken→aftermath management。",
+     "description": "约束可变性四分类决定干预通道：Adjustable→repair；Evasive→disclosure-first；Solidified→external intervention；Broken→aftermath management。",
      "source": S2 + " §4.5"},
     {"id": "r-op-source", "subject": "op-source", "predicate": "actsOn",
      "object": "pressure-source",
@@ -140,6 +141,8 @@ value_domains = [
          "condition": "约束可调 + 可生成"},
         {"value": "crisis-restructuring", "label": "危机重构窗口", "en": "Crisis-restructuring window",
          "condition": "约束可调 + 断裂"},
+        {"value": "evasive-lock-in", "label": "讳锁态", "en": "Evasive lock-in",
+         "condition": "讳锁 + 可生成（约束形式可改，动用即暴露损失，于是无人先动；出路是 disclosure-first）"},
         {"value": "locked-in", "label": "锁定态", "en": "Locked-in",
          "condition": "固化 + 可生成"},
         {"value": "collapse", "label": "崩溃态", "en": "Collapse",
@@ -150,8 +153,9 @@ value_domains = [
         {"value": "generating-weak", "label": "可生成（弱）", "condition": "还在生成，但产出落不了地、活不了（还在动、但产出不成活）"},
         {"value": "broken", "label": "断裂", "condition": "不能再生成核心状态（动作停止）→ collapse"},
     ]},
-    {"id": "constraint-mutability", "name": "约束可变性（三分类）", "source": S2 + " §4.5", "values": [
+    {"id": "constraint-mutability", "name": "约束可变性（四分类）", "source": S2 + " §4.5；" + S6, "values": [
         {"value": "adjustable", "label": "可调", "en": "Adjustable", "condition": "有弹性可调整 → repair"},
+        {"value": "evasive", "label": "讳锁", "en": "Evasive", "condition": "形式可改，一改就把损失摆上台面，于是无人先动 → disclosure-first（讳锁 ≠ 固化，药方相反）"},
         {"value": "solidified", "label": "固化", "en": "Solidified", "condition": "制度化锁入、单点无效 → external intervention / reconfiguration"},
         {"value": "broken", "label": "失效", "en": "Broken", "condition": "约束失效、系统崩 → aftermath management"},
     ]},

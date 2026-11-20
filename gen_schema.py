@@ -18,10 +18,11 @@ S2 = "《复杂系统诊断的判据 v1.1》"
 S3 = "《标本库·领域对接口径 v1.2》"
 S4 = "标本 No.01/No.02 正文"
 S5 = "cases.yml（49 篇判例的六要素字段）"
+S6 = "《通用结构语法·诊断工作表 v2.0》"
 
-FOUR_STATES = ["adaptive", "crisis-restructuring", "locked-in", "collapse"]
+FIVE_STATES = ["adaptive", "crisis-restructuring", "evasive-lock-in", "locked-in", "collapse"]
 GEN_LEVELS = ["generating-strong", "generating-weak", "broken"]
-MUTABILITY = ["adjustable", "solidified", "broken"]
+MUTABILITY = ["adjustable", "evasive", "solidified", "broken"]
 
 system_input = {
     "type": "object",
@@ -52,16 +53,16 @@ system_output = {
                      "description": "一句话结构判断，须可独立引用、不依赖专名（换掉全部专名后仍成立）。"},
         "stateDiagnosis": {
             "type": "object",
-            "description": "第 2 步 · 状态诊断：约束可调性 × 状态生成能力 → 四态。（" + S2 + " §4.1）",
+            "description": ("第 2 步 · 状态诊断：约束可调性 × 状态生成能力 → 五态。（" + S2 + " §4.1；" + S6 + " 工作表 v2.0）"),
             "properties": {
                 "constraintMutability": {"enum": MUTABILITY,
-                                         "description": "约束可调性：可调 / 固化 / 失效"},
+                                         "description": ("约束可调性四分类：可调 adjustable（能改且改得起）/ 讳锁 evasive（形式可改，一改就把损失摆上台面，于是无人先动）/ 固化 solidified（改不动）/ 破裂 broken（已断）。讳锁 ≠ 固化：两者药方相反，固化的出路是外部介入，讳锁的出路是先把代价摆到桌面（disclosure-first）。（" + S6 + " 工作表 v2.0）")},
                 "stateGeneration": {"enum": GEN_LEVELS,
                                     "description": "状态生成能力三档：可生成（强）/ 可生成（弱，产出落不了地）/ 断裂。注意：这是「系统能否生成核心状态」，不是三动能之「生成（突破性动能）」的强弱。（" + S2 + " §4.1）"},
-                "state": {"enum": FOUR_STATES,
-                          "description": "四态：adaptive 适应态（可调+可生成）/ crisis-restructuring 危机重构窗口（可调+断裂）/ locked-in 锁定态（固化+可生成）/ collapse 崩溃态（固化+断裂）"},
+                "state": {"enum": FIVE_STATES,
+                          "description": ("五态：adaptive 适应态（可调+可生成）/ crisis-restructuring 危机重构窗口（可调+断裂）/ evasive-lock-in 讳锁态（讳锁+可生成：约束形式可改，动用即暴露损失，于是无人先动）/ locked-in 锁定态（固化+可生成）/ collapse 崩溃态（固化+断裂）。注意：讳锁与断裂不组合——产出一旦断裂，「瞒得住」的前提即不成立。")},
                 "stage": {"enum": ["early", "mid-late"],
-                          "description": "仅 locked-in 时适用：早期＝约束尚可调（修复通道）；中后期＝约束已固化（外部介入通道）。由约束可调性深浅划，生成能力强弱作辅助标定。（" + S2 + " §4.1）"},
+                          "description": "仅 locked-in 与 evasive-lock-in 时适用：早期＝约束尚可调（修复通道，讳锁态则为 disclosure-first）；中后期＝约束已固化（外部介入通道）。由约束可调性深浅划，生成能力强弱作辅助标定。（" + S2 + " §4.1）"},
             },
             "required": ["constraintMutability", "stateGeneration", "state"],
         },
@@ -103,9 +104,9 @@ system_output = {
             },
         },
         "constraintClassification": {"enum": MUTABILITY,
-                                     "description": "约束可变性三分类，决定干预通道。（" + S2 + " §4.5）"},
-        "interventionChannel": {"enum": ["repair", "external-intervention", "aftermath-management"],
-                                "description": "干预通道：可调→repair；固化→external intervention/reconfiguration；失效→aftermath management"},
+                                     "description": ("约束可变性四分类，决定干预通道：adjustable→repair；evasive→disclosure-first；solidified→external-intervention；broken→aftermath-management。（" + S6 + " 工作表 v2.0；" + S2 + " §4.5）")},
+        "interventionChannel": {"enum": ["repair", "disclosure-first", "external-intervention", "aftermath-management"],
+                                "description": "干预通道：可调→repair（修复）；讳锁→disclosure-first（先披露代价，后调整）；固化→external-intervention（外部介入/重构）；破裂→aftermath-management（事后管理）"},
         "interventionFourQuestions": {
             "type": "object",
             "description": "干预四问，四问齐全才可回滚。（" + S4 + "；" + S2 + " §六）",
@@ -247,7 +248,7 @@ doc = {
     "x-toolDefinitions": [
         {
             "name": "dst_system_diagnosis",
-            "description": ("对仍在运行的真实系统做结构诊断（治水学五项判定）：划边界 → 状态诊断（约束可调性×状态生成能力→四态）"
+            "description": ("对仍在运行的真实系统做结构诊断（治水学五项判定）：划边界 → 状态诊断（约束可调性×状态生成能力→五态）"
                             "→ 节奏失配 → 压力差 → 杠杆点与干预四问。产出结构判断与双向证伪条件，不产出结论或建议。"
                             "适用：治理系统、行业格局、组织机制等「结局尚未发生」的系统。"),
             "input": {"$ref": "#/$defs/SystemDiagnosisInput"},
@@ -395,7 +396,110 @@ EXAMPLES = [
             "boundary": "该公司供应链决策（2025–2026）；边界尚未由承压者确认，暂不作为判定依据。",
             "judgment": "本次不足以做出结构判断：边界未经承压者确认，且审批权限与议价空间事前不可得；强行判定会产出看似完整、实则空转的诊断。"
         }
+    },
+    {
+        "name": "example-3-evasive-lock-in",
+        "note": ("真实案例：工具包样例 No.03（AI 基础设施资本开支，2026 Q3 末）——"
+                 "「讳锁 evasive-lock-in」就是从这一例跑出来的形态。本示例用于让 Agent 分辨："
+                 "「所有人都说该改、但没人先动」不是固化。固化等外部介入，讳锁必须先把代价摆到桌面（disclosure-first）。"),
+        "tool": "dst_system_diagnosis",
+        "input": {
+            "system": "AI 基础设施资本开支",
+            "boundary": ("美国五大超大规模厂商 + neocloud 的 AI 资本开支与融资安排（2026 Q3 末）；"
+                         "系统内＝资本开支决策与融资结构，压力源＝算力需求增速快于自有现金流（造血）。"),
+            "infoAvailable": [
+                "财报 capex 指引与季度经营现金流",
+                "折旧政策与会计估计披露",
+                "评级机构报告与杠杆率口径",
+                "公开的债务与 SPV 发行文件"
+            ],
+            "infoUnavailable": [
+                "SPV 真实杠杆（表外，不直接可见）",
+                "「GPU 经济寿命约 3 年」并非行业共识，属独立估计",
+                "收入／capex 口径存在争议（资本化范围不同）"
+            ],
+            "observations": [
+                "资本开支增速反超经营现金流，缺口转向表外融资",
+                "GPU 折旧年限仍按 5–6 年，独立估计的经济寿命约 3 年",
+                "杠杆率与评级门槛逼近触发线",
+                "公开场合都在说「折旧该改」，但无一家先动"
+            ],
+            "asOf": "2026-09-30"
+        },
+        "output": {
+            "judgeable": True,
+            "boundary": ("美国五大超大规模厂商 + neocloud 的 AI 资本开支与融资安排（2026 Q3 末）；"
+                         "系统内＝capex 决策与融资结构，压力源＝算力需求增速快于自有现金流。"),
+            "judgment": ("AI 基础设施资本开支处于讳锁态：折旧假设形式上可改（CFO 与审计师即可定），"
+                         "但一改立刻在利润表与杠杆率上暴露损失，于是所有人都在说该改、没人先动——"
+                         "出路不是直接调，而是先强制披露代价。"),
+            "stateDiagnosis": {
+                "constraintMutability": "evasive",
+                "stateGeneration": "generating-strong",
+                "state": "evasive-lock-in"
+            },
+            "tempoMismatch": {
+                "triggeredCriteria": ["feedback-time-constant"],
+                "note": ("方向与前两例相反：债务与融资工具期限以年计，GPU 经济寿命约 3 年——"
+                         "是资本工具的期限追不上资产贬值速度，而非规则追不上技术。"
+                         "同一个「节奏失配」，两例方向互为镜像。")
+            },
+            "stressGap": {
+                "widening": True,
+                "note": "压力侧（资本需求增速）斜率高于能力侧（自有现金流），缺口在 Q3 反超并转向表外"
+            },
+            "operations": {
+                "sourceTransformation": "源头改造（疏浚）：未发生——没有任何一方动 capex 节奏本身",
+                "boundarySafeguarding": "底线守护（方舟）：名义存在（四条底线：折旧／杠杆率／评级门槛／监管资本），实际全部逼近触发线",
+                "consensusCohesion": "共识凝聚（祭祀）：看似强、实则分裂——口头共识是「该改」，行为共识是「谁先改谁先暴露」"
+            },
+            "leveragePoint": {
+                "location": "GPU 折旧年限（5–6 年 vs 独立估计经济寿命约 3 年）",
+                "rationale": ("四条底线里唯一三条同时成立的一条：①每季度都要用一次（高频经过）；"
+                              "②CFO 与审计师极少数人即可单边决定（不需要多方同意）；"
+                              "③是约束不是状态——利润与杠杆率是它的结果。不是最显眼处：最显眼的是算力与模型能力。")
+            },
+            "constraintClassification": "evasive",
+            "interventionChannel": "disclosure-first",
+            "interventionFourQuestions": {
+                "whichConstraint": "GPU 折旧年限（从 5–6 年向约 3 年靠）",
+                "direction": "不一次性改，先强制披露「若按 3 年折旧，利润与杠杆是多少」，调整幅度由披露结果决定",
+                "verification": "披露后市场定价是否出现非线性跳变——跳变说明此前定价建立在错误假设上",
+                "rollback": "设线性过渡期；若融资成本上升过猛，暂停并补流动性安排"
+            },
+            "normativeLayer": {
+                "authorization": "由会计与披露准则层面授权（CFO 与审计师即可变更会计估计），不需立法",
+                "liability": "假设的签署方承担陈述责任；但失真后果主要由承压者承受",
+                "exit": "承压者（电费用户、零售信贷、养老金）无退出通道——这是判为讳锁而非可调的关键",
+                "fallback": "若披露触发融资成本骤升，以流动性安排与过渡期兜底；最终承担者仍是纳税人"
+            },
+            "refutation": {
+                "ifWorse": "违约／评级下调／赎回受限／SPV 回表 任一生效 → 讳锁出现破口（向 broken 方向恶化）",
+                "ifBetter": "强制披露落地且定价出现非线性跳变 → 盖子被掀开，讳锁解除，转入 crisis-restructuring 或 repair"
+            },
+            "infoAvailability": {
+                "available": ["capex 指引与经营现金流", "折旧政策披露", "评级与杠杆率口径"],
+                "unavailable": ["SPV 真实杠杆", "「经济寿命 3 年」的行业共识", "口径一致性"]
+            },
+            "validity": {
+                "chainTraceable": True,
+                "falsifiable": True,
+                "infoHonest": True,
+                "fourQuestionsComplete": True
+            }
+        }
     }
+]
+doc["version"] = "v1.2"
+doc["x-changelog"] = [
+    {"version": "v1.2", "date": "2026-11-20",
+     "changes": [
+         "constraintMutability / constraintClassification 由三分类升为四分类，新增 evasive（讳锁）",
+         "stateDiagnosis.state 由四态升为五态，新增 evasive-lock-in（讳锁态）",
+         "interventionChannel 新增 disclosure-first（讳锁的出路：先把代价摆到桌面，再调整）",
+         "依据：《通用结构语法·诊断工作表 v2.0》与标本 No.03（AI 基础设施资本开支）的实践形态"
+     ],
+     "note": "讳锁 ≠ 固化。把「所有人都说该改、但没人先动」判成固化，会开错药方：固化等外部介入，讳锁需先披露代价。"}
 ]
 doc["x-examples"] = [{"name": e["name"], "tool": e["tool"], "note": e["note"]} for e in EXAMPLES]
 doc["x-exampleFile"] = "https://zhishuixue.com/dst-diagnosis.examples.json"

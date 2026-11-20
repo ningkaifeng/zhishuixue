@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://zhishuixue.com/dst-diagnosis.schema.json",
   "title": "治水学诊断接口契约",
-  "version": "v0.1",
-  "generatedAt": "2026-11-19",
+  "version": "v1.2",
+  "generatedAt": "2026-11-20",
   "license": "CC BY 4.0",
   "maintainer": "宁凯峰（独立研究者）· ORCID 0009-0001-4414-6058",
   "description": "把治水学的两把尺定义成可被 Agent 调用的输入/输出契约：①系统诊断（五项判定，面向「仍在运行的真实系统」）；②事件显影（六要素，面向「已发生的决策事件」）。每一条字段与取值都取自知识库库存，并标注出处。",
@@ -17,7 +17,7 @@
   "x-toolDefinitions": [
     {
       "name": "dst_system_diagnosis",
-      "description": "对仍在运行的真实系统做结构诊断（治水学五项判定）：划边界 → 状态诊断（约束可调性×状态生成能力→四态）→ 节奏失配 → 压力差 → 杠杆点与干预四问。产出结构判断与双向证伪条件，不产出结论或建议。适用：治理系统、行业格局、组织机制等「结局尚未发生」的系统。",
+      "description": "对仍在运行的真实系统做结构诊断（治水学五项判定）：划边界 → 状态诊断（约束可调性×状态生成能力→五态）→ 节奏失配 → 压力差 → 杠杆点与干预四问。产出结构判断与双向证伪条件，不产出结论或建议。适用：治理系统、行业格局、组织机制等「结局尚未发生」的系统。",
       "input": {
         "$ref": "#/$defs/SystemDiagnosisInput"
       },
@@ -99,15 +99,16 @@
         },
         "stateDiagnosis": {
           "type": "object",
-          "description": "第 2 步 · 状态诊断：约束可调性 × 状态生成能力 → 四态。（《复杂系统诊断的判据 v1.1》 §4.1）",
+          "description": "第 2 步 · 状态诊断：约束可调性 × 状态生成能力 → 五态。（《复杂系统诊断的判据 v1.1》 §4.1；《通用结构语法·诊断工作表 v2.0》 工作表 v2.0）",
           "properties": {
             "constraintMutability": {
               "enum": [
                 "adjustable",
+                "evasive",
                 "solidified",
                 "broken"
               ],
-              "description": "约束可调性：可调 / 固化 / 失效"
+              "description": "约束可调性四分类：可调 adjustable（能改且改得起）/ 讳锁 evasive（形式可改，一改就把损失摆上台面，于是无人先动）/ 固化 solidified（改不动）/ 破裂 broken（已断）。讳锁 ≠ 固化：两者药方相反，固化的出路是外部介入，讳锁的出路是先把代价摆到桌面（disclosure-first）。（《通用结构语法·诊断工作表 v2.0》 工作表 v2.0）"
             },
             "stateGeneration": {
               "enum": [
@@ -121,17 +122,18 @@
               "enum": [
                 "adaptive",
                 "crisis-restructuring",
+                "evasive-lock-in",
                 "locked-in",
                 "collapse"
               ],
-              "description": "四态：adaptive 适应态（可调+可生成）/ crisis-restructuring 危机重构窗口（可调+断裂）/ locked-in 锁定态（固化+可生成）/ collapse 崩溃态（固化+断裂）"
+              "description": "五态：adaptive 适应态（可调+可生成）/ crisis-restructuring 危机重构窗口（可调+断裂）/ evasive-lock-in 讳锁态（讳锁+可生成：约束形式可改，动用即暴露损失，于是无人先动）/ locked-in 锁定态（固化+可生成）/ collapse 崩溃态（固化+断裂）。注意：讳锁与断裂不组合——产出一旦断裂，「瞒得住」的前提即不成立。"
             },
             "stage": {
               "enum": [
                 "early",
                 "mid-late"
               ],
-              "description": "仅 locked-in 时适用：早期＝约束尚可调（修复通道）；中后期＝约束已固化（外部介入通道）。由约束可调性深浅划，生成能力强弱作辅助标定。（《复杂系统诊断的判据 v1.1》 §4.1）"
+              "description": "仅 locked-in 与 evasive-lock-in 时适用：早期＝约束尚可调（修复通道，讳锁态则为 disclosure-first）；中后期＝约束已固化（外部介入通道）。由约束可调性深浅划，生成能力强弱作辅助标定。（《复杂系统诊断的判据 v1.1》 §4.1）"
             }
           },
           "required": [
@@ -214,18 +216,20 @@
         "constraintClassification": {
           "enum": [
             "adjustable",
+            "evasive",
             "solidified",
             "broken"
           ],
-          "description": "约束可变性三分类，决定干预通道。（《复杂系统诊断的判据 v1.1》 §4.5）"
+          "description": "约束可变性四分类，决定干预通道：adjustable→repair；evasive→disclosure-first；solidified→external-intervention；broken→aftermath-management。（《通用结构语法·诊断工作表 v2.0》 工作表 v2.0；《复杂系统诊断的判据 v1.1》 §4.5）"
         },
         "interventionChannel": {
           "enum": [
             "repair",
+            "disclosure-first",
             "external-intervention",
             "aftermath-management"
           ],
-          "description": "干预通道：可调→repair；固化→external intervention/reconfiguration；失效→aftermath management"
+          "description": "干预通道：可调→repair（修复）；讳锁→disclosure-first（先披露代价，后调整）；固化→external-intervention（外部介入/重构）；破裂→aftermath-management（事后管理）"
         },
         "interventionFourQuestions": {
           "type": "object",
@@ -522,6 +526,19 @@
     }
   },
   "x-validationNote": "本文件是「契约清单」，顶层不自带 type，不能直接用顶层校验实例。校验时请取 $defs 中的子 schema：{\"$schema\": ..., \"$ref\": \"#/$defs/SystemDiagnosisOutput\", \"$defs\": <本文件 $defs>}。所有 object 均已封死 additionalProperties，混入另一把尺的字段会被拒绝（依据：判据 v1.1 §七）。",
+  "x-changelog": [
+    {
+      "version": "v1.2",
+      "date": "2026-11-20",
+      "changes": [
+        "constraintMutability / constraintClassification 由三分类升为四分类，新增 evasive（讳锁）",
+        "stateDiagnosis.state 由四态升为五态，新增 evasive-lock-in（讳锁态）",
+        "interventionChannel 新增 disclosure-first（讳锁的出路：先把代价摆到桌面，再调整）",
+        "依据：《通用结构语法·诊断工作表 v2.0》与标本 No.03（AI 基础设施资本开支）的实践形态"
+      ],
+      "note": "讳锁 ≠ 固化。把「所有人都说该改、但没人先动」判成固化，会开错药方：固化等外部介入，讳锁需先披露代价。"
+    }
+  ],
   "x-examples": [
     {
       "name": "example-1-normal-diagnosis",
@@ -532,6 +549,11 @@
       "name": "example-2-unjudgeable",
       "tool": "dst_system_diagnosis",
       "note": "演示退出通道：边界未经承压者确认、关键信息事前不可得。此时正确输出是「判不出」，不是硬填一份看似完整的诊断。"
+    },
+    {
+      "name": "example-3-evasive-lock-in",
+      "tool": "dst_system_diagnosis",
+      "note": "真实案例：工具包样例 No.03（AI 基础设施资本开支，2026 Q3 末）——「讳锁 evasive-lock-in」就是从这一例跑出来的形态。本示例用于让 Agent 分辨：「所有人都说该改、但没人先动」不是固化。固化等外部介入，讳锁必须先把代价摆到桌面（disclosure-first）。"
     }
   ],
   "x-exampleFile": "https://zhishuixue.com/dst-diagnosis.examples.json"

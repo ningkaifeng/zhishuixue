@@ -1174,7 +1174,7 @@ def _sp_health(items):
         "stateNotInEnum": bad_state,
         "notes": ("标本库体检：missingFields 检查边界/落点/日期/杠杆点/判断是否齐；"
                   "missingT0Date 检查 T0 记录日；fewObservations 检查 T1 观测节点是否少于 4 个；"
-                  "stateNotInEnum 检查落点是否落在四态（适应态/危机重构窗口/锁定态/崩溃态）内。四项全空即健康。"),
+                  "stateNotInEnum 检查落点是否落在五态（适应态/危机重构窗口/讳锁态/锁定态/崩溃态）内。四项全空即健康。"),
     }
 
 
@@ -1221,7 +1221,7 @@ def render_specimens_json(d):
             "rule": "T0 一经提交不再修改，更正一律追加到 T1",
         },
         "fieldNotes": {
-            "state": "四态之一：适应态 / 危机重构窗口 / 锁定态 / 崩溃态；锁定态再分早期（约束尚可调→修复通道）与中后期（约束已固化→外部介入通道）",
+            "state": "五态之一：适应态 / 危机重构窗口 / 讳锁态 / 锁定态 / 崩溃态；锁定态与讳锁态再分早期（约束尚可调→修复通道，讳锁则为 disclosure-first）与中后期（约束已固化→外部介入通道）",
             "constraintMutability": "约束是否还可调：可调 / 固化",
             "stateGeneration": "系统能否正常生成核心状态：可生成（强） / 可生成（弱，产出落不了地） / 断裂",
             "leverage": "高频且少数主体单边可变的位置（判据是高流量+单边可变，不是最显眼处）",
@@ -1527,7 +1527,8 @@ def render_index(d):
              f'诊断契约 <a href="{base}dst-diagnosis.schema.json" style="color:#1a4d8f;">dst-diagnosis.schema.json</a>'
              f' ＋ 完整示例 <a href="{base}dst-diagnosis.examples.json" style="color:#1a4d8f;">dst-diagnosis.examples.json</a>'
              f' ｜ 判据 <a href="{base}criteria.json" style="color:#1a4d8f;">criteria.json</a>'
-             f' ｜ 整站机器索引 <a href="{base}llms.txt" style="color:#1a4d8f;">llms.txt</a></p>')
+             f' ｜ 整站机器索引 <a href="{base}llms.txt" style="color:#1a4d8f;">llms.txt</a>'
+             f' ｜ 网页版工作表 <a href="{base}worksheet.html" style="color:#1a4d8f;">worksheet.html</a></p>')
     L.append('</div>')
     for sec in d["sections"]:
         L.append(f'<h2 style="{S["h2"]}">{sec["heading"]}</h2>')
@@ -1861,6 +1862,11 @@ def render_llms(d):
             L.append(f'  {doi_url(w["doi"])}')
             if w.get("calibration_note"):
                 L.append(f'  ⚠ {w["calibration_note"]} 见 {base}calibration.md')
+        if sec["id"] == "grammar":
+            L.append("")
+            L.append("**零安装网页版诊断工作表**（点开即填，八步走完，导出符合 dst-diagnosis.schema.json v1.2 的 JSON）：")
+            L.append(f"  {base}worksheet.html")
+            L.append("  含「把这段粘给任何 AI」的 prompt、每格三句判定问法与最常见错误、两份填好的示例可载入。")
         if sec["id"] == "main":
             _n = len([w for w in d["works"] if w["section"] == "main"])
             _total = d["site"].get("series_total", 38)
@@ -1962,7 +1968,7 @@ def render_llms(d):
         _sm = _sd.get("meta", {}) or {}
         L.append("## 复杂治理标本库（实时诊断：对仍在运行的系统做 T0 事前判断）")
         L.append(_sm.get("note", ""))
-        L.append(f'共 {len(_ss)} 份。与另两条线的分工：决策显影用六要素显影「事件」（过去、结局已知）；思想显影用五段显影「体系」（跨时代）；标本显影「仍在运行的系统」（当下、结局未知、可被证伪）——本库是唯一往前看并且可能被现实推翻的一条。每份标本含：分析边界、约束可调性 × 状态生成能力（→四态落点）、三种动能、三种操作、杠杆点与干预方向、双向修正条件（什么情况说明判断错了）、T1 观测节点（验证/打破 T0 的判据）。T0 一经提交不再修改，更正一律追加到 T1。')
+        L.append(f'共 {len(_ss)} 份。与另两条线的分工：决策显影用六要素显影「事件」（过去、结局已知）；思想显影用五段显影「体系」（跨时代）；标本显影「仍在运行的系统」（当下、结局未知、可被证伪）——本库是唯一往前看并且可能被现实推翻的一条。每份标本含：分析边界、约束可调性 × 状态生成能力（→五态落点）、三种动能、三种操作、杠杆点与干预方向、双向修正条件（什么情况说明判断错了）、T1 观测节点（验证/打破 T0 的判据）。T0 一经提交不再修改，更正一律追加到 T1。')
         L.append("")
         L.append(f'- 标本库机器可读索引（JSON）：{base}specimens-index.json')
         L.append(f'- 标本库总览（人读）：{base}specimens.html')
@@ -2068,7 +2074,7 @@ def render_llms(d):
     L.append("## 核心术语表与概念本体")
     L.append("- 每个术语条目附「相关案例」链接：可沿术语表直达案例（概念↔案例双向）。")
     L.append(f"- **术语本体（JSON，机器可直接取用/调用）**：{base}terms.json —— 含中英名、层级、级别、上位/下位、归属/成员、相关判例、可引用锚点与出处 DOI")
-    L.append(f"- **诊断本体（JSON）**：{base}dst-ontology.json —— 把诊断语法的核心概念、概念间关系（动能驱动状态、规则约束动能、杠杆点作用于规则等）、取值范围（四态／三档生成／三分类约束）与判定约束（防降格铁律／五项不提供／可检验性四问）显式化，每条标注出处（terms.json／判据 v1.1／对接口径 v1.2）。供大模型与 Agent 理解治水学的概念地图。")
+    L.append(f"- **诊断本体（JSON）**：{base}dst-ontology.json —— 把诊断语法的核心概念、概念间关系（动能驱动状态、规则约束动能、杠杆点作用于规则等）、取值范围（五态／三档生成／四分类约束）与判定约束（防降格铁律／五项不提供／可检验性四问）显式化，每条标注出处（terms.json／判据 v1.1／对接口径 v1.2）。供大模型与 Agent 理解治水学的概念地图。")
     L.append(f"- **诊断接口契约（JSON Schema）**：{base}dst-diagnosis.schema.json —— 把两把尺定义成可被 Agent 调用的输入/输出契约：①`dst_system_diagnosis` 系统诊断（五项判定，面向仍在运行的系统）；②`dst_event_shadowing` 事件显影（六要素，面向已发生的事件）。两把尺不可混用（判据 v1.1 §七）；所有 object 封死 additionalProperties，混入另一把尺的字段会被拒绝。每字段标注出处。③ 退出通道：`judgeable` + `unjudgeableReason`——信息不足、边界未由承压者确认、承压者未点名、超出尺度时，应输出「判不出」而不是硬编一份看似完整的诊断；④ few-shot 示例：{base}dst-diagnosis.examples.json（一对完整「输入→输出」，含一个 judgeable=false 的实例）。")
     L.append(f"- 术语定义 + 概念关系图（机器可读）：{base}glossary.html")
     L.append(f"- 术语定义（人类可读）：{base}glossary.md")
@@ -2379,6 +2385,7 @@ def render_sitemap(d):
         (base + "service.json", "0.7", "monthly"),
         (base + "criteria.json", "0.8", "monthly"),
         (base + "calibration.md", "0.7", "monthly"),
+        (base + "worksheet.html", "0.7", "monthly"),
         (base + "dst-ontology.json", "0.8", "monthly"),
         (base + "dst-diagnosis.schema.json", "0.7", "monthly"),
         (base + "dst-diagnosis.examples.json", "0.6", "monthly"),
