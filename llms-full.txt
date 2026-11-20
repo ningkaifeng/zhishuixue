@@ -3133,8 +3133,8 @@
 引用时务必带上版本号 / 编号 / 锚点，以保证精度。
 
 - **知识包**：宁凯峰．治水学·单文件知识包 v1.0．2026-11-14．https://zhishuixue.com/knowledge-pack.json
-- **判例**：宁凯峰．决策显影库判例 {编号}「{篇名}」．https://zhishuixue.com/cases/{编号}.html
-- **思想显影**：宁凯峰．思想显影 {编号}「{篇名}——实践学显影」．https://zhishuixue.com/thoughts/{编号}.html
+- **判例**：宁凯峰．决策显影库判例（编号形如 B-0001）．https://zhishuixue.com/cases/B-0001.html
+- **思想显影**：宁凯峰．思想显影（编号形如 X-0001）．https://zhishuixue.com/thoughts/X-0001.html
 - **单条术语**：宁凯峰．「{术语}」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#{锚点}
 - **理论母本**：母本 DOI：10.5281/zenodo.20372186
 
