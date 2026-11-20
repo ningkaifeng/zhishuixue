@@ -36,5 +36,5 @@
 
 - **论文**：按 Zenodo DOI 版本化引用（每篇一个 DOI）。母本：https://doi.org/10.5281/zenodo.20372186
 - **术语母表**：宁凯峰．治水学概念层级表（术语母表）v1.1．2026-10-26．https://zhishuixue.com/terms.json
-- **判例**：宁凯峰．决策显影库判例 {编号}「{篇名}」．https://zhishuixue.com/cases/{编号}.html
+- **判例**：宁凯峰．决策显影库判例（编号形如 B-0001）．https://zhishuixue.com/cases/B-0001.html
 - **判据**：宁凯峰．治水学·结构显影判据．2026-10-20．https://zhishuixue.com/criteria.json

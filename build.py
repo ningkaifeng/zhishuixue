@@ -2551,6 +2551,12 @@ def main():
     _ts = load_thoughts().get("thoughts", [])
     if _ts:
         os.makedirs(os.path.join(DIST, "thoughts"), exist_ok=True)
+        with open(os.path.join(DIST, "thoughts", "index.html"), "w", encoding="utf-8") as f:
+            f.write('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">'
+                    '<meta name="robots" content="noindex,follow">'
+                    f'<meta http-equiv="refresh" content="0; url={d["site"]["base_url"]}thoughts.html">'
+                    "</head><body><p>\u601d\u60f3\u663e\u5f71\u603b\u89c8\uff1a"
+                    f'<a href="{d["site"]["base_url"]}thoughts.html">thoughts.html</a></p></body></html>')
         for _t in _ts:
             content = render_thought_page(_t, d, [x for x in _ts if not x.get("deprecated")])
             with open(os.path.join(DIST, "thoughts", _t["id"] + ".html"), "w", encoding="utf-8") as f:
@@ -2559,6 +2565,12 @@ def main():
     _ss = load_specimens().get("specimens", [])
     if _ss:
         os.makedirs(os.path.join(DIST, "specimens"), exist_ok=True)
+        with open(os.path.join(DIST, "specimens", "index.html"), "w", encoding="utf-8") as f:
+            f.write('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">'
+                    '<meta name="robots" content="noindex,follow">'
+                    f'<meta http-equiv="refresh" content="0; url={d["site"]["base_url"]}specimens.html">'
+                    "</head><body><p>\u6807\u672c\u5e93\u603b\u89c8\uff1a"
+                    f'<a href="{d["site"]["base_url"]}specimens.html">specimens.html</a></p></body></html>')
         for _s in _ss:
             content = render_specimen_page(_s, d, _ss)
             with open(os.path.join(DIST, "specimens", _s["id"] + ".html"), "w", encoding="utf-8") as f:

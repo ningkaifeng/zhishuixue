@@ -147,7 +147,7 @@ B('## 如何引用')
 B('')
 B('- **论文**：按 Zenodo DOI 版本化引用（每篇一个 DOI）。母本：https://doi.org/%s' % site['master_doi'])
 B('- **术语母表**：%s．治水学概念层级表（术语母表）v1.1．2026-10-26．%sterms.json' % (p['name'], base))
-B('- **判例**：%s．决策显影库判例 {编号}「{篇名}」．%scases/{编号}.html' % (p['name'], base))
+B('- **判例**：%s．决策显影库判例（编号形如 B-0001）．%scases/B-0001.html' % (p['name'], base))
 B('- **判据**：%s．治水学·结构显影判据．2026-10-20．%scriteria.json' % (p['name'], base))
 B('')
 
