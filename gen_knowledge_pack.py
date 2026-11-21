@@ -224,6 +224,8 @@ for _t in [x for x in (_th.get('thoughts') or []) if not x.get('deprecated')]:
         'judgment': _t.get('judgment', ''),
         'limit_notice': _t.get('limit', ''),
         'dialogue': _t.get('dialogue', ''),
+        'lead': _t.get('lead', ''),
+        'vision': _t.get('vision', []),
         'remainder': _t.get('remainder', []),
         'anchors': _t.get('anchors', []),
         'faq': _t.get('faq', []),

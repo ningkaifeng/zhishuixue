@@ -290,6 +290,12 @@ if _th.get('items'):
             for para in [p for p in sec['v'].split('\n') if p.strip()]:
                 A(para)
                 A('')
+        if t.get('vision'):
+            A('#### 视野边界（这套显影看得见什么、看不见什么）')
+            A('')
+            for x in t['vision']:
+                A('- ' + x)
+            A('')
         if t.get('remainder'):
             A('#### 剩余物（这套语法没接住什么）')
             A('')

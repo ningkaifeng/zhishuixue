@@ -74,6 +74,9 @@ def _thought_text(t):
         v = t.get(key)
         if v:
             parts.append('%s：%s' % (label, v))
+    _vb = t.get('vision') or []
+    if _vb:
+        parts.append('视野边界（看不见什么）：' + '；'.join(_vb))
     return '。'.join(p.rstrip('。') for p in parts if p)
 
 
@@ -145,6 +148,8 @@ with io.open(f'{OUT}/dst-thoughts.jsonl', 'w', encoding='utf-8') as f:
             'limit_notice': t.get('limit', ''),
             'dialogue': t.get('dialogue', ''),
             'five_sections': secs,
+            'lead': t.get('lead', ''),
+            'vision': t.get('vision', []),
             'remainder': t.get('remainder', []),
             'anchors': t.get('anchors', []),
             'faq': t.get('faq', []),
