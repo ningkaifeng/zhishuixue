@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'zenodo-release/noontology/**'
+    paths-ignore:
+      - 'zenodo-release/noontology/v11/**'
   workflow_dispatch:
 
 jobs:
