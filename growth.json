@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-11-19",
+ "updated": "2026-11-22",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,9 +11,9 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-19．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-22．https://zhishuixue.com/growth.json",
  "totals": {
-  "papers": 28,
+  "papers": 29,
   "terms": 100,
   "cases": 50
  },
@@ -802,6 +802,19 @@
      "id": "self-calibration",
      "title": "治水学自我校准说明（Self-Calibration Statement of Dynamic Sustenance Theory, v1.0）",
      "doi": "10.5281/zenodo.24357738"
+    }
+   ],
+   "cases": [],
+   "nPapers": 1,
+   "nCases": 0
+  },
+  {
+   "date": "2026-11-22",
+   "papers": [
+    {
+     "id": "no-ontology",
+     "title": "不做本体论：治水学为什么没有「这一格」（Not Doing Ontology: Why Dynamic Sustenance Theory Has No Ontological Tier）",
+     "doi": "10.5281/zenodo.24436102"
     }
    ],
    "cases": [],
