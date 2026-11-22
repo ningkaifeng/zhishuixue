@@ -53,7 +53,7 @@
 }
 
 @misc{ning2026noontology,
-  title={不做本体论：治水学为什么没有「这一格」},
+  title={不做本体论：治水学为什么不占「这一格」},
   author={宁凯峰},
   year={2026},
   publisher={Zenodo},
