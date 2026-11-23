@@ -26,7 +26,7 @@
 - **大禹治水与存续域的知识形态——一种被遮蔽的认识论原型** ｜ 第零卷·认识论部分 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.23185396
 - **命题式与结构式：人类知识形态的另一种读法** ｜ 第零卷·认识论部分 · 案例补充 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.23609363
 - **结构到结构——治水学知识形态的认识论奠基** ｜ 第零卷·认识论部分 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.23056450
-- **不做本体论：治水学为什么不占「这一格」（Not Doing Ontology: Why Dynamic Sustenance Theory Does Not Enter the Ontological Tier）** ｜ 第零卷·认识论延伸 · 中英双语 · v1.1 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.24436102
+- **不做本体论：治水学为什么不占「这一格」（Not Doing Ontology: Why Dynamic Sustenance Theory Does Not Enter the Ontological Tier）** ｜ 第零卷·认识论延伸 · 中英双语 · v1.2 · Zenodo, 2026 ｜ https://doi.org/10.5281/zenodo.24436102
 
 ### 治水学论纲
 

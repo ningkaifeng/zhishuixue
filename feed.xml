@@ -5,13 +5,49 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-11-14T00:00:00Z</updated>
+  <updated>2026-11-23T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>不做本体论：治水学为什么不占「这一格」（Not Doing Ontology: Why Dynamic Sustenance Theory Does Not Enter the Ontological Tier）</title>
+    <link href="https://doi.org/10.5281/zenodo.24436102"/>
+    <id>https://doi.org/10.5281/zenodo.24436102</id>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <published>2026-11-23T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>本文论证治水学为何不进入本体论这一层（v1.1 表述：用「不占／不进入」而非「没有」——前者是动作层描述，后者是对象层断言、自败），并说明这一「不做」不是理论空缺，而是由原问题派生出的结构必然。通常所谓「本体论—认识论—方法论」三段式实为四格：第一格是隐藏的原问题「世界是什么」。治水学的原问题是「系统如何在流变中存续」；原问题一变，第一格随之更换——被「划边界」这个动作占据，而不是被「边界」这个对象占据。这一区分是关键：对象需要本体论（它是什么、是否真的存在），动作不需要（有人划、划得成就成立）。而「划边界」由承压者确认，是程序而非实体，因而堵住了「那么边界是什么」的反噬。文中进一步区分治水学与过程哲学、关系本体论（后者仍在问本质，只是把答案从实体换成关系或过程），并说明其与 Luhmann 的系统／环境区分共享装置、差别在边界确认权归属。结论：治水学不生产本体论主张，它以边界为切口；这是</summary>
+  </entry>
+  <entry>
+    <title>N-0021｜薄伽梵歌——实践学显影</title>
+    <link href="https://zhishuixue.com/thoughts/N-0021.html"/>
+    <id>https://zhishuixue.com/thoughts/N-0021.html</id>
+    <updated>2026-11-21T00:00:00Z</updated>
+    <published>2026-11-21T00:00:00Z</published>
+    <category term="思想显影"/>
+    <summary>手里能做的是做，不是成｜尽分存续系统</summary>
+  </entry>
+  <entry>
+    <title>治水学自我校准说明（Self-Calibration Statement of Dynamic Sustenance Theory, v1.0）</title>
+    <link href="https://doi.org/10.5281/zenodo.24357738"/>
+    <id>https://doi.org/10.5281/zenodo.24357738</id>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <published>2026-11-19T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>治水学的文本中长期并存两种语气：限定的（工作假设、不声称解决存在论难题）与抬高的（元理论、元问题、存在论事实、第一哲学问题）。两者各自成立，但相邻而存、可随时切换——被质疑「凭什么」时引前者，被质疑「不过又一个框架」时引后者；这种可切换性即「可撤退性缺失」。本文档不推翻任何内容，只把每句话归回它该在的层级：取代的是层级判定，不取代内容论证。四项层级表述自发布之日起终止使用——以「元理论」作为治水学的已完成身份、以「元问题」作「第一哲学问题」、以「存在论事实」描述「存续优先」、以「可证伪条件」承诺「每个核心命题都可被证伪」；三浪不可还原、三元穷尽、动力-规则共生、尺度不可平移、载体独立性、文明四维、体相耦合、分层异步、语法锁定、术语表与全部判例一律保留。并给出「这套语法自己什么时候算失效」的三条判据：F1 模式断裂（系统层）、F2 功能损害累积（后果层）、F3 语法失效（工具层），每条含观测</summary>
+  </entry>
+  <entry>
+    <title>Structural Grammar Toolkit v1.0: Diagnostic Worksheet, Prompt Card, and Worked Examples（通用结构语法·工具包 v1.0）</title>
+    <link href="https://doi.org/10.5281/zenodo.24327221"/>
+    <id>https://doi.org/10.5281/zenodo.24327221</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <published>2026-11-18T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>论文回答「为什么需要这套语法」，工具包回答「怎么跑一遍」。四件：总览（论文各节对应哪件工具、三种使用者三条路径）、诊断工作表 v2.0（可填表单，含前置三项检验、五项判定、干预四问、自查四问、四级验证阶梯）、判定提示卡（每个判定三句问法加一个最常见错误）、三份填好的样例（全球 AI 治理、全球塑料污染治理、AI 基础设施资本开支，各附「为什么这么填」的批注）。工具包不增加任何理论主张。与论文有一处差异：论文 §3.1 给四态，工具包用五态（新增「讳锁」），属颗粒度差异而非版本冲突——同一网格，其中一格拆成两档。</summary>
+  </entry>
   <entry>
     <title>思想显影库 · 结构显影合辑</title>
     <link href="https://doi.org/10.5281/zenodo.23766352"/>
@@ -335,41 +371,5 @@
     <published>2026-10-27T00:00:00Z</published>
     <category term="判例"/>
     <summary>蜀汉第一次北伐，街亭失守后诸葛亮孤守西城，兵少将寡而司马懿大军压境。诸葛亮辨出这局的承重件不是城墙，而是对手脑中“诸葛亮从不弄险”的既有判断，反用这条判断——大开城门、藏起旌旗、登楼焚香抚琴，把“城空”如实亮出来，令多疑的司马懿疑中生疑、以为有伏兵而退。此计零成本、零战力，赌注是全部家底，只可作权宜缓兵，不可作常策。</summary>
-  </entry>
-  <entry>
-    <title>B-0031｜美人计</title>
-    <link href="https://zhishuixue.com/cases/B-0031.html"/>
-    <id>https://zhishuixue.com/cases/B-0031.html</id>
-    <updated>2026-10-26T00:00:00Z</updated>
-    <published>2026-10-26T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>春秋末吴越争霸，越王勾践夫椒战败后卧薪尝胆，深知吴国兵强将智不可力敌，用文种之计选苎萝山鬻薪女西施、郑旦，教以歌舞容步三年，进献吴王夫差；夫差好色纳之，建馆娃宫沉湎酒色、疏远并赐死伍子胥，吴政荒废，越乘虚伐吴、转败为胜。</summary>
-  </entry>
-  <entry>
-    <title>B-0030｜反客为主</title>
-    <link href="https://zhishuixue.com/cases/B-0030.html"/>
-    <id>https://zhishuixue.com/cases/B-0030.html</id>
-    <updated>2026-10-25T00:00:00Z</updated>
-    <published>2026-10-25T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>东汉末年，渤海太守袁绍（客位）暗约公孙瓒南下攻冀制造危机，再遣荀谌三问游说，冀州牧韩馥自认不如、遣子送印绶让位，袁绍不费一兵一卒得冀州、反客为主；核心是乘对方疏漏插足、渐进握住“主机（权柄）”，把客位变成主位。</summary>
-  </entry>
-  <entry>
-    <title>命题式与结构式：人类知识形态的另一种读法</title>
-    <link href="https://doi.org/10.5281/zenodo.23609363"/>
-    <id>https://doi.org/10.5281/zenodo.23609363</id>
-    <updated>2026-10-24T00:00:00Z</updated>
-    <published>2026-10-24T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>我们默认知识就是命题：最小单位是命题，为真的标准是符合实在，增长方式是提出、检验、修正。但人类在治水、农耕、中医、治国这类“如何继续下去”的问题上，一直在使用另一种知识——最小单位不是命题，而是对结构的判断；判据不是“对不对”，而是“能不能继续下去”。本文不另起一套说法，而是把治水学已有的“存在域／存续域”之分，换成更日常、更容易被跨学科读者接住的“命题式／结构式”，并通过符号系统与艺术形式两层并置，检验这个分叉在更大范围里是否仍站得住。</summary>
-  </entry>
-  <entry>
-    <title>治水文明与载体独立性</title>
-    <link href="https://doi.org/10.5281/zenodo.23613865"/>
-    <id>https://doi.org/10.5281/zenodo.23613865</id>
-    <updated>2026-10-24T00:00:00Z</updated>
-    <published>2026-10-24T00:00:00Z</published>
-    <category term="论文"/>
-    <summary>本书提出一个被既有文明研究普遍忽视的分析维度——“载体”：治水智慧赖以生成、存储、传播与激活的具体条件（地理、政权、制度、技术、语言、人群）。文明中断的深层机制，不是某项制度的失败，而是智慧与载体的关系出了问题：智慧过于绑定特定载体，载体一消亡，智慧便无处安身。本书从治水学母本中提取“载体独立性”的定义与三级判据（载体依附／载体跨越／载体独立），以中华文明五千年为样本逐层解码——大禹之“疏”、郡县制与文字统一、科举制、漕运与河督、中医与二十四节气、都江堰、大一统理念，并以罗马水道为反例。全书四部：概念、历史、解剖、收束。与《治水文明与自主知识体系建设》互为姊妹篇：前者回答“如何建设自主的知识体系”，本书回答“知识为何能在文明更替中存续”。</summary>
   </entry>
 </feed>
