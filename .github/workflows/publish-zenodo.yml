@@ -7,6 +7,7 @@ on:
     paths-ignore:
       - 'zenodo-release/calibration/**'
       - 'zenodo-release/noontology/**'
+      - 'zenodo-release/lun3/**'
   workflow_dispatch:
 
 jobs:

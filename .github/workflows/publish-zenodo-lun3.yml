@@ -1,0 +1,22 @@
+name: Publish Zenodo (Outline Part 1-3 v2.0)
+
+on:
+  push:
+    paths:
+      - 'zenodo-release/lun3/**'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install requests
+        run: pip install --quiet requests
+      - name: Publish new versions of Outline Part 1-3
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: python3 zenodo-release/lun3/publish.py
