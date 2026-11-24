@@ -1432,7 +1432,7 @@
     "partOf": null,
     "definition": "治水学的起点问题——系统如何在永恒流变中维持存续。",
     "anchor": "https://zhishuixue.com/glossary.html#meta-question",
-    "doi": "https://doi.org/10.5281/zenodo.22785849"
+    "doi": "https://doi.org/10.5281/zenodo.22088570"
    },
    {
     "id": "DST-B-01",
@@ -1445,7 +1445,7 @@
     "partOf": null,
     "definition": "存在在可观测层面的唯一形式：系统通过持续对抗失序压力以维持自身运作完整性。",
     "anchor": "https://zhishuixue.com/glossary.html#sustenance",
-    "doi": "https://doi.org/10.5281/zenodo.22785849"
+    "doi": "https://doi.org/10.5281/zenodo.22088570"
    },
    {
     "id": "DST-B-02",
@@ -1583,7 +1583,7 @@
     "partOf": "三条命题",
     "definition": "治水学的工作假设：在哲学根本追问中，将“系统如何存续”置于“存在是什么”之前。",
     "anchor": "https://zhishuixue.com/glossary.html#sustenance-priority",
-    "doi": "https://doi.org/10.5281/zenodo.22785725"
+    "doi": "https://doi.org/10.5281/zenodo.22783959"
    },
    {
     "id": "DST-B-12",
@@ -2291,7 +2291,7 @@
     "partOf": null,
     "definition": "一组底层预设；“是什么”问题域 ↔ “如何存续”问题域。",
     "anchor": "https://zhishuixue.com/glossary.html#problem-domain",
-    "doi": "https://doi.org/10.5281/zenodo.22785849"
+    "doi": "https://doi.org/10.5281/zenodo.22088570"
    },
    {
     "id": "DST-G-05",
@@ -2304,7 +2304,7 @@
     "partOf": null,
     "definition": "“是什么”问题域所创造的存续冗余。",
     "anchor": "https://zhishuixue.com/glossary.html#cognitive-redundancy",
-    "doi": "https://doi.org/10.5281/zenodo.22785849"
+    "doi": "https://doi.org/10.5281/zenodo.22088570"
    },
    {
     "id": "DST-G-06",
@@ -2356,7 +2356,7 @@
     "partOf": null,
     "definition": "系统的同一性不是组分的静止不变，而是动力-规则协同模式在时间中保持拓扑连续。",
     "anchor": "https://zhishuixue.com/glossary.html#pattern-continuity",
-    "doi": "https://doi.org/10.5281/zenodo.22785562"
+    "doi": "https://doi.org/10.5281/zenodo.22785124"
    },
    {
     "id": "DST-H-02",

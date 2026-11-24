@@ -1864,6 +1864,9 @@ def render_llms(d):
         for w in works:
             L.append(f'- {w["card_title"]}')
             L.append(f'  {doi_url(w["doi"])}')
+            if w.get("doi_version"):
+                _vl = w.get("version_label") or "最新版"
+                L.append(f'  （引用一律用概念 DOI；{_vl} 的版本记录：{doi_url(w["doi_version"])}）')
             if w.get("calibration_note"):
                 L.append(f'  ⚠ {w["calibration_note"]} 见 {base}calibration.md')
         if sec["id"] == "grammar":
@@ -2186,7 +2189,12 @@ def render_bib(d):
         else:
             L.append(f'  publisher={{{w.get("bib_publisher", "Zenodo")}}},')
         L.append(f'  doi={{{w["doi"]}}},')
-        L.append(f'  url={{{doi_url(w["doi"])}}}')
+        if w.get("doi_version"):
+            L.append(f'  url={{{doi_url(w["doi"])}}},')
+            L.append(f'  note={{版本 {w.get("version_label", "")}（版本 DOI: {w["doi_version"]}）；'
+                     f'引用请用概念 DOI {w["doi"]}}}')
+        else:
+            L.append(f'  url={{{doi_url(w["doi"])}}}')
         L.append("}")
     # —— 术语母表（人读母表；机器镜像 = terms.json）——
     g = d.get("glossary", {})

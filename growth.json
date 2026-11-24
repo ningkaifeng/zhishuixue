@@ -3,7 +3,7 @@
  "title": "治水学·生长记录",
  "titleEn": "DST Growth Log",
  "versionLabel": "v1.0",
- "updated": "2026-11-23",
+ "updated": "2026-11-24",
  "license": "CC BY 4.0",
  "source": "https://zhishuixue.com/growth.json",
  "maintainer": {
@@ -11,7 +11,7 @@
   "orcid": "https://orcid.org/0009-0001-4414-6058"
  },
  "citeKey": "dst-growth-v1.0",
- "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-23．https://zhishuixue.com/growth.json",
+ "citedAs": "宁凯峰．治水学·生长记录v1.0．2026-11-24．https://zhishuixue.com/growth.json",
  "totals": {
   "papers": 29,
   "terms": 100,
@@ -27,21 +27,6 @@
   {
    "date": "2026-09-16",
    "papers": [
-    {
-     "id": "article-1",
-     "title": "治水学论纲·第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展",
-     "doi": "10.5281/zenodo.22785849"
-    },
-    {
-     "id": "article-2",
-     "title": "治水学论纲·第二篇：存续优先——一个践言冲突论证",
-     "doi": "10.5281/zenodo.22785725"
-    },
-    {
-     "id": "article-3",
-     "title": "治水学论纲·第三篇：模式连续性——流变中的同一性如何可能",
-     "doi": "10.5281/zenodo.22785562"
-    },
     {
      "id": "article-4",
      "title": "治水学论纲·第四篇：治水实践先在——系统的存续相关属性如何在治水实践中生成并维持",
@@ -59,7 +44,7 @@
     }
    ],
    "cases": [],
-   "nPapers": 6,
+   "nPapers": 3,
    "nCases": 0
   },
   {
@@ -819,6 +804,29 @@
    ],
    "cases": [],
    "nPapers": 1,
+   "nCases": 0
+  },
+  {
+   "date": "2026-11-24",
+   "papers": [
+    {
+     "id": "article-1",
+     "title": "治水学论纲·第一篇：从“是什么”到“如何存续”——问题域的一次替换",
+     "doi": "10.5281/zenodo.22088570"
+    },
+    {
+     "id": "article-2",
+     "title": "治水学论纲·第二篇：存续优先——一个践言冲突论证",
+     "doi": "10.5281/zenodo.22783959"
+    },
+    {
+     "id": "article-3",
+     "title": "治水学论纲·第三篇：模式连续性——流变中的同一性如何可能",
+     "doi": "10.5281/zenodo.22785124"
+    }
+   ],
+   "cases": [],
+   "nPapers": 3,
    "nCases": 0
   }
  ],

@@ -5,13 +5,40 @@
   <link href="https://zhishuixue.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://zhishuixue.com/" rel="alternate" type="text/html"/>
   <id>https://zhishuixue.com/</id>
-  <updated>2026-11-23T00:00:00Z</updated>
+  <updated>2026-11-24T00:00:00Z</updated>
   <author>
     <name>宁凯峰</name>
     <uri>https://zhishuixue.com/</uri>
   </author>
   <rights>CC BY 4.0 — 署名「宁凯峰 / 治水学（DST）」即可自由使用</rights>
   <generator uri="https://zhishuixue.com/">build.py</generator>
+  <entry>
+    <title>治水学论纲·第一篇：从“是什么”到“如何存续”——问题域的一次替换</title>
+    <link href="https://doi.org/10.5281/zenodo.22088570"/>
+    <id>https://doi.org/10.5281/zenodo.22088570</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <published>2026-11-24T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>哲学长期以“存在是什么”为唯一入口，另有一类追问被反复触及却未被主题化：“系统如何在流变中维持自身”。本文不主张这一追问比“存在是什么”更根本——两者在形式上对称，谁都可以说对方预设了自己。本文主张的是一件更小的事：问题域可以替换，替换之后，答案的形态也随之改变。</summary>
+  </entry>
+  <entry>
+    <title>治水学论纲·第二篇：存续优先——一个践言冲突论证</title>
+    <link href="https://doi.org/10.5281/zenodo.22783959"/>
+    <id>https://doi.org/10.5281/zenodo.22783959</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <published>2026-11-24T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>本文以践言冲突论证作为选择“存续优先”这一工作假设的核心理由。本文不试图终结“存续与存在谁更底层”的哲学争论，只展示：一旦接受这个工作假设，能推出什么——任何断言行为本身都是时间性过程，否定存续的断言必须依赖自身的存续才能被说出。</summary>
+  </entry>
+  <entry>
+    <title>治水学论纲·第三篇：模式连续性——流变中的同一性如何可能</title>
+    <link href="https://doi.org/10.5281/zenodo.22785124"/>
+    <id>https://doi.org/10.5281/zenodo.22785124</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <published>2026-11-24T00:00:00Z</published>
+    <category term="论文"/>
+    <summary>本文提出一个存在论工作假设：同一性不是流变的对立面，而是流变的一种特定形态——动力-规则协同模式在时间中的连续性。判据为不变项—变化项分析（Identity–Variance Analysis）：看哪些项在多次显影中始终可被指认、哪些在变。</summary>
+  </entry>
   <entry>
     <title>不做本体论：治水学为什么不占「这一格」（Not Doing Ontology: Why Dynamic Sustenance Theory Does Not Enter the Ontological Tier）</title>
     <link href="https://doi.org/10.5281/zenodo.24436102"/>
@@ -344,32 +371,5 @@
     <published>2026-10-30T00:00:00Z</published>
     <category term="判例"/>
     <summary>赤壁之战，曹操率大军南下，孙刘联军兵少不能力敌。周瑜黄盖用连环计：曹军北方士卒不习水战，曹操下令战船首尾相连以稳军心，正是"自累"；黄盖诈降，以数十艘装满薪草膏油的蒙冲斗舰，借东南风纵火，一船着火、全营连烧，烧尽北船。连环计是"一计累敌、一计攻敌"，让敌人自己捆住自己，再乘势而击。</summary>
-  </entry>
-  <entry>
-    <title>B-0034｜苦肉计</title>
-    <link href="https://zhishuixue.com/cases/B-0034.html"/>
-    <id>https://zhishuixue.com/cases/B-0034.html</id>
-    <updated>2026-10-29T00:00:00Z</updated>
-    <published>2026-10-29T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>春秋吴国，阖闾杀吴王僚夺位，僚之子庆忌勇武无敌、逃亡卫国图谋复仇，阖闾无法正面除掉。要离献苦肉计：请阖闾断其右手、杀其妻子焚尸于市，制造"负罪出奔"的假象，投奔庆忌。庆忌见其真残、妻子真死，信其"与吴王有仇"，纳为心腹。三月后渡江，要离顺风以矛刺死庆忌。苦肉计是用真实牺牲换取信任，代价不可逆。</summary>
-  </entry>
-  <entry>
-    <title>B-0033｜反间计</title>
-    <link href="https://zhishuixue.com/cases/B-0033.html"/>
-    <id>https://zhishuixue.com/cases/B-0033.html</id>
-    <updated>2026-10-28T00:00:00Z</updated>
-    <published>2026-10-28T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>楚汉相争，项羽围刘邦于荥阳，割地求和不成。陈平辨出项羽"意忌信谗"且封赏吝啬、骨鲠之臣不过范增数人，遂用四万斤金纵反间：先散布钟离眛通敌谣言，再趁项羽使者来汉，故意先盛礼款待、又佯称"以为是亚父使者"改以粗食，使者回报后项羽大疑范增，范增怒而请辞，未至彭城疽发背死。反间计是让敌人自己拔掉自己的智囊。</summary>
-  </entry>
-  <entry>
-    <title>B-0032｜空城计</title>
-    <link href="https://zhishuixue.com/cases/B-0032.html"/>
-    <id>https://zhishuixue.com/cases/B-0032.html</id>
-    <updated>2026-10-27T00:00:00Z</updated>
-    <published>2026-10-27T00:00:00Z</published>
-    <category term="判例"/>
-    <summary>蜀汉第一次北伐，街亭失守后诸葛亮孤守西城，兵少将寡而司马懿大军压境。诸葛亮辨出这局的承重件不是城墙，而是对手脑中“诸葛亮从不弄险”的既有判断，反用这条判断——大开城门、藏起旌旗、登楼焚香抚琴，把“城空”如实亮出来，令多疑的司马懿疑中生疑、以为有伏兵而退。此计零成本、零战力，赌注是全部家底，只可作权宜缓兵，不可作常策。</summary>
   </entry>
 </feed>

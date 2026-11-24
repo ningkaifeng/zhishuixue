@@ -529,6 +529,7 @@ works:
     card_title: "不做本体论：治水学为什么不占「这一格」"
     doi: "10.5281/zenodo.24436102"
     doi_version: "10.5281/zenodo.24466465"
+    version_label: "v1.2"
     date: "2026-11-23"
     lang: "zh-CN"
     card_meta: "第零卷·认识论延伸 · 中英双语 · v1.2 · Zenodo, 2026"
@@ -543,17 +544,19 @@ works:
   - id: article-1
     section: main
     type: ScholarlyArticle
-    title: "治水学论纲·第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展"
-    card_title: "第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展"
-    doi: "10.5281/zenodo.22785849"
-    date: "2026-09-16"
+    title: "治水学论纲·第一篇：从“是什么”到“如何存续”——问题域的一次替换"
+    card_title: "第一篇：从“是什么”到“如何存续”——问题域的一次替换"
+    doi: "10.5281/zenodo.22088570"
+    doi_version: "10.5281/zenodo.24499779"
+    version_label: "v2.0"
+    date: "2026-11-24"
     lang: "zh-CN"
-    card_meta: "DOI: 10.5281/zenodo.22785849"
-    abstract: "本文扩展存在论问题域，从“是什么”转向“如何存续”。"
-    jsonld_abstract: "（本文提出并论证一项元问题翻转：哲学的根本追问应从“存在是什么”转向“系统如何存续”。通过先验条件论证与模式连续性论证，本文证明“如何存续”是先于“是什么”的追问条件——任何可理解的理论活动，都预设了一个自我维持的解释共同体和语言系统；而“是什么”的追问形式本身，也是存续实践的历史产物。在此基础上，本文以“体相关系框架”作为模式连续性概念的操作化展开，为系统存续机制的分析提供一个可用的概念工具。）"
-    keywords: ["治水学论纲", "存在论问题域", "存续", "ontology", "system persistence", "philosophy", "宁凯峰"]
+    card_meta: "v2.0 · Zenodo, 2026"
+    abstract: "哲学长期以“存在是什么”为唯一入口，另有一类追问被反复触及却未被主题化：“系统如何在流变中维持自身”。本文不主张这一追问比“存在是什么”更根本——两者在形式上对称，谁都可以说对方预设了自己。本文主张的是一件更小的事：问题域可以替换，替换之后，答案的形态也随之改变。"
+    jsonld_abstract: "（本文提出一次问题域替换：从“存在是什么”到“系统如何存续”。本文不主张后者比前者更根本——两者在形式上对称；本文主张的是一件更小的事，问题域可以被替换，而替换之后答案的形态随之改变。第一章辨两种问题域的根本差异，并处理斯宾诺莎、海德格尔、自创生理论等先驱的局限；第二章专论两次最接近本次翻转的努力——赵汀阳的“天下体系”与“旋涡模式”、孙向晨的“双重本体”，指出其共同的止步处在边界；第三章给出翻转本身，附体相关系框架（工作框架），并以全球 AI 治理为标本做一次实际判定，最后做自我指涉检验；第四章交代翻转的开放性与失效条件。v2.0 与《治水学自我校准说明》口径对齐：标题去“存在论”，翻转被说成“问题域的一次替换”而非一次本体论扩张，并新增“本域的工作假设（非本体论承诺）”与“使用条件与不适用场合”。）"
+    keywords: ["治水学论纲", "问题域", "存续", "工作假设", "边界批判", "question domain", "sustenance", "philosophy", "宁凯峰"]
     bib_key: ning2026d1
-    calibration_note: "本篇摘要中「元问题翻转」的层级校准见《治水学自我校准说明 v1.0》§3（改按「问题域的扩展」读）。"
+    calibration_note: "v2.0 已把《治水学自我校准说明 v1.0》§3 的层级校准写进正文（原标题中的“存在论问题域的扩展”改为“问题域的一次替换”）；此处保留指针供旧引用对照。"
     bib_type: misc
     bib_publisher: Zenodo
 
@@ -562,15 +565,17 @@ works:
     type: ScholarlyArticle
     title: "治水学论纲·第二篇：存续优先——一个践言冲突论证"
     card_title: "第二篇：存续优先——一个践言冲突论证"
-    doi: "10.5281/zenodo.22785725"
-    date: "2026-09-16"
+    doi: "10.5281/zenodo.22783959"
+    doi_version: "10.5281/zenodo.24499784"
+    version_label: "v2.0"
+    date: "2026-11-24"
     lang: "zh-CN"
-    card_meta: "DOI: 10.5281/zenodo.22785725"
-    abstract: "本文通过践言冲突论证，确立存续优先作为系统的先在约束。"
-    jsonld_abstract: "（本文以践言冲突论证为选择“存续优先”作为工作假设的核心理由。本文不试图终结“存续与存在谁更底层”的哲学争论，只展示：一旦接受“存续优先”这个工作假设，能推出什么。本文首先分析自由、幸福、真理、神圣性等竞争性第一前提的存续论条件，展示选择存续优先作为工作假设的理由。）"
-    keywords: ["治水学论纲", "存续优先", "践言冲突", "sustenance priority", "pragmatic self-contradiction", "philosophy", "宁凯峰"]
+    card_meta: "v2.0 · Zenodo, 2026"
+    abstract: "本文以践言冲突论证作为选择“存续优先”这一工作假设的核心理由。本文不试图终结“存续与存在谁更底层”的哲学争论，只展示：一旦接受这个工作假设，能推出什么——任何断言行为本身都是时间性过程，否定存续的断言必须依赖自身的存续才能被说出。"
+    jsonld_abstract: "（本文以践言冲突论证为选择“存续优先”作为工作假设的核心理由。所谓践言冲突：任何断言行为本身都是一个时间性过程，它在被做出的那一刻已经预设了自己所否定之物的成立。本文先对自由、幸福、真理、神圣性、正义、美等七类竞争性第一前提做存续论条件分析，并区分“真理本身”与“真理事业”；再以五步结构展开践言冲突论证，并与笛卡尔“我思故我在”作同构性与根本差异的对照。v2.0 新增“第零部分：本文的工作假设定位”，在开篇交代本文不做什么、做什么、选择存续优先的三层理由与与第一篇的关系，并新增“为什么是工作假设，不是先验证明”“工作假设的承诺性质”两节。本文的姿态是邀请，不是普遍要求。）"
+    keywords: ["治水学论纲", "存续优先", "践言冲突", "工作假设", "sustenance priority", "performative contradiction", "philosophy", "宁凯峰"]
     bib_key: ning2026d2
-    calibration_note: "本篇 §6.1／6.2／6.4／6.5 中「可证伪条件」的层级校准见《治水学自我校准说明 v1.0》§3（改称「失效边界」）。"
+    calibration_note: "v2.0 已按《治水学自我校准说明 v1.0》§3 重写：原“确立存续优先为系统先在约束”改述为工作假设的选择理由；原 §6 的“可证伪条件”统一改称“失效边界”。"
     bib_type: misc
     bib_publisher: Zenodo
 
@@ -579,14 +584,17 @@ works:
     type: ScholarlyArticle
     title: "治水学论纲·第三篇：模式连续性——流变中的同一性如何可能"
     card_title: "第三篇：模式连续性——流变中的同一性如何可能"
-    doi: "10.5281/zenodo.22785562"
-    date: "2026-09-16"
+    doi: "10.5281/zenodo.22785124"
+    doi_version: "10.5281/zenodo.24499789"
+    version_label: "v2.0"
+    date: "2026-11-24"
     lang: "zh-CN"
-    card_meta: "DOI: 10.5281/zenodo.22785562"
-    abstract: "本文探讨流变中的同一性问题，提出模式连续性作为解。"
-    jsonld_abstract: "（本文提出并论证一个存在论工作假设：同一性不是流变的对立面，而是流变的一种特定形态——动力-规则协同模式（即系统生成变化的能力与约束变化的秩序之间的耦合结构）在时间中的连续性。本文从哲学史的流变与同一性张力出发，展示巴门尼德、赫拉克利特、怀特海等哲学家未完全解决的同一性难题。治水学的回答是：系统的同一性不在于组分不变，而在于动力-规则协同模式在时间中保持连续。）"
-    keywords: ["治水学论纲", "模式连续性", "同一性", "pattern continuity", "identity", "process philosophy", "宁凯峰"]
+    card_meta: "v2.0 · Zenodo, 2026"
+    abstract: "本文提出一个存在论工作假设：同一性不是流变的对立面，而是流变的一种特定形态——动力-规则协同模式在时间中的连续性。判据为不变项—变化项分析（Identity–Variance Analysis）：看哪些项在多次显影中始终可被指认、哪些在变。"
+    jsonld_abstract: "（本文提出并论证一个存在论工作假设：同一性不是流变的对立面，而是流变的一种特定形态——动力-规则协同模式（即系统生成变化的能力与约束变化的秩序之间的耦合结构）在时间中的连续性。本文从哲学史的流变与同一性张力出发，与赫拉克利特、巴门尼德、怀特海、柏格森、黑格尔及马克思实践哲学逐一对谈，指出其未完全解决的同一性难题；判据为不变项—变化项分析（Identity–Variance Analysis），并在个人（《治水图》）、企业（比亚迪）、技术系统（大模型上下文管理）、文明（中华文明的连续性与罗马文明的断裂）四个尺度展示解释力。v2.0 新增第五部分“可证伪条件与理论边界”，含方法论过渡、停止使用条件与对“模糊说法”质疑的回应：不变项消失即模式断裂；字段升版后不可跨版本比较；变化项若全表现为“缺失”，那是未观测而非变化。）"
+    keywords: ["治水学论纲", "模式连续性", "同一性", "流变", "动力-规则协同", "pattern continuity", "identity", "philosophy", "宁凯峰"]
     bib_key: ning2026d3
+    calibration_note: "v2.0 新增第五部分“可证伪条件与理论边界”，把《治水学自我校准说明 v1.0》§4 的失效边界落到本篇判据上（不变项消失即模式断裂）。"
     bib_type: misc
     bib_publisher: Zenodo
 
@@ -901,8 +909,8 @@ works:
 terms:
   - {anchor: dst, cat: "A · 理论总称", code: "DST-A-01", name: "治水学", en: "Dynamic Sustenance Theory (DST)", desc: "一套面向复杂适应系统的存续分析元理论，回答系统如何在永恒流变中通过动力与规则协同实现自身存续。", level: "A", tier: "顶层", broader: "", part_of: "", doi: "10.5281/zenodo.20372186", traditional: "（此为治水学专名，无通行学术对应词；最近的理论邻居是复杂适应系统理论 CAS）", traditional_en: "(A proper name coined by DST itself; no conventional academic equivalent. Closest neighbour: Complex Adaptive Systems theory)", dst_full: "任何以存续为目标的系统——个人、组织、国家、文明——其存在的本质都是应对永恒失序压力的动态实践；核心机制是动力系统（三浪：技术／制度／思想）与规则系统（三元：疏浚／方舟／祭祀）的协同适配。", dst_full_en: "For any system aiming at sustenance — individual, organization, state or civilization — existence is the dynamic practice of responding to perpetual disorder; the core mechanism is co-adaptation between a dynamic system (three waves: technological / institutional / ideational) and a rule system (three meta-operations: dredging / arking / sacrificing).", boundary: "治水学提供的是结构视角，不排斥既有学科的解释力。", boundary_en: "DST offers a structural perspective without displacing existing disciplinary explanations."}
   - {anchor: master-text, cat: "A · 理论总称", code: "DST-A-02", name: "治水学母本", en: "DST v15.0 (Master Text)", desc: "治水学的技术底座文本（对外统一称 v15.0）；其命题编号体系（2.0–2.9）作理论定位骨架。", level: "A", tier: "延伸", broader: "治水学", part_of: "底座", doi: "10.5281/zenodo.20372186"}
-  - {anchor: meta-question, cat: "A · 理论总称", code: "DST-A-03", name: "元问题", en: "the Meta-Question", desc: "治水学的起点问题——系统如何在永恒流变中维持存续。", level: "A", tier: "支柱", broader: "治水学", part_of: "", doi: "10.5281/zenodo.22785849"}
-  - {anchor: sustenance, cat: "B · 本体论", code: "DST-B-01", name: "存续", en: "Sustenance", desc: "存在在可观测层面的唯一形式：系统通过持续对抗失序压力以维持自身运作完整性。", level: "B", tier: "核心", broader: "治水学", part_of: "", doi: "10.5281/zenodo.22785849"}
+  - {anchor: meta-question, cat: "A · 理论总称", code: "DST-A-03", name: "元问题", en: "the Meta-Question", desc: "治水学的起点问题——系统如何在永恒流变中维持存续。", level: "A", tier: "支柱", broader: "治水学", part_of: "", doi: "10.5281/zenodo.22088570"}
+  - {anchor: sustenance, cat: "B · 本体论", code: "DST-B-01", name: "存续", en: "Sustenance", desc: "存在在可观测层面的唯一形式：系统通过持续对抗失序压力以维持自身运作完整性。", level: "B", tier: "核心", broader: "治水学", part_of: "", doi: "10.5281/zenodo.22088570"}
   - {anchor: flood, cat: "B · 本体论", code: "DST-B-02", name: "洪水", en: "Flood (Disruption Pressure)", desc: "系统面对的持续失序压力——永远存在、不可根除的扰动来源。", level: "B", tier: "核心", broader: "存续", part_of: "", doi: "10.5281/zenodo.20372186"}
   - {anchor: sustenance-practice, cat: "B · 本体论", code: "DST-B-03", name: "治水实践", en: "Sustenance Practice", desc: "系统在洪水条件下，通过三浪动力与三元规则的协同，维持自身模式连续性的全部能动活动。", level: "B", tier: "支柱", broader: "存续", part_of: "", doi: "10.5281/zenodo.22789923"}
   - {anchor: force-rule-coordination, cat: "B · 本体论", code: "DST-B-04", name: "动力-规则协同", en: "Force-Rule Coordination", desc: "动力层与规则层之间的动态适配——系统存续的核心机制。", level: "B", tier: "核心", broader: "存续", part_of: "", doi: "10.5281/zenodo.22842961"}
@@ -912,7 +920,7 @@ terms:
   - {anchor: xiang, cat: "B · 本体论", code: "DST-B-08", name: "相", en: "Xiang (characteristic states)", desc: "体（动力-规则协同结构）所呈现出的特征状态（事后描述的观察视角，不是独立层）；按三元操作归类为疏浚型／方舟型／祭祀型（形容词性）。", level: "B", tier: "支柱", broader: "体", part_of: "", doi: "10.5281/zenodo.22821896"}
   - {anchor: body-phase-correlation, cat: "B · 本体论", code: "DST-B-09", name: "体相关系", en: "Ti-Xiang Correlation", desc: "体（动力-规则协同的内在结构）与其呈现出的特征状态（相）之间的关系；特征是体的征兆，特征失衡须回溯至动力-规则失配来处理。", level: "B", tier: "支柱", broader: "体", part_of: "", doi: "10.5281/zenodo.22821896"}
   - {anchor: structure, cat: "B · 本体论", code: "DST-B-10", name: "结构", en: "Structure", desc: "分析性视角——动力-规则协同的构成；与“模式”是同一协同的两种视角。", level: "B", tier: "支柱", broader: "体", part_of: "", doi: "10.5281/zenodo.23056450", traditional: "结构通常指系统各组成部分之间相对稳定的关系与组织方式；结构主义强调关系先于要素（索绪尔、列维-斯特劳斯），系统论则把结构与功能并置。", traditional_en: "Structure conventionally denotes the relatively stable relations and organization among a system’s components; structuralism holds that relations precede elements (Saussure, Lévi-Strauss), while systems theory pairs structure with function.", dst_full: "结构不是静态骨架，而是动力与规则协同的动态构成——它是存续域知识的单位。结构看构成、模式看连续性，二者是同一协同的两种视角。治水学的关键主张：知识的最小单位不是命题，而是结构判断。", dst_full_en: "Structure is not a static skeleton but the dynamic constitution of force-rule coordination — the unit of sustenance-domain knowledge. Structure sees composition, pattern sees continuity: two views of the same coordination. DST’s key claim: the minimal unit of knowledge is not the proposition but the structural judgement.", boundary: "两种读法并存；治水学的「结构」是存续域的知识单位，不取代结构主义或系统论的结构概念。", boundary_en: "Both readings coexist; DST’s structure is a unit of sustenance-domain knowledge and does not displace structuralist or systems-theoretic notions."}
-  - {anchor: sustenance-priority, cat: "B · 本体论", code: "DST-B-11", name: "存续优先", en: "Sustenance Priority", desc: "治水学的工作假设：在哲学根本追问中，将“系统如何存续”置于“存在是什么”之前。", level: "B", tier: "支柱", broader: "存续", part_of: "三条命题", doi: "10.5281/zenodo.22785725"}
+  - {anchor: sustenance-priority, cat: "B · 本体论", code: "DST-B-11", name: "存续优先", en: "Sustenance Priority", desc: "治水学的工作假设：在哲学根本追问中，将“系统如何存续”置于“存在是什么”之前。", level: "B", tier: "支柱", broader: "存续", part_of: "三条命题", doi: "10.5281/zenodo.22783959"}
   - {anchor: perpetuity-of-flood, cat: "B · 本体论", code: "DST-B-12", name: "洪水永恒", en: "the Perpetuity of Flood", desc: "洪水（失序压力）永远存在、不可根除——治水的前提认知。", level: "B", tier: "支柱", broader: "洪水", part_of: "三条命题", doi: "10.5281/zenodo.20372186"}
   - {anchor: practice-precedence, cat: "B · 本体论", code: "DST-B-13", name: "治水实践先在", en: "the Primacy of Sustenance Practice", desc: "实践是理解存续相关属性的构成性方式，系统的存续属性在治水实践中生成并维持。", level: "B", tier: "支柱", broader: "治水实践", part_of: "三条命题", doi: "10.5281/zenodo.22789923"}
   - {anchor: three-waves, cat: "C · 动力层", code: "DST-C-01", name: "三浪", en: "the Three Waves", desc: "三种普适动能——突破性动能、稳定性动能、方向性动能；“技术浪／制度浪／思想浪”是隐喻命名，非定义本身。", level: "C", tier: "核心", broader: "体", part_of: "", doi: "10.5281/zenodo.22795174"}
@@ -966,12 +974,12 @@ terms:
   - {anchor: structural-judgment, cat: "G · 认识论层", code: "DST-G-01", name: "结构判断", en: "Structural Judgment", desc: "诊断在认识论层面的视角，是存续域知识的最小单位，是结构维持自身连续性的一个动作。", level: "G", tier: "核心", broader: "结构", part_of: "", doi: "10.5281/zenodo.23056450"}
   - {anchor: diagnosis, cat: "G · 认识论层", code: "DST-G-02", name: "诊断", en: "Diagnosis", desc: "操作动作——识别系统状态、归因、选择干预方向。", level: "G", tier: "支柱", broader: "结构判断", part_of: "", doi: "10.5281/zenodo.23056450"}
   - {anchor: pattern, cat: "G · 认识论层", code: "DST-G-03", name: "模式", en: "Pattern", desc: "描述性视角——连续形态；与“结构”是同一动力-规则协同的两种视角。", level: "G", tier: "延伸", broader: "结构", part_of: "模式／结构", doi: "10.5281/zenodo.23056450"}
-  - {anchor: problem-domain, cat: "G · 认识论层", code: "DST-G-04", name: "问题域", en: "Problem Domain", desc: "一组底层预设；“是什么”问题域 ↔ “如何存续”问题域。", level: "G", tier: "支柱", broader: "存续域认识论", part_of: "", doi: "10.5281/zenodo.22785849"}
-  - {anchor: cognitive-redundancy, cat: "G · 认识论层", code: "DST-G-05", name: "认知冗余", en: "Cognitive Redundancy", desc: "“是什么”问题域所创造的存续冗余。", level: "G", tier: "支柱", broader: "问题域", part_of: "", doi: "10.5281/zenodo.22785849"}
+  - {anchor: problem-domain, cat: "G · 认识论层", code: "DST-G-04", name: "问题域", en: "Problem Domain", desc: "一组底层预设；“是什么”问题域 ↔ “如何存续”问题域。", level: "G", tier: "支柱", broader: "存续域认识论", part_of: "", doi: "10.5281/zenodo.22088570"}
+  - {anchor: cognitive-redundancy, cat: "G · 认识论层", code: "DST-G-05", name: "认知冗余", en: "Cognitive Redundancy", desc: "“是什么”问题域所创造的存续冗余。", level: "G", tier: "支柱", broader: "问题域", part_of: "", doi: "10.5281/zenodo.22088570"}
   - {anchor: sustenance-domain-epistemology, cat: "G · 认识论层", code: "DST-G-06", name: "存续域认识论", en: "Epistemology of the Sustenance Domain", desc: "以“知识如何存续”为追问方式的认识论，主张知识是结构而非命题。", level: "G", tier: "支柱", broader: "治水学", part_of: "", doi: "10.5281/zenodo.23056450"}
   - {anchor: epistemology-methodology-unity, cat: "G · 认识论层", code: "DST-G-07", name: "认识论与方法论合一", en: "Unity of Epistemology and Methodology", desc: "存续域认识论中，认识（结构判断）与操作（诊断）同一。", level: "G", tier: "支柱", broader: "存续域认识论", part_of: "", doi: "10.5281/zenodo.23056450"}
   - {anchor: structure-to-structure, cat: "G · 认识论层", code: "DST-G-08", name: "结构到结构", en: "Structure to Structure", desc: "知识的运动不是逻辑推导，而是结构判断接续结构判断的连续过程。", level: "G", tier: "支柱", broader: "结构判断", part_of: "", doi: "10.5281/zenodo.23056450"}
-  - {anchor: pattern-continuity, cat: "H · 文明级", code: "DST-H-01", name: "模式连续性", en: "Pattern Continuity", desc: "系统的同一性不是组分的静止不变，而是动力-规则协同模式在时间中保持拓扑连续。", level: "H", tier: "支柱", broader: "结构到结构", part_of: "", doi: "10.5281/zenodo.22785562"}
+  - {anchor: pattern-continuity, cat: "H · 文明级", code: "DST-H-01", name: "模式连续性", en: "Pattern Continuity", desc: "系统的同一性不是组分的静止不变，而是动力-规则协同模式在时间中保持拓扑连续。", level: "H", tier: "支柱", broader: "结构到结构", part_of: "", doi: "10.5281/zenodo.22785124"}
   - {anchor: carrier-independence, cat: "H · 文明级", code: "DST-H-02", name: "载体独立性", en: "Carrier Independence", desc: "结构不依赖特定承载物——承载物可替换而结构保持连续。", level: "H", tier: "支柱", broader: "模式连续性", part_of: "", doi: "10.5281/zenodo.20372186"}
   - {anchor: normative-sustenance, cat: "H · 文明级", code: "DST-H-03", name: "规范持存", en: "Normative Sustenance", desc: "文明以规范／价值体系实现自身的存续。", level: "H", tier: "支柱", broader: "模式连续性", part_of: "", doi: "10.5281/zenodo.20372186"}
   - {anchor: symbiotic-extension, cat: "H · 文明级", code: "DST-H-04", name: "共生扩展", en: "Symbiotic Extension", desc: "通过共生关系实现的存续扩展。", level: "H", tier: "支柱", broader: "模式连续性", part_of: "", doi: "10.5281/zenodo.20372186"}

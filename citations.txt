@@ -58,16 +58,18 @@
   year={2026},
   publisher={Zenodo},
   doi={10.5281/zenodo.24436102},
-  url={https://doi.org/10.5281/zenodo.24436102}
+  url={https://doi.org/10.5281/zenodo.24436102},
+  note={版本 v1.2（版本 DOI: 10.5281/zenodo.24466465）；引用请用概念 DOI 10.5281/zenodo.24436102}
 }
 
 @misc{ning2026d1,
-  title={治水学论纲·第一篇：从“是什么”到“如何存续”——一个存在论问题域的扩展},
+  title={治水学论纲·第一篇：从“是什么”到“如何存续”——问题域的一次替换},
   author={宁凯峰},
   year={2026},
   publisher={Zenodo},
-  doi={10.5281/zenodo.22785849},
-  url={https://doi.org/10.5281/zenodo.22785849}
+  doi={10.5281/zenodo.22088570},
+  url={https://doi.org/10.5281/zenodo.22088570},
+  note={版本 v2.0（版本 DOI: 10.5281/zenodo.24499779）；引用请用概念 DOI 10.5281/zenodo.22088570}
 }
 
 @misc{ning2026d2,
@@ -75,8 +77,9 @@
   author={宁凯峰},
   year={2026},
   publisher={Zenodo},
-  doi={10.5281/zenodo.22785725},
-  url={https://doi.org/10.5281/zenodo.22785725}
+  doi={10.5281/zenodo.22783959},
+  url={https://doi.org/10.5281/zenodo.22783959},
+  note={版本 v2.0（版本 DOI: 10.5281/zenodo.24499784）；引用请用概念 DOI 10.5281/zenodo.22783959}
 }
 
 @misc{ning2026d3,
@@ -84,8 +87,9 @@
   author={宁凯峰},
   year={2026},
   publisher={Zenodo},
-  doi={10.5281/zenodo.22785562},
-  url={https://doi.org/10.5281/zenodo.22785562}
+  doi={10.5281/zenodo.22785124},
+  url={https://doi.org/10.5281/zenodo.22785124},
+  note={版本 v2.0（版本 DOI: 10.5281/zenodo.24499789）；引用请用概念 DOI 10.5281/zenodo.22785124}
 }
 
 @misc{ning2026d4,
@@ -238,7 +242,8 @@
   year={2026},
   publisher={Zenodo},
   doi={10.5281/zenodo.23766352},
-  url={https://doi.org/10.5281/zenodo.23766352}
+  url={https://doi.org/10.5281/zenodo.23766352},
+  note={版本 （版本 DOI: 10.5281/zenodo.24211659）；引用请用概念 DOI 10.5281/zenodo.23766352}
 }
 
 @misc{ning2026criteria,
@@ -256,7 +261,8 @@
   year={2026},
   publisher={Zenodo},
   doi={10.5281/zenodo.24357738},
-  url={https://doi.org/10.5281/zenodo.24357738}
+  url={https://doi.org/10.5281/zenodo.24357738},
+  note={版本 （版本 DOI: 10.5281/zenodo.24357739）；引用请用概念 DOI 10.5281/zenodo.24357738}
 }
 
 @misc{ning2026dstterms,
