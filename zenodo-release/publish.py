@@ -101,6 +101,32 @@ def dump(r, label):
         print("   body:", r.content[:800])
 
 
+# —— 查重护栏（2026-11-24 加）：本通道只负责发布一次 v4.0。
+# 推送 zenodo-release/ 下任何文件都会触发本 workflow；若不设护栏，
+# 每次推送都会 newversion 并再发一个 v4.0。已发布则直接退出 0。
+def _already_published(ver="4.0"):
+    try:
+        r = requests.get(API, headers=H_AUTH, timeout=60, params={
+            "q": "conceptrecid:" + CONCEPT, "size": 50, "all_versions": "true"})
+        if r.status_code != 200:
+            print("   查重接口 HTTP", r.status_code, "（继续）")
+            return False
+        d = r.json()
+        hits = d.get("hits", {}).get("hits") if isinstance(d, dict) else d
+        for x in (hits or []):
+            m = x.get("metadata") or {}
+            if str(m.get("version", "")).strip() == ver and x.get("state") == "done":
+                print("   已存在 v%s 记录: %s | DOI %s" % (ver, x.get("id"), x.get("doi")))
+                return True
+    except Exception as e:
+        print("   查重异常:", str(e)[:80], "（继续）")
+    return False
+
+
+if _already_published():
+    print("⚠ v4.0 已发布，跳过本次发布（护栏，不是失败）")
+    sys.exit(0)
+
 print("① 定位/创建 draft…")
 r = call("GET", API, headers=H_AUTH)
 data = r.json()

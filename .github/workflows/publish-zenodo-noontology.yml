@@ -3,10 +3,9 @@ name: Publish Zenodo (No Ontology)
 on:
   push:
     paths:
-      - 'zenodo-release/noontology/**'
-    paths-ignore:
-      - 'zenodo-release/noontology/v11/**'
-      - 'zenodo-release/noontology/v12/**'
+      - 'zenodo-release/noontology/publish.py'
+      - 'zenodo-release/noontology/DST-No-Ontology-Why-No-Ontological-Tier-v1.0.pdf'
+      - 'zenodo-release/noontology/DST-No-Ontology-Why-No-Ontological-Tier-v1.0.docx'
   workflow_dispatch:
 
 jobs:

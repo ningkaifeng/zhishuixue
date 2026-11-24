@@ -3,11 +3,10 @@ name: Publish Zenodo
 on:
   push:
     paths:
-      - 'zenodo-release/**'
-    paths-ignore:
-      - 'zenodo-release/calibration/**'
-      - 'zenodo-release/noontology/**'
-      - 'zenodo-release/lun3/**'
+      - 'zenodo-release/publish.py'
+      - 'zenodo-release/Thought-Shadowing-Library-v4.0.pdf'
+      - 'zenodo-release/Thought-Shadowing-Library-v4.0.docx'
+      - 'zenodo-release/thoughts-index.json'
   workflow_dispatch:
 
 jobs:
