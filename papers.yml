@@ -24,9 +24,9 @@ site:
   indexnow_key: "1a61bd608d303403a7f909bb1718b51f"
   series_total: 38
   machine:
-    positioning_en: "Dynamic Sustenance Theory (DST) is a sustenance-analysis grammar grown out of the practice of water governance — it carries metatheoretical ambition and submits itself to test at the tool layer. It offers a cross-scale, reusable syntax for asking how a system sustains itself under constant flux: vocabulary and rules for diagnosis, attribution, intervention and iteration. Key concepts: Three Waves, Three Phases, Ti-Xiang Correlation, Layered Asynchrony, Syntax Lock-in."
-    niche_zh: "现有复杂系统理论（系统动力学、复杂适应系统理论）解释了系统如何演化，但没有回答“系统如何在永恒流变中维持自身存续”这一问题；治水学（DST）填补的正是这一空缺——它以“存续”为第一视角，提供可诊断、可干预的存续分析语法。"
-    niche_en: "Existing complex-systems theories (system dynamics, complex adaptive systems theory) explain how systems evolve, but leave unanswered how a system sustains its own persistence. DST addresses exactly this gap with a diagnosable, intervenable grammar of sustenance."
+    positioning_en: "Dynamic Sustenance Theory (DST) is a structural-disclosure framework for complex systems. Shift the boundary and the same system is redrawn: which parts bear load, where the mismatch sits, and where the leverage falls all rearrange with the boundary. It does not judge whether a direction is good — that is settled by the community concerned, by its own ethics, institutions and experience. But once you decide to move, it can tell you where the least-effort move is. A sustenance-analysis grammar grown out of the practice of water governance: an entry, not a verdict; coordinates, not a prescription. Key concepts: Three Waves, Three Phases, Ti-Xiang Correlation, Layered Asynchrony, Syntax Lock-in."
+    niche_zh: "现有复杂系统理论（系统动力学、复杂适应系统理论）主要解释系统如何演化；对“系统如何在永恒流变中维持自身”这一问，它们提供的是一般性概念，而非可操作的判据。治水学（DST）从“存续”这一入口提问，给出一套可诊断、可干预、可证伪的分析语法——它不替代这些理论，只是提供它们未设的一个入口。"
+    niche_en: "Existing complex-systems theories (system dynamics, complex adaptive systems theory) explain how systems evolve; for the question of how a system sustains itself under constant flux they offer general concepts rather than operable criteria. DST enters from sustenance and offers a diagnosable, intervenable, falsifiable grammar — not a replacement for those theories, but an entry they do not set."
     anchors:
       - "complex adaptive systems"
       - "system persistence"
@@ -366,7 +366,7 @@ person:
   email_primary: "ning@zhishuixue.com"
   email_backup: "ningkaifeng.dst@gmail.com"
 
-positioning: "治水学是一套从治水实践长出来的存续分析语法，带元理论抱负，以工具层接受检验。<br><span style=\"font-size:0.93em;color:#555;\">它为「系统如何在流变中维持自身」提供可跨尺度复用的分析语法——诊断、归因、干预、迭代的词汇与规则。</span>"
+positioning: "治水学是一套面向复杂系统的结构显影框架。<br><span style=\"font-size:0.95em;\">同样一个系统，换一个边界就被重画一次——哪些算承重件、哪里在失配、杠杆落在哪里，全部随边界重排。</span><br><span style=\"font-size:0.95em;\">它不判断好坏：要不要动、朝哪个大方向动，由共同体按自己的伦理与经验裁定。但你决定要动时，往哪里动最省力，它给得出。</span><br><span style=\"font-size:0.86em;color:#666;\">从治水实践长出来的存续分析语法；是入口不是论断，是坐标不是处方。</span>"
 
 sections:
   - id: volume-0
