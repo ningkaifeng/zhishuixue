@@ -270,7 +270,7 @@
   author={宁凯峰},
   year={2026},
   version={v1.0},
-  note={共 98 条治水学核心术语的层×级双维定位与上位/归属关系；定义锚点：治水学术语谱系表；英译锚点：治水学核心术语英译标准 v1.2。机器可读镜像：https://zhishuixue.com/terms.json},
+  note={共 101 条治水学核心术语的层×级双维定位与上位/归属关系；定义锚点：治水学术语谱系表；英译锚点：治水学核心术语英译标准 v1.2。机器可读镜像：https://zhishuixue.com/terms.json},
   url={https://zhishuixue.com/glossary.html},
   urldate={2026-10-04},
   language={chinese}

@@ -21,7 +21,7 @@
   "citedAs": "宁凯峰．治水学概念层级表（术语母表）v1.0．2026-10-04．https://zhishuixue.com/terms.json",
   "bibtexKey": "ning2026dstterms"
  },
- "count": 100,
+ "count": 101,
  "layers": [
   {
    "id": "A",
@@ -46,7 +46,7 @@
   {
    "id": "E",
    "name": "动力学病理",
-   "count": 17
+   "count": 18
   },
   {
    "id": "F",
@@ -1263,7 +1263,8 @@
    "broader": "失配",
    "partOf": null,
    "hyponyms": [
-    "语法锁定"
+    "语法锁定",
+    "讳锁"
    ],
    "members": [],
    "cases": [],
@@ -1365,6 +1366,25 @@
    "citeKey": "dst-term-mixed-lock-in",
    "citedAs": "宁凯峰．「混合型锁定」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#mixed-lock-in",
    "doi": "https://doi.org/10.5281/zenodo.23113642"
+  },
+  {
+   "id": "DST-E-18",
+   "name": "讳锁",
+   "en": "Evasive Lock-in",
+   "anchor": "evasive-lock",
+   "url": "https://zhishuixue.com/glossary.html#evasive-lock",
+   "definition": "约束形式仍可改、但公开动用就会暴露已发生的损失，于是所有人回避、无人先动的状态——不是不能改，是不敢先动。与「锁定模式」的分野：锁定模式是调整能力已失，讳锁是能力还在而动作被讳住。出路是 disclosure-first（先把损失摊开，再谈改法）。源出《通用语法·诊断工作表 v2.0》新增第五态。",
+   "layer": "E",
+   "layerName": "动力学病理",
+   "tier": "支柱",
+   "broader": "锁定模式",
+   "partOf": null,
+   "hyponyms": [],
+   "members": [],
+   "cases": [],
+   "citeKey": "dst-term-evasive-lock",
+   "citedAs": "宁凯峰．「讳锁」．治水学概念层级表（术语母表）v1.0（2026-10-04）．https://zhishuixue.com/glossary.html#evasive-lock",
+   "doi": "https://doi.org/10.5281/zenodo.20372186"
   },
   {
    "id": "DST-F-01",

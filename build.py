@@ -1713,7 +1713,7 @@ def render_glossary_html(d):
     L.append("<head>")
     L.append('<meta charset="UTF-8">')
     L.append("<title>治水学核心术语表 | Dynamic Sustenance Theory</title>")
-    L.append('<meta name="description" content="治水学（Dynamic Sustenance Theory）核心术语的标准化定义与层级表，共 100 条，按 A–L 十层、核心／支柱／延伸三级组织，附上下位关系、所属论文 DOI 与概念对照，由独立研究者宁凯峰维护。">')
+    L.append(f'<meta name="description" content="治水学（Dynamic Sustenance Theory）核心术语的标准化定义与层级表，共 {len(d["terms"])} 条，按 A–L 十层、核心／支柱／延伸三级组织，附上下位关系、所属论文 DOI 与概念对照，由独立研究者宁凯峰维护。">')
     L.append(f'<link rel="canonical" href="{gurl}">')
     L.append('<meta name="robots" content="index,follow">')
     L.append(f'<link rel="describedby" type="text/plain" href="{base}llms.txt">')
@@ -2028,7 +2028,7 @@ def render_llms(d):
     L.append("")
     L.append(f"- 全量纯文本（llms-full.txt{_kb_hint('llms-full.txt')}）：{base}llms-full.txt —— 判据 + 判例 + 术语 + 治水历，最省事的「一次读完」入口。")
     L.append(f"- 知识包（JSON{_kb_hint('knowledge-pack.json')}）：{base}knowledge-pack.json")
-    L.append("- **含**：判据全文 + 全部判例的结构摘要（接口 / 杠杆 / 效果 / 适用条件 / 不适用条件）+ 10 篇判例的六要素全文（覆盖各接口族）+ 100 条术语 + 治水历 18 格 + 诊断书输出格式 + 引用规范。")
+    L.append(f'- **含**：判据全文 + 全部判例的结构摘要（接口 / 杠杆 / 效果 / 适用条件 / 不适用条件）+ 10 篇判例的六要素全文（覆盖各接口族）+ {len(d["terms"])} 条术语 + 治水历 18 格 + 诊断书输出格式 + 引用规范。')
     L.append("- **为什么打包**：判据须与判例同时使用。只给判据不给判例，判据会退化成一套通用框架。这个文件把尺子和实物一次给全。")
     L.append("- **用法**：读完后按包内 `how_to_use` 的步骤执行；引用时用包内 `citation` 的口径。")
     L.append("")
@@ -2219,7 +2219,7 @@ def render_bib(d):
         L.append('  author={宁凯峰},')
         L.append(f'  year={{{(g.get("date") or "2026")[:4]}}},')
         L.append(f'  version={{{g.get("version_label", "v1.0")}}},')
-        L.append(f'  note={{共 98 条治水学核心术语的层×级双维定位与上位/归属关系；'
+        L.append(f'  note={{共 {len(d["terms"])} 条治水学核心术语的层×级双维定位与上位/归属关系；'
                  f'定义锚点：{g.get("definition_anchor", "")}；'
                  f'英译锚点：{g.get("translation_anchor", "")}。'
                  f'机器可读镜像：{base}terms.json}},')
